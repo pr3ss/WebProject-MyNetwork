@@ -9,13 +9,8 @@ if(isset($_POST["username"]) && isset($_POST["password"])){
     require 'home.php';
 }*/
 //else{
-    if(isset($_GET['status']) && $_GET['status']=='signin'){
-        $templateParams['title'] = 'Sign-in';
-        $templateParams['name'] = 'template/signin-form.php';    
-    }else{
-        $templateParams['title'] = 'Log-in';
-        $templateParams['name'] = 'template/login-form.php';
-    }
+    $templateParams['title'] = 'Log-in';
+    $templateParams['name'] = 'template/login-form.php';
 
     require 'template/login-base.php';
 //}

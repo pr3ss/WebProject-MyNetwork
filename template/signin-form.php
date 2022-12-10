@@ -12,7 +12,7 @@
                 </li>
                 <li>
                     <input type="submit" name="submit" value="Sign-in" />
-                    <a href="login.php?status=login">Log-in</a>
+                    <a href="login.php">Log-in</a>
                 </li>
             </ul>
         </form>
