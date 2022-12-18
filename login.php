@@ -1,21 +1,11 @@
 <?php
 require_once 'bootstrap.php';
 
-if(isset($_POST["username"]) && isset($_POST["password"])){
-    //$login_result = $dbh->checkLogin($_POST["username"], $_POST["password"]);
-}
 
-/*if(isUserLoggedIn()){
-    require 'home.php';
-}*/
-//else{
-    $templateParams['js'] = 'js/login.js';
-    $templateParams['title'] = 'Log-in';
-    //$templateParams['name'] = 'template/login-form.php';
+$templateParams['js'] = array("https://unpkg.com/axios/dist/axios.min.js", "js/login.js");
+$templateParams['title'] = 'Log-in';
 
-    require 'template/login-base.php';
-//}
-
+require 'template/login-base.php';
 
 
 ?>

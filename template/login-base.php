@@ -8,15 +8,15 @@
 </head>
 <body>
     <header>
-        <h1>socialnetwork</h1>
+        <h1>Social-Network</h1>
     </header>
     <main>
         <!-- Generate with js -->
     </main>
     <footer>
-        <p>Tecnologie Web - A.A. 2019/2020</p>
+        <p>Anno 2022/2023</p>
     </footer>
-    <script src="js/login.js"></script>
+
     <?php
     if(isset($templateParams["js"])):
         foreach($templateParams["js"] as $script):

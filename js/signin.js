@@ -1,7 +1,7 @@
-function generaLoginForm(loginerror = null) {
+function generaSigninForm(loginerror = null) {
     let form = `
     <form action="#" method="POST">
-        <h2>Login</h2>
+        <h2>Signin</h2>
         <p></p>
         <ul>
             <li>
@@ -12,25 +12,22 @@ function generaLoginForm(loginerror = null) {
             </li>
             <li>
                 <input type="submit" name="submit" value="Invia" />
-                <a href="signin.php">Signin</a>     
+                <a href="login.php">Login</a>
             </li>
         </ul>
     </form>`;
     return form;
 }
 
-
-
-
 const main = document.querySelector("main");
 
-function showLoginForm(){
-    let form = generaLoginForm();
+
+function showSigninForm(){
+    let form = generaSigninForm();
     main.innerHTML = form;
 }
 
-//window.location.assign("signin.php");
+showSigninForm();
 
 
-showLoginForm();
 
