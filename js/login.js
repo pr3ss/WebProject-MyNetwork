@@ -1,20 +1,18 @@
 function generaLoginForm(loginerror = null) {
     let form = `
     <form action="#" method="POST">
-        <h2>Login</h2>
+        <h2 class="h3 mb-3 fw-normal">Please sign in</h2>
         <p></p>
-        <ul>
-            <li>
-                <label for="username">Username:</label><input type="text" id="username" name="username" />
-            </li>
-            <li>
-                <label for="password">Password:</label><input type="password" id="password" name="password" />
-            </li>
-            <li>
-                <input type="submit" name="submit" value="Invia" />
-                <a href="signin.php">Signin</a>     
-            </li>
-        </ul>
+        <div class="form-floating">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit" value="Invia">log-in</button>
+        <a href="signin.php">Signin</a>         
     </form>`;
     return form;
 }
@@ -24,7 +22,7 @@ function generaLoginForm(loginerror = null) {
 
 const main = document.querySelector("main");
 
-function showLoginForm(){
+function showLoginForm() {
     let form = generaLoginForm();
     main.innerHTML = form;
 }
