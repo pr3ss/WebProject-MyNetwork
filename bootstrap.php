@@ -1,5 +1,8 @@
 <?php
-session_start();
+
 require_once("db/database.php");
-//$dbh = new DatabaseHelper("localhost", "root", "", "socialnetwork", 3306);
+require_once("utils/functions.php");
+sec_session_start(); //avvio sessione protetta
+
+$dbh = new DatabaseHelper("localhost", "dafault_user", "Passtest0.", "web-socialnetwork", 3306);
 ?>
