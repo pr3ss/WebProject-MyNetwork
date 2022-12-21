@@ -1,8 +1,6 @@
 <?php
 require_once 'bootstrap.php'; //comprende avvio sessione protteta
 
-
-
 $result["logineseguito"] = false;
 
 if(isset($_POST['email'], $_POST['password'])) { 

@@ -1,0 +1,5 @@
+Create database with sql file: DBcreate.sql
+and then create a user:
+
+CREATE USER 'dafault_user'@'localhost' IDENTIFIED BY 'Passtest0.';
+GRANT SELECT, INSERT, UPDATE ON `web-socialnetwork`.* TO 'dafault_user'@'localhost';  
