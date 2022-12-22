@@ -1,19 +1,26 @@
 function generaLoginForm(loginerror = null) {
     let form = `
-    <form action="#" method="POST">
-        <h2 class="h3 mb-3 fw-normal">Please sign in</h2>
-        <p></p>
-        <div class="form-floating">
-            <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
-            <label for="email">Email address</label>
-        </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="password" placeholder="Password" name="password">
-            <label for="password">Password</label>
-        </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit" value="Invia">log-in</button>
-        <a href="signin.php">Signin</a>         
-    </form>`;
+    <div class="center">
+        <h1>Social-Network</h1>
+        <h5>login</h5>
+        <form method="post">
+            <div class="txt_field">
+                <input type="text" required>
+                <span></span>
+                <label>Email</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" required>
+                <span></span>
+                <label>Password</label>
+            </div>
+            <div class="pass">Forgot Password?</div>
+            <input type="submit" value="Login">
+            <div class="signup_link">
+                Not a member? <a href="signin.php">Signup</a>
+            </div>
+        </form>
+    </div>`;
     return form;
 }
 

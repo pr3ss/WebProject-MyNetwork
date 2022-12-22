@@ -11,8 +11,6 @@
 
 <body class="text-center">
   <header>
-    <img class="mb-4" src="./img/logo.png" alt="nissan logo" width="72" height="57">
-    <h1>Social-Network</h1>
   </header>
   <main>
   </main>
