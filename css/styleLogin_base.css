@@ -12,6 +12,15 @@ body{
   height: 100vh;
   overflow: hidden;
 }
+.avatar{
+width: 120px;
+height: 120px;
+border-radius: 50%;
+position: absolute;
+top: -80px;
+left: calc(50% - 60px);
+
+}
 .center{
   position: absolute;
   top: 50%;
@@ -24,7 +33,7 @@ body{
 }
 .center h1{
   text-align: center;
-  padding: 20px 0;
+  padding: 40px 0 20px;
   border-bottom: 1px solid silver;
 }
 .center h5{
