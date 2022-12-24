@@ -1,7 +1,7 @@
 function generaLoginForm(loginerror = null) {
     let form = `
     <div class="center">
-        <img src="img\logo.jpg" class="avatar"alt="logo">
+        <img src="img//logo.jpg" class="avatar"alt="logo">
         <h1>Social-Network</h1>
         <h5>login</h5>
         <form method="post">
