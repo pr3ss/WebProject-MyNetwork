@@ -5,7 +5,7 @@ function generaLoginForm(loginerror = null) {
         <h1>Social-Network</h1>
         <h5>login</h5>
         <form method="post">
-            <p></p>
+            <p class="text-danger" ></p>
             <div class="txt_field">
                 <input type="text" id="email" required>
                 <span></span>
@@ -17,7 +17,9 @@ function generaLoginForm(loginerror = null) {
                 <label>Password</label>
             </div>
             <div class="pass">Forgot Password?</div>
-            <input type="submit" value="Login">
+            <div id="divLogin">
+                <input type="submit" value="Login">
+            </div>
             <div class="signup_link">
                 Not a member? <a href="signin.php">Signup</a>
             </div>
@@ -27,7 +29,7 @@ function generaLoginForm(loginerror = null) {
 }
 
 
-
+//password di test 6ZaxN2Vzm9NUJT2y
 
 const main = document.querySelector("main");
 
@@ -45,12 +47,18 @@ function showLoginForm() {
 }
 
 function login(username, password){
+    document.querySelector("input[type='submit']").style["filter"]="blur(3px)";
+    document.querySelector("#divLogin").innerHTML += "<div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span> </div>";
+
     const formData = new FormData();
     formData.append('email', username);
     formData.append('password', hex_sha512(password)); //invio cryptato della password 
     
     axios.post('api-login.php', formData).then(response => {
         console.log(response);
+        document.querySelector("input[type='submit']").style["filter"]="";
+        document.querySelector("#divLogin").innerHTML = "<input type='submit' value='Login'></input>";  
+              
         if (response.data["logineseguito"]) {
             window.location.assign("home.php");
         } else {

@@ -21,6 +21,7 @@
                 }
             ?>
         </P>
+        <a href="logout.php">Logout</a>
         <!-- Generate with js -->
     </main>
     <footer>
