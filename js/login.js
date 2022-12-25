@@ -5,13 +5,14 @@ function generaLoginForm(loginerror = null) {
         <h1>Social-Network</h1>
         <h5>login</h5>
         <form method="post">
+            <p></p>
             <div class="txt_field">
-                <input type="text" required>
+                <input type="text" id="email" required>
                 <span></span>
                 <label>Email</label>
             </div>
             <div class="txt_field">
-                <input type="password" required>
+                <input type="password" id="password" required>
                 <span></span>
                 <label>Password</label>
             </div>
