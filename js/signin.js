@@ -63,7 +63,11 @@ function showSigninForm(){
         const data_nascita = document.querySelector("#data_nascita").value;
 
         document.querySelector("#password").value = "";
-        signin(email, password, username, nome, cognome, data_nascita);
+        if(checkPasswordSecurity(password)){
+            signin(email, password, username, nome, cognome, data_nascita);
+        }else{
+            document.querySelector("form > p").innerText = "La password deve avere min 8 caratteri."
+        }
     });
 }
 
@@ -94,6 +98,12 @@ function signin(email, password, username, nome, cognome, data_nascita){
 
 
 }
+
+/* TODO aggiungere ricerca maiuscola e carattere speciale oltre che alla lunghezza */
+function checkPasswordSecurity(password){
+    return password.length>=8 ;
+}
+
 
 showSigninForm();
 

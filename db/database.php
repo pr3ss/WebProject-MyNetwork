@@ -10,6 +10,7 @@ class DatabaseHelper{
    }
   
    //methods for login
+   // TODO verificare parametri di SESSIONE se lasciare quelli o mettere username e email anche se nel db la PK é id
    public function login($email, $password) {
         // Usando statement sql 'prepared' non sarà possibile attuare un attacco di tipo SQL injection.
         if ($stmt = $this->db->prepare("SELECT id, username, password, salt FROM user WHERE email = ? LIMIT 1")) { 
