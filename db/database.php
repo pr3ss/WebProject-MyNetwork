@@ -12,7 +12,7 @@ class DatabaseHelper{
 
     public function login($email, $password) {
         // Usando statement sql 'prepared' non sarà possibile attuare un attacco di tipo SQL injection.
-        if ($stmt = $this->db->prepare("SELECT id, username, password, salt FROM users WHERE email = ? LIMIT 1")) { 
+        if ($stmt = $this->db->prepare("SELECT id, username, password, salt FROM user WHERE email = ? LIMIT 1")) { 
            $stmt->bind_param('s', $email); // esegue il bind del parametro '$email'.
            $stmt->execute(); // esegue la query appena creata.
            $stmt->store_result();
@@ -41,7 +41,7 @@ class DatabaseHelper{
                  // Password incorretta.
                  // Registriamo il tentativo fallito nel database.
                  $now = time();
-                 $this->db->query("INSERT INTO login_attempts (user_id, time) VALUES ('$user_id', '$now')");
+                 $this->db->query("INSERT INTO login_attempt (user_id, time) VALUES ('$user_id', '$now')");
                  return false;
               }
            }
@@ -57,7 +57,7 @@ class DatabaseHelper{
         $now = time();
         // Vengono analizzati tutti i tentativi di login a partire dalle ultime due ore.
         $valid_attempts = $now - (2 * 60 * 60); 
-        if ($stmt = $this->db->prepare("SELECT time FROM login_attempts WHERE user_id = ? AND time > '$valid_attempts'")) { 
+        if ($stmt = $this->db->prepare("SELECT time FROM login_attempt WHERE user_id = ? AND time > '$valid_attempts'")) { 
            $stmt->bind_param('i', $user_id); 
            // Eseguo la query creata.
            $stmt->execute();
@@ -78,7 +78,7 @@ class DatabaseHelper{
         $login_string = $_SESSION['login_string'];
         $username = $_SESSION['username'];     
         $user_browser = $_SERVER['HTTP_USER_AGENT']; // reperisce la stringa 'user-agent' dell'utente.
-        if ($stmt = $this->db->prepare("SELECT password FROM users WHERE id = ? LIMIT 1")) { 
+        if ($stmt = $this->db->prepare("SELECT password FROM user WHERE id = ? LIMIT 1")) { 
            $stmt->bind_param('i', $user_id); // esegue il bind del parametro '$user_id'.
            $stmt->execute(); // Esegue la query creata.
            $stmt->store_result();

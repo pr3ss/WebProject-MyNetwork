@@ -36,7 +36,7 @@ function showLoginForm() {
     let form = generaLoginForm();
     main.innerHTML = form;
 
-    document.querySelector("main form").addEventListener("submit", function (event) {
+    document.querySelector("#main form").addEventListener("submit", function (event) {
         event.preventDefault();
         const username = document.querySelector("#email").value;
         const password = document.querySelector("#password").value;
