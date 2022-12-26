@@ -1,7 +1,6 @@
 function generaLoginForm(loginerror = null) {
     let form = `
-    <div class="center">
-        <img src="img//logo.jpg" class="avatar"alt="logo">
+    <div >
         <h1>Social-Network</h1>
         <h5>login</h5>
         <form method="post">
@@ -31,7 +30,7 @@ function generaLoginForm(loginerror = null) {
 
 //password di test 6ZaxN2Vzm9NUJT2y
 
-const main = document.querySelector("main");
+const main = document.getElementById("main");
 
 function showLoginForm() {
     let form = generaLoginForm();

@@ -6,18 +6,21 @@
   <title><?php echo $templateParams["title"]; ?></title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <link rel="stylesheet" href="./css/styleLogin_base.css" />
+  <link rel="stylesheet" href="./css/login_base.css" />
 </head>
 
-<body class="text-center">
-  <header>
-  </header>
-  <main>
-  </main>
-  <footer>
-    <p class="text-muted footer">&copy; 2017–2022</p>
-  </footer>
-
+<body>
+  <section class="side" style="background: url(img\\bk.png) no-repeat;
+    background-size: 94% 102%;">
+  </section>
+  <section >
+    <div class="login-container">
+      <div class="separator"></div>
+      <div id="main">
+      </div>
+    </div>
+  </section>
+  <p class="text-muted footer">&copy; 2017–2022</p>
   <?php
   if (isset($templateParams["js"])):
     foreach ($templateParams["js"] as $script):

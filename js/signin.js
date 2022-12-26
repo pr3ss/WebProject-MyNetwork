@@ -1,7 +1,6 @@
 function generaSigninForm(loginerror = null) {
     let form = `
-    <div class="center">
-        <img src="img//logo.jpg" class="avatar"alt="logo">
+    <div>
         <h1>Social-Network</h1>
         <h5>Sign up</h5>
         <form method="post">
@@ -39,7 +38,7 @@ function generaSigninForm(loginerror = null) {
     return form;
 }
 
-const main = document.querySelector("main");
+const main = document.getElementById("main");
 
 
 function showSigninForm(){
