@@ -1,16 +1,16 @@
 <?php
 class DatabaseHelper{
-    private $db;
+   private $db;
 
-    public function __construct($servername, $username, $password, $dbname, $port){
-        $this->db = new mysqli($servername, $username, $password, $dbname, $port);
-        if ($this->db->connect_error) {
-            die("Connection failed: " . $db->connect_error);
-        }        
-    }
+   public function __construct($servername, $username, $password, $dbname, $port){
+      $this->db = new mysqli($servername, $username, $password, $dbname, $port);
+      if ($this->db->connect_error) {
+         die("Connection failed: " . $db->connect_error);
+      }        
+   }
   
-
-    public function login($email, $password) {
+   //methods for login
+   public function login($email, $password) {
         // Usando statement sql 'prepared' non sarà possibile attuare un attacco di tipo SQL injection.
         if ($stmt = $this->db->prepare("SELECT id, username, password, salt FROM user WHERE email = ? LIMIT 1")) { 
            $stmt->bind_param('s', $email); // esegue il bind del parametro '$email'.
@@ -50,9 +50,9 @@ class DatabaseHelper{
               return false;
            }
         }
-    }
+   }
     
-    public function checkbrute($user_id) {
+   public function checkbrute($user_id) {
         // Recupero il timestamp
         $now = time();
         // Vengono analizzati tutti i tentativi di login a partire dalle ultime due ore.
@@ -69,9 +69,9 @@ class DatabaseHelper{
               return false;
            }
         }
-    }
+   }
 
-    function login_check() {
+   function login_check() {
       // Verifica che tutte le variabili di sessione siano impostate correttamente
       if(isset($_SESSION['user_id'], $_SESSION['username'], $_SESSION['login_string'])) {
         $user_id = $_SESSION['user_id'];
@@ -106,6 +106,35 @@ class DatabaseHelper{
         // Login non eseguito
         return false;
       }
-  }
+   }
+
+   //methods for signin
+   public function usernameIsPresent($username){
+      if ($stmt = $this->db->prepare("SELECT * FROM user WHERE username = ? LIMIT 1")) { 
+         $stmt->bind_param('s', $username); // esegue il bind del parametro '$email'.
+         $stmt->execute(); // esegue la query appena creata.
+         $stmt->store_result();
+         
+         return $stmt->num_rows==0 ? false : true; 
+      }   
+   }
+
+   public function emailIsPresent($email){
+      if ($stmt = $this->db->prepare("SELECT * FROM user WHERE email = ? LIMIT 1")) { 
+         $stmt->bind_param('s', $email); // esegue il bind del parametro '$email'.
+         $stmt->execute(); // esegue la query appena creata.
+         $stmt->store_result();
+         
+         return $stmt->num_rows==0 ? false : true; 
+      }   
+   }
+
+   public function signin($email, $password, $username, $random_salt, $nome, $cognome, $data_nascita, $sesso){
+      if ($insert_stmt = $this->db->prepare("INSERT INTO user (username, email, password, salt, data_di_nascita, nome, cognome, sesso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {    
+         $insert_stmt->bind_param('ssssssss', $username, $email, $password, $random_salt, $data_nascita, $nome, $cognome, $sesso); 
+         // Esegui la query ottenuta.
+         return $insert_stmt->execute();
+      }
+   }
 }
 ?>
