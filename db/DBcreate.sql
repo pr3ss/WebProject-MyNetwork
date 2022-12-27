@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `web-socialnetwork` ;
+CREATE DATABASE  IF NOT EXISTS `web-socialnetwork` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 USE `web-socialnetwork`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
 --
@@ -29,7 +29,7 @@ CREATE TABLE `categoria` (
   `titolo` varchar(45) NOT NULL,
   `testo` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +59,7 @@ CREATE TABLE `commento` (
   KEY `post_id_commento` (`post_id`),
   CONSTRAINT `post_id_commento` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`),
   CONSTRAINT `user_id_commento` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +85,7 @@ CREATE TABLE `follow` (
   KEY `user_id_seguito` (`user_follow`),
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `user_id_seguito` FOREIGN KEY (`user_follow`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,7 +111,7 @@ CREATE TABLE `like` (
   KEY `post_id_like` (`post_id`),
   CONSTRAINT `post_id_like` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`),
   CONSTRAINT `user_id_like` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,10 +132,10 @@ DROP TABLE IF EXISTS `login_attempt`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `login_attempt` (
   `user_id` int NOT NULL,
-  `time` datetime NOT NULL,
+  `time` varchar(30) NOT NULL,
   PRIMARY KEY (`user_id`,`time`),
   CONSTRAINT `user_id_login` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -144,6 +144,7 @@ CREATE TABLE `login_attempt` (
 
 LOCK TABLES `login_attempt` WRITE;
 /*!40000 ALTER TABLE `login_attempt` DISABLE KEYS */;
+INSERT INTO `login_attempt` VALUES (1,'1672152313');
 /*!40000 ALTER TABLE `login_attempt` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,7 +171,7 @@ CREATE TABLE `notifica` (
   CONSTRAINT `tipo_notifica` FOREIGN KEY (`id_tipo_notifica`) REFERENCES `tiponotifica` (`id`),
   CONSTRAINT `user_destinatario` FOREIGN KEY (`user_destinazione`) REFERENCES `user` (`id`),
   CONSTRAINT `user_mittente` FOREIGN KEY (`user_mittente`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -202,7 +203,7 @@ CREATE TABLE `post` (
   KEY `categoria` (`id_categoria`),
   CONSTRAINT `categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id`),
   CONSTRAINT `user` FOREIGN KEY (`id_user_create`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -226,7 +227,7 @@ CREATE TABLE `tipo_notifica` (
   `titolo` varchar(45) NOT NULL,
   `descrizione` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -258,7 +259,7 @@ CREATE TABLE `user` (
   `foto_profilo` varchar(45) DEFAULT NULL,
   `descrizione` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -267,7 +268,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'test_user','test@example.com','00807432eae173f652f2064bdca1b61b290b52d40e429a7d295d76a71084aa96c0233b82f1feac45529e0726559645acaed6f3ae58a286b9f075916ebf66cacc','f9aab579fc1b41ed0c44fe4ecdbfcdb4cb99b9023abb241a6db833288f4eea3c02f76e0d35204a8695077dcf81932aa59006423976224be0390395bae152d4ef','2001-01-01 00:00:00','test','prova','tanto','no','no');
+INSERT INTO `user` VALUES (1,'test_user','test@example.com','00807432eae173f652f2064bdca1b61b290b52d40e429a7d295d76a71084aa96c0233b82f1feac45529e0726559645acaed6f3ae58a286b9f075916ebf66cacc','f9aab579fc1b41ed0c44fe4ecdbfcdb4cb99b9023abb241a6db833288f4eea3c02f76e0d35204a8695077dcf81932aa59006423976224be0390395bae152d4ef','2001-01-01 00:00:00','test','prova','tanto','no','no'),(2,'default','alex@test.com','116d7c5ce81e34359d9480eccdb43478d221b9ed484e55082eee14a4221fac202a3d3a8f8007ae3cdb72d9a847cc1555a4df99853992ba9e8bfa399f37c31e0b','746739d0a0a7b1640606a3b4e2eaa58efd24825658b1f4bc6bdbd8d43b2a2c27a72f07fa62cfc98f948f04aeadc8681c5a45ea49398b605e30a7a5ccaf746584','2022-12-13 00:00:00','alex','gigi','undefined',NULL,NULL),(3,'luga','luga@test.com','0b3fbbbe88f74d3f059ef3ba52ac3f99649adbcca90cb1deac9398f8c39a81cfe9a6527990a88052ef1fdd8f9b5347efd1cb6c1554386578e39f8bdc873ae48c','74ab894be136fd8271e308215edcca71be2abf298ace6e3c8f1f1b751819ebd414f3c8b7cf016e55694b150520abaf295298a111b1226ed4c9b827dd718399ef','2022-12-06 00:00:00','simone','scemo','undefined',NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -280,4 +281,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-12-26 21:38:02
+-- Dump completed on 2022-12-27 15:46:32
