@@ -15,7 +15,7 @@
   </section>
   <section >
     <div class="login-container">
-      <div class="separator"></div>
+      <div class="separator" ></div>
       <div id="main">
       </div>
     </div>

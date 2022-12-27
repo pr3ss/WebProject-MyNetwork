@@ -3,7 +3,7 @@ require_once 'bootstrap.php'; //comprende avvio sessione protteta
 
 $result["logineseguito"] = false;
 
-sleep(3); //per test spinner in login page
+//sleep(3); //per test spinner in login page
 
 if(isset($_POST['email'], $_POST['password'])) { 
     $email = $_POST['email'];

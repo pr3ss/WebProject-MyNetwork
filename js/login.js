@@ -16,7 +16,7 @@ function generaLoginForm(loginerror = null) {
                 <label>Password</label>
             </div>
             <div class="pass">Forgot Password?</div>
-            <div id="divLogin">
+            <div id="divLogin" style="text-align: center;">
                 <input type="submit" value="Login">
             </div>
             <div class="signup_link">

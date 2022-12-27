@@ -35,7 +35,7 @@ function generaSigninForm(loginerror = null) {
                 <span>
                 </span>
             </div>
-            <div id="divSignin">
+            <div id="divSignin" style="text-align: center;">
                 <input type="submit" value="Sign Up">
             </div>
             <div class="signup_link">
