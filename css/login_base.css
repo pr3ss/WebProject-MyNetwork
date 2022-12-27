@@ -36,7 +36,7 @@ section {
  */
 .login-container {
   max-width: 450px;
-  padding: 5px 10%;
+  padding: 5px 4%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -77,7 +77,7 @@ section {
 }
 
 /* ----  Responsiveness   ----  */
-@media (max-width: 900px) {
+@media (max-width: 991px) {
 
   body {
     display: flex;
