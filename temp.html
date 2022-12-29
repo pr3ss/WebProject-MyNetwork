@@ -14,12 +14,80 @@
 </head>
 
 <body>
+    <div id="blur" class="blur"></div>
     <div class="container-fluid container-menu ">
         <div class="container-menu-style">
             <div class="row">
                 <div class="col-10 barra">
                     <!-- CAMBIA OGNI VOLTA -->
-                    <div class="row  align-items-center " style=" height: 100%;">
+                    <!-- <div class="row  align-items-center " style=" height: 100%;">
+                        <div class="col-3">
+                            <div class="row justify-content-center">
+                                <img src="img/logo.jpg" alt="Avatar" class="avatar">
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="row">
+                                <p class="m-0">SimoneLuga</p>
+                            </div>
+                            <div class="row">
+                                <p class="m-0" style="font-size: small;">Luogo:cesena</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btnshadow"><i class="fa-solid fa-heart">
+                                        919</i></button>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btnshadow"><i class="fa-solid fa-comment">
+                                        100</i></button>
+                            </div>
+                        </div>
+                    </div> -->
+                    <label id="labelIdentifyScreen" for="">HOME</label>
+                </div>
+                <!-- FISSO IL MENU -->
+                <div class="col-2 barra">
+                    <div class="row  barra align-items-center " style=" height: 100%;">
+                        <nav class="bg-body-tertiary navbar-expand-lg">
+                            <div class="container-fluid">
+                                <button class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse" onclick="test()"
+                                    data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
+                                    aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+                                <div class="collapse navbar-collapse" id="navbarText">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <button class="btn btn-dark btn-circle "><i class="fa-regular fa-user"></i></button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="btn btn-dark btn-circle "><i class="fa-regular fa-envelope"></i></button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="btn btn-dark btn-circle "><i class="fa-solid fa-layer-group"></i></button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="btn btn-dark btn-circle "><i class="fa-solid fa-magnifying-glass"></i></button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="btn btn-dark btn-circle "><i class="fa-solid fa-right-from-bracket"></i></button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="text-align: center;">
+        <div class="row" id="homefeed" style="justify-content: center;">
+            <div class="container-fluid p-2 pmd-10">
+                <div class="card m-1">
+                    <div class="row align-items-center barra" >
                         <div class="col-3">
                             <div class="row justify-content-center">
                                 <img src="img/logo.jpg" alt="Avatar" class="avatar">
@@ -46,46 +114,112 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <!-- FISSO IL MENU -->
-                <div class="col-2 barra">
-                    <div class="row  barra align-items-center " style=" height: 100%;">
-                        <nav class="bg-body-tertiary navbar-expand-lg">
-                            <div class="container-fluid">
-                                <button class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse"
-                                    data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
-                                    aria-label="Toggle navigation">M</button>
-                                <div class="collapse navbar-collapse" id="navbarText">
-                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item">
-                                            <button class="btn btn-dark btn-circle ">M</button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button class="btn btn-dark btn-circle ">M</button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button class="btn btn-dark btn-circle ">M</button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button class="btn btn-dark btn-circle ">M</button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button class="btn btn-dark btn-circle ">M</button>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
+                    <img src="img\logo.jpg" class="card-img-top p-2" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
+                            card's content.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid" style="text-align: center;">
-        <div class="row" id="homefeed" style="justify-content: center;">
-            <div class="container-fluid p-2 pmd-10">
-                <div class="card">
-                    <!-- <img src="img\logo.jpg" class="card-img-top" alt="..."> -->
+                <div class="card m-1">
+                    <div class="row align-items-center barra" >
+                        <div class="col-3">
+                            <div class="row justify-content-center">
+                                <img src="img/logo.jpg" alt="Avatar" class="avatar">
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="row">
+                                <p class="m-0">SimoneLuga</p>
+                            </div>
+                            <div class="row">
+                                <p class="m-0" style="font-size: small;">Luogo:cesena</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btnshadow"><i class="fa-solid fa-heart">
+                                        919</i></button>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btnshadow"><i class="fa-solid fa-comment">
+                                        100</i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="img\logo.jpg" class="card-img-top p-2" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
+                            card's content.</p>
+                    </div>
+                </div>
+                <div class="card m-1">
+                    <div class="row align-items-center barra" >
+                        <div class="col-3">
+                            <div class="row justify-content-center">
+                                <img src="img/logo.jpg" alt="Avatar" class="avatar">
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="row">
+                                <p class="m-0">SimoneLuga</p>
+                            </div>
+                            <div class="row">
+                                <p class="m-0" style="font-size: small;">Luogo:cesena</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btnshadow"><i class="fa-solid fa-heart">
+                                        919</i></button>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btnshadow"><i class="fa-solid fa-comment">
+                                        100</i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="img\logo.jpg" class="card-img-top p-2" alt="...">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the
+                            card's content.</p>
+                    </div>
+                </div>
+                <div class="card m-1">
+                    <div class="row align-items-center barra" >
+                        <div class="col-3">
+                            <div class="row justify-content-center">
+                                <img src="img/logo.jpg" alt="Avatar" class="avatar">
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="row">
+                                <p class="m-0">SimoneLuga</p>
+                            </div>
+                            <div class="row">
+                                <p class="m-0" style="font-size: small;">Luogo:cesena</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btnshadow"><i class="fa-solid fa-heart">
+                                        919</i></button>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btnshadow"><i class="fa-solid fa-comment">
+                                        100</i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="img\logo.jpg" class="card-img-top p-2" alt="...">
                     <div class="card-body">
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of
                             the
@@ -95,6 +229,19 @@
             </div>
         </div>
     </div>
+
 </body>
+
+<style>
+
+</style>
+
+<script>
+function test(){
+    var x = document.getElementById("blur");
+    console.log(x.classList);
+    x.classList.toggle("blurfilter");
+}
+</script>
 
 </html>

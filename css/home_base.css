@@ -18,28 +18,53 @@ body {
 }
 
 
-.container-menu{
+
+#labelIdentifyScreen {
+  font-size: xx-large;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.blur {
+  position: fixed;
+  z-index: -1;
+  height: 100vh;
+  width: 100%;
+}
+
+.blurfilter {
+  background-color: #343a40;
+  opacity: 75%;
+  z-index: 2;
+}
+
+.container-menu {
   margin-top: 4px;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   padding: 0px 8px;
 }
-.container-menu-style{
+
+.container-menu-style {
   padding: 0%;
   height: 60px;
   background-color: white;
   border-radius: 20px;
 }
 
+
+
 .barra {
   height: 100%;
   padding: 5px 5% 0px;
 }
-.btnshadow{
+
+.btnshadow {
   box-shadow: 2px 2px black;
 }
-li{
-  margin: 3px 0;
+
+li {
+  margin: 5px 0px -2px;
 }
 
 #homefeed {
@@ -54,6 +79,10 @@ li{
   color: #fff;
   background-color: #343a40;
   border-color: #343a40;
+}
+
+nav {
+  z-index: 3;
 }
 
 .btn-circle {
