@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/67fa264284.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css\home_base.css">
+    <link rel="stylesheet" href="css\singlePost.css">
+</head>
+
+<body>
+    <div class="container-fluid container-menu ">
+        <div class="container-menu-style">
+            <div class="row">
+                <div class="col-10 barra">
+                    <label id="labelIdentifyScreen" for="">POST</label>
+                </div>
+                <!-- FISSO IL MENU -->
+                <div class="col-2 barra">
+                    <div class="row  barra align-items-center " style=" height: 100%;">
+                        <nav class="bg-body-tertiary navbar-expand-lg">
+                            <div class="container-fluid">
+                                <button class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse"
+                                    onclick="test()" data-bs-target="#navbarText" aria-controls="navbarText"
+                                    aria-expanded="false" aria-label="Toggle navigation"><i
+                                        class="fa-solid fa-bars"></i></button>
+                                <div class="collapse navbar-collapse" id="navbarText">
+                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                        <li class="nav-item">
+                                            <button class="btn btn-dark btn-circle "><i
+                                                    class="fa-regular fa-user"></i></button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="btn btn-dark btn-circle " href="temp.html"><i
+                                                    class="fa-solid fa-house"></i></a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="btn btn-dark btn-circle "><i
+                                                    class="fa-solid fa-gears"></i></button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="btn btn-dark btn-circle "><i
+                                                    class="fa-solid fa-right-from-bracket"></i></button>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid" style="text-align: center;">
+        <div class="row" id="homefeed" style="justify-content: center;">
+            <div class="container-fluid p-2 pmd-10">
+                <div class="card m-1">
+                    <div class="row align-items-center barra">
+                        <div class="col-3">
+                            <div class="row justify-content-center">
+                                <img src="img/logo.jpg" alt="Avatar" class="avatar">
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="row">
+                                <p class="m-0 user">SimoneLuga</p>
+                            </div>
+                            <div class="row">
+                                <p class="m-0" style="font-size: small;">Luogo:cesena</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btnshadow"><i class="fa-solid fa-heart">
+                                        919</i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <img src="img\logo.jpg" class=" card-img-top p-2" alt="...">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col-3 date">
+                            22/12/22
+                        </div>
+                        <div class="col-9">
+                            <p class="card-text">Some quick example text to build on the card title and make up the
+                                bulk of
+                                the
+                                card's content.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card m-1">
+                    <div class="row align-items-center barra">
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <img src="img/logo.jpg" alt="Avatar" class="avatar">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="row">
+                                <input type="text" id="addANote" class="form-control" placeholder="Type comment..." />
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btn-dark btnshadow"><i
+                                        class="fa-solid fa-share"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card m-1">
+                    <div class="row align-items-center barra">
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="Avatar"
+                                    class="avatar">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="row">
+                                <p class="m-0 user">Rosa</p>
+                            </div>
+                            <div class="row">
+                                <p class="m-0">ciao bella foto profilo come va in questo perido di feste?</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <p class="m-1 date">22/12/22</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card m-1">
+                    <div class="row align-items-center barra">
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(21).webp" alt="Avatar"
+                                    class="avatar">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="row">
+                                <p class="m-0 user">GATTO</p>
+                            </div>
+                            <div class="row">
+                                <p class="m-0">MIAOOO</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <p class="m-1 date">22/12/22</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card m-1">
+                    <div class="row align-items-center barra">
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(20).webp" alt="Avatar"
+                                    class="avatar">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="row">
+                                <p class="m-0 user">Sara</p>
+                            </div>
+                            <div class="row">
+                                <p class="m-0">PIANOOOO!!!</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <p class="m-1 date">22/12/22</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card m-1">
+                    <div class="row align-items-center barra">
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(4).webp" alt="Avatar"
+                                    class="avatar">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="row">
+                                <p class="m-0 user">Rosa</p>
+                            </div>
+                            <div class="row">
+                                <p class="m-0">ciao bella foto profilo come va in questo perido di feste?</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <p class="m-1 date">22/12/22</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card m-1">
+                    <div class="row align-items-center barra">
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(21).webp" alt="Avatar"
+                                    class="avatar">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="row">
+                                <p class="m-0 user">GATTO</p>
+                            </div>
+                            <div class="row">
+                                <p class="m-0">MIAOOO</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <p class="m-1 date">22/12/22</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card m-1">
+                    <div class="row align-items-center barra">
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(20).webp" alt="Avatar"
+                                    class="avatar">
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="row">
+                                <p class="m-0 user">Sara</p>
+                            </div>
+                            <div class="row">
+                                <p class="m-0">PIANOOOO!!!</p>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="row justify-content-center">
+                                <p class="m-1 date">22/12/22</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+
+</style>
+
+<script>
+</script>
+
+</html>
