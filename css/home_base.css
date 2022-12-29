@@ -17,12 +17,34 @@ body {
   }
 }
 
-
-
 #labelIdentifyScreen {
   font-size: xx-large;
   font-style: italic;
   font-weight: bold;
+}
+
+.backthing {
+  position: fixed;
+  height: 60%;
+  width: 65%;
+  padding: 10px 5px;
+  border-radius: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.showCategoria {
+  z-index: 3;
+/*   background-color: green; */
+}
+
+.showRicerca {
+  z-index: 3;
+/*   background-color: red; */
 }
 
 .blur {
@@ -51,8 +73,6 @@ body {
   background-color: white;
   border-radius: 20px;
 }
-
-
 
 .barra {
   height: 100%;

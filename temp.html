@@ -15,6 +15,63 @@
 
 <body>
     <div id="blur" class="blur"></div>
+    <div id="categoria" class="backthing">
+        <div class="container p-0">
+            <div class="row">
+                <div class="col-12 list-group p-0">
+                    <button type="button" class="list-group-item list-group-item-action">ALL</button>
+                    <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
+                    <button type="button" class="list-group-item list-group-item-action">Informatica</button>
+                    <button type="button" class="list-group-item list-group-item-action">DonneNude</button>
+                    <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                    <button type="button" class="list-group-item list-group-item-action">ALL</button>
+                    <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
+                    <button type="button" class="list-group-item list-group-item-action">Informatica</button>
+                    <button type="button" class="list-group-item list-group-item-action">DonneNude</button>
+                    <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                    <button type="button" class="list-group-item list-group-item-action">ALL</button>
+                    <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
+                    <button type="button" class="list-group-item list-group-item-action">Informatica</button>
+                    <button type="button" class="list-group-item list-group-item-action">DonneNude</button>
+                    <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                    <button type="button" class="list-group-item list-group-item-action">ALL</button>
+                    <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
+                    <button type="button" class="list-group-item list-group-item-action">Informatica</button>
+                    <button type="button" class="list-group-item list-group-item-action">DonneNude</button>
+                    <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ricerca" class="backthing">
+        <div class="container p-0">
+            <div class="row ">
+                <input class="col-9 form-control" type="search" placeholder="Search" aria-label="Search">
+                <button type="button" class=" col-3 btn btn-dark">
+                    <i class="fas fa-search"></i>
+                </button>
+                <div class="col-12 p-0">
+                    <div class="list-group">
+                        <button type="button" class="list-group-item list-group-item-action">SimoneLuga</button>
+                        <button type="button" class="list-group-item list-group-item-action">Alex_presepi</button>
+                        <button type="button" class="list-group-item list-group-item-action">Testino</button>
+                        <button type="button" class="list-group-item list-group-item-action">Provetta</button>
+                        <button type="button" class="list-group-item list-group-item-action">Instagram</button>
+                        <button type="button" class="list-group-item list-group-item-action">ALL</button>
+                        <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
+                        <button type="button" class="list-group-item list-group-item-action">Informatica</button>
+                        <button type="button" class="list-group-item list-group-item-action">DonneNude</button>
+                        <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                        <button type="button" class="list-group-item list-group-item-action">ALL</button>
+                        <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
+                        <button type="button" class="list-group-item list-group-item-action">Informatica</button>
+                        <button type="button" class="list-group-item list-group-item-action">DonneNude</button>
+                        <button type="button" class="list-group-item list-group-item-action">MOTO</button><!--  -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid container-menu ">
         <div class="container-menu-style">
             <div class="row">
@@ -54,25 +111,35 @@
                     <div class="row  barra align-items-center " style=" height: 100%;">
                         <nav class="bg-body-tertiary navbar-expand-lg">
                             <div class="container-fluid">
-                                <button class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse" onclick="test()"
-                                    data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
-                                    aria-label="Toggle navigation"><i class="fa-solid fa-bars"></i></button>
+                                <button class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse"
+                                    onclick="test()" data-bs-target="#navbarText" aria-controls="navbarText"
+                                    aria-expanded="false" aria-label="Toggle navigation"><i
+                                        class="fa-solid fa-bars"></i></button>
                                 <div class="collapse navbar-collapse" id="navbarText">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <button class="btn btn-dark btn-circle "><i class="fa-regular fa-user"></i></button>
+                                            <button class="btn btn-dark btn-circle "><i
+                                                    class="fa-regular fa-user"></i></button>
                                         </li>
                                         <li class="nav-item">
-                                            <button class="btn btn-dark btn-circle "><i class="fa-regular fa-envelope"></i></button>
+                                            <a class="btn btn-dark btn-circle " href="notifiche.html"><i
+                                                    class="fa-regular fa-envelope"></i></a>
                                         </li>
                                         <li class="nav-item">
-                                            <button class="btn btn-dark btn-circle "><i class="fa-solid fa-layer-group"></i></button>
+                                            <button class="btn btn-dark btn-circle" onclick="viewCategoria()"><i
+                                                    class="fa-solid fa-layer-group"></i></button>
                                         </li>
                                         <li class="nav-item">
-                                            <button class="btn btn-dark btn-circle "><i class="fa-solid fa-magnifying-glass"></i></button>
+                                            <button class="btn btn-dark btn-circle " onclick="viewRicerca()"><i class="
+                                                fa-solid fa-magnifying-glass"></i></button>
                                         </li>
                                         <li class="nav-item">
-                                            <button class="btn btn-dark btn-circle "><i class="fa-solid fa-right-from-bracket"></i></button>
+                                            <button class="btn btn-dark btn-circle "><i
+                                                    class="fa-solid fa-gears"></i></button>
+                                        </li>
+                                        <li class="nav-item">
+                                            <button class="btn btn-dark btn-circle "><i
+                                                    class="fa-solid fa-right-from-bracket"></i></button>
                                         </li>
                                     </ul>
                                 </div>
@@ -87,7 +154,7 @@
         <div class="row" id="homefeed" style="justify-content: center;">
             <div class="container-fluid p-2 pmd-10">
                 <div class="card m-1">
-                    <div class="row align-items-center barra" >
+                    <div class="row align-items-center barra">
                         <div class="col-3">
                             <div class="row justify-content-center">
                                 <img src="img/logo.jpg" alt="Avatar" class="avatar">
@@ -116,13 +183,14 @@
                     </div>
                     <img src="img\logo.jpg" class="card-img-top p-2" alt="...">
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        <p class="card-text">Some quick example text to build on the card title and make up the
+                            bulk of
                             the
                             card's content.</p>
                     </div>
                 </div>
                 <div class="card m-1">
-                    <div class="row align-items-center barra" >
+                    <div class="row align-items-center barra">
                         <div class="col-3">
                             <div class="row justify-content-center">
                                 <img src="img/logo.jpg" alt="Avatar" class="avatar">
@@ -151,13 +219,14 @@
                     </div>
                     <img src="img\logo.jpg" class="card-img-top p-2" alt="...">
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        <p class="card-text">Some quick example text to build on the card title and make up the
+                            bulk of
                             the
                             card's content.</p>
                     </div>
                 </div>
                 <div class="card m-1">
-                    <div class="row align-items-center barra" >
+                    <div class="row align-items-center barra">
                         <div class="col-3">
                             <div class="row justify-content-center">
                                 <img src="img/logo.jpg" alt="Avatar" class="avatar">
@@ -186,13 +255,14 @@
                     </div>
                     <img src="img\logo.jpg" class="card-img-top p-2" alt="...">
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        <p class="card-text">Some quick example text to build on the card title and make up the
+                            bulk of
                             the
                             card's content.</p>
                     </div>
                 </div>
                 <div class="card m-1">
-                    <div class="row align-items-center barra" >
+                    <div class="row align-items-center barra">
                         <div class="col-3">
                             <div class="row justify-content-center">
                                 <img src="img/logo.jpg" alt="Avatar" class="avatar">
@@ -221,7 +291,8 @@
                     </div>
                     <img src="img\logo.jpg" class="card-img-top p-2" alt="...">
                     <div class="card-body">
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                        <p class="card-text">Some quick example text to build on the card title and make up the
+                            bulk of
                             the
                             card's content.</p>
                     </div>
@@ -237,11 +308,29 @@
 </style>
 
 <script>
-function test(){
-    var x = document.getElementById("blur");
-    console.log(x.classList);
-    x.classList.toggle("blurfilter");
-}
+    function test() {
+        var x = document.getElementById("blur");
+        x.classList.toggle("blurfilter");
+        console.log(x.classList.length);
+        if (x.classList.length == 1) {
+            var x = document.getElementById("categoria");
+            x.classList.remove("showCategoria");
+            var x = document.getElementById("ricerca");
+            x.classList.remove("showRicerca");
+        }
+    }
+    function viewCategoria() {
+        var x = document.getElementById("ricerca");
+        x.classList.remove("showRicerca");
+        var x = document.getElementById("categoria");
+        x.classList.toggle("showCategoria");
+    }
+    function viewRicerca() {
+        var x = document.getElementById("categoria");
+        x.classList.remove("showCategoria");
+        var x = document.getElementById("ricerca");
+        x.classList.toggle("showRicerca");
+    }
 </script>
 
 </html>

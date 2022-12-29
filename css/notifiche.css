@@ -1,5 +1,4 @@
 .box-notifica{
-    background-color:rgb(97, 97, 97);
     border-radius:20px;
-    color: white;
+    border: 0.2px solid black;
 }
