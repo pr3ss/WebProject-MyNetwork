@@ -35,15 +35,18 @@ body {
   z-index: -1;
   overflow-y: auto;
   overflow-x: hidden;
+  display: none;
 }
 
 .showCategoria {
   z-index: 3;
+  display: inline;
 /*   background-color: green; */
 }
 
 .showRicerca {
   z-index: 3;
+  display: inline;
 /*   background-color: red; */
 }
 
