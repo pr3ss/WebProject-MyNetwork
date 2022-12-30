@@ -120,7 +120,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container-fluid">
         <div class="row" style="padding-top: 60px;" >
             <div class="col-2"></div>
@@ -135,7 +135,7 @@
         </div>
 
         <div class="row mb-5 d-flex justify-content-center" >
-                <input type="text" placeholder="MyUsername" style="width:50% ;border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
+                <input type="text" value="MyUsername" style="width:50% ;border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
         </div>
 
         <div class="row m-3 pb-2" style="border-bottom: 1px solid black;">
@@ -170,7 +170,7 @@
                 <p class="m-0">Email:</p>
             </div>
             <div class="col-8 d-flex flex-column justify-content-center">
-                <input type="text" placeholder="alex@test.com " style="width: 90%;  border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
+                <input type="text" value="alex@test.com " style="width: 90%;  border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
             </div>
         </div>
 
@@ -179,7 +179,16 @@
                 <p class="m-0">Password:</p>
             </div>
             <div class="col-8 d-flex flex-column justify-content-center">
-                <input type="text" placeholder="test" style="width: 90%;  border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
+                <div class="row m-0">
+                    <div class="col-10">
+                        <input id="password" type="password" value="test" style="width: 90%;  border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
+                    </div>
+                    <div class="col-2">
+                        <button id="btnViewPass" onclick="test5()" style="border: none;"><i class="fa-solid fa-eye"></i></button>
+                    </div>
+                </div>
+                
+                
             </div>
         </div>
 
@@ -197,6 +206,19 @@
 </style>
 
 <script>
+    function test5(){
+        var temp = document.getElementById("password");
+        if(temp.type == "text"){
+            temp.type = "password";
+            document.getElementById("btnViewPass").innerHTML = '<i class="fa-solid fa-eye"></i>';
+        }else{
+            temp.type = "text";
+            document.getElementById("btnViewPass").innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+        }
+        //temp.type = temp.type == "text"? "password" : "text";
+
+    }
+
     function test() {
         var x = document.getElementById("blur");
         x.classList.toggle("blurfilter");
