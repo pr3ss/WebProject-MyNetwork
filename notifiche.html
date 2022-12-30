@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <div id="blur" class="blur" onclick="test()"></div>
     <div class="container-fluid container-menu ">
         <div class="container-menu-style">
             <div class="row">
@@ -33,8 +34,8 @@
                                 <div class="collapse navbar-collapse" id="navbarText">
                                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                         <li class="nav-item">
-                                            <button class="btn btn-dark btn-circle "><i
-                                                    class="fa-regular fa-user"></i></button>
+                                            <a class="btn btn-dark btn-circle " href="profilo.html"><i
+                                                    class="fa-regular fa-user"></i></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="btn btn-dark btn-circle " href="temp.html"><i
@@ -328,6 +329,14 @@
 </style>
 
 <script>
+    function test() {
+        var x = document.getElementById("blur");
+        x.classList.toggle("blurfilter");
+        if (x.classList.length == 1) {
+            var x = document.getElementById("navbarText");
+            x.classList.remove("show");
+        }
+    }
 </script>
 
 </html>
