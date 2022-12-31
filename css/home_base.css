@@ -7,9 +7,14 @@
   font-family: "Poppins", sans-serif;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   background-color: rgb(233, 233, 233);
-
 }
 
 @media (max-width: 991px) {

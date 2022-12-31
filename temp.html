@@ -16,7 +16,7 @@
 
 
 <body>
-    <div id="blur" class="blur" onclick=""></div>
+    <div id="blur" class="blur " onclick="test()"></div>
     <div id="categoria" class="backthing">
         <div class="container p-0">
             <div class="row">
@@ -76,152 +76,159 @@
     </div>
 
     <div class="container-fluid position-fixed" style="z-index:2;">
+        <div class="row m-0 mt-2 bg-white rounded-pill ">
 
-            <div class="row m-0 mt-2 bg-white rounded-pill ">
-
-                <div class="col-8 d-flex flex-column justify-content-center ">
-                    <label class="m-0 p-0" id="labelIdentifyScreen" for="">HOME</label>
-                </div>
-                <div class="col-2 d-flex flex-column justify-content-center ">
-                    <div>
-                        <a class="btn btn-dark btn-circle " href="add_post.html"><i class="fas fa-plus"></i></a>
-                    </div>
-                </div>
-
-                <!-- FISSO IL MENU -->
-                <div class="col-2 d-flex flex-column justify-content-center"> 
-                    
-                        <nav class="bg-body-tertiary navbar-expand-lg "> <!--position-absolute-->
-                            <div class="container-fluid">
-                                <button class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse"
-                                    onclick="" data-bs-target="#navbarText" aria-controls="navbarText"
-                                    aria-expanded="false" aria-label="Toggle navigation"><i
-                                        class="fa-solid fa-bars"></i></button>
-                                <div class="collapse navbar-collapse position-absolute" id="navbarText">
-                                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                        <li class="nav-item">
-                                            <a class="btn btn-dark btn-circle " href="profilo.html"><i
-                                                    class="fa-regular fa-user"></i></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="btn btn-dark btn-circle " href="notifiche.html"><i
-                                                    class="fa-regular fa-envelope"></i></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button class="btn btn-dark btn-circle" onclick="viewCategoria()"><i
-                                                    class="fa-solid fa-layer-group"></i></button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button class="btn btn-dark btn-circle " onclick="viewRicerca()"><i class="
-                                                fa-solid fa-magnifying-glass"></i></button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="btn btn-dark btn-circle " href="impostazioni.html"><i
-                                                    class="fa-solid fa-gear"></i></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="btn btn-dark btn-circle "><i
-                                                    class="fa-solid fa-right-from-bracket"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-                    
+            <div class="col-8 col-lg-3 d-flex justify-content-center align-items-center">
+                <label class="m-0 p-0" id="labelIdentifyScreen" for="">HOME</label>
+            </div>
+            <div class="col-2 col-lg-3 order-lg-last d-flex justify-content-center align-items-center">
+                <div>
+                    <a class="btn btn-dark btn-circle " href="add_post.html"><i class="fas fa-plus"></i></a>
                 </div>
             </div>
 
+            <!-- FISSO IL MENU -->
+            <div class="col-2 col-lg-6 order-lg-2 d-flex justify-content-center align-items-center">
+                <nav class="bg-body-tertiary navbar-expand-lg">
+                    <div class="container-fluid ">
+                        <button class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse"
+                            onclick="test()" data-bs-target="#navbarText" aria-controls="navbarText"
+                            aria-expanded="false" aria-label="Toggle navigation"><i
+                                class="fa-solid fa-bars"></i></button>
+                        <div class="collapse navbar-collapse " id="navbarText"> <!--position-absolute togli con js-->
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="">
+                                <li class="nav-item">
+                                    <a class="btn btn-dark btn-circle " href="profilo.html"><i
+                                            class="fa-regular fa-user"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="btn btn-dark btn-circle " href="notifiche.html"><i
+                                            class="fa-regular fa-envelope"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="btn btn-dark btn-circle" onclick="viewCategoria()"><i
+                                            class="fa-solid fa-layer-group"></i></button>
+                                </li>
+                                <li class="nav-item">
+                                    <button class="btn btn-dark btn-circle " onclick="viewRicerca()"><i class="
+                                                fa-solid fa-magnifying-glass"></i></button>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="btn btn-dark btn-circle " href="impostazioni.html"><i
+                                            class="fa-solid fa-gear"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="btn btn-dark btn-circle " href="..."><i
+                                            class="fa-solid fa-right-from-bracket"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+
     </div>
 
-    <div class="container-fluid ">
-         <div class="d-flex flex-column justify-content-center" style="padding-top: 60px;">
-                    
-                        <div class="container bg-white">
+
+    <div class="container-fluid " style="padding-top: 60px; position: fixed;  overflow-y: auto;
+    overflow-x: hidden;">
+        <div class="row ">
+            <div class="col-0 col-lg-3 p-0 m-0 ">
+                <div class="bg-dark">ciao</div>
+            </div>
+            <div class="col-12 col-lg-6 p-0 m-0">
+                <div class="container-fluid ">
+                    <div class="d-flex flex-column justify-content-center" >
+                        <div class="container bg-white m-1">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-3 d-flex  justify-content-center ">
-                                  
-                                        <img src="img/logo.jpg" alt="Avatar" class="avatar">
-                                    
-                                </div>
-                                <div class="col-5">
-                                    <div class="row">
-                                        <p class="m-0 user">SimoneLuga</p>
-                                    </div>
-                                    <div class="row">
-                                        <p class="m-0 date">22/12/22</p>
-                                    </div>
-                                    <div class="row">
-                                        <p class="m-0" style="font-size: small;">Luogo:cesena</p>
-                                    </div>
-                                </div>
-                                <div class="col-2 d-flex flex-column justify-content-center">
-                                    <div class="row justify-content-center">
-                                        <button type="button" class="btn btnshadow"><i class="fa-solid fa-heart">
-                                                919</i></button>
-                                    </div>
-                                </div>
-                                <div class="col-2 d-flex flex-column justify-content-center">
-                                    <div class="row justify-content-center">
-                                        <button type="button" class="btn btnshadow" onclick="openPost()"><i
-                                                class="fa-solid fa-comment">
-                                                100</i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="img\logo.jpg" class="card-img-top p-2" alt="..." onclick="openPost()">
-                            <div class="card-body" onclick="openPost()">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the
-                                    card's content.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="card m-0 p-0">
-                            <div class="row align-items-center barra">
-                                <div class="col-3">
-                                    <div class="row justify-content-center">
-                                        <img src="img/logo.jpg" alt="Avatar" class="avatar">
-                                    </div>
-                                </div>
-                                <div class="col-5">
-                                    <div class="row">
-                                        <p class="m-0 user">SimoneLuga</p>
-                                    </div>
-                                    <div class="row">
-                                        <p class="m-0 date">22/12/22</p>
-                                    </div>
-                                    <div class="row">
-                                        <p class="m-0" style="font-size: small;">Luogo:cesena</p>
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="row justify-content-center">
-                                        <button type="button" class="btn btnshadow"><i class="fa-solid fa-heart">
-                                                919</i></button>
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="row justify-content-center">
-                                        <button type="button" class="btn btnshadow" onclick="openPost()"><i
-                                                class="fa-solid fa-comment">
-                                                100</i></button>
-                                    </div>
-                                </div>
-                            </div>
-                            <img src="img\logo.jpg" class="card-img-top p-2" alt="..." onclick="openPost()">
-                            <div class="card-body" onclick="openPost()">
-                                <p class="card-text">Some quick example text to build on the card title and make up the
-                                    bulk of
-                                    the
-                                    card's content.</p>
-                            </div>
-                        </div>
-                    
-                </div> 
-            
 
+                                    <img src="img/logo.jpg" alt="Avatar" class="avatar">
+                                </div>
+                                <div class="col-5">
+                                    <div class="row">
+                                        <p class="m-0 user">SimoneLuga</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="m-0 date">22/12/22</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="m-0" style="font-size: small;">Luogo:cesena</p>
+                                    </div>
+                                </div>
+                                <div class="col-2 d-flex flex-column justify-content-center">
+                                    <div class="row justify-content-center">
+                                        <button type="button" class="btn btnshadow"><i class="fa-solid fa-heart">
+                                                919</i></button>
+                                    </div>
+                                </div>
+                                <div class="col-2 d-flex flex-column justify-content-center">
+                                    <div class="row justify-content-center">
+                                        <button type="button" class="btn btnshadow" onclick="openPost()"><i
+                                                class="fa-solid fa-comment">
+                                                100</i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="img\logo.jpg" class="card-img-top p-2" alt="..." onclick="openPost()">
+                            <div class="card-body" onclick="openPost()">
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of
+                                    the
+                                    card's content.</p>
+                            </div>
+                        </div>
+                        <div class="container bg-white m-1">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-3 d-flex  justify-content-center ">
+
+                                    <img src="img/logo.jpg" alt="Avatar" class="avatar">
+                                </div>
+                                <div class="col-5">
+                                    <div class="row">
+                                        <p class="m-0 user">SimoneLuga</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="m-0 date">22/12/22</p>
+                                    </div>
+                                    <div class="row">
+                                        <p class="m-0" style="font-size: small;">Luogo:cesena</p>
+                                    </div>
+                                </div>
+                                <div class="col-2 d-flex flex-column justify-content-center">
+                                    <div class="row justify-content-center">
+                                        <button type="button" class="btn btnshadow"><i class="fa-solid fa-heart">
+                                                919</i></button>
+                                    </div>
+                                </div>
+                                <div class="col-2 d-flex flex-column justify-content-center">
+                                    <div class="row justify-content-center">
+                                        <button type="button" class="btn btnshadow" onclick="openPost()"><i
+                                                class="fa-solid fa-comment">
+                                                100</i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <img src="img\logo.jpg" class="card-img-top p-2" alt="..." onclick="openPost()">
+                            <div class="card-body" onclick="openPost()">
+                                <p class="card-text">Some quick example text to build on the card title and make up the
+                                    bulk of
+                                    the
+                                    card's content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-0 col-lg-3 p-0 m-0">
+                <div class="bg-dark">ciao</div>
+            </div>
+        </div>
     </div>
+
+
 
 
 </body>
@@ -231,7 +238,35 @@
 </style>
 
 <script>
-
+     function test() {
+            var x = document.getElementById("blur");
+            x.classList.toggle("blurfilter");
+            if (x.classList.length == 1) {
+                var x = document.getElementById("categoria");
+                x.classList.remove("showCategoria");
+                var x = document.getElementById("ricerca");
+                x.classList.remove("showRicerca");
+                var x = document.getElementById("navbarText");
+                x.classList.remove("show");
+            }
+        }
+        function viewCategoria() {
+            var x = document.getElementById("ricerca");
+            x.classList.remove("showRicerca");
+            var x = document.getElementById("categoria");
+            x.classList.toggle("showCategoria");
+            var x = document.getElementById("blur");
+            x.classList.toggle("blurfilter");
+        }
+        function viewRicerca() {
+            var x = document.getElementById("categoria");
+            x.classList.remove("showCategoria");
+            var x = document.getElementById("ricerca");
+            x.classList.toggle("showRicerca");
+        }
+        function openPost() {
+            window.location.href = "post.html";
+        } 
 </script>
 
 </html>
