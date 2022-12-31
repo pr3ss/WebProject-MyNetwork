@@ -134,11 +134,13 @@
 
     <div class="container-fluid " style="padding-top: 60px;">
         <div class="row">
-            <div class="col-lg-3 p-0 m-0 d-lg-block d-none ">
-                <div class="bg-dark">ciao</div>
+            <div class="col-lg-3 d-lg-block d-none position-fixed ">
+                <!--Verificare se usare container per bande laterali per i bordi ecc...-->
+                <div class="container-fluid bg-dark ">ciao</div>
             </div>
-            <div class="col-12 col-lg-6 p-0 m-0">
-                <div class="container-fluid d-flex flex-column justify-content-center align-items-center overflow-scroll ">
+            <div class="col-12 col-lg-6 offset-lg-3 ">
+                <!--Verificare se usare row oppure come era prima con d-flex....-->
+                <div class="row justify-content-center align-items-center">
                     
                         <div class="container bg-white m-1">
                             <div class="row d-flex justify-content-center">
@@ -221,8 +223,8 @@
                     
                 </div>
             </div>
-            <div class="col-lg-3 p-0 m-0 d-lg-block d-none">
-                <div class="bg-dark">ciao</div>
+            <div class="col-lg-3 offset-lg-9 d-lg-block d-none position-fixed">
+                <div class="bg-dark ">ciao</div>
             </div>
         </div>
     </div>
