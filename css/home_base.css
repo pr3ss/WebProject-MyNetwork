@@ -17,11 +17,33 @@ body {
   background-color: rgb(233, 233, 233);
 }
 
+/* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  
+}
+
+
 @media (max-width: 991px) {
   .test {
     display: none;
   }
 }
+
+@media (max-width: 991px) {
+  .position-notlg-absolute {
+    position: absolute;
+  }
+  .position-notlg-absolute li {
+    margin: 0!IMPORTANT;
+    margin-top: 15%!IMPORTANT;
+  }
+}
+@media (min-width: 991px) {
+  .btn_RicCat {
+    display: none;
+  }
+}
+
 
 #labelIdentifyScreen {
   font-size: xx-large;
