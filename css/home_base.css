@@ -7,6 +7,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .center {
   display: flex;
   justify-content: center;
@@ -118,7 +122,7 @@ li {
 }
 
 #homefeed {
-  padding-top: 60px;
+  /* padding-top: 60px; */
 }
 
 .navbar-toggler {
