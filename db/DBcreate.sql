@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `web-socialnetwork` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE  IF NOT EXISTS `web-socialnetwork` 
 USE `web-socialnetwork`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
 --
@@ -29,7 +29,7 @@ CREATE TABLE `categoria` (
   `titolo` varchar(45) NOT NULL,
   `testo` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +59,7 @@ CREATE TABLE `commento` (
   KEY `post_id_commento` (`post_id`),
   CONSTRAINT `post_id_commento` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`),
   CONSTRAINT `user_id_commento` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -85,7 +85,7 @@ CREATE TABLE `follow` (
   KEY `user_id_seguito` (`user_follow`),
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `user_id_seguito` FOREIGN KEY (`user_follow`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -111,7 +111,7 @@ CREATE TABLE `like` (
   KEY `post_id_like` (`post_id`),
   CONSTRAINT `post_id_like` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`),
   CONSTRAINT `user_id_like` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -135,7 +135,7 @@ CREATE TABLE `login_attempt` (
   `time` varchar(30) NOT NULL,
   PRIMARY KEY (`user_id`,`time`),
   CONSTRAINT `user_id_login` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,7 +172,7 @@ CREATE TABLE `notifica` (
   CONSTRAINT `tipo_notifica` FOREIGN KEY (`id_tipo_notifica`) REFERENCES `tiponotifica` (`id`),
   CONSTRAINT `user_destinatario` FOREIGN KEY (`user_destinazione`) REFERENCES `user` (`id`),
   CONSTRAINT `user_mittente` FOREIGN KEY (`user_mittente`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +204,7 @@ CREATE TABLE `post` (
   KEY `categoria` (`id_categoria`),
   CONSTRAINT `categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id`),
   CONSTRAINT `user` FOREIGN KEY (`id_user_create`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -228,7 +228,7 @@ CREATE TABLE `tipo_notifica` (
   `titolo` varchar(45) NOT NULL,
   `descrizione` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -260,7 +260,7 @@ CREATE TABLE `user` (
   `foto_profilo` varchar(45) DEFAULT NULL,
   `descrizione` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
