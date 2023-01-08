@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `web-socialnetwork` 
+CREATE DATABASE  IF NOT EXISTS `web-socialnetwork` ;
 USE `web-socialnetwork`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
 --
