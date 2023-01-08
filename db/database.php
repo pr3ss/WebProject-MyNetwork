@@ -137,5 +137,17 @@ class DatabaseHelper{
          return $insert_stmt->execute();
       }
    }
+
+   //search username
+   public function search_username($username){
+      if ($stmt = $this->db->prepare("SELECT username FROM user WHERE username LIKE ?")){
+         $temp = "%{$username}%";
+         $stmt->bind_param('s', $temp);
+         $stmt->execute();
+         $result = $stmt->get_result();
+
+        return $result->fetch_all(MYSQLI_ASSOC);
+      }
+   }
 }
 ?>

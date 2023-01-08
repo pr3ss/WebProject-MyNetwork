@@ -163,10 +163,10 @@
 
                 <div class="row mt-3 mb-1">
                     <div class="col-9 ">
-                        <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                        <input id="input_search_user" class="form-control " type="search" placeholder="Search" aria-label="Search">
                     </div>
                     <div class="col-3 p-0">
-                        <button type="button" class="btn btn-dark position-fixed" style="z-index: 2;">
+                        <button type="button" class="btn btn-dark position-fixed" style="z-index: 2;" onclick="ricerca_user()">
                             <i class="fas fa-search"></i>
                         </button>
                     </div>
@@ -274,6 +274,15 @@
         </div>
     </div>
 
+    <?php
+        if (isset($templateParams["js"])):
+            foreach ($templateParams["js"] as $script):
+        ?>
+        <script src="<?php echo $script; ?>"></script>
+        <?php
+            endforeach;
+        endif;
+    ?>
 
 
 
@@ -311,6 +320,19 @@
     function openPost() {
         window.location.href = "post.html";
     } 
+
+    function ricerca_user(){
+        var user = document.getElementById("input_search_user").value;
+        const formData = new FormData();
+        formData.append('username_to_search', user);
+        
+        axios.post('api-ricerca.php', formData).then(response => {
+            var temp = response.data["list_username"];
+            for (let x in temp ){
+                console.log(temp[x]);
+            }
+        });
+    }
 </script>
 
 </html>
