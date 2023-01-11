@@ -48,27 +48,13 @@
     <div id="ricerca" class="backthing">
         <div class="container p-0">
             <div class="row ">
-                <input class="col-9 form-control" type="search" placeholder="Search" aria-label="Search">
+                <input id="input_search_user_mobile" class="col-9 form-control" type="search" placeholder="Search" aria-label="Search" oninput="ricerca_user('mobile')">
                 <button type="button" class=" col-3 btn btn-dark">
                     <i class="fas fa-search"></i>
                 </button>
                 <div class="col-12 p-0">
-                    <div class="list-group">
-                        <button type="button" class="list-group-item list-group-item-action">SimoneLuga</button>
-                        <button type="button" class="list-group-item list-group-item-action">Alex_presepi</button>
-                        <button type="button" class="list-group-item list-group-item-action">Testino</button>
-                        <button type="button" class="list-group-item list-group-item-action">Provetta</button>
-                        <button type="button" class="list-group-item list-group-item-action">Instagram</button>
-                        <button type="button" class="list-group-item list-group-item-action">ALL</button>
-                        <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
-                        <button type="button" class="list-group-item list-group-item-action">Informatica</button>
-                        <button type="button" class="list-group-item list-group-item-action">DonneNude</button>
-                        <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                        <button type="button" class="list-group-item list-group-item-action">ALL</button>
-                        <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
-                        <button type="button" class="list-group-item list-group-item-action">Informatica</button>
-                        <button type="button" class="list-group-item list-group-item-action">DonneNude</button>
-                        <button type="button" class="list-group-item list-group-item-action">MOTO</button><!--  -->
+                    <div id="list_searched_users_mobile" class="list-group">
+
                     </div>
                 </div>
             </div>
@@ -163,7 +149,7 @@
 
                 <div class="row mt-3 mb-1">
                     <div class="col-9 ">
-                        <input id="input_search_user" class="form-control " type="search" placeholder="Search" aria-label="Search" oninput="ricerca_user()">
+                        <input id="input_search_user_desktop" class="form-control " type="search" placeholder="Search" aria-label="Search" oninput="ricerca_user('desktop')">
                     </div>
                     <div class="col-3 p-0">
                         <button type="button" class="btn btn-dark position-fixed" style="z-index: 2;" onclick="ricerca_user()">
@@ -173,7 +159,7 @@
                 </div>
                 <div class="row h-50 " style="overflow-y: scroll;">
                     <div class="col-12">
-                        <div id="list_searched_users" class="list-group">
+                        <div id="list_searched_users_desktop" class="list-group">
 
                         </div>
                     </div>
@@ -316,25 +302,31 @@
         window.location.href = "post.html";
     } 
 
-    function ricerca_user(){
-        var user = document.getElementById("input_search_user").value;
+
+    /*/
+    /* TODO risolvere background color spinner in desktop non serve ma in mobile altrimenti non si vede oppure in mobile cambiare il colore dello spinner oppure é un problema di z-index in mobile 
+    /*/
+
+    function ricerca_user(view_type){
+        var user = document.getElementById("input_search_user_"+view_type).value;
         if(!user){
-            document.getElementById("list_searched_users").innerHTML="";    
+            document.getElementById("list_searched_users_"+view_type).innerHTML="";    
             return;
         }
-        document.getElementById("list_searched_users").innerHTML="<div class='d-flex justify-content-center pt-4'><div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span> </div></div>";
+
+        document.getElementById("list_searched_users_"+view_type).innerHTML="<div class='d-flex justify-content-center pt-4 bg-white'><div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span> </div></div>";
 
         const formData = new FormData();
         formData.append('username_to_search', user);
         
         axios.post('api-ricerca.php', formData).then(response => {
-            fill_list_user(response.data["list_username"]);
+            fill_list_user(response.data["list_username"], view_type);
         });
     }
 
     //TODO add referal to user page.
-    function fill_list_user(list_users){
-        const list_elm = document.getElementById("list_searched_users");
+    function fill_list_user(list_users, view_type){
+        const list_elm = document.getElementById("list_searched_users_"+view_type);
         list_elm.innerHTML="";
         for (let user in list_users){
             list_elm.innerHTML += ' <button type="button" class="list-group-item list-group-item-action">'+list_users[user].username+'</button>';
