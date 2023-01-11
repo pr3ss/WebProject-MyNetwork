@@ -163,7 +163,7 @@
 
                 <div class="row mt-3 mb-1">
                     <div class="col-9 ">
-                        <input id="input_search_user" class="form-control " type="search" placeholder="Search" aria-label="Search">
+                        <input id="input_search_user" class="form-control " type="search" placeholder="Search" aria-label="Search" oninput="ricerca_user()">
                     </div>
                     <div class="col-3 p-0">
                         <button type="button" class="btn btn-dark position-fixed" style="z-index: 2;" onclick="ricerca_user()">
@@ -173,14 +173,8 @@
                 </div>
                 <div class="row h-50 " style="overflow-y: scroll;">
                     <div class="col-12">
-                        <div class="list-group">
-                            <button type="button" class="list-group-item list-group-item-action">SimoneLuga</button>
-                            <button type="button" class="list-group-item list-group-item-action">Alex_presepi</button>
-                            <button type="button" class="list-group-item list-group-item-action">Testino</button>
-                            <button type="button" class="list-group-item list-group-item-action">Provetta</button>
-                            <button type="button" class="list-group-item list-group-item-action">Instagram</button>
-                            <button type="button" class="list-group-item list-group-item-action">ALL</button>
-                            <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
+                        <div id="list_searched_users" class="list-group">
+
                         </div>
                     </div>
                 </div>
@@ -273,6 +267,7 @@
             </div>
         </div>
     </div>
+    
 
     <?php
         if (isset($templateParams["js"])):
@@ -323,15 +318,28 @@
 
     function ricerca_user(){
         var user = document.getElementById("input_search_user").value;
+        if(!user){
+            document.getElementById("list_searched_users").innerHTML="";    
+            return;
+        }
+        document.getElementById("list_searched_users").innerHTML="<div class='d-flex justify-content-center pt-4'><div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span> </div></div>";
+
         const formData = new FormData();
         formData.append('username_to_search', user);
         
         axios.post('api-ricerca.php', formData).then(response => {
-            var temp = response.data["list_username"];
-            for (let x in temp ){
-                console.log(temp[x]);
-            }
+            fill_list_user(response.data["list_username"]);
         });
+    }
+
+    //TODO add referal to user page.
+    function fill_list_user(list_users){
+        const list_elm = document.getElementById("list_searched_users");
+        list_elm.innerHTML="";
+        for (let user in list_users){
+            list_elm.innerHTML += ' <button type="button" class="list-group-item list-group-item-action">'+list_users[user].username+'</button>';
+        }
+
     }
 </script>
 
