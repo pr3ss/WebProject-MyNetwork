@@ -17,6 +17,11 @@
     <div class="login-container">
       <div class="separator" ></div>
       <div id="main">
+        <?php
+          if(isset($templateParams["form"])){
+              require($templateParams["form"]);
+          }
+        ?>
       </div>
     </div>
   </section>

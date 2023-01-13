@@ -1,49 +1,18 @@
-function generaLoginForm(loginerror = null) {
-    let form = `
-    <div >
-        <h1>Social-Network</h1>
-        <h5>login</h5>
-        <form method="post">
-            <p class="text-danger" ></p>
-            <div class="txt_field">
-                <input type="text" id="email" required>
-                <span></span>
-                <label>Email</label>
-            </div>
-            <div class="txt_field">
-                <input type="password" id="password" required>
-                <span></span>
-                <label>Password</label>
-            </div>
-            <div class="pass">Forgot Password?</div>
-            <div id="divLogin" style="text-align: center;">
-                <input type="submit" value="Login">
-            </div>
-            <div class="signup_link">
-                Not a member? <a href="signin.php">Signup</a>
-            </div>
-        </form>
-    </div>`;
-    return form;
-}
 
-
-//password di test 6ZaxN2Vzm9NUJT2y
 
 const main = document.getElementById("main");
 
-function showLoginForm() {
-    let form = generaLoginForm();
-    main.innerHTML = form;
 
-    document.querySelector("#main form").addEventListener("submit", function (event) {
-        event.preventDefault();
-        const email = document.querySelector("#email").value;
-        const password = document.querySelector("#password").value;
-        document.querySelector("#password").value = "";
-        login(email, password);
-    });
-}
+
+
+document.querySelector("#main form").addEventListener("submit", function (event) {
+    event.preventDefault();
+    const email = document.querySelector("#email").value;
+    const password = document.querySelector("#password").value;
+    document.querySelector("#password").value = "";
+    login(email, password);
+});
+
 
 function login(email, password){
     document.querySelector("input[type='submit']").style["filter"]="blur(3px)";
@@ -70,5 +39,4 @@ function login(email, password){
 
 
 
-showLoginForm();
 
