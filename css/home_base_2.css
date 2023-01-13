@@ -21,50 +21,6 @@ body {
   background-color: rgb(233, 233, 233);
 }
 
-@media (max-width: 767px) {
-  .position-notmd-absolute {
-    position: absolute;
-  }
-
-  .position-notmd-absolute li {
-    margin: 0 !IMPORTANT;
-    margin-top: 15% !IMPORTANT;
-  }
-}
-
-@media (min-width: 991px) {
-  .btn_RicCat {
-    display: none;
-  }
-}
-
-@media (max-width: 991px) {
-  .backthing {
-    position: fixed;
-    height: 60%;
-    width: 65%;
-    padding: 10px 5px;
-    border-radius: 15px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: -1;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
-
-  .showCategoria {
-    z-index: 3;
-    display: inline;
-    /*   background-color: green; */
-  }
-
-  .showRicerca {
-    z-index: 3;
-    display: inline;
-    /*   background-color: red; */
-  }
-}
 
 #labelIdentifyScreen {
   font-size: xx-large;
@@ -82,11 +38,6 @@ body {
   width: 100%;
 }
 
-.blurfilter {
-  background-color: #343a40;
-  opacity: 75%;
-  z-index: 2;
-}
 
 .container-menu {
   margin-top: 4px;
@@ -149,4 +100,52 @@ nav {
 .date {
   font-weight: bold;
   font-size: small;
+}
+
+
+
+@media (max-width: 767px) {
+  .position-notmd-absolute {
+    position: absolute;
+  }
+
+  .position-notmd-absolute li {
+    margin: 0 !IMPORTANT;
+    margin-top: 15% !IMPORTANT;
+  }
+
+}
+
+@media (min-width: 991px) {
+  .btn_RicCat {
+    display: none;
+  }
+  
+}
+
+@media (max-width: 991px) {
+  .backthing {
+    position: fixed;
+    height: 60%;
+    width: 65%;
+    padding: 10px 5px;
+    border-radius: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .myShow {
+    z-index: 3 !IMPORTANT;
+    display: inline;
+  }
+
+  .blurfilter {
+    background-color: #343a40;
+    opacity: 75%;
+    z-index: 2;
+  }  
 }

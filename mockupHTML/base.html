@@ -16,10 +16,11 @@
 
 
 <body>
-    <div id="blur" class="blur " onclick="blur()"></div>
+    <div id="blur" class="blur" onclick="blurrare()"></div>
     <!-- PILL -->
     <div class="container-fluid position-fixed" style="z-index:2;">
         <div class="row m-0 mt-2 bg-white rounded-pill ">
+            <!-- DESCRIZIONE -->
             <div class="col-8 col-md-3 d-flex justify-content-center align-items-center">
                 <label class="m-0 p-0" id="labelIdentifyScreen" for="">HOME</label>
             </div>
@@ -28,14 +29,13 @@
                     <a class="btn btn-dark btn-circle " href="add_post.html"><i class="fas fa-plus"></i></a>
                 </div>
             </div>
-            <!-- FISSO IL MENU -->
+            <!-- NAV -->
             <div class="col-2 col-md-6 order-md-2 d-flex justify-content-center align-items-center">
                 <nav class="bg-body-tertiary navbar-expand-md">
-                    <div class="container-fluid ">
+                    <div class="container-fluid">
                         <button class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse"
-                            onclick="blur()" data-bs-target="#navbarText" aria-controls="navbarText"
-                            aria-expanded="false" aria-label="Toggle navigation"><i
-                                class="fa-solid fa-bars"></i></button>
+                            data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
+                            aria-label="Toggle navigation" onclick="blurrare()"><i class="fa-solid fa-bars"></i></button>
                         <div class="collapse navbar-collapse position-notmd-absolute" id="navbarText">
                             <!--position-absolute togli con js-->
                             <ul class="navbar-nav me-auto mb-2 mb-md-0">
@@ -67,13 +67,11 @@
                         </div>
                     </div>
                 </nav>
-
             </div>
         </div>
-
     </div>
-    <!-- FEED -->
 
+    <!-- FEED -->
     <div class="container-fluid" style="padding-top: 60px;">
         <div class="row">
             <!--Decidere l altezza dell intera colonna se 100% si puo usare anche h-100-->
@@ -137,48 +135,48 @@
 </body>
 
 <script>
-    function blur() {
-        console.log("ciao");
+    function blurrare() {
+        var ric = document.getElementById("ricerca");
+        var cat = document.getElementById("categoria");
+        var nav = document.getElementById("navbarText");
         var x = document.getElementById("blur");
         x.classList.toggle("blurfilter");
-        if (x.classList.length == 1) {
-            var x = document.getElementById("categoria");
-            x.classList.remove("showCategoria");
-            var x = document.getElementById("ricerca");
-            x.classList.remove("showRicerca");
-            var x = document.getElementById("navbarText");
-            x.classList.remove("show");
+/*         if (x.classList.length == 1) {
+            ric.classList.remove("myShow");
+            cat.classList.remove("myShow");
+            nav.classList.remove("show");
+        } */
+        if((ric.classList.contains("myShow") || cat.classList.contains("myShow")) && !nav.classList.contains("show")){
+            x.classList.add("blurfilter");
+        }
+        if((ric.classList.contains("myShow") || cat.classList.contains("myShow")) && nav.classList.contains("show")){
+            x.classList.add("blurfilter");
         }
     }
     function viewCategoria() {
+        var x = document.getElementById("colSx");
+        x.classList.forEach(clas => {
+            x.classList.remove(clas);
+        });
         var x = document.getElementById("ricerca");
-        x.classList.remove("showRicerca");
+        x.classList.remove("myShow");
         var x = document.getElementById("categoria");
-        x.classList.toggle("showCategoria");
+        x.classList.toggle("myShow");
+        blurrare();
     }
     function viewRicerca() {
+        var x = document.getElementById("colSx");
+        x.classList.forEach(clas => {
+            x.classList.remove(clas);
+        });
         var x = document.getElementById("categoria");
-        x.classList.remove("showCategoria");
+        x.classList.remove("myShow");
         var x = document.getElementById("ricerca");
-        x.classList.toggle("showRicerca");
+        x.classList.toggle("myShow");
     }
     function openPost() {
         window.location.href = "post.html";
     }
-
-
-    function checkMediaQuery() {
-        // If the inner width of the window is greater then 768px
-        if (window.innerWidth < 991) {
-            // Then log this message to the console
-            var x = document.getElementById("colSx");
-            x.classList.forEach(clas => {
-                x.classList.remove(clas);
-            });
-        }
-    }
-    // Add a listener for when the window resizes
-    window.addEventListener('resize', checkMediaQuery);
 </script>
 
 </html>
