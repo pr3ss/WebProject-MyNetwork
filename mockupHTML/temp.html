@@ -106,8 +106,8 @@
                                             class="fa-regular fa-user"></i></a>
                                 </li>
                                 <li class="nav-item mr-4 ml-4">
-                                    <a class="btn btn-dark btn-circle " href="notifiche.html"><i
-                                            class="fa-regular fa-envelope"></i></a>
+                                    <button class="btn btn-dark btn-circle " onclick="viewNotifiche()"><i
+                                            class="fa-regular fa-envelope"></i></button>
                                 </li>
                                 <li class="nav-item mr-4 ml-4 btn_RicCat">
                                     <button class="btn btn-dark btn-circle" onclick="viewCategoria()"><i
@@ -311,7 +311,7 @@ function test() {
     }
     function openPost() {
         //se mobile view
-        //window.location.href = "post.html";
+        //window.location.href = "post.html"; oppure mettere il caricameno dinamico nel main invece che alla colonna
 
         //se desktop view
         var jolly = document.getElementById("col-dx-jolly");
@@ -323,9 +323,21 @@ function test() {
             console.log(response);
             jolly.innerHTML = response.data;
         });
-
-
     } 
+
+    function viewNotifiche(){
+        //se mobile view
+        //window.location.href = "notifiche.html"; oppure mettere il caricameno dinamico nel main invece che alla colonna
+
+        //se desktop view
+        var jolly = document.getElementById("col-dx-jolly");
+
+
+        axios.get('./notifiche.html').then(response => {
+            console.log(response);
+            jolly.innerHTML = response.data;
+        });
+    }
     
 
    
