@@ -16,7 +16,7 @@
 
 
 <body>
-    <div id="blur" class="blur " onclick="blur()"></div>
+    <div id="blur" class="blur " onclick="test()"></div>
     <div id="categoria" class="backthing">
         <div class="container p-0">
             <div class="row">
@@ -74,9 +74,10 @@
             </div>
         </div>
     </div>
-    <!-- PILL -->
+
     <div class="container-fluid position-fixed" style="z-index:2;">
         <div class="row m-0 mt-2 bg-white rounded-pill ">
+
             <div class="col-8 col-lg-3 d-flex justify-content-center align-items-center">
                 <label class="m-0 p-0" id="labelIdentifyScreen" for="">HOME</label>
             </div>
@@ -85,12 +86,13 @@
                     <a class="btn btn-dark btn-circle " href="add_post.html"><i class="fas fa-plus"></i></a>
                 </div>
             </div>
+
             <!-- FISSO IL MENU -->
             <div class="col-2 col-lg-6 order-lg-2 d-flex justify-content-center align-items-center">
                 <nav class="bg-body-tertiary navbar-expand-lg">
                     <div class="container-fluid ">
                         <button class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse"
-                            onclick="blur()" data-bs-target="#navbarText" aria-controls="navbarText"
+                            onclick="test()" data-bs-target="#navbarText" aria-controls="navbarText"
                             aria-expanded="false" aria-label="Toggle navigation"><i
                                 class="fa-solid fa-bars"></i></button>
                         <div class="collapse navbar-collapse position-notlg-absolute" id="navbarText">
@@ -129,12 +131,12 @@
         </div>
 
     </div>
-    <!-- FEED -->
+
 
     <div class="container-fluid" style="padding-top: 60px;">
         <div class="row">
             <!--Decidere l altezza dell intera colonna se 100% si puo usare anche h-100-->
-            <div class="col-lg-3 d-lg-block d-none position-fixed  p-2 " style="height: 90%;">
+            <div class="col-lg-3 d-lg-block d-none position-fixed p-2 " style="height: 90%;">
                 <div class="row h-50" style="overflow-y: auto;">
                     <div id="categoria" class="col-12">
                         <div class="list-group p-0">
@@ -213,7 +215,7 @@
                                 </div>
                             </div>
                         </div>
-                        <img src="../img/logo.jpg" class="card-img-top p-2" alt="..." onclick="openPost()">
+                        <img src="..\img\logo.jpg" class="card-img-top p-2" alt="..." onclick="openPost()">
                         <div class="card-body" onclick="openPost()">
                             <p class="card-text">Some quick example text to build on the card title and make up the
                                 bulk of
@@ -252,7 +254,7 @@
                                 </div>
                             </div>
                         </div>
-                        <img src="../img/logo.jpg" class="card-img-top p-2" alt="..." onclick="openPost()">
+                        <img src="..\img\logo.jpg" class="card-img-top p-2" alt="..." onclick="openPost()">
                         <div class="card-body" onclick="openPost()">
                             <p class="card-text">Some quick example text to build on the card title and make up the
                                 bulk of
@@ -268,10 +270,18 @@
             </div>
         </div>
     </div>
+
+
+
+
 </body>
 
+<style>
+
+</style>
+
 <script>
-    function blur() {
+    function test() {
         var x = document.getElementById("blur");
         x.classList.toggle("blurfilter");
         if (x.classList.length == 1) {
