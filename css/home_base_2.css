@@ -25,16 +25,19 @@ body {
   .position-notmd-absolute {
     position: absolute;
   }
+
   .position-notmd-absolute li {
-    margin: 0!IMPORTANT;
-    margin-top: 15%!IMPORTANT;
+    margin: 0 !IMPORTANT;
+    margin-top: 15% !IMPORTANT;
   }
 }
+
 @media (min-width: 991px) {
   .btn_RicCat {
     display: none;
   }
 }
+
 @media (max-width: 991px) {
   .backthing {
     position: fixed;
@@ -49,6 +52,18 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
   }
+
+  .showCategoria {
+    z-index: 3;
+    display: inline;
+    /*   background-color: green; */
+  }
+
+  .showRicerca {
+    z-index: 3;
+    display: inline;
+    /*   background-color: red; */
+  }
 }
 
 #labelIdentifyScreen {
@@ -58,17 +73,7 @@ body {
 }
 
 
-.showCategoria {
-  z-index: 3;
-  display: inline;
-/*   background-color: green; */
-}
 
-.showRicerca {
-  z-index: 3;
-  display: inline;
-/*   background-color: red; */
-}
 
 .blur {
   position: fixed;
@@ -136,11 +141,12 @@ nav {
   border-radius: 50%;
 }
 
-.user{
+.user {
   font-style: italic;
   font-weight: bold;
 }
-.date{
+
+.date {
   font-weight: bold;
   font-size: small;
 }

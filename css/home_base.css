@@ -33,20 +33,7 @@ body {
   }
 }
 
-@media (max-width: 991px) {
-  .position-notlg-absolute {
-    position: absolute;
-  }
-  .position-notlg-absolute li {
-    margin: 0!IMPORTANT;
-    margin-top: 15%!IMPORTANT;
-  }
-}
-@media (min-width: 991px) {
-  .btn_RicCat {
-    display: none;
-  }
-}
+
 
 
 #labelIdentifyScreen {
@@ -88,11 +75,7 @@ body {
   width: 100%;
 }
 
-.blurfilter {
-  background-color: #343a40;
-  opacity: 75%;
-  z-index: 2;
-}
+
 
 .container-menu {
   margin-top: 4px;
@@ -158,4 +141,24 @@ nav {
 .date{
   font-weight: bold;
   font-size: small;
+}
+
+@media (max-width: 991px) {
+  .position-notlg-absolute {
+    position: absolute;
+  }
+  .position-notlg-absolute li {
+    margin: 0!IMPORTANT;
+    margin-top: 15%!IMPORTANT;
+  }
+  .blurfilter {
+    background-color: #343a40;
+    opacity: 75%;
+    z-index: 2;
+  }
+}
+@media (min-width: 991px) {
+  .btn_RicCat {
+    display: none;
+  }
 }
