@@ -9,7 +9,10 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
     <script src="https://kit.fontawesome.com/67fa264284.js" crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="..\css\home_base.css">
 </head>
 
@@ -265,23 +268,24 @@
 
                 </div>
             </div>
-            <div class="col-lg-3 offset-lg-9 d-lg-block d-none position-fixed">
-                <iframe src="./post.html" class="vh-100 w-100" title="" style="border: 0; overflow: hidden;"></iframe>
+            <div id="col-dx-jolly" class="col-lg-3 offset-lg-9 d-lg-block d-none position-fixed bg-white" style="height: 90%;">
+                    
             </div>
         </div>
     </div>
 
 
 
-
 </body>
+
+
 
 <style>
 
 </style>
 
-<script>
-    function test() {
+<script >
+function test() {
         var x = document.getElementById("blur");
         x.classList.toggle("blurfilter");
         if (x.classList.length == 1) {
@@ -306,8 +310,25 @@
         x.classList.toggle("showRicerca");
     }
     function openPost() {
-        window.location.href = "post.html";
+        //se mobile view
+        //window.location.href = "post.html";
+
+        //se desktop view
+        var jolly = document.getElementById("col-dx-jolly");
+
+        const formData = new FormData();
+        formData.append('post', "TempPost123");
+
+        axios.post('../api-post.php', formData).then(response => {
+            console.log(response);
+            jolly.innerHTML = response.data;
+        });
+
+
     } 
+    
+
+   
 </script>
 
 </html>
