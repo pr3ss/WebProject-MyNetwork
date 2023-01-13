@@ -35,7 +35,8 @@
                     <div class="container-fluid">
                         <button class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse"
                             data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
-                            aria-label="Toggle navigation" onclick="blurrare()"><i class="fa-solid fa-bars"></i></button>
+                            aria-label="Toggle navigation" onclick="blurrare()"><i
+                                class="fa-solid fa-bars"></i></button>
                         <div class="collapse navbar-collapse position-notmd-absolute" id="navbarText">
                             <!--position-absolute togli con js-->
                             <ul class="navbar-nav me-auto mb-2 mb-md-0">
@@ -75,27 +76,24 @@
     <div class="container-fluid" style="padding-top: 60px;">
         <div class="row">
             <!--Decidere l altezza dell intera colonna se 100% si puo usare anche h-100-->
-            <div id="colSx" class="col-lg-3 d-lg-block d-none position-fixed p-2 bg-dark" style="height: 90%;">
-                <div id="categoria" class="backthing">
-                    <div class="row h-50" style="overflow-y: auto;">
-                        <div class="col-12">
-                            <div class="list-group p-0">
-                                <button type="button" class="list-group-item list-group-item-action">ALL</button>
-                                <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
-                                <button type="button"
-                                    class="list-group-item list-group-item-action">Informatica</button>
-                                <button type="button" class="list-group-item list-group-item-action">DonneNude</button>
-                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                            </div>
+            <div id="colSx" class="col-lg-3 d-lg-block d-none position-fixed p-2 " style="height: 90%;">
+                <div id="categoria" class="backthing row h-50" style="overflow-y: auto;">
+                    <div class="col-12">
+                        <div class="list-group p-0">
+                            <button type="button" class="list-group-item list-group-item-action">ALL</button>
+                            <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
+                            <button type="button" class="list-group-item list-group-item-action">Informatica</button>
+                            <button type="button" class="list-group-item list-group-item-action">DonneNude</button>
+                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
                         </div>
                     </div>
                 </div>
@@ -114,12 +112,14 @@
                         <div class="col-12">
                             <div class="list-group">
                                 <button type="button" class="list-group-item list-group-item-action">SimoneLuga</button>
-                                <button type="button"
-                                    class="list-group-item list-group-item-action">Alex_presepi</button>
+                                <button type="button" class="list-group-item list-group-item-action">Alex_prese</button>
                                 <button type="button" class="list-group-item list-group-item-action">Testino</button>
                                 <button type="button" class="list-group-item list-group-item-action">Provetta</button>
                                 <button type="button" class="list-group-item list-group-item-action">Instagram</button>
                                 <button type="button" class="list-group-item list-group-item-action">ALL</button>
+                                <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
+                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
                                 <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
                             </div>
                         </div>
@@ -141,15 +141,15 @@
         var nav = document.getElementById("navbarText");
         var x = document.getElementById("blur");
         x.classList.toggle("blurfilter");
-/*         if (x.classList.length == 1) {
-            ric.classList.remove("myShow");
-            cat.classList.remove("myShow");
-            nav.classList.remove("show");
-        } */
-        if((ric.classList.contains("myShow") || cat.classList.contains("myShow")) && !nav.classList.contains("show")){
+        /*         if (x.classList.length == 1) {
+                    ric.classList.remove("myShow");
+                    cat.classList.remove("myShow");
+                    nav.classList.remove("show");
+                } */
+        if ((ric.classList.contains("myShow") || cat.classList.contains("myShow")) && !nav.classList.contains("show")) {
             x.classList.add("blurfilter");
         }
-        if((ric.classList.contains("myShow") || cat.classList.contains("myShow")) && nav.classList.contains("show")){
+        if ((ric.classList.contains("myShow") || cat.classList.contains("myShow")) && nav.classList.contains("show")) {
             x.classList.add("blurfilter");
         }
     }
