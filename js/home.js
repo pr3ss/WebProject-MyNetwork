@@ -14,19 +14,29 @@ var height = Math.max( body.scrollHeight, body.offsetHeight,
 
 console.log(height);
 
+var otherCall = false;
 window.onscroll = function(ev) {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        console.log("fine");
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !otherCall) {
+        //console.log("fine");
+        otherCall=true;
+        main.innerHTML += "<div class='row justify-content-center'> <div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span> </div> </div>";
+
         axios.post('./api-feed.php'/*, numero post*/).then(response => {
+            otherCall=false;
+            main.removeChild(main.lastChild);
             main.innerHTML += response.data;
+            
         });
+
+
+        
         var body = document.body,
             html = document.documentElement;
 
         var height = Math.max( body.scrollHeight, body.offsetHeight, 
                             html.clientHeight, html.scrollHeight, html.offsetHeight );
 
-        console.log(height);
+       // console.log(height + " - "+document.body.offsetHeight);
     }
 };
 
