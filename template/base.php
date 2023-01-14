@@ -107,11 +107,6 @@
                 </div>
             </div>
             <div id="colMain" class="col-12 col-lg-6 offset-lg-3 ">
-                <?php
-                    if(isset($templateParams["nome"])){
-                        require($templateParams["nome"]);
-                    }
-                ?>
             </div>
             <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block d-none position-fixed bg-dark" style="height: 90%;">
             </div>
