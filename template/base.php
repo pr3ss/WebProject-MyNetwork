@@ -10,7 +10,10 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/67fa264284.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="..\css\home_base_2.css">
+    <!-- Fare il for anche per i css--> 
+    <link rel="stylesheet" href="./css/home_base_2.css">
+
+
 </head>
 
 
@@ -61,7 +64,7 @@
                                             class="fa-solid fa-gear"></i></a>
                                 </li>
                                 <li class="nav-item mr-4 ml-4">
-                                    <a class="btn btn-dark btn-circle " href="..."><i
+                                    <a class="btn btn-dark btn-circle " href="logout.php"><i
                                             class="fa-solid fa-right-from-bracket"></i></a>
                                 </li>
                             </ul>
@@ -79,28 +82,15 @@
             <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-2  " style="height: 85%; ">
                 <div id="categoria" class="backthing row h-50" style="overflow-y: auto;">
                     <div class="col-12">
-                        <div class="list-group p-0">
-                            <button type="button" class="list-group-item list-group-item-action">ALL</button>
-                            <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
-                            <button type="button" class="list-group-item list-group-item-action">Informatica</button>
-                            <button type="button" class="list-group-item list-group-item-action">DonneNude</button>
-                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                            <button type="button" class="list-group-item list-group-item-action">MOTO</button>
+                        <div id="list_categorie" class="list-group p-0">
                         </div>
                     </div>
                 </div>
+
                 <div id="ricerca" class="backthing h-50" >
                     <div class="row mt-3 mb-1  " style="z-index: 2;">
                         <div class="col-9 ">
-                            <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+                            <input  id="input_search_user" class="form-control " type="search" placeholder="Search" aria-label="Search" oninput="ricerca_user('desktop')">
                         </div>
                         <div class="col-3 p-0">
                             <button type="button" class="btn btn-dark" >
@@ -110,68 +100,32 @@
                     </div>
                     <div class="row  h-100 " style="overflow-y: scroll;">
                         <div class="col-12">
-                            <div class="list-group">
-                                <button type="button" class="list-group-item list-group-item-action">SimoneLuga</button>
-                                <button type="button" class="list-group-item list-group-item-action">Alex_prese</button>
-                                <button type="button" class="list-group-item list-group-item-action">Testino</button>
-                                <button type="button" class="list-group-item list-group-item-action">Provetta</button>
-                                <button type="button" class="list-group-item list-group-item-action">Instagram</button>
-                                <button type="button" class="list-group-item list-group-item-action">ALL</button>
-                                <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
-                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                                <button type="button" class="list-group-item list-group-item-action">MOTO</button>
-                                <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
+                            <div id="list_searched_users" class="list-group">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-6 offset-lg-3 ">
+            <div id="colMain" class="col-12 col-lg-6 offset-lg-3 ">
+                
             </div>
-            <div class="col-lg-3 offset-lg-9 d-lg-block d-none position-fixed bg-dark" style="height: 90%;">
+            <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block d-none position-fixed bg-dark" style="height: 90%;">
             </div>
         </div>
     </div>
+
+    <?php
+    if(isset($templateParams["js"])):
+        foreach($templateParams["js"] as $script):
+    ?>
+        <script src="<?php echo $script; ?>"></script>
+    <?php
+        endforeach;
+    endif;
+    ?>
+
 </body>
 
-<script>
-    function blurrare() {
-        var ric = document.getElementById("ricerca");
-        var cat = document.getElementById("categoria");
-        var nav = document.getElementById("navbarText");
-        var x = document.getElementById("blur");
-        x.classList.toggle("blurfilter");
-        /*         if (x.classList.length == 1) {
-                    ric.classList.remove("myShow");
-                    cat.classList.remove("myShow");
-                    nav.classList.remove("show");
-                } */
-        if ((ric.classList.contains("myShow") || cat.classList.contains("myShow")) && !nav.classList.contains("show")) {
-            x.classList.add("blurfilter");
-        }
-        if ((ric.classList.contains("myShow") || cat.classList.contains("myShow")) && nav.classList.contains("show")) {
-            x.classList.add("blurfilter");
-        }
-    }
-    function viewCategoria() {
-        var x = document.getElementById("colSx");
-        var x = document.getElementById("ricerca");
-        x.classList.remove("myShow");
-        var x = document.getElementById("categoria");
-        x.classList.toggle("myShow");
-        blurrare();
-    }
-    function viewRicerca() {
-        var x = document.getElementById("colSx");
 
-        var x = document.getElementById("categoria");
-        x.classList.remove("myShow");
-        var x = document.getElementById("ricerca");
-        x.classList.toggle("myShow");
-    }
-    function openPost() {
-        window.location.href = "post.html";
-    }
-</script>
 
 </html>
