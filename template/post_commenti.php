@@ -4,7 +4,7 @@
                     <div class="row align-items-center barra">
                         <div class="col-3">
                             <div class="row justify-content-center">
-                                <img src="../img/logo.jpg" alt="Avatar" class="avatar">
+                                <img src="./img/logo.jpg" alt="Avatar" class="avatar">
                             </div>
                         </div>
                         <div class="col-5">
@@ -22,7 +22,7 @@
                             </div>
                         </div>
                     </div>
-                    <img src="..\img\logo.jpg" class=" card-img-top p-2" alt="...">
+                    <img src=".\img\logo.jpg" class=" card-img-top p-2" alt="...">
                     <div class="row justify-content-center align-items-center">
                         <div class="col-3 date">
                             22/12/22
@@ -40,7 +40,7 @@
                     <div class="row align-items-center barra">
                         <div class="col-2">
                             <div class="row justify-content-center">
-                                <img src="../img/logo.jpg" alt="Avatar" class="avatar">
+                                <img src="./img/logo.jpg" alt="Avatar" class="avatar">
                             </div>
                         </div>
                         <div class="col-8">

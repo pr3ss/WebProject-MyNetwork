@@ -6,8 +6,8 @@ $templateParams["title"] = "Home";
 
 if($dbh->login_check()){
     $templateParams["username"] = $_SESSION["username"];
-    $templateParams['js'] = array("https://unpkg.com/axios/dist/axios.min.js", "js/base.js");
-    //$templateParams['posts'] = db call;
+    $templateParams['js'] = array("https://unpkg.com/axios/dist/axios.min.js", "js/base.js", "js/home.js");
+    //$templateParams['posts']=array(array("user"=>"Simone"),array("user"=>"Alex")) ; //db call
     
 
     require 'template/base.php';

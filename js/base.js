@@ -32,7 +32,7 @@ function viewRicerca() {
     var x = document.getElementById("ricerca");
     x.classList.toggle("myShow");
 }
-function openPost() {
+function openPost(user) {
     //se mobile view
         //window.location.href = "post.html"; oppure mettere il caricameno dinamico nel main invece che alla colonna
 
@@ -40,7 +40,7 @@ function openPost() {
         var jolly = document.getElementById("colDx");
 
         const formData = new FormData();
-        formData.append('post', "TempPost123");
+        formData.append('post', user);
 
         axios.post('./api-post.php', formData).then(response => {
             console.log(response);
