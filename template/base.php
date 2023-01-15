@@ -10,7 +10,7 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/67fa264284.js" crossorigin="anonymous"></script>
-    <!-- Fare il for anche per i css--> 
+    <!-- Fare il for anche per i css-->
     <link rel="stylesheet" href="./css/home_base.css">
 
 
@@ -44,8 +44,7 @@
                             <!--position-absolute togli con js-->
                             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                                 <li class="nav-item mr-4 ml-4">
-                                    <a class="btn btn-dark btn-circle " href="..."><i
-                                            class="fa-solid fa-house"></i></a>
+                                    <a class="btn btn-dark btn-circle " href="..."><i class="fa-solid fa-house"></i></a>
                                 </li>
                                 <li class="nav-item mr-4 ml-4">
                                     <a class="btn btn-dark btn-circle " href="profilo.html"><i
@@ -82,24 +81,13 @@
     <!-- FEED -->
     <div class="container-fluid" style="padding-top: 60px;">
         <div class="row">
-            <!--Decidere l altezza dell intera colonna se 100% si puo usare anche h-100-->
-            <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-2  " style="height: 85%; ">
-                <div id="categoria" class="backthing row h-50" style="overflow-y: auto;">
-                    <div class="col-12">
-                        <div id="list_categorie" class="list-group p-0">
-                        </div>
-                    </div>
-                </div>
-
-                <div id="ricerca" class="backthing h-50" >
+            <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-2  " style="height: 90%; ">
+                <div id="ricerca" class="backthing h-50">
                     <div class="row mt-3 mb-1  " style="z-index: 2;">
-                        <div class="col-9 ">
-                            <input  id="input_search_user" class="form-control " type="search" placeholder="Search" aria-label="Search" oninput="ricerca_user('desktop')">
-                        </div>
-                        <div class="col-3 p-0">
-                            <button type="button" class="btn btn-dark" >
-                                <i class="fas fa-search"></i>
-                            </button>
+                        <div class="col-12 d-flex flex-row align-items-center">
+                            <i class="fa-solid fa-magnifying-glass pr-2 pl-2"></i>
+                            <input id="input_search_user" class="form-control " type="search" placeholder="Search"
+                                aria-label="Search" oninput="ricerca_user('desktop')">
                         </div>
                     </div>
                     <div class="row  h-100 " style="overflow-y: scroll;">
@@ -109,8 +97,14 @@
                         </div>
                     </div>
                 </div>
+                <div id="categoria" class="backthing row h-50" style="overflow-y: auto;">
+                    <div class="col-12">
+                        <div id="list_categorie" class="list-group p-0">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="colMain" class="col-12 col-lg-6 offset-lg-3 ">
+            <div id="colMain" class="col-12 col-lg-6 offset-lg-3 d-flex flex-column align-items-center" style="z-index: -1 !important;">
             </div>
             <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block d-none position-fixed bg-dark" style="height: 90%;">
             </div>
@@ -118,11 +112,11 @@
     </div>
 
     <?php
-    if(isset($templateParams["js"])):
-        foreach($templateParams["js"] as $script):
-    ?>
-        <script src="<?php echo $script; ?>"></script>
-    <?php
+    if (isset($templateParams["js"])):
+        foreach ($templateParams["js"] as $script):
+            ?>
+            <script src="<?php echo $script; ?>"></script>
+        <?php
         endforeach;
     endif;
     ?>

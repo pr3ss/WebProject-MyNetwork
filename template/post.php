@@ -1,5 +1,5 @@
 <?php foreach($templateParams["posts"] as $post): ?>
-<div class="container bg-white m-1 " style="border-radius:10px ;">
+<div class="container bg-white m-1 " style="border-radius:10px;">
     <div class="row d-flex justify-content-center">
         <div class="col-3 d-flex flex-column justify-content-center align-items-center ">
             <img src="./img/logo.jpg" alt="Avatar" class="avatar">
@@ -9,7 +9,7 @@
                 <p class="m-0 user"><?php echo $post["user"] ?></p>
             </div>
             <div class="row">
-                <p class="m-0 date">22/12/22</p>
+                <p class="m-0 date"><?php echo $post["data"] ?></p>
             </div>
             <div class="row">
                 <p class="m-0" style="font-size: small;">Luogo:cesena</p>
