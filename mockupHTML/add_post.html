@@ -14,86 +14,17 @@
 </head>
 
 <body>
-    <div class="container-fluid container-menu ">
-        <div class="container-menu-style">
-            <div class="row">
-                <div class="col-10 barra">
-                    <label id="labelIdentifyScreen" for="">POST</label>
-                </div>
-                <!-- FISSO IL MENU -->
-                <div class="col-2 barra">
-                    <div class="col-2 barra">
-                        <div class="row  barra align-items-center " style=" height: 100%;">
-                            <nav class="bg-body-tertiary navbar-expand-lg">
-                                <div class="container-fluid">
-                                    <button class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse"
-                                        onclick="test()" data-bs-target="#navbarText" aria-controls="navbarText"
-                                        aria-expanded="false" aria-label="Toggle navigation"><i
-                                            class="fa-solid fa-bars"></i></button>
-                                    <div class="collapse navbar-collapse" id="navbarText">
-                                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                                            <li class="nav-item">
-                                                <a class="btn btn-dark btn-circle " href="profilo.html"><i
-                                                        class="fa-regular fa-user"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="btn btn-dark btn-circle " href="temp.html"><i
-                                                        class="fa-solid fa-house"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="btn btn-dark btn-circle " href="notifiche.html"><i
-                                                        class="fa-regular fa-envelope"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="btn btn-dark btn-circle " href="impostazioni.html"><i
-                                                        class="fa-solid fa-gear"></i></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <button class="btn btn-dark btn-circle "><i
-                                                        class="fa-solid fa-right-from-bracket"></i></button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center bg-white m-2" style="border-radius: 10px;">
+            <a class="btn" style="font-size: 300%;"><i class="fa-solid fa-circle-plus"></i></a>
         </div>
-    </div>
-    <div class="container-fluid" style="text-align: center;">
-        <div class="row" id="homefeed" style="justify-content: center;">
-            <div class="container-fluid p-2 pmd-10">
-
-                <div class="card m-1">
-                    <div class="container-fluid justify-content-center align-items-center" style="display:flex;">
-                        <a class="btn" style="font-size: 300%;"><i class="fa-solid fa-circle-plus"></i></a>
-                    </div>
-
-                    <!--<img src="img\logo.jpg" class=" card-img-top p-2" alt="...">-->
-
-
-                </div>
-                <div class="container-fluid">
-                    <div class="row align-items-center">
-                        <div class="container mt-3 ml-5 mr-5">
-                            <input type="text" id="addANote" class="form-control" placeholder="Add text" />
-                        </div>
-                    </div>
-                    <div class="row align-items-center">
-                        <div class="container mt-1 ml-5 mr-5">
-                            <input type="text" id="addANote" class="form-control" placeholder="Luogo" />
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid  ">
-                    <div class="row mt-3 justify-content-center">
-                        <div class="btn btn-primary">Salva</div>
-                    </div>
-                </div>
-
-            </div>
+        <div class="row justify-content-center mr-5 ml-5 mt-1">
+            <input type="text" id="addANote" class="form-control" placeholder="Add text" />
+            <input type="text" id="addANote" class="form-control" placeholder="Luogo" />
+        </div>
+        <div class="row justify-content-center mt-4 w-100">
+            <div class="btn btn-primary w-50">Salva</div>
         </div>
     </div>
 </body>

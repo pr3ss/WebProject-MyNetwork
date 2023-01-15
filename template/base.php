@@ -25,7 +25,7 @@
             </div>
             <div class="col-2 col-md-3 order-md-last d-flex justify-content-center align-items-center">
                 <div>
-                    <a class="btn btn-dark btn-circle " href="add_post.html"><i class="fas fa-plus"></i></a>
+                    <button class="btn btn-dark btn-circle " onclick="addPost()"><i class="fas fa-plus"></i></button>
                 </div>
             </div>
             <!-- NAV -->
@@ -46,8 +46,8 @@
                                             class="fa-regular fa-user"></i></a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a class="btn btn-dark btn-circle " href="notifiche.html"><i
-                                            class="fa-regular fa-envelope"></i></a>
+                                    <button class="btn btn-dark btn-circle " onclick="viewNotifiche()"><i
+                                            class="fa-regular fa-envelope"></i></button>
                                 </li>
                                 <li class="nav-item  btn_RicCat">
                                     <button class="btn btn-dark btn-circle" onclick="viewCategoria()"><i
