@@ -103,6 +103,9 @@ nav {
     margin: 0 !IMPORTANT;
     margin-top: 15% !IMPORTANT;
   }
+  #nav {
+    align-items: center;
+  }
 }
 
 @media (min-width: 991px) {
