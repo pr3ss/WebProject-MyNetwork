@@ -30,21 +30,6 @@ function viewRicerca() {
         blr.classList.remove("blurfilter");
     }
 }
-function openPost(user) {
-    //se mobile view
-    //window.location.href = "post.html"; oppure mettere il caricameno dinamico nel main invece che alla colonna
-
-    //se desktop view
-    var jolly = document.getElementById("colDx");
-
-    const formData = new FormData();
-    formData.append('post', user);
-
-    axios.post('./api-post.php', formData).then(response => {
-        console.log(response);
-        jolly.innerHTML = response.data;
-    });
-}
 
 function viewNotifiche() {
     //se mobile view

@@ -107,7 +107,7 @@
                 </div>
             </div>
             <div id="colMain" class="col-12 col-lg-6 offset-lg-3 d-flex flex-column align-items-center"
-                style="z-index: -1 !important; padding-top: 60px;">
+                style="padding-top: 60px;">
             </div>
             <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block d-none position-fixed bg-dark"
                 style="height: 90%; padding-top: 60px;">

@@ -1,3 +1,21 @@
+function openPost(post_id) {
+    //se mobile view
+    //window.location.href = "post.html"; oppure mettere il caricameno dinamico nel main invece che alla colonna
+
+    //se desktop view
+    var jolly = document.getElementById("colDx");
+
+    const formData = new FormData();
+    formData.append('post_id', post_id);
+
+    axios.post('./api-post.php', formData).then(response => {
+        console.log(response.data);
+        jolly.innerHTML = response.data;
+    });
+}
+
+
+
 const main = document.getElementById("colMain");
 
 //form data
@@ -39,6 +57,8 @@ window.onscroll = function(ev) {
        // console.log(height + " - "+document.body.offsetHeight);
     }
 };
+
+
 
 /*Al inizio passare come parametro quanti caricarne poi ogni volta che arrivi a fine pagina
 ne carichi altri tot capire come chidere al db solo quelli dopo a quelli gia caricati ovviamente se nel frattempo

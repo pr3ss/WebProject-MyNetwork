@@ -5,7 +5,7 @@ class DatabaseHelper{
    public function __construct($servername, $username, $password, $dbname, $port){
       $this->db = new mysqli($servername, $username, $password, $dbname, $port);
       if ($this->db->connect_error) {
-         die("Connection failed: " . $db->connect_error);
+         die("Connection failed: " . $this->db->connect_error);
       }        
    }
   
@@ -146,8 +146,56 @@ class DatabaseHelper{
          $stmt->execute();
          $result = $stmt->get_result();
 
-        return $result->fetch_all(MYSQLI_ASSOC);
+         return $result->fetch_all(MYSQLI_ASSOC);
       }
    }
+
+   //load posts for user
+   public function load_posts_for($user_id){
+      if ($stmt = $this->db->prepare("SELECT post.id, username, foto_profilo, data_ora, testo, img, luogo, id_categoria
+                                       from post join user where post.id_user_create=user.id
+                                       and user.id in (SELECT follow.user_follow
+                                                      FROM follow join user where follow.user_id = ?)"
+                                    )) 
+      { 
+         $stmt->bind_param('i', $user_id); 
+         $stmt->execute();
+         $result = $stmt->get_result();
+
+         return $result->fetch_all(MYSQLI_ASSOC);
+      }
+   }
+
+   //load info post
+   public function load_post($post_id){
+      if ($stmt = $this->db->prepare("SELECT post.id, username, foto_profilo, data_ora, testo, img, luogo, id_categoria
+                                       from post join user where post.id_user_create=user.id
+                                       and post.id = ? "
+      )) 
+      { 
+      $stmt->bind_param('i', $post_id); 
+      $stmt->execute();
+      $result = $stmt->get_result();
+
+      return $result->fetch_all(MYSQLI_ASSOC);
+      }
+   }  
+
+   //load commenti post
+   public function load_commenti_for($post_id){
+      if ($stmt = $this->db->prepare("SELECT user_id, username, post_id, data_ora, testo, foto_profilo 
+                                       from commento join user where user_id=user.id
+                                       and post_id = ?"
+      )) 
+      { 
+      $stmt->bind_param('i', $post_id); 
+      $stmt->execute();
+      $result = $stmt->get_result();
+
+      return $result->fetch_all(MYSQLI_ASSOC);
+      }
+   }
+
+
 }
 ?>
