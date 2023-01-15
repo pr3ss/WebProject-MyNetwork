@@ -1,15 +1,21 @@
 function openPost(post_id) {
+    var type = window.matchMedia("(min-width: 700px)")
     //se mobile view
-    //window.location.href = "post.html"; oppure mettere il caricameno dinamico nel main invece che alla colonna
+    if(type.matches){
+        var jolly = document.getElementById("colDx");
+    }else{
+        var jolly = document.getElementById("colMain");
+    }
 
     //se desktop view
-    var jolly = document.getElementById("colDx");
+
+    //var jolly = document.getElementById("colDx");
 
     const formData = new FormData();
     formData.append('post_id', post_id);
 
     axios.post('./api-post.php', formData).then(response => {
-        console.log(response.data);
+        //console.log(response.data);
         jolly.innerHTML = response.data;
     });
 }
