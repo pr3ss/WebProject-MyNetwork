@@ -39,7 +39,7 @@
                         <div class="collapse navbar-collapse position-notmd-absolute justify-content-center" id="navbarText">
                             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                                 <li class="nav-item ">
-                                    <a class="btn btn-dark btn-circle " href="..."><i class="fa-solid fa-house"></i></a>
+                                    <a class="btn btn-dark btn-circle " href="home.php"><i class="fa-solid fa-house"></i></a>
                                 </li>
                                 <li class="nav-item ">
                                     <a class="btn btn-dark btn-circle " href="profilo.html"><i

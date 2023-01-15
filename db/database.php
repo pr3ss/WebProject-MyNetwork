@@ -152,11 +152,16 @@ class DatabaseHelper{
 
    //load posts for user
    public function load_posts_for($user_id){
-      if ($stmt = $this->db->prepare("SELECT post.id, username, foto_profilo, data_ora, testo, img, luogo, id_categoria
-                                       from post join user where post.id_user_create=user.id
-                                       and user.id in (SELECT follow.user_follow
-                                                      FROM follow join user where follow.user_id = ?)"
-                                    )) 
+      if ($stmt = $this->db->prepare("select posts.*, count(c.post_id) as nCommenti 
+      from (SELECT p.id, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
+      from post  as p
+      left join miPiace as l on p.id = l.post_id
+      join user as u on p.id_user_create=u.id
+      and u.id in (SELECT follow.user_follow FROM follow join user where follow.user_id = ?)
+      group by p.id) as posts
+      left join commento as c
+      on posts.id = c.post_id
+      group by posts.id;")) 
       { 
          $stmt->bind_param('i', $user_id); 
          $stmt->execute();
@@ -168,9 +173,13 @@ class DatabaseHelper{
 
    //load info post
    public function load_post($post_id){
-      if ($stmt = $this->db->prepare("SELECT post.id, username, foto_profilo, data_ora, testo, img, luogo, id_categoria
-                                       from post join user where post.id_user_create=user.id
-                                       and post.id = ? "
+      if ($stmt = $this->db->prepare("SELECT post.id, username, foto_profilo, data_ora, testo, img, luogo, id_categoria, count(mp.post_id) as miPiace
+      from miPiace as mp right join post
+      on mp.post_id = post.id, user
+      where post.id_user_create=user.id
+      and post.id = ?
+      group by post.id
+      "
       )) 
       { 
       $stmt->bind_param('i', $post_id); 

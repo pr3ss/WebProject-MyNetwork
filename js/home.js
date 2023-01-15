@@ -1,5 +1,5 @@
 function openPost(post_id) {
-    var type = window.matchMedia("(min-width: 700px)")
+    var type = window.matchMedia("(min-width: 991px)")
     //se mobile view
     if(type.matches){
         var jolly = document.getElementById("colDx");

@@ -18,18 +18,18 @@
         <div class="col-2 d-flex flex-column justify-content-center">
             <div class="row justify-content-center">
                 <button type="button" class="btn btnshadow"><i class="fa-solid fa-heart">
-                        919</i></button>
+                <?php echo $post["miPiace"] ?></i></button>
             </div>
         </div>
         <div class="col-2 d-flex flex-column justify-content-center">
             <div class="row justify-content-center">
                 <button type="button" class="btn btnshadow" onclick="openPost('<?php echo $post['id'] ?>')"><i class="fa-solid fa-comment">
-                        100</i></button>
+                <?php echo $post["nCommenti"] ?></i></button>
             </div>
         </div>
     </div>
-    <img src=".\img\<?php echo $post["img"] ?>" class="card-img-top p-2" alt="..." onclick="openPost()">
-    <div class="card-body" onclick="openPost()">
+    <img src=".\img\<?php echo $post["img"] ?>" class="card-img-top p-2" alt="...">
+    <div class="card-body"onclick="openPost('<?php echo $post['id'] ?>')">
         <p class="card-text"><?php echo $post["testo"];?></p>
     </div>
 </div>

@@ -18,7 +18,7 @@
                 <div class="col-4 d-flex flex-column justify-content-center">
                     <div class="row justify-content-center">
                         <button type="button" class="btn btnshadow"><i class="fa-solid fa-heart">
-                                919</i></button>
+                        <?php echo $templateParams["post"][0]["miPiace"];?></i></button>
                     </div>
                 </div>
                 
