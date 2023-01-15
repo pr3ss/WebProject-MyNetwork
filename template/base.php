@@ -19,9 +19,9 @@
 
 
 <body>
-    <div id="blur" class="blur" onclick="blurrare()"></div>
+
     <!-- PILL -->
-    <div class="container-fluid position-fixed" style="z-index:2;">
+    <div class="container-fluid position-fixed" style="z-index:3;">
         <div class="row m-0 mt-2 bg-white rounded-pill ">
             <!-- DESCRIZIONE -->
             <div class="col-8 col-md-3 d-flex justify-content-center align-items-center">
@@ -41,7 +41,6 @@
                             aria-label="Toggle navigation" onclick="blurrare()"><i
                                 class="fa-solid fa-bars"></i></button>
                         <div class="collapse navbar-collapse position-notmd-absolute" id="navbarText">
-                            <!--position-absolute togli con js-->
                             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                                 <li class="nav-item mr-4 ml-4">
                                     <a class="btn btn-dark btn-circle " href="..."><i class="fa-solid fa-house"></i></a>
@@ -67,7 +66,7 @@
                                             class="fa-solid fa-gear"></i></a>
                                 </li>
                                 <li class="nav-item mr-4 ml-4">
-                                    <a class="btn btn-dark btn-circle " href="..."><i
+                                    <a class="btn btn-dark btn-circle " href="logout.php"><i
                                             class="fa-solid fa-right-from-bracket"></i></a>
                                 </li>
                             </ul>
@@ -79,9 +78,9 @@
     </div>
 
     <!-- FEED -->
-    <div class="container-fluid" style="padding-top: 60px;">
+    <div class="container-fluid">
         <div class="row">
-            <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-2  " style="height: 90%; ">
+            <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-2" style="height: 90%; padding-top: 60px;">
                 <div id="ricerca" class="backthing h-50">
                     <div class="row mt-3 mb-1  " style="z-index: 2;">
                         <div class="col-12 d-flex flex-row align-items-center">
@@ -100,16 +99,22 @@
                 <div id="categoria" class="backthing row h-50" style="overflow-y: auto;">
                     <div class="col-12">
                         <div id="list_categorie" class="list-group p-0">
+                            <button type="button" class="list-group-item list-group-item-action">ALL</button>
+                            <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
+                            <button type="button" class="list-group-item list-group-item-action">Informatica</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="colMain" class="col-12 col-lg-6 offset-lg-3 d-flex flex-column align-items-center" style="z-index: -1 !important;">
+            <div id="colMain" class="col-12 col-lg-6 offset-lg-3 d-flex flex-column align-items-center"
+                style="z-index: -1 !important; padding-top: 60px;">
             </div>
-            <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block d-none position-fixed bg-dark" style="height: 90%;">
+            <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block d-none position-fixed bg-dark"
+                style="height: 90%; padding-top: 60px;">
             </div>
         </div>
     </div>
+    <div id="blur" class="blur" onclick="blurrare()"></div>
 
     <?php
     if (isset($templateParams["js"])):

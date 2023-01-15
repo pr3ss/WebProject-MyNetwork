@@ -128,10 +128,10 @@ nav {
   .blurfilter {
     background-color: #343a40;
     opacity: 75%;
-    z-index: 2;
+    z-index: 1 !important;
   }  
   .myShow {
-    z-index: 3 !IMPORTANT;
+    z-index: 3 !important;
     display: inline;
   }
 }
