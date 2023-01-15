@@ -4,12 +4,14 @@ var cat = document.getElementById("categoria");
 var ric = document.getElementById("ricerca");
 function blurrare() {
     blr.classList.toggle("blurfilter");
+    document.getElementById("colSx").style.zIndex="2";
     if(blr.classList.contains("blurfilter")){
         nav.classList.add("show");
     } else {
         nav.classList.remove("show");
         cat.classList.remove("myShow");
         ric.classList.remove("myShow");
+        document.getElementById("colSx").style.zIndex="0";
     }
 }
 function viewCategoria() {
@@ -17,8 +19,10 @@ function viewCategoria() {
     cat.classList.toggle("myShow");
     if (cat.classList.contains("myShow") || nav.classList.contains("show")) {
         blr.classList.add("blurfilter");
+        document.getElementById("colSx").style.zIndex="2";
     } else {
         blr.classList.remove("blurfilter");
+        document.getElementById("colSx").style.zIndex="0";
     }
 }
 function viewRicerca() {
@@ -26,8 +30,10 @@ function viewRicerca() {
     ric.classList.toggle("myShow");
     if (ric.classList.contains("myShow") || nav.classList.contains("show")) {
         blr.classList.add("blurfilter");
+        document.getElementById("colSx").style.zIndex="2";
     } else {
         blr.classList.remove("blurfilter");
+        document.getElementById("colSx").style.zIndex="0";
     }
 }
 

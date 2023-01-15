@@ -95,6 +95,11 @@ nav {
   font-size: small;
 }
 
+ul > li {
+  margin-left:2.5%;
+  margin-right:2.5%;
+}
+
 @media (max-width: 767px) {
   .position-notmd-absolute {
     position: absolute;
@@ -137,4 +142,5 @@ nav {
     z-index: 3 !important;
     display: inline;
   }
+  
 }

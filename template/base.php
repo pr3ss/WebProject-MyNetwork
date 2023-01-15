@@ -38,30 +38,30 @@
                                 class="fa-solid fa-bars"></i></button>
                         <div class="collapse navbar-collapse position-notmd-absolute justify-content-center" id="navbarText">
                             <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                                <li class="nav-item mr-4 ml-4">
+                                <li class="nav-item ">
                                     <a class="btn btn-dark btn-circle " href="..."><i class="fa-solid fa-house"></i></a>
                                 </li>
-                                <li class="nav-item mr-4 ml-4">
+                                <li class="nav-item ">
                                     <a class="btn btn-dark btn-circle " href="profilo.html"><i
                                             class="fa-regular fa-user"></i></a>
                                 </li>
-                                <li class="nav-item mr-4 ml-4">
+                                <li class="nav-item ">
                                     <a class="btn btn-dark btn-circle " href="notifiche.html"><i
                                             class="fa-regular fa-envelope"></i></a>
                                 </li>
-                                <li class="nav-item mr-4 ml-4 btn_RicCat">
+                                <li class="nav-item  btn_RicCat">
                                     <button class="btn btn-dark btn-circle" onclick="viewCategoria()"><i
                                             class="fa-solid fa-layer-group"></i></button>
                                 </li>
-                                <li class="nav-item mr-4 ml-4 btn_RicCat">
+                                <li class="nav-item  btn_RicCat">
                                     <button class="btn btn-dark btn-circle " onclick="viewRicerca()"><i class="
                                                 fa-solid fa-magnifying-glass"></i></button>
                                 </li>
-                                <li class="nav-item mr-4 ml-4 ">
+                                <li class="nav-item  ">
                                     <a class="btn btn-dark btn-circle " href="impostazioni.html"><i
                                             class="fa-solid fa-gear"></i></a>
                                 </li>
-                                <li class="nav-item mr-4 ml-4">
+                                <li class="nav-item ">
                                     <a class="btn btn-dark btn-circle " href="logout.php"><i
                                             class="fa-solid fa-right-from-bracket"></i></a>
                                 </li>
@@ -76,7 +76,7 @@
     <!-- FEED -->
     <div class="container-fluid" style="z-index:3;">
         <div class="row" style="padding-top: 60px;">
-            <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-2" style="height: 90%; ">
+            <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-2" style="height: 90%;">
                 <div id="ricerca" class="backthing h-50">
                     <div class="row mt-3 mb-1  " style="z-index: 2;">
                         <div class="col-12 d-flex flex-row align-items-center">
