@@ -1,32 +1,13 @@
 function blurrare() {
-    var ric = document.getElementById("ricerca");
-    var cat = document.getElementById("categoria");
-    var nav = document.getElementById("navbarText");
-    var x = document.getElementById("blur");
-    x.classList.toggle("blurfilter");
-    /*         if (x.classList.length == 1) {
-                ric.classList.remove("myShow");
-                cat.classList.remove("myShow");
-                nav.classList.remove("show");
-            } */
-    if ((ric.classList.contains("myShow") || cat.classList.contains("myShow")) && !nav.classList.contains("show")) {
-        x.classList.add("blurfilter");
-    }
-    if ((ric.classList.contains("myShow") || cat.classList.contains("myShow")) && nav.classList.contains("show")) {
-        x.classList.add("blurfilter");
-    }
 }
 function viewCategoria() {
-    var x = document.getElementById("colSx");
     var x = document.getElementById("ricerca");
     x.classList.remove("myShow");
     var x = document.getElementById("categoria");
     x.classList.toggle("myShow");
-    blurrare();
+    
 }
 function viewRicerca() {
-    var x = document.getElementById("colSx");
-
     var x = document.getElementById("categoria");
     x.classList.remove("myShow");
     var x = document.getElementById("ricerca");

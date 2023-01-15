@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/67fa264284.js" crossorigin="anonymous"></script>
     <!-- Fare il for anche per i css--> 
-    <link rel="stylesheet" href="./css/home_base_2.css">
+    <link rel="stylesheet" href="./css/home_base.css">
 
 
 </head>
@@ -44,6 +44,10 @@
                             <!--position-absolute togli con js-->
                             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                                 <li class="nav-item mr-4 ml-4">
+                                    <a class="btn btn-dark btn-circle " href="..."><i
+                                            class="fa-solid fa-house"></i></a>
+                                </li>
+                                <li class="nav-item mr-4 ml-4">
                                     <a class="btn btn-dark btn-circle " href="profilo.html"><i
                                             class="fa-regular fa-user"></i></a>
                                 </li>
@@ -64,7 +68,7 @@
                                             class="fa-solid fa-gear"></i></a>
                                 </li>
                                 <li class="nav-item mr-4 ml-4">
-                                    <a class="btn btn-dark btn-circle " href="logout.php"><i
+                                    <a class="btn btn-dark btn-circle " href="..."><i
                                             class="fa-solid fa-right-from-bracket"></i></a>
                                 </li>
                             </ul>

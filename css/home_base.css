@@ -21,51 +21,10 @@ body {
   background-color: rgb(233, 233, 233);
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-::-webkit-scrollbar {
-  
-}
-
-
-@media (max-width: 991px) {
-  .test {
-    display: none;
-  }
-}
-
-
-
-
 #labelIdentifyScreen {
   font-size: xx-large;
   font-style: italic;
   font-weight: bold;
-}
-
-.backthing {
-  position: fixed;
-  height: 60%;
-  width: 65%;
-  padding: 10px 5px;
-  border-radius: 15px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  overflow-y: auto;
-  overflow-x: hidden;
-  display: none;
-}
-.showCategoria {
-  z-index: 3;
-  display: inline;
-/*   background-color: green; */
-}
-
-.showRicerca {
-  z-index: 3;
-  display: inline;
-/*   background-color: red; */
 }
 
 .blur {
@@ -74,8 +33,6 @@ body {
   height: 100vh;
   width: 100%;
 }
-
-
 
 .container-menu {
   margin-top: 4px;
@@ -104,10 +61,6 @@ li {
   margin: 5px 0px -2px;
 }
 
-#homefeed {
-  /* padding-top: 60px; */
-}
-
 .navbar-toggler {
   border: 1px solid;
   padding: 0.375rem 0.75rem;
@@ -127,38 +80,58 @@ nav {
 }
 
 .avatar {
-  /*margin-bottom: 2px;*/
-  /*vertical-align: middle;*/
   width: 50px;
   height: 50px;
   border-radius: 50%;
 }
 
-.user{
+.user {
   font-style: italic;
   font-weight: bold;
 }
-.date{
+
+.date {
   font-weight: bold;
   font-size: small;
 }
 
-@media (max-width: 991px) {
-  .position-notlg-absolute {
+@media (max-width: 767px) {
+  .position-notmd-absolute {
     position: absolute;
   }
-  .position-notlg-absolute li {
-    margin: 0!IMPORTANT;
-    margin-top: 15%!IMPORTANT;
+  .position-notmd-absolute li {
+    margin: 0 !IMPORTANT;
+    margin-top: 15% !IMPORTANT;
+  }
+}
+
+@media (min-width: 991px) {
+  .btn_RicCat {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .backthing {
+    position: fixed;
+    height: 60%;
+    width: 65%;
+    padding: 10px 5px;
+    border-radius: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
   .blurfilter {
     background-color: #343a40;
     opacity: 75%;
     z-index: 2;
-  }
-}
-@media (min-width: 991px) {
-  .btn_RicCat {
-    display: none;
+  }  
+  .myShow {
+    z-index: 3 !IMPORTANT;
+    display: inline;
   }
 }
