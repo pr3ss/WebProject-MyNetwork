@@ -11,7 +11,7 @@ function blurrare() {
         nav.classList.remove("show");
         cat.classList.remove("myShow");
         ric.classList.remove("myShow");
-        document.getElementById("colSx").style.zIndex = "0";
+       document.getElementById("colSx").style.zIndex = "0";
     }
 }
 function viewCategoria() {
@@ -83,7 +83,6 @@ function fill_list_user(list_users) {
 }
 
 function addPost() {
-
     axios.post('./api-add_post.php').then(response => {
         //console.log(response.data);
         main.innerHTML = response.data;
@@ -99,7 +98,7 @@ function add_image() {
 
         // getting a hold of the file reference
         file = e.target.files[0];
-        document.getElementById("tmp_img").innerHTML="<div class='container-fluid'><img class='card-img-top p-2' id='myImg' src='"+URL.createObjectURL(new Blob([file]))+"'></div>";
+        document.getElementById("tmp_img").innerHTML = "<div class='container-fluid'><img class='card-img-top p-2' id='myImg' src='" + URL.createObjectURL(new Blob([file])) + "'></div>";
         /*var formData = new FormData();
         formData.append("file", file);
 
@@ -115,25 +114,33 @@ function add_image() {
     input.click();
 }
 
-function upload_post(){
+function upload_post() {
     let testo = document.getElementById("tmp_post_text");
     let luogo = document.getElementById("tmp_post_luogo");
-    if(file){
+    if (file) {
         var formData = new FormData();
         formData.append("file", file);
         formData.append("testo", testo);
         formData.append("luogo", luogo);
 
-        axios.post("./api-add_post.php",formData
-        ).then(response=>{
+        axios.post("./api-add_post.php", formData
+        ).then(response => {
             console.log(response.data);
             //TODO gestire errori estensione dimensione .....
         });
-    }else if(testo){
-        
-    }else{
+    } else if (testo) {
+
+    } else {
         console.log("Inserire testo e/o immagine");
     }
 
-    file=null;
+    file = null;
 }
+
+var resize = window.matchMedia("(min-width: 767px)");
+resize.addEventListener("change", (e)=>{
+    if(e.matches && !(cat.classList.contains("myShow") ||ric.classList.contains("myShow"))){
+        blr.classList.remove("blurfilter");
+        nav.classList.remove("show");
+    }
+});
