@@ -205,6 +205,8 @@ class DatabaseHelper{
       }
    }
 
+   //TODO gestire id categoria se non presente non inserirlo cosi dovrebbe metter valore di default mettendo null mette null e non il valore di default
+   // oppure usare null come valore di default
    public function upload_post($user_id, $dataOra, $testo, $luogo, $idCat) {
       if ($insert_stmt = $this->db->prepare("INSERT INTO post (id_user_create, data_ora, testo,  luogo, id_categoria) VALUES (?, ?, ?, ?, ?)")) {    
          $insert_stmt->bind_param('iissi',$user_id, $dataOra, $testo, $luogo, $idCat); 

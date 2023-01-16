@@ -95,29 +95,17 @@ function add_image() {
     input.type = 'file';
 
     input.onchange = e => {
-
-        // getting a hold of the file reference
         file = e.target.files[0];
         document.getElementById("tmp_img").innerHTML = "<div class='container-fluid'><img class='card-img-top p-2' id='myImg' src='" + URL.createObjectURL(new Blob([file])) + "'></div>";
-        /*var formData = new FormData();
-        formData.append("file", file);
-
-        axios.post("./api-add_post.php",formData
-        ).then(response=>{
-            console.log(response.data);
-        });*/
-
-        //console.log(file);
-
     }
 
     input.click();
 }
 
 function upload_post() {
-    let testo = document.getElementById("tmp_post_text");
-    let luogo = document.getElementById("tmp_post_luogo");
-    if (file) {
+    let testo = document.getElementById("tmp_post_text").value;
+    let luogo = document.getElementById("tmp_post_luogo").value;
+    if (file || testo) {
         var formData = new FormData();
         formData.append("file", file);
         formData.append("testo", testo);
@@ -126,15 +114,16 @@ function upload_post() {
         axios.post("./api-add_post.php", formData
         ).then(response => {
             console.log(response.data);
+            alert(response.data);
             //TODO gestire errori estensione dimensione .....
         });
-    } else if (testo) {
-
     } else {
         console.log("Inserire testo e/o immagine");
+        alert("Inserire testo e/o immagine");
     }
 
     file = null;
+    document.getElementById("tmp_img").innerHTML = "<button class='btn' style='font-size: 300%;' onclick='add_image()'><i class='fa-solid fa-circle-plus'></i></button>";
 }
 
 var resize = window.matchMedia("(min-width: 767px)");

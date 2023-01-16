@@ -28,7 +28,7 @@
             
             <div class="row justify-content-center align-items-center">
                 <div class="col-3 date">
-                    <?php echo $templateParams["post"][0]["data_ora"];?>
+                    <?php echo date('Y-m-d', $templateParams["post"][0]["data_ora"]);?>
                 </div>
                 <div class="col-9">
                     <p class="card-text"><?php echo $templateParams["post"][0]["testo"];?></p>
@@ -67,7 +67,7 @@
                 </div>
             </div>
             <div class="col-2 d-flex flex-column justify-content-center">
-                <p class="m-1 date"><?php echo $commento['data_ora']; ?></p>
+                <p class="m-1 date"><?php echo date('Y-m-d',$commento['data_ora']); ?></p>
             </div>
         </div>
         <?php endforeach; ?> 

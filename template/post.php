@@ -9,7 +9,7 @@
                 <p class="m-0 user"><?php echo $post["username"] ?></p>
             </div>
             <div class="row">
-                <p class="m-0 date"><?php echo $post["data_ora"] ?></p>
+                <p class="m-0 date"><?php echo date('Y-m-d',$post["data_ora"]); ?></p>
             </div>
             <div class="row">
                 <p class="m-0" style="font-size: small;"><?php if(isset($post["luogo"])){ echo "Luogo: ".$post["luogo"]; } ?></p>

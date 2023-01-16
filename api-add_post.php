@@ -19,9 +19,9 @@ if (isset($_FILES['file']['name'])) {
         $data_ora = time();
         $cat = isset($_POST['categoria']) ? $_POST['categoria'] : null;
         $id_post = $dbh->upload_post($user, $data_ora, $testo, $luogo, $cat);
-        $location = "./img/" . $_SESSION['username'] . "_" . $id_post. "." . $file_extension;
+        $location = $_SESSION['username'] . "_" . $id_post. "." . $file_extension;
         if ($id_post) {
-            if (move_uploaded_file($_FILES['file']['tmp_name'], $location)) {
+            if (move_uploaded_file($_FILES['file']['tmp_name'], "./img/".$location)) {
                 if ($dbh->updateimg_post($id_post, $location)) {
                     $result = true;
                 }
