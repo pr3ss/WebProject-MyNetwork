@@ -151,8 +151,8 @@ class DatabaseHelper{
    }
 
    //load posts for user
-   public function load_posts_for($user_id){
-      if ($stmt = $this->db->prepare("select posts.*, count(c.post_id) as nCommenti 
+   public function load_posts_for($user_id, $id_categoria){
+      if($id_categoria==1 && $stmt = $this->db->prepare("select posts.*, count(c.post_id) as nCommenti 
       from (SELECT p.id, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
       from post  as p
       left join miPiace as l on p.id = l.post_id
@@ -161,9 +161,24 @@ class DatabaseHelper{
       group by p.id) as posts
       left join commento as c
       on posts.id = c.post_id
-      group by posts.id;")) 
-      { 
+      group by posts.id;") ){
          $stmt->bind_param('i', $user_id); 
+         $stmt->execute();
+         $result = $stmt->get_result();
+
+         return $result->fetch_all(MYSQLI_ASSOC);
+      }else if($stmt = $this->db->prepare("select * from (select posts.*, count(c.post_id) as nCommenti 
+      from (SELECT p.id, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
+      from post  as p
+      left join miPiace as l on p.id = l.post_id
+      join user as u on p.id_user_create=u.id
+      and u.id in (SELECT follow.user_follow FROM follow join user where follow.user_id = ?)
+      group by p.id) as posts
+      left join commento as c
+      on posts.id = c.post_id
+      group by posts.id) as posts
+      where posts.id_categoria=?;")){
+         $stmt->bind_param('ii', $user_id, $id_categoria); 
          $stmt->execute();
          $result = $stmt->get_result();
 
@@ -242,4 +257,3 @@ class DatabaseHelper{
    }
 
 }
-?>

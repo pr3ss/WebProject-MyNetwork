@@ -133,6 +133,7 @@ resize.addEventListener("change", (e) => {
     }
 });
 
+//TODO rivedere reload post commenti
 function addComment(postId){
     let text = document.getElementById("textComment").value;
     console.log(postId);
@@ -145,6 +146,7 @@ function addComment(postId){
             console.log(response.data);
             alert(response.data);
             if(response.data){
+                openPost(postId);
             }
         });
     } else {
@@ -152,4 +154,13 @@ function addComment(postId){
         alert("Inserire testo");
     }
 }
+
+
+
+
+
+
+
+
+
 

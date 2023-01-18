@@ -97,9 +97,9 @@
                 <div id="categoria" class="backthing row h-50" style="overflow-y: auto;">
                     <div class="col-12">
                         <div id="list_categorie" class="list-group p-0">
-                            <button type="button" class="list-group-item list-group-item-action">ALL</button>
-                            <button type="button" class="list-group-item list-group-item-action">Seguiti</button>
-                            <button type="button" class="list-group-item list-group-item-action">Informatica</button>
+                        <?php foreach($templateParams["categorie"] as $categoria): ?>
+                            <button id="btnCat<?php echo $categoria['id'] ?>" type="button" class="list-group-item list-group-item-action <?php if($categoria['id']==1){echo "active";} ?>" onclick="cambiaCategoria(<?php echo $categoria['id'] ?>)"><?php  echo $categoria['titolo'] ?></button>
+                        <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
