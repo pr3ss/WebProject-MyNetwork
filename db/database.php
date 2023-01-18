@@ -223,5 +223,23 @@ class DatabaseHelper{
          return $insert_stmt->execute();
       }
    }
+
+   public function getCategorie(){
+      if ($stmt = $this->db->prepare("SELECT id, titolo from categoria")) {    
+         $stmt->execute();
+         $result = $stmt->get_result();
+         return $result->fetch_all(MYSQLI_ASSOC);
+      }
+   }
+
+   public function upload_comment($user_id, $dataOra, $testo, $idPost) {
+      if ($insert_stmt = $this->db->prepare("INSERT INTO commento (user_id, post_id,data_ora, testo) VALUES (?, ?, ?, ?)")) {    
+         $insert_stmt->bind_param('iiss',$user_id, $idPost, $dataOra, $testo); 
+         // Esegui la query ottenuta. 
+         $insert_stmt->execute();
+         return $insert_stmt->insert_id;
+      }
+   }
+
 }
 ?>

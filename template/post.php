@@ -28,7 +28,9 @@
             </div>
         </div>
     </div>
+    <?php if(isset( $post["img"] )): ?>
     <img src=".\img\<?php echo $post["img"] ?>" class="card-img-top p-2" alt="...">
+    <?php endif; ?>
     <div class="card-body"onclick="openPost('<?php echo $post['id'] ?>')">
         <p class="card-text"><?php echo $post["testo"];?></p>
     </div>

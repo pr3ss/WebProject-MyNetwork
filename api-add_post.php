@@ -15,9 +15,9 @@ if (isset($_FILES['file']['name'])) {
     if (in_array($file_extension, $valid_ext)) {
         $testo = isset($_POST['testo']) ? $_POST['testo'] : "";
         $luogo = isset($_POST['luogo']) ? $_POST['luogo'] : "";
+        $cat = isset($_POST['categoria']) ? $_POST['categoria'] : 1;
         $user = $_SESSION['user_id'];
         $data_ora = time();
-        $cat = isset($_POST['categoria']) ? $_POST['categoria'] : null;
         $id_post = $dbh->upload_post($user, $data_ora, $testo, $luogo, $cat);
         $location = $_SESSION['username'] . "_" . $id_post. "." . $file_extension;
         if ($id_post) {
@@ -34,9 +34,9 @@ if (isset($_FILES['file']['name'])) {
 } else if (isset($_POST['testo'])) {
     $testo = isset($_POST['testo']) ? $_POST['testo'] : "";
     $luogo = isset($_POST['luogo']) ? $_POST['luogo'] : "";
+    $cat = isset($_POST['categoria']) ? $_POST['categoria'] : 1;
     $user = $_SESSION['user_id'];
     $data_ora = time();
-    $cat = isset($_POST['categoria']) ? $_POST['categoria'] : null;
     $id_post = $dbh->upload_post($user, $data_ora, $testo, $luogo, $cat);
     if($id_post){
         $result = true;
@@ -46,6 +46,7 @@ if (isset($_FILES['file']['name'])) {
     echo json_encode($result);
 } else {
     //$js_add_post = "js/add_post.js";
+    $templateParams["categorie"] = $dbh->getCategorie();
     require("./template/add_post.php");
 }
 

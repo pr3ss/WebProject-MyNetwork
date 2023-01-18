@@ -36,10 +36,12 @@
                             data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
                             aria-label="Toggle navigation" onclick="blurrare()"><i
                                 class="fa-solid fa-bars"></i></button>
-                        <div class="collapse navbar-collapse position-notmd-absolute justify-content-center" id="navbarText">
+                        <div class="collapse navbar-collapse position-notmd-absolute justify-content-center"
+                            id="navbarText">
                             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                                 <li class="nav-item ">
-                                    <a class="btn btn-dark btn-circle " href="home.php"><i class="fa-solid fa-house"></i></a>
+                                    <a class="btn btn-dark btn-circle " href="home.php"><i
+                                            class="fa-solid fa-house"></i></a>
                                 </li>
                                 <li class="nav-item ">
                                     <a class="btn btn-dark btn-circle " href="profilo.html"><i
@@ -104,8 +106,7 @@
             </div>
             <div id="colMain" class="col-12 col-lg-6 offset-lg-3 d-flex flex-column align-items-center">
             </div>
-            <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block d-none position-fixed bg-dark"
-                style="height: 90%; ">
+            <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block d-none position-fixed bg-dark" style="height: 90%; ">
             </div>
         </div>
     </div>

@@ -11,7 +11,7 @@ function blurrare() {
         nav.classList.remove("show");
         cat.classList.remove("myShow");
         ric.classList.remove("myShow");
-       document.getElementById("colSx").style.zIndex = "0";
+        document.getElementById("colSx").style.zIndex = "0";
     }
 }
 function viewCategoria() {
@@ -51,9 +51,7 @@ function viewNotifiche() {
     });
 }
 
-/*/
-    /* TODO risolvere background color spinner in desktop non serve ma in mobile altrimenti non si vede oppure in mobile cambiare il colore dello spinner oppure é un problema di z-index in mobile 
-    /*/
+//TODO risolvere background color spinner in desktop non serve ma in mobile altrimenti non si vede oppure in mobile cambiare il colore dello spinner oppure é un problema di z-index in mobile  */
 
 function ricerca_user() {
     var user = document.getElementById("input_search_user").value;
@@ -105,12 +103,13 @@ function add_image() {
 function upload_post() {
     let testo = document.getElementById("tmp_post_text").value;
     let luogo = document.getElementById("tmp_post_luogo").value;
+    let cat = document.getElementById("tmp_post_cat").value;
     if (file || testo) {
         var formData = new FormData();
         formData.append("file", file);
         formData.append("testo", testo);
         formData.append("luogo", luogo);
-
+        formData.append("categoria", cat);
         axios.post("./api-add_post.php", formData
         ).then(response => {
             console.log(response.data);
@@ -127,9 +126,30 @@ function upload_post() {
 }
 
 var resize = window.matchMedia("(min-width: 767px)");
-resize.addEventListener("change", (e)=>{
-    if(e.matches && !(cat.classList.contains("myShow") ||ric.classList.contains("myShow"))){
+resize.addEventListener("change", (e) => {
+    if (e.matches && !(cat.classList.contains("myShow") || ric.classList.contains("myShow"))) {
         blr.classList.remove("blurfilter");
         nav.classList.remove("show");
     }
 });
+
+function addComment(postId){
+    let text = document.getElementById("textComment").value;
+    console.log(postId);
+    if (text && postId) {
+        var formData = new FormData();
+        formData.append("testo", text);
+        formData.append("postId", postId);
+        axios.post("./api-add_comment.php", formData
+        ).then(response => {
+            console.log(response.data);
+            alert(response.data);
+            if(response.data){
+            }
+        });
+    } else {
+        console.log("Inserire testo");
+        alert("Inserire testo");
+    }
+}
+
