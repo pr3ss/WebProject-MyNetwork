@@ -14,7 +14,7 @@ if (isset($_FILES['file']['name'])) {
 
     if (in_array($file_extension, $valid_ext)) {
         $testo = isset($_POST['testo']) ? $_POST['testo'] : "";
-        $luogo = isset($_POST['luogo']) ? $_POST['luogo'] : "";
+        $luogo = !empty($_POST['luogo']) ? $_POST['luogo'] : null;
         $cat = isset($_POST['categoria']) ? $_POST['categoria'] : 1;
         $user = $_SESSION['user_id'];
         $data_ora = time();
@@ -33,7 +33,7 @@ if (isset($_FILES['file']['name'])) {
     echo json_encode($result);
 } else if (isset($_POST['testo'])) {
     $testo = isset($_POST['testo']) ? $_POST['testo'] : "";
-    $luogo = isset($_POST['luogo']) ? $_POST['luogo'] : "";
+    $luogo = !empty($_POST['luogo']) ? $_POST['luogo'] : null;
     $cat = isset($_POST['categoria']) ? $_POST['categoria'] : 1;
     $user = $_SESSION['user_id'];
     $data_ora = time();

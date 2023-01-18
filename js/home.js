@@ -1,47 +1,54 @@
 const main = document.getElementById("colMain");
 var categoria = 1; //default categoria
+var otherCall = false;
+var post_finished = false;
+
 
 function load_posts(){
+    otherCall=true;
     main.innerHTML += "<div class='row justify-content-center'> <div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span> </div> </div>";
 
     var formData = new FormData();
     formData.append("categoria", categoria);
     axios.post('./api-feed.php', formData/*, numero post*/).then(response => {
-        otherCall=false;
         main.removeChild(main.lastChild);
-        main.innerHTML += response.data;
+        //console.log((response.data.length));
+        //WARNING funziona solo se in post.php non ci sono caratteri prima e dopo il primo e l ultimo tag php
+        if(response.data){
+            main.innerHTML += response.data;
+            post_finished = false;
+        }else{
+            post_finished = true;
+        }
         
+        otherCall=false;
     });
 }
 
+//Cariamento iniziale
 load_posts(); 
 
 /*codice copiato è quello che fa jquery per compatibilita tra i browser */
-var body = document.body,
+//TODO verificare se usarlo al posto di document.body.offsetHeight
+/*var body = document.body,
     html = document.documentElement;
 
 var height = Math.max( body.scrollHeight, body.offsetHeight, 
-                       html.clientHeight, html.scrollHeight, html.offsetHeight );
+                       html.clientHeight, html.scrollHeight, html.offsetHeight );*/
 
-console.log(height);
+//console.log(height);
 
-
-
-
-var otherCall = false;
+//TODO verificare se sia megglio fare addeventlistern e metodo onscroll
 window.onscroll = function(ev) {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !otherCall) {
-        console.log("fine");
-        otherCall=true;
-       
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !otherCall && !post_finished) {
+        //console.log("fine");  
         load_posts();
-
         
-        var body = document.body,
+        /*var body = document.body,
             html = document.documentElement;
 
         var height = Math.max( body.scrollHeight, body.offsetHeight, 
-                            html.clientHeight, html.scrollHeight, html.offsetHeight );
+                            html.clientHeight, html.scrollHeight, html.offsetHeight );*/
 
        // console.log(height + " - "+document.body.offsetHeight);
     }

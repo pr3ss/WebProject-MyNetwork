@@ -35,4 +35,4 @@
         <p class="card-text"><?php echo $post["testo"];?></p>
     </div>
 </div>
-<?php endforeach; ?> 
+<?php endforeach; ?>

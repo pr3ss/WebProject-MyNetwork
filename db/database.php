@@ -151,18 +151,31 @@ class DatabaseHelper{
    }
 
    //load posts for user
-   public function load_posts_for($user_id, $id_categoria){
+   public function load_posts_for($user_id, $id_categoria, $last_post, $num_post){
       if($id_categoria==1 && $stmt = $this->db->prepare("select posts.*, count(c.post_id) as nCommenti 
       from (SELECT p.id, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
       from post  as p
       left join miPiace as l on p.id = l.post_id
       join user as u on p.id_user_create=u.id
+      and  p.data_ora < ?
       and u.id in (SELECT follow.user_follow FROM follow join user where follow.user_id = ?)
       group by p.id) as posts
       left join commento as c
       on posts.id = c.post_id
-      group by posts.id;") ){
-         $stmt->bind_param('i', $user_id); 
+      group by posts.id
+      order by posts.data_ora DESC
+      limit ?;") ){
+         $old_query = "select posts.*, count(c.post_id) as nCommenti 
+         from (SELECT p.id, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
+         from post  as p
+         left join miPiace as l on p.id = l.post_id
+         join user as u on p.id_user_create=u.id
+         and u.id in (SELECT follow.user_follow FROM follow join user where follow.user_id = ?)
+         group by p.id) as posts
+         left join commento as c
+         on posts.id = c.post_id
+         group by posts.id;";
+         $stmt->bind_param('sii', $last_post, $user_id, $num_post); 
          $stmt->execute();
          $result = $stmt->get_result();
 
@@ -172,13 +185,16 @@ class DatabaseHelper{
       from post  as p
       left join miPiace as l on p.id = l.post_id
       join user as u on p.id_user_create=u.id
+      and  p.data_ora < ?
       and u.id in (SELECT follow.user_follow FROM follow join user where follow.user_id = ?)
       group by p.id) as posts
       left join commento as c
       on posts.id = c.post_id
       group by posts.id) as posts
-      where posts.id_categoria=?;")){
-         $stmt->bind_param('ii', $user_id, $id_categoria); 
+      where posts.id_categoria=?
+      order by posts.data_ora DESC
+      limit ?;")){
+         $stmt->bind_param('siii',$last_post, $user_id, $id_categoria, $num_post); 
          $stmt->execute();
          $result = $stmt->get_result();
 
