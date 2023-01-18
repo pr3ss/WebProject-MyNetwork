@@ -155,6 +155,14 @@ function addComment(postId){
     }
 }
 
+function showProfilo(){
+    axios.post("./api-profilo.php"
+    ).then(response => {
+        document.getElementById("labelIdentifyScreen").innerHTML = "PROFILO";
+        document.getElementById("colMain").innerHTML = response.data;
+    });
+}
+
 
 
 

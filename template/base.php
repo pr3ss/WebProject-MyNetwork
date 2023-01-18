@@ -21,7 +21,9 @@
         <div class="row m-0 mt-2 bg-white rounded-pill ">
             <!-- DESCRIZIONE -->
             <div class="col-8 col-md-3 d-flex justify-content-center align-items-center">
-                <label class="m-0 p-0" id="labelIdentifyScreen" for="">HOME</label>
+                <label class="m-0 p-0" id="labelIdentifyScreen" for="">
+                    <?php echo $templateParams["title"]; ?>
+                </label>
             </div>
             <div class="col-2 col-md-3 order-md-last d-flex justify-content-center align-items-center">
                 <div>
@@ -44,8 +46,8 @@
                                             class="fa-solid fa-house"></i></a>
                                 </li>
                                 <li class="nav-item ">
-                                    <a class="btn btn-dark btn-circle " href="profilo.html"><i
-                                            class="fa-regular fa-user"></i></a>
+                                    <button class="btn btn-dark btn-circle "onclick ="showProfilo()"  ><i
+                                            class="fa-regular fa-user"></i></button>
                                 </li>
                                 <li class="nav-item ">
                                     <button class="btn btn-dark btn-circle " onclick="viewNotifiche()"><i

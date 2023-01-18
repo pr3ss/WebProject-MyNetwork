@@ -23,7 +23,7 @@
         </div>
         <div class="col-2 d-flex flex-column justify-content-center">
             <div class="row justify-content-center">
-                <button type="button" class="btn btnshadow" onclick="openPost('<?php echo $post['id'] ?>')"><i class="fa-solid fa-comment">
+                <button type="button" class="btn btnshadow" onclick="openPost(<?php echo $post['id'] ?>)"><i class="fa-solid fa-comment">
                 <?php echo $post["nCommenti"] ?></i></button>
             </div>
         </div>
@@ -31,7 +31,7 @@
     <?php if(isset( $post["img"] )): ?>
     <img src=".\img\<?php echo $post["img"] ?>" class="card-img-top p-2" alt="...">
     <?php endif; ?>
-    <div class="card-body"onclick="openPost('<?php echo $post['id'] ?>')">
+    <div class="card-body"onclick="openPost(<?php echo $post['id'] ?>)">
         <p class="card-text"><?php echo $post["testo"];?></p>
     </div>
 </div>
