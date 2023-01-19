@@ -163,6 +163,14 @@ function showProfilo(){
     });
 }
 
+function showImpostazioni(){
+    axios.post("./api-impostazioni.php"
+    ).then(response => {
+        document.getElementById("labelIdentifyScreen").innerHTML = "IMPOSTAZIONI";
+        document.getElementById("colMain").innerHTML = response.data;
+    });
+}
+
 
 
 

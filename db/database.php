@@ -273,12 +273,12 @@ class DatabaseHelper{
    }
 
    public function get_user_posts($user_id){
-      if ($stmt = $this->db->prepare("select p2.*, count(c.post_id) as nCommenti from(select p1.* , count(l.post_id) as miPiace from (Select * from post as p
+      if ($stmt = $this->db->prepare("select p2.*, count(c.post_id) as nCommenti from(select p1.* , count(l.post_id) as miPiace  from (Select * from post as p
       where p.id_user_create = ?) as p1 left join mipiace as l
       on p1.id = l.post_id
-      group by l.post_id) as p2 left join commento as c
+      group by p1.id) as p2 left join commento as c
       on p2.id = c.post_id
-      group by c.post_id;")) 
+      group by p2.id;")) 
       { 
          $stmt->bind_param('i', $user_id); 
          $stmt->execute();
@@ -288,8 +288,8 @@ class DatabaseHelper{
    }
 
    public function get_user_info($user_id){
-      if ($stmt = $this->db->prepare("SELECT  id, username,foto_profilo, descrizione FROM user
-                                       where id = ?;")) 
+      if ($stmt = $this->db->prepare("SELECT  id, username,foto_profilo, descrizione, data_di_nascita, nome, cognome, sesso, email FROM user
+      where id = ?;")) 
       { 
          $stmt->bind_param('i', $user_id); 
          $stmt->execute();

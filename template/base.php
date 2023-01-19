@@ -62,8 +62,8 @@
                                                 fa-solid fa-magnifying-glass"></i></button>
                                 </li>
                                 <li class="nav-item  ">
-                                    <a class="btn btn-dark btn-circle " href="impostazioni.html"><i
-                                            class="fa-solid fa-gear"></i></a>
+                                    <button class="btn btn-dark btn-circle " onclick="showImpostazioni()"><i
+                                            class="fa-solid fa-gear"></i></button>
                                 </li>
                                 <li class="nav-item ">
                                     <a class="btn btn-dark btn-circle " href="logout.php"><i

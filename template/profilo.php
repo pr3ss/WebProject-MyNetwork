@@ -1,7 +1,7 @@
 <div class="row bg-white ">
     <div class="col-2"></div>
     <div class="col-8 d-flex flex-column">
-        <img src=".\img\<?php echo $templateParams["info"][0]["foto_profilo"] ?>" class="p-3"
+        <img src=".\img\<?php echo $templateParams["info"][0]["foto_profilo"] ?>" class="card-img-top p-3"
             style="border-radius: 50%;">
     </div>
     <div class="col-2"></div>
@@ -25,9 +25,11 @@
         </div>
     </div>
     <div class="col-12">
-        <p class="p-2">
-            <?php echo $templateParams["info"][0]["descrizione"] ?>
-        </p>
+        <dic class="row justify-content-center">
+            <p>
+                <?php echo $templateParams["info"][0]["descrizione"] ?>
+            </p>
+        </dic>
     </div>
 </div>
 <?php foreach ($templateParams["posts"] as $post): ?>

@@ -2,7 +2,7 @@
     <div class="col-2"></div>
     <div class="col-8">
         <div class="d-flex flex-column">
-            <img src="..\img\logo.jpg" class="p-3" style="border-radius: 50%;">
+            <img src=".\img\<?php echo $templateParams["info"][0]["foto_profilo"] ?>" class="card-img-top p-3" style="border-radius: 50%;">
         </div>
     </div>
     <div class="col-2 p-0 d-flex flex-column justify-content-end">
@@ -11,24 +11,23 @@
 </div>
 
 <div class="row mb-5 d-flex justify-content-center">
-    <input type="text" value="MyUsername" style="width:50% ;border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
+    <input type="text" value="<?php echo $templateParams["info"][0]["username"] ?>" style="width:50% ;border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
 </div>
 
 <div class="row m-3 pb-2" style="border-bottom: 1px solid black;">
     <div class="col-4 d-flex flex-column justify-content-center ">
-        <p class="m-0">Nome:</p>
+        <p class="m-0">Data di nascita:</p>
     </div>
     <div class="col-8 d-flex flex-column justify-content-center">
-        <p class="m-0">Alex</p>
+        <p class="m-0"><?php echo $templateParams["info"][0]["data_di_nascita"] ?></p>
     </div>
 </div>
-
 <div class="row m-3 pb-2" style="border-bottom: 1px solid black;">
     <div class="col-4 d-flex flex-column justify-content-center ">
-        <p class="m-0">Cognome:</p>
+        <p class="m-0">Cognome: </p>
     </div>
     <div class="col-8 d-flex flex-column justify-content-center">
-        <p class="m-0">Presepi</p>
+        <p class="m-0"><?php echo $templateParams["info"][0]["cognome"] ?></p>
     </div>
 </div>
 
@@ -37,7 +36,7 @@
         <p class="m-0">Data di nascita:</p>
     </div>
     <div class="col-8 d-flex flex-column justify-content-center">
-        <p class="m-0">18/08/2001</p>
+        <p class="m-0"><?php echo $templateParams["info"][0]["data_di_nascita"] ?></p>
     </div>
 </div>
 
@@ -46,7 +45,7 @@
         <p class="m-0">Email:</p>
     </div>
     <div class="col-8 d-flex flex-column justify-content-center">
-        <input type="text" value="alex@test.com " style="width: 90%;  border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
+        <input type="text" value="<?php echo $templateParams["info"][0]["email"] ?>" style="width: 90%;  border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
     </div>
 </div>
 
