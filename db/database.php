@@ -322,4 +322,29 @@ class DatabaseHelper{
          return $insert_stmt->execute();
       }
    }
+
+   public function get_user_follower($user_id){
+      if ($stmt = $this->db->prepare("SELECT f.user_id as id, u.username FROM follow as f, user as u
+      where user_follow = ?
+      and user_id = u.id;")) 
+      { 
+         $stmt->bind_param('i', $user_id); 
+         $stmt->execute();
+         $result = $stmt->get_result();
+         return $result->fetch_all(MYSQLI_ASSOC);
+      }
+   }
+   
+   public function get_user_seguiti($user_id){
+      if ($stmt = $this->db->prepare("SELECT f.user_follow as id, u.username FROM follow as f, user as u
+      where user_id = ?
+      and user_follow = u.id;")) 
+      { 
+         $stmt->bind_param('i', $user_id); 
+         $stmt->execute();
+         $result = $stmt->get_result();
+         return $result->fetch_all(MYSQLI_ASSOC);
+      }
+   }
+   
 }

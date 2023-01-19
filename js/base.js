@@ -230,6 +230,33 @@ function checkPasswordSecurity(password){
     return password.length>=8 ;
 }
 
+function viewSeguiti(listSeguiti) {
+    if (listSeguiti) {
+        /*         var formData = new FormData();
+                formData.append("list", JSON.stringify(listSeguiti)); */
+        axios.post("./api-seguiti.php"/* , formData */
+        ).then(response => {
+            /* console.log(response.data); */
+            document.getElementById("colDx").innerHTML = response.data;
+        });
+    }
+}
+
+
+function viewFollower(listFollower) {
+    if (listFollower) {
+        /*         var formData = new FormData();
+                formData.append("list", JSON.stringify(listSeguiti)); */
+        axios.post("./api-follower.php"/* , formData */
+        ).then(response => {
+            /* console.log(response.data); */
+            document.getElementById("colDx").innerHTML = response.data;
+            var utn = document.getElementById("utenti");
+            utn.classList.toggle("myShow");
+        });
+    }
+    
+}
 
 
 
