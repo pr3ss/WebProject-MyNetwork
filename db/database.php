@@ -297,4 +297,29 @@ class DatabaseHelper{
          return $result->fetch_all(MYSQLI_ASSOC);
       }
    }
+
+   //impostazioni.php 
+   public function update_impostazioni_1($id_username, $username, $email, $password,  $salt){
+      if ($insert_stmt = $this->db->prepare("UPDATE user SET username = ?, password = ?, email=?, salt=?  WHERE id = ?")) {    
+         $insert_stmt->bind_param('ssssi',$username,$password, $email, $salt ,$id_username); 
+         // Esegui la query ottenuta. 
+         return $insert_stmt->execute();
+      }
+   }
+
+   public function update_impostazioni_2($id_username, $username, $email){
+      if ($insert_stmt = $this->db->prepare("UPDATE user SET username = ?, email=?  WHERE id = ?")) {    
+         $insert_stmt->bind_param('ssi',$username, $email,$id_username); 
+         // Esegui la query ottenuta. 
+         return $insert_stmt->execute();
+      }
+   }
+
+   public function update_immagine_profilo($userid, $location){
+      if ($insert_stmt = $this->db->prepare("UPDATE user SET foto_profilo = ? WHERE id = ?")) {    
+         $insert_stmt->bind_param('si',$location,$userid); 
+         // Esegui la query ottenuta. 
+         return $insert_stmt->execute();
+      }
+   }
 }

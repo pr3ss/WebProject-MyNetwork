@@ -8,7 +8,7 @@ $_SESSION["categoria_corrente"]=1; //default categoria
 
 if($dbh->login_check()){
     $templateParams["username"] = $_SESSION["username"];
-    $templateParams['js'] = array("https://unpkg.com/axios/dist/axios.min.js", "js/base.js", "js/home.js");
+    $templateParams['js'] = array("https://unpkg.com/axios/dist/axios.min.js", "js/base.js", "js/home.js", "js/sha512.js");
     //$templateParams['posts']=array(array("user"=>"Simone"),array("user"=>"Alex")) ; //db call
     $templateParams['categorie'] = $dbh->getCategorie();
 
