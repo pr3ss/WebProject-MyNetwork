@@ -144,3 +144,8 @@ ul > li {
   }
   
 }
+
+.col-hidden{
+  height: 0% !important;
+
+}

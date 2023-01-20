@@ -225,6 +225,19 @@ function checkPasswordSecurity(password) {
     return password.length >= 8;
 }
 
+
+let resize_grow = window.matchMedia("(max-width: 800px)");
+resize_grow.addEventListener("change", (e) => {
+    let colDx  = document.getElementById("colDx");
+    if (e.matches) {
+        colDx.classList.remove("d-none");
+        colDx.classList.add("col-hidden");
+    }else{
+        colDx.classList.add("d-none");
+        colDx.classList.remove("col-hidden");
+    }
+});
+
 function view_seguiti_follower(list) {
     let temp = Object.assign({},list);
     if (list) {
@@ -234,6 +247,8 @@ function view_seguiti_follower(list) {
         ).then(response => {
             /* console.log(response.data); */
             document.getElementById("colDx").innerHTML = response.data;
+            var utn = document.getElementById("utenti");
+            utn.classList.add("myShow");
         });
     }
 }
@@ -249,6 +264,18 @@ function openOtherUser(user_id) {
     });
 }
 
+
+function close_all_popup(){
+    var utn;
+    if(utn = document.getElementById("utenti")){
+        utn.classList.remove("myShow");
+    }
+
+    //blr.classList.remove("blurfilter");
+    
+
+
+}
 
 
 

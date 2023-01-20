@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./css/home_base.css">
 </head>
 
-<body>
+<body onclick="close_all_popup()">
     <div id="blur" class="blur" onclick="blurrare()"></div>
     <!-- PILL -->
     <div class="container-fluid position-fixed" style="z-index:3;">
