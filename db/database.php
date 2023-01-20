@@ -262,6 +262,27 @@ class DatabaseHelper
          $insert_stmt->bind_param('iissi', $user_id, $dataOra, $testo, $luogo, $idCat);
          // Esegui la query ottenuta. 
          $insert_stmt->execute();
+
+         if ($stmt = $this->db->prepare("SELECT user_id FROM follow WHERE user_follow  = ?")) {
+            $stmt->bind_param('i', $user_id);
+            // Esegui la query ottenuta. 
+            $stmt->execute();
+            $result = $stmt->get_result();
+            $users_destinazione= $result->fetch_all(MYSQLI_ASSOC);
+            //var_dump($users_destinazione);
+            //$ok = $users_destinazione;
+            $data = time();
+            foreach($users_destinazione as $user_destinazione){
+               $this->crea_notifica(0, $user_id, 3, $data, $user_destinazione["user_id"]);
+            }
+
+            //$ok = $users_destinazione;
+            
+         }
+         //$users_destinazione = $this->db->query("SELECT user_id FROM follow WHERE user_follow  = $user_id");
+        
+         
+
          return $insert_stmt->insert_id;
       }
    }
@@ -401,7 +422,7 @@ class DatabaseHelper
             if ($ins_stmt = $this->db->prepare("INSERT INTO miPiace (user_id, post_id) VALUES (?, ?)")) {
                $ins_stmt->bind_param('ii', $user_id, $post_id);
                $ins_stmt->execute();
-               $this->crea_notifica($post_id, $user_id, 3, time());
+               $this->crea_notifica($post_id, $user_id, 2, time());
             }
          } else {
             if ($del_stmt = $this->db->prepare("DELETE FROM miPiace WHERE user_id = ? and post_id = ?")) {
@@ -419,22 +440,29 @@ class DatabaseHelper
       }
    }
 
-   function crea_notifica($post_id, $user_id, $tipoNotifica, $dataOra)
-   {
-      if ($stmt = $this->db->prepare("SELECT id_user_create FROM post WHERE id = ?")) {
+   function crea_notifica($post_id, $user_id, $tipoNotifica, $dataOra, $user_id_destinatario=null){
+      if ($user_id_destinatario==null && $stmt = $this->db->prepare("SELECT id_user_create FROM post WHERE id = ?")) {
          $stmt->bind_param('i', $post_id);
          // Esegui la query ottenuta. 
          $stmt->execute();
          $stmt->store_result();
          $stmt->bind_result($user_id_destinatario); // recupera il risultato della query e lo memorizza nelle relative variabili.
          $stmt->fetch();
+
+         if ($insert_stmt = $this->db->prepare("INSERT INTO notifica (user_destinazione, post, user_mittente, id_tipo_notifica, data_ora) VALUES (?, ?, ?, ?, ?)")) {
+            $insert_stmt->bind_param('iiiis', $user_id_destinatario, $post_id, $user_id, $tipoNotifica, $dataOra);
+            // Esegui la query ottenuta. 
+            return $insert_stmt->execute();
+         }
+      }else{
+         if ($insert_stmt = $this->db->prepare("INSERT INTO notifica (user_destinazione, user_mittente, id_tipo_notifica, data_ora) VALUES (?, ?, ?, ?)")) {
+            $insert_stmt->bind_param('iiis', $user_id_destinatario, $user_id, $tipoNotifica, $dataOra);
+            // Esegui la query ottenuta. 
+            return $insert_stmt->execute();
+         }
       }
 
-      if ($insert_stmt = $this->db->prepare("INSERT INTO notifica (user_destinazione, post, user_mittente, id_tipo_notifica, data_ora) VALUES (?, ?, ?, ?, ?)")) {
-         $insert_stmt->bind_param('iiiis', $user_id_destinatario, $post_id, $user_id, $tipoNotifica, $dataOra);
-         // Esegui la query ottenuta. 
-         $insert_stmt->execute();
-      }
+      
    }
 
    function start_follow($user_follow, $user_id)
@@ -442,6 +470,7 @@ class DatabaseHelper
       if (!$this->check_follow($user_follow, $user_id)) {
          if ($ins_stmt = $this->db->prepare("INSERT INTO follow (user_id, user_follow) VALUES (?, ?)")) {
             $ins_stmt->bind_param('ii', $user_id, $user_follow);
+            $this->crea_notifica(0, $user_id, 4, time(), $user_follow);
             return $ins_stmt->execute();
             //TODO crea notifica
          }

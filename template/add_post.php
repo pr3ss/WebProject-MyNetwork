@@ -8,9 +8,8 @@
         <input id="tmp_post_text" type="text" id="addANote" class="form-control" placeholder="Add text" />
         <input id="tmp_post_luogo" type="text" id="addANote" class="form-control" placeholder="Luogo" />
         <select id="tmp_post_cat" class="form-select" aria-label="Default select example">
-            <option selected>Default</option>
             <?php foreach($templateParams["categorie"] as $categoria): ?>
-                <option value="<?php echo $categoria["id"] ?>"><?php echo $categoria["titolo"] ?></option>
+                <option  value="<?php echo $categoria["id"] ?>" <?php if($categoria['id']==1){echo "selected";} ?>><?php echo $categoria["titolo"] ?></option>
             <?php endforeach;?>
         </select>
 
