@@ -2,9 +2,14 @@ var blr = document.getElementById("blur");
 var nav = document.getElementById("navbarText");
 var cat = document.getElementById("categoria");
 var ric = document.getElementById("ricerca");
+let resize_grow = window.matchMedia("(max-width: 991px)");
+let colDx  = document.getElementById("colDx");
+
+toggle_column(resize_grow);
+
+
 function blurrare() {
     blr.classList.toggle("blurfilter");
-    document.getElementById("colSx").style.zIndex = "2";
     if (blr.classList.contains("blurfilter")) {
         nav.classList.add("show");
     } else {
@@ -75,7 +80,7 @@ function fill_list_user(list_users) {
     const list_elm = document.getElementById("list_searched_users");
     list_elm.innerHTML = "";
     for (let user in list_users) {
-        list_elm.innerHTML += ' <button type="button" class="list-group-item list-group-item-action">' + list_users[user].username + '</button>';
+        list_elm.innerHTML += ' <button type="button"onclick="openOtherUser('+list_users[user].id+')" class="list-group-item list-group-item-action">' + list_users[user].username + '</button>';
     }
 
 }
@@ -225,10 +230,11 @@ function checkPasswordSecurity(password) {
     return password.length >= 8;
 }
 
+resize_grow.addEventListener("change", (e) =>{
+    toggle_column(e);
+});
 
-let resize_grow = window.matchMedia("(max-width: 800px)");
-resize_grow.addEventListener("change", (e) => {
-    let colDx  = document.getElementById("colDx");
+function toggle_column(e){
     if (e.matches) {
         colDx.classList.remove("d-none");
         colDx.classList.add("col-hidden");
@@ -236,7 +242,9 @@ resize_grow.addEventListener("change", (e) => {
         colDx.classList.add("d-none");
         colDx.classList.remove("col-hidden");
     }
-});
+}
+
+
 
 function view_seguiti_follower(list) {
     let temp = Object.assign({},list);
@@ -249,6 +257,8 @@ function view_seguiti_follower(list) {
             document.getElementById("colDx").innerHTML = response.data;
             var utn = document.getElementById("utenti");
             utn.classList.add("myShow");
+            utn.style.zIndex= 3;
+            //blr.classList.add("blurfilter");
         });
     }
 }
@@ -269,6 +279,7 @@ function close_all_popup(){
     var utn;
     if(utn = document.getElementById("utenti")){
         utn.classList.remove("myShow");
+        blr.classList.remove("blurfilter");
     }
 
     //blr.classList.remove("blurfilter");

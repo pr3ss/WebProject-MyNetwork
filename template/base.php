@@ -86,7 +86,7 @@
                         <div class="col-12 d-flex flex-row align-items-center">
                             <i class="fa-solid fa-magnifying-glass pr-2 pl-2"></i>
                             <input id="input_search_user" class="form-control " type="search" placeholder="Search"
-                                aria-label="Search" oninput="ricerca_user('desktop')">
+                                aria-label="Search" oninput="ricerca_user()">
                         </div>
                     </div>
                     <div class="row  h-100 " style="overflow-y: scroll;">
