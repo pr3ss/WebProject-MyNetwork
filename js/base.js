@@ -42,20 +42,6 @@ function viewRicerca() {
     }
 }
 
-function viewNotifiche() {
-    //se mobile view
-    //window.location.href = "notifiche.html"; oppure mettere il caricameno dinamico nel main invece che alla colonna
-
-    //se desktop view
-    var jolly = document.getElementById("colDx");
-
-
-    axios.get('./template/notifiche.php').then(response => {
-        console.log(response);
-        jolly.innerHTML = response.data;
-    });
-}
-
 //TODO risolvere background color spinner in desktop non serve ma in mobile altrimenti non si vede oppure in mobile cambiare il colore dello spinner oppure é un problema di z-index in mobile  */
 
 function ricerca_user() {
@@ -306,6 +292,19 @@ function deletePost(post_id){
     axios.post("./api-delete_post.php", formData
     ).then(response => {
         document.getElementById("colMain").innerHTML = response.data;
+    });
+}
+
+function viewNotifiche() {
+    //se mobile view
+    //window.location.href = "notifiche.html"; oppure mettere il caricameno dinamico nel main invece che alla colonna
+    //TODO mettere il caricamento dinamico;
+    //se desktop view
+    var jolly = document.getElementById("colDx");
+
+    axios.post('./api-notifiche.php').then(response => {
+        console.log(response);
+        jolly.innerHTML = response.data;
     });
 }
 

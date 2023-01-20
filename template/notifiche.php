@@ -1,12 +1,18 @@
-<div class="container p-0 m-0 h-100 justify-content-center" style="overflow-y:auto;">
-    <div class="row  mr-1 ml-1 mt-2 p-1 box-notifica">
+<div class="container p-0 m-0 h-100 justify-content-center " style="overflow-y:auto;">
+    <?php foreach($templateParams["notifiche"] as $notifica): ?>
+    <div class="row  mr-1 ml-1 mt-2 p-1 box-notifica bg-white" onclick="<?php if($notifica['idTipo'] == 4){
+        echo 'openOtherUser('.$notifica['idMittente'].')';
+        }else{
+            echo 'openPost('.$notifica['post'].')'; 
+            }?>">
         <div class="col-2">
-            <img src="./img/logo.jpg" alt="Avatar" class="avatar">
+        <img src="./img/<?php echo $notifica["foto_profilo"] ?>" alt="Avatar" class="avatar">
         </div>
         <div class="col-10">
             <div class="row align-items-center" style="height:100%;">
-                <p class="p-2 m-0">Luga: ha iniziato a seguirti.</p>
+                <p class="p-2 m-0"><?php echo $notifica["username"]?> : <?php echo $notifica["descrizione"]?></p>
             </div>
         </div>
     </div>
+    <?php endforeach; ?>
 </div>

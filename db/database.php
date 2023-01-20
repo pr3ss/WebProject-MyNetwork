@@ -518,4 +518,15 @@ class DatabaseHelper
          return $del_stmt->execute();
       }
    }
+
+   function get_notifiche( $user_id)
+   {
+      if ($stmt = $this->db->prepare("SELECT n.id,post,vista,u.id as idMittente,u.username,u.foto_profilo,tn.id as idTipo,tn.descrizione, data_ora from notifica as n, user as u, tipo_notifica as tn
+      where u.id =  user_mittente and tn.id = n.id_tipo_notifica and n.user_destinazione = ?;")) {
+         $stmt->bind_param('i', $user_id);
+         $stmt->execute();
+         $result = $stmt->get_result();
+         return $result->fetch_all(MYSQLI_ASSOC);
+      }
+   }
 }
