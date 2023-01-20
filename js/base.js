@@ -288,6 +288,16 @@ function close_all_popup(){
 
 }
 
+function startFollow(user_id){
+    //alert(user_id);
+    var formData = new FormData();
+    formData.append("user_id", user_id);
+    axios.post("./api-start_follow.php", formData
+    ).then(response => {
+        document.getElementById("colMain").innerHTML = response.data;
+    });
+}
+
 
 
 

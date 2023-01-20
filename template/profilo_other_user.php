@@ -24,7 +24,17 @@
                 <?php echo "<button type='button' class='btn btnshadow btn-dark' onclick='view_seguiti_follower(".json_encode($templateParams["seguiti"]).")'><i class='fa-solid fa-user'>
                  ".count($templateParams["seguiti"])."  SEGUITI</i></button>"
                 ?>
-               <!--  <button type="button" class="btn btnshadow btn-dark" onclick="viewSeguiti()"><i class="fa-solid fa-user">  SEGUITI</i></button> -->
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="row justify-content-center m-2">
+            <button type="button" class="btn btnshadow btn-primary" id="btn_segui_<?php echo $templateParams['info'][0]['id'];?>" onclick="startFollow(<?php echo $templateParams['info'][0]['id'] ?>)">
+                <?php if($templateParams["isSeguito"] == true):?>
+                    Smetti di seguire
+                <?php else: ?>
+                    Inizia a Seguire 
+                <?php endif; ?>
+                </button>
             </div>
         </div>
         <div class="col-12">

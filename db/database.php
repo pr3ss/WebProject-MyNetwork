@@ -291,7 +291,7 @@ class DatabaseHelper
          // Esegui la query ottenuta. 
          $this->crea_notifica($idPost, $user_id, 1, $dataOra);
          return $insert_stmt->execute();
-      }   
+      }
    }
 
    /*public function upload_comment($user_id, $dataOra, $testo, $idPost) {
@@ -419,7 +419,8 @@ class DatabaseHelper
       }
    }
 
-   function crea_notifica($post_id, $user_id, $tipoNotifica, $dataOra){
+   function crea_notifica($post_id, $user_id, $tipoNotifica, $dataOra)
+   {
       if ($stmt = $this->db->prepare("SELECT id_user_create FROM post WHERE id = ?")) {
          $stmt->bind_param('i', $post_id);
          // Esegui la query ottenuta. 
@@ -433,6 +434,36 @@ class DatabaseHelper
          $insert_stmt->bind_param('iiiis', $user_id_destinatario, $post_id, $user_id, $tipoNotifica, $dataOra);
          // Esegui la query ottenuta. 
          $insert_stmt->execute();
+      }
+   }
+
+   function start_follow($user_follow, $user_id)
+   {
+      if (!$this->check_follow($user_follow, $user_id)) {
+         if ($ins_stmt = $this->db->prepare("INSERT INTO follow (user_id, user_follow) VALUES (?, ?)")) {
+            $ins_stmt->bind_param('ii', $user_id, $user_follow);
+            return $ins_stmt->execute();
+            //TODO crea notifica
+         }
+      } else {
+         if ($del_stmt = $this->db->prepare("DELETE FROM follow WHERE user_id = ? and user_follow = ?")) {
+            $del_stmt->bind_param('ii', $user_id, $user_follow);
+            return $del_stmt->execute();
+         }
+      }
+   }
+
+   function check_follow($user_follow, $user_id)
+   {
+      if ($stmt = $this->db->prepare("SELECT * from follow where user_id = ? and user_follow = ?;")) {
+         $stmt->bind_param('ii', $user_id, $user_follow);
+         $stmt->execute(); // esegue la query appena creata.
+         $stmt->store_result();
+         if ($stmt->num_rows == 0) {
+            return false;
+         } else {
+            return true;
+         }
       }
    }
 }
