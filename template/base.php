@@ -80,9 +80,9 @@
     <!-- FEED -->
     <div class="container-fluid" style="z-index:3;">
         <div class="row" style="padding-top: 60px;">
-            <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-2" style="height: 90%;">
+            <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-2 col-hidden" style="height: 90%;">
                 <div id="ricerca" class="backthing h-50">
-                    <div class="row mt-3 mb-1  " style="z-index: 2;">
+                    <div class="row mt-3 mb-1  ">
                         <div class="col-12 d-flex flex-row align-items-center">
                             <i class="fa-solid fa-magnifying-glass pr-2 pl-2"></i>
                             <input id="input_search_user" class="form-control " type="search" placeholder="Search"
@@ -109,7 +109,7 @@
             <div  class="col-12 col-lg-6 offset-lg-3 d-flex flex-column align-items-center">
                 <div  id="colMain" class="container-fluid"></div>
             </div>
-            <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block d-none position-fixed bg-dark" style="height: 90%; ">
+            <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block position-fixed bg-dark col-hidden" style="height: 90%; ">
             </div>
         </div>
     </div>

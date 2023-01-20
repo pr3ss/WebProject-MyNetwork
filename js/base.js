@@ -222,11 +222,11 @@ resize_grow.addEventListener("change", (e) =>{
 
 function toggle_column(e){
     if (e.matches) {
-        colDx.classList.remove("d-none");
-        colDx.classList.add("col-hidden");
+        //colDx.classList.remove("d-none");
+        //colDx.classList.add("col-hidden"); CSS
     }else{
-        colDx.classList.add("d-none");
-        colDx.classList.remove("col-hidden");
+        //colDx.classList.add("d-none");
+        //colDx.classList.remove("col-hidden"); CSS
     }
 }
 
