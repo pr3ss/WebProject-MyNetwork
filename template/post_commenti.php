@@ -4,11 +4,11 @@
             <div class="col-12">
                 <div class="row  justify-content-center">
                     <div class="col-3 d-flex flex-column  justify-content-center align-items-center">
-                        <img src=".\img\<?php echo $templateParams["post"][0]["foto_profilo"]; ?>" alt="Avatar"
+                        <img src=".\img\<?php echo $templateParams["post"][0]["foto_profilo"]; ?>" onclick="openOtherUser(<?php echo $templateParams['post'][0]['id_user_create']  ?>)" alt="Avatar"
                             class="avatar">
                     </div>
                     <div class="col-5">
-                        <div class="row">
+                        <div class="row" onclick="openOtherUser(<?php echo $templateParams['post'][0]['id_user_create']  ?>)">
                             <p class="m-0 user">
                                 <?php echo $templateParams["post"][0]["username"]; ?>
                             </p>
@@ -61,10 +61,10 @@
         <?php foreach ($templateParams["commenti"] as $commento): ?>
             <div class="row bg-white mr-2 ml-2 mt-2" style="border-radius: 10px;">
                 <div class="col-2 d-flex flex-column justify-content-center">
-                    <img src="./img/<?php echo $commento['foto_profilo']; ?>" alt="Avatar" class="avatar">
+                    <img src="./img/<?php echo $commento['foto_profilo'];?>"  alt="Avatar" class="avatar" onclick="openOtherUser(<?php echo $commento['user_id'];?>)">
                 </div>
                 <div class="col-8 d-flex flex-column justify-content-center">
-                    <div class="row">
+                    <div class="row" onclick="openOtherUser(<?php echo $commento['user_id'];?>)">
                         <p class="m-0 user">
                             <?php echo $commento['username']; ?>
                         </p>

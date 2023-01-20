@@ -164,7 +164,7 @@ class DatabaseHelper
    {
       if (
          $id_categoria == 1 && $stmt = $this->db->prepare("select posts.*, count(c.post_id) as nCommenti 
-      from (SELECT p.id, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
+      from (SELECT p.id,p.id_user_create, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
       from post  as p
       left join miPiace as l on p.id = l.post_id
       join user as u on p.id_user_create=u.id
@@ -178,7 +178,7 @@ class DatabaseHelper
       limit ?;")
       ) {
          $old_query = "select posts.*, count(c.post_id) as nCommenti 
-         from (SELECT p.id, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
+         from (SELECT p.id,p.id_user_create, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
          from post  as p
          left join miPiace as l on p.id = l.post_id
          join user as u on p.id_user_create=u.id
@@ -194,7 +194,7 @@ class DatabaseHelper
          return $result->fetch_all(MYSQLI_ASSOC);
       } else if (
          $stmt = $this->db->prepare("select * from (select posts.*, count(c.post_id) as nCommenti 
-      from (SELECT p.id, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
+      from (SELECT p.id, p.id_user_create, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
       from post  as p
       left join miPiace as l on p.id = l.post_id
       join user as u on p.id_user_create=u.id
@@ -220,7 +220,7 @@ class DatabaseHelper
    public function load_post($post_id)
    {
       if (
-         $stmt = $this->db->prepare("SELECT post.id, username, foto_profilo, data_ora, testo, img, luogo, id_categoria, count(mp.post_id) as miPiace
+         $stmt = $this->db->prepare("SELECT post.id,id_user_create, username, foto_profilo, data_ora, testo, img, luogo, id_categoria, count(mp.post_id) as miPiace
       from miPiace as mp right join post
       on mp.post_id = post.id, user
       where post.id_user_create=user.id
