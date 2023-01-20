@@ -299,6 +299,16 @@ function startFollow(user_id){
 }
 
 
+function deletePost(post_id){
+    //alert(post_id);
+    var formData = new FormData();
+    formData.append("post_id", post_id);
+    axios.post("./api-delete_post.php", formData
+    ).then(response => {
+        document.getElementById("colMain").innerHTML = response.data;
+    });
+}
+
 
 
 

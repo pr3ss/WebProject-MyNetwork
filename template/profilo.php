@@ -53,7 +53,7 @@
                             </i></button>
                     </div>
                     <div class="col-4 d-flex flex-column justify-content-center">
-                        <button type="button" class="btn btnshadow w-100" onclick="openModalDelate()"><i class="fa-solid fa-trash"></i></button>
+                        <button type="button" class="btn btnshadow w-100" onclick="deletePost(<?php echo $post['id'] ?>)"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 </div>
                 <?php if (isset($post["img"])) : ?>

@@ -495,4 +495,27 @@ class DatabaseHelper
          }
       }
    }
+
+   function delete_post($post_id){
+      //elimino le notifice
+      if ($del_stmt = $this->db->prepare("DELETE from notifica where post = ?; ")) {
+         $del_stmt->bind_param('i', $post_id);
+         $del_stmt->execute();
+      }
+      //elimino i commenti
+      if ($del_stmt = $this->db->prepare("DELETE from commento where post_id = ?; ")) {
+         $del_stmt->bind_param('i', $post_id);
+         $del_stmt->execute();
+      }
+      //elimino i like
+      if ($del_stmt = $this->db->prepare("DELETE from miPiace where post_id = ?; ")) {
+         $del_stmt->bind_param('i', $post_id);
+         $del_stmt->execute();
+      }
+      //elimino il post
+      if ($del_stmt = $this->db->prepare("DELETE FROM post WHERE id = ?")) {
+         $del_stmt->bind_param('i', $post_id);
+         return $del_stmt->execute();
+      }
+   }
 }
