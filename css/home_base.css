@@ -122,8 +122,6 @@ ul > li {
 @media (max-width: 991px) {
   .backthing {
     position: fixed;
-    height: 60%;
-    width: 65%;
     padding: 10px 5px;
     border-radius: 15px;
     top: 50%;
@@ -148,5 +146,8 @@ ul > li {
 @media (max-width: 991px){
   .col-hidden{
     height: 0% !important;
+  }
+  #colSx, #colDx{
+    z-index: 3!important;
   }
 }

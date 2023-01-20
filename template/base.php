@@ -15,7 +15,7 @@
 </head>
 
 <body onclick="close_all_popup()">
-    <div id="blur" class="blur" onclick="blurrare()"></div>
+    <div id="blur" class="blur"></div>
     <!-- PILL -->
     <div class="container-fluid position-fixed" style="z-index:3;">
         <div class="row m-0 mt-2 bg-white rounded-pill ">
@@ -80,8 +80,8 @@
     <!-- FEED -->
     <div class="container-fluid" style="z-index:3;">
         <div class="row" style="padding-top: 60px;">
-            <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-2 col-hidden" style="height: 90%;">
-                <div id="ricerca" class="backthing h-50">
+            <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-2 col-hidden " style="height: 90%;">
+                <div id="ricerca" class="backthing h-50" style="z-index: 4;">
                     <div class="row mt-3 mb-1  ">
                         <div class="col-12 d-flex flex-row align-items-center">
                             <i class="fa-solid fa-magnifying-glass pr-2 pl-2"></i>
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="categoria" class="backthing row h-50" style="overflow-y: auto;">
+                <div id="categoria" class="backthing row h-50" style="overflow-y: auto; z-index: 4;">
                     <div class="col-12">
                         <div id="list_categorie" class="list-group p-0">
                         <?php foreach($templateParams["categorie"] as $categoria): ?>
