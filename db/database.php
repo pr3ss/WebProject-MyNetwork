@@ -284,51 +284,31 @@ class DatabaseHelper
       }
    }
 
-   public function upload_comment($user_id, $dataOra, $testo, $idPost) {
-      if ($insert_stmt = $this->db->prepare("INSERT INTO commento (user_id, post_id,data_ora, testo) VALUES (?, ?, ?, ?)")) {    
-         $insert_stmt->bind_param('iiss',$user_id, $idPost, $dataOra, $testo); 
+   public function upload_comment($user_id, $dataOra, $testo, $idPost)
+   {
+      if ($insert_stmt = $this->db->prepare("INSERT INTO commento (user_id, post_id,data_ora, testo) VALUES (?, ?, ?, ?)")) {
+         $insert_stmt->bind_param('iiss', $user_id, $idPost, $dataOra, $testo);
          // Esegui la query ottenuta. 
-         $insert_stmt->execute();
-         //return $insert_stmt->insert_id;
-      }
-
-      //create notifica
-      if ($stmt = $this->db->prepare("SELECT id_user_create FROM post WHERE id = ?")) {    
-         $stmt->bind_param('i',$idPost); 
-         // Esegui la query ottenuta. 
-         $stmt->execute();
-         $stmt->store_result();
-         $stmt->bind_result($user_id_destinatario); // recupera il risultato della query e lo memorizza nelle relative variabili.
-         $stmt->fetch();         
-      }
-      $data = time();
-      $this->db->query("INSERT INTO notifica (user_destinazione, post,user_mittente, id_tipo_notifica, data_ora) VALUES ($user_id_destinatario, $idPost, $user_id, 1,$data );");
-      return true;
-      
-      if ($insert_stmt1 = $this->db->prepare("INSERT INTO notifica (user_destinazione, post, user_mittente, id_tipo_notifica, data_ora) VALUES (?, ?, ?, ?, ?)")) {    
-         $insert_stmt1->bind_param('iiiis', $user_id_destinatario, $idPost, $user_id, 1, "0"); 
-         // Esegui la query ottenuta. 
-         return $insert_stmt1->execute();
-      }
-
-      
+         $this->crea_notifica($idPost, $user_id, 1, $dataOra);
+         return $insert_stmt->execute();
+      }   
    }
 
    /*public function upload_comment($user_id, $dataOra, $testo, $idPost) {
-      if ($insert_stmt = $this->db->prepare("CALL add_comment(?,?,?,?);")) {  
-         echo "OKOK";  
-         $insert_stmt->bind_param('iiss',$user_id, $idPost, $dataOra, $testo); 
-         // Esegui la query ottenuta. 
-         $insert_stmt->execute();
-         return true;
-      }
+   if ($insert_stmt = $this->db->prepare("CALL add_comment(?,?,?,?);")) {  
+   echo "OKOK";  
+   $insert_stmt->bind_param('iiss',$user_id, $idPost, $dataOra, $testo); 
+   // Esegui la query ottenuta. 
+   $insert_stmt->execute();
+   return true;
+   }
    }*/
-   
+
    public function get_user_posts($user_id)
    {
       if (
          $stmt = $this->db->prepare("select p2.*, count(c.post_id) as nCommenti from(select p1.* , count(l.post_id) as miPiace  from (Select * from post as p
-      where p.id_user_create = ?) as p1 left join mipiace as l
+      where p.id_user_create = ?) as p1 left join miPiace as l
       on p1.id = l.post_id
       group by p1.id) as p2 left join commento as c
       on p2.id = c.post_id
@@ -412,24 +392,25 @@ class DatabaseHelper
 
    public function check_like($post_id, $user_id)
    {
-      if ($stmt = $this->db->prepare("SELECT * FROM mipiace where user_id = ? and post_id = ?;")) {
+      if ($stmt = $this->db->prepare("SELECT * FROM miPiace where user_id = ? and post_id = ?;")) {
          $stmt->bind_param('ii', $user_id, $post_id);
          $stmt->execute(); // esegue la query appena creata.
          $stmt->store_result();
 
          if ($stmt->num_rows == 0) {
-            if ($ins_stmt = $this->db->prepare("INSERT INTO mipiace (user_id, post_id) VALUES (?, ?)")) {
+            if ($ins_stmt = $this->db->prepare("INSERT INTO miPiace (user_id, post_id) VALUES (?, ?)")) {
                $ins_stmt->bind_param('ii', $user_id, $post_id);
                $ins_stmt->execute();
+               $this->crea_notifica($post_id, $user_id, 3, time());
             }
          } else {
-            if ($del_stmt = $this->db->prepare("DELETE FROM mipiace WHERE user_id = ? and post_id = ?")) {
+            if ($del_stmt = $this->db->prepare("DELETE FROM miPiace WHERE user_id = ? and post_id = ?")) {
                $del_stmt->bind_param('ii', $user_id, $post_id);
                $del_stmt->execute();
             }
          }
 
-         if ($stmt = $this->db->prepare("SELECT  count(*) nMiPiace FROM mipiace where post_id = ?;")) {
+         if ($stmt = $this->db->prepare("SELECT  count(*) nMiPiace FROM miPiace where post_id = ?;")) {
             $stmt->bind_param('i', $post_id);
             $stmt->execute();
             $result = $stmt->get_result();
@@ -438,4 +419,20 @@ class DatabaseHelper
       }
    }
 
+   function crea_notifica($post_id, $user_id, $tipoNotifica, $dataOra){
+      if ($stmt = $this->db->prepare("SELECT id_user_create FROM post WHERE id = ?")) {
+         $stmt->bind_param('i', $post_id);
+         // Esegui la query ottenuta. 
+         $stmt->execute();
+         $stmt->store_result();
+         $stmt->bind_result($user_id_destinatario); // recupera il risultato della query e lo memorizza nelle relative variabili.
+         $stmt->fetch();
+      }
+
+      if ($insert_stmt = $this->db->prepare("INSERT INTO notifica (user_destinazione, post, user_mittente, id_tipo_notifica, data_ora) VALUES (?, ?, ?, ?, ?)")) {
+         $insert_stmt->bind_param('iiiis', $user_id_destinatario, $post_id, $user_id, $tipoNotifica, $dataOra);
+         // Esegui la query ottenuta. 
+         $insert_stmt->execute();
+      }
+   }
 }

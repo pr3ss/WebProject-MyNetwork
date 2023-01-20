@@ -14,14 +14,14 @@
         </div>
         <div class="col-6">
             <div class="row justify-content-center m-2">
-                <?php echo "<button type='button' class='btn btnshadow ' onclick='viewFollower(".json_encode($templateParams["follower"]).")'><i class='fa-solid fa-user'>
+                <?php echo "<button type='button' class='btn btnshadow ' onclick='view_seguiti_follower(".json_encode($templateParams["follower"]).")'><i class='fa-solid fa-user'>
                     ".count($templateParams["follower"])."  FOLLOWER</i></button>"
                 ?>
             </div>
         </div>
         <div class="col-6">
             <div class="row justify-content-center m-2">
-                <?php echo "<button type='button' class='btn btnshadow btn-dark' onclick='viewSeguiti(".json_encode($templateParams["seguiti"]).")'><i class='fa-solid fa-user'>
+                <?php echo "<button type='button' class='btn btnshadow btn-dark' onclick='view_seguiti_follower(".json_encode($templateParams["seguiti"]).")'><i class='fa-solid fa-user'>
                  ".count($templateParams["seguiti"])."  SEGUITI</i></button>"
                 ?>
                <!--  <button type="button" class="btn btnshadow btn-dark" onclick="viewSeguiti()"><i class="fa-solid fa-user">  SEGUITI</i></button> -->

@@ -144,7 +144,7 @@ function addComment(postId) {
         axios.post("./api-add_comment.php", formData
         ).then(response => {
             console.log(response.data);
-            alert(response.data);
+            //alert(response.data);
             if (response.data) {
                 openPost(postId);
             }
@@ -225,11 +225,12 @@ function checkPasswordSecurity(password) {
     return password.length >= 8;
 }
 
-function viewSeguiti(listSeguiti) {
-    if (listSeguiti) {
-        /*         var formData = new FormData();
-                formData.append("list", JSON.stringify(listSeguiti)); */
-        axios.post("./api-seguiti.php"/* , formData */
+function view_seguiti_follower(list) {
+    let temp = Object.assign({},list);
+    if (list) {
+        var formData = new FormData();
+        formData.append("list", JSON.stringify(temp));
+        axios.post("./api-seguiti_follower.php" , formData 
         ).then(response => {
             /* console.log(response.data); */
             document.getElementById("colDx").innerHTML = response.data;
@@ -237,21 +238,6 @@ function viewSeguiti(listSeguiti) {
     }
 }
 
-
-function viewFollower(listFollower) {
-    if (listFollower) {
-        /*         var formData = new FormData();
-                formData.append("list", JSON.stringify(listSeguiti)); */
-        axios.post("./api-follower.php"/* , formData */
-        ).then(response => {
-            /* console.log(response.data); */
-            document.getElementById("colDx").innerHTML = response.data;
-            var utn = document.getElementById("utenti");
-            utn.classList.toggle("myShow");
-        });
-    }
-
-}
 
 function openOtherUser(user_id) {
     var formData = new FormData();
