@@ -41,7 +41,7 @@
             <div class="container mr-5 ml-5 p-1 bg-white " style="border-radius: 10px;">
                 <div class="row d-flex justify-content-center pl-3 pr-3">
                     <div class="col-4">
-                        <button type="button" class="btn btnshadow w-100"><i class="fa-solid fa-heart">
+                        <button type="button" class="btn btnshadow w-100 btnLike_<?php echo $post['id'] ?>" onclick="likePost(<?php echo $post['id'] ?>)"><i class="fa-solid fa-heart">
                                 <p class="m-0">
                                     <?php echo $post["miPiace"] ?>
                                 </p>

@@ -216,12 +216,7 @@ function salva_info() {
         });
         
     }
-
-
-
-
     temp_foto_profilo = null;
-
 }
 
 //Ridondante da signin.js

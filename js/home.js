@@ -95,3 +95,15 @@ function cambiaCategoria(idCategoria){
     main.innerHTML="";
     load_posts();
 }
+
+function likePost(post_id) {
+    const formData = new FormData();
+    formData.append('post_id', post_id);
+
+    axios.post('./api-like.php', formData).then(response => {
+        //console.log(response.data);
+        document.querySelectorAll("button.btnLike_"+post_id).forEach(element => {
+            element.innerHTML = '<i class="fa-solid fa-heart"> '+response.data+'</i>';
+        });
+    });
+}

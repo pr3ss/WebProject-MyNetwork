@@ -17,7 +17,7 @@
         </div>
         <div class="col-2 d-flex flex-column justify-content-center">
             <div class="row justify-content-center">
-                <button type="button" class="btn btnshadow"><i class="fa-solid fa-heart">
+                <button type="button" class="btn btnshadow btnLike_<?php echo $post['id'] ?>" onclick="likePost(<?php echo $post['id'] ?>)"><i class="fa-solid fa-heart">
                 <?php echo $post["miPiace"] ?></i></button>
             </div>
         </div>

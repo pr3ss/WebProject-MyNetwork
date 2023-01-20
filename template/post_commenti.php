@@ -22,7 +22,7 @@
 
                     <div class="col-4 d-flex flex-column justify-content-center">
                         <div class="row justify-content-center">
-                            <button type="button" class="btn btnshadow"><i class="fa-solid fa-heart">
+                            <button type="button" class="btn btnshadow btnLike_<?php echo $templateParams['post'][0]['id'] ?>" onclick="likePost(<?php echo $templateParams['post'][0]['id'] ?>)"><i class="fa-solid fa-heart">
                                     <?php echo $templateParams["post"][0]["miPiace"]; ?>
                                 </i></button>
                         </div>
