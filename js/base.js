@@ -2,41 +2,76 @@ var blr = document.getElementById("blur");
 var nav = document.getElementById("navbarText");
 var cat = document.getElementById("categoria");
 var ric = document.getElementById("ricerca");
+let btn_nav = document.getElementById("btn_nav");
 let desktop = window.matchMedia("(min-width: 991px)");
-let colDx  = document.getElementById("colDx");
+let colDx = document.getElementById("colDx");
 var tablet = window.matchMedia("(min-width: 767px)");
+var mobile = window.matchMedia("(min-width: 500px)");
 
 
-function blurrare() {
-    close_all_popup();
-    blr.classList.toggle("blurfilter");
-    if(!blr.classList.contains("blurfilter")){
-        cat.classList.remove("myShow");
-        ric.classList.remove("myShow");
+open_nav = false;
+function open_menu(open) {
+    if (mobile ) {
+        open_nav = !open_nav;
+
+        if (open_nav) {
+            blr.classList.add("blurfilter");
+        } else {
+            blr.classList.remove("blurfilter");
+            cat.classList.remove("myShow");
+            ric.classList.remove("myShow");
+            close_all_popup();
+        }
     }
 }
+
+tablet.addEventListener("change", (e) => {
+
+})
+
+function close_menu() {
+    if (open_nav) {
+        console.log("chi");
+        btn_nav.click();
+    } else {
+        open_nav = true;
+        open_menu();
+    }
+
+}
+
 function viewCategoria() {
-    if (tablet.matches){
-        blr.classList.add("blurfilter");
-    }
-    ric.classList.remove("myShow");
-    cat.classList.toggle("myShow");
-    if (tablet.matches){
-        if(!cat.classList.contains("myShow")){
+    if (tablet.matches) {
+        if(cat.classList.contains("myShow")){
+            close_all_popup(); //non metterlo fuori dal if
             blr.classList.remove("blurfilter");
+        }else{
+            close_all_popup();
+            blr.classList.add("blurfilter");
+            cat.classList.add("myShow");
         }
+        
+    }else{
+        close_all_popup();
+        cat.classList.add("myShow");
     }
 }
+
 function viewRicerca() {
-    if (tablet.matches){
-        blr.classList.add("blurfilter");
-    }
-    cat.classList.remove("myShow");
-    ric.classList.toggle("myShow");
-    if (tablet.matches){
-        if(!ric.classList.contains("myShow")){
+    if (tablet.matches) {
+        
+        if(ric.classList.contains("myShow")){
+            close_all_popup();
             blr.classList.remove("blurfilter");
+        }else{
+            close_all_popup();
+            blr.classList.add("blurfilter");
+            ric.classList.add("myShow");
         }
+        
+    }else{
+        close_all_popup();
+        ric.classList.add("myShow");
     }
 }
 
@@ -64,7 +99,7 @@ function fill_list_user(list_users) {
     const list_elm = document.getElementById("list_searched_users");
     list_elm.innerHTML = "";
     for (let user in list_users) {
-        list_elm.innerHTML += ' <button type="button"onclick="openOtherUser('+list_users[user].id+')" class="list-group-item list-group-item-action">' + list_users[user].username + '</button>';
+        list_elm.innerHTML += ' <button type="button"onclick="openOtherUser(' + list_users[user].id + ')" class="list-group-item list-group-item-action">' + list_users[user].username + '</button>';
     }
 
 }
@@ -116,10 +151,18 @@ function upload_post() {
 
 
 tablet.addEventListener("change", (e) => {
-    if (e.matches && !(cat.classList.contains("myShow") || ric.classList.contains("myShow"))) {
+    var utn;
+    if (utn = document.getElementById("utenti")) {
+        if (e.matches && !(cat.classList.contains("myShow") || ric.classList.contains("myShow") || utn.classList.contains("myShow"))) {
+            blr.classList.remove("blurfilter");
+            nav.classList.remove("show");
+        }
+    }else if (e.matches && !(cat.classList.contains("myShow") || ric.classList.contains("myShow"))) {
         blr.classList.remove("blurfilter");
         nav.classList.remove("show");
     }
+
+    open_nav=false;
 });
 
 //TODO rivedere reload post commenti
@@ -145,10 +188,12 @@ function addComment(postId) {
 }
 
 function showProfilo() {
+    
     axios.post("./api-profilo.php"
     ).then(response => {
         document.getElementById("labelIdentifyScreen").innerHTML = "PROFILO";
         document.getElementById("colMain").innerHTML = response.data;
+        //if(mobile){ btn_nav.click();} //Per chiudere il menu
     });
 }
 
@@ -157,8 +202,11 @@ function showImpostazioni() {
     ).then(response => {
         document.getElementById("labelIdentifyScreen").innerHTML = "IMPOSTAZIONI";
         document.getElementById("colMain").innerHTML = response.data;
+        //if(mobile){ btn_nav.click();}
     });
 }
+
+
 
 
 
@@ -216,22 +264,23 @@ function checkPasswordSecurity(password) {
 
 
 function view_seguiti_follower(list) {
-    let temp = Object.assign({},list);
+    let temp = Object.assign({}, list);
     if (list) {
         var formData = new FormData();
         formData.append("list", JSON.stringify(temp));
-        axios.post("./api-seguiti_follower.php" , formData 
+        axios.post("./api-seguiti_follower.php", formData
         ).then(response => {
             /* console.log(response.data); */
             document.getElementById("colDx").innerHTML = response.data;
             var utn = document.getElementById("utenti");
             utn.classList.add("myShow");
-            if(!desktop.matches){
+            if (!desktop.matches) {
                 blr.classList.add("blurfilter");
             }
         });
     }
 }
+
 
 
 function openOtherUser(user_id) {
@@ -245,15 +294,17 @@ function openOtherUser(user_id) {
 }
 
 
-function close_all_popup(){
+function close_all_popup() {
+    ric.classList.remove("myShow");
+    cat.classList.remove("myShow");
     var utn;
-    if(utn = document.getElementById("utenti")){
+    if (utn = document.getElementById("utenti")) {
         utn.classList.remove("myShow");
-        blr.classList.remove("blurfilter");
+        //blr.classList.remove("blurfilter");
     }
 }
 
-function startFollow(user_id){
+function startFollow(user_id) {
     //alert(user_id);
     var formData = new FormData();
     formData.append("user_id", user_id);
@@ -264,7 +315,7 @@ function startFollow(user_id){
 }
 
 
-function deletePost(post_id){
+function deletePost(post_id) {
     //alert(post_id);
     var formData = new FormData();
     formData.append("post_id", post_id);

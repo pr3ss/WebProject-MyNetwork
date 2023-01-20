@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="./css/home_base.css">
 </head>
 
-<body onclick="close_all_popup()">
-    <div id="blur" class="blur"></div>
+<body>
+    <div id="blur" class="blur" onclick="close_menu()"></div>
     <!-- PILL -->
     <div class="container-fluid position-fixed" style="z-index:3;">
         <div class="row m-0 mt-2 bg-white rounded-pill ">
@@ -34,9 +34,9 @@
             <div id="nav" class="col-2 col-md-6 order-md-2 d-flex justify-content-center">
                 <nav class="bg-body-tertiary navbar-expand-md">
                     <div class="container-fluid">
-                        <button class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse"
+                        <button id="btn_nav" class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse"
                             data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
-                            aria-label="Toggle navigation" onclick="blurrare()"><i
+                            aria-label="Toggle navigation" onclick="open_menu()"><i
                                 class="fa-solid fa-bars"></i></button>
                         <div class="collapse navbar-collapse position-notmd-absolute justify-content-center"
                             id="navbarText">
