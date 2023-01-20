@@ -284,16 +284,46 @@ class DatabaseHelper
       }
    }
 
-   public function upload_comment($user_id, $dataOra, $testo, $idPost)
-   {
-      if ($insert_stmt = $this->db->prepare("INSERT INTO commento (user_id, post_id,data_ora, testo) VALUES (?, ?, ?, ?)")) {
-         $insert_stmt->bind_param('iiss', $user_id, $idPost, $dataOra, $testo);
+   public function upload_comment($user_id, $dataOra, $testo, $idPost) {
+      if ($insert_stmt = $this->db->prepare("INSERT INTO commento (user_id, post_id,data_ora, testo) VALUES (?, ?, ?, ?)")) {    
+         $insert_stmt->bind_param('iiss',$user_id, $idPost, $dataOra, $testo); 
          // Esegui la query ottenuta. 
          $insert_stmt->execute();
-         return $insert_stmt->insert_id;
+         //return $insert_stmt->insert_id;
       }
+
+      //create notifica
+      if ($stmt = $this->db->prepare("SELECT id_user_create FROM post WHERE id = ?")) {    
+         $stmt->bind_param('i',$idPost); 
+         // Esegui la query ottenuta. 
+         $stmt->execute();
+         $stmt->store_result();
+         $stmt->bind_result($user_id_destinatario); // recupera il risultato della query e lo memorizza nelle relative variabili.
+         $stmt->fetch();         
+      }
+      $data = time();
+      $this->db->query("INSERT INTO notifica (user_destinazione, post,user_mittente, id_tipo_notifica, data_ora) VALUES ($user_id_destinatario, $idPost, $user_id, 1,$data );");
+      return true;
+      
+      if ($insert_stmt1 = $this->db->prepare("INSERT INTO notifica (user_destinazione, post, user_mittente, id_tipo_notifica, data_ora) VALUES (?, ?, ?, ?, ?)")) {    
+         $insert_stmt1->bind_param('iiiis', $user_id_destinatario, $idPost, $user_id, 1, "0"); 
+         // Esegui la query ottenuta. 
+         return $insert_stmt1->execute();
+      }
+
+      
    }
 
+   /*public function upload_comment($user_id, $dataOra, $testo, $idPost) {
+      if ($insert_stmt = $this->db->prepare("CALL add_comment(?,?,?,?);")) {  
+         echo "OKOK";  
+         $insert_stmt->bind_param('iiss',$user_id, $idPost, $dataOra, $testo); 
+         // Esegui la query ottenuta. 
+         $insert_stmt->execute();
+         return true;
+      }
+   }*/
+   
    public function get_user_posts($user_id)
    {
       if (
