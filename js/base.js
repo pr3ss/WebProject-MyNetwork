@@ -6,26 +6,22 @@ let btn_nav = document.getElementById("btn_nav");
 let desktop = window.matchMedia("(min-width: 991px)");
 let colDx = document.getElementById("colDx");
 var tablet = window.matchMedia("(min-width: 767px)");
-let tablet_mobile = window.matchMedia("(max-width: 991px)");
+let tablet2 = window.matchMedia("(max-width: 991px)");
 var mobile = window.matchMedia("(max-width: 767px)");
 
 
 open_nav = false;
-function open_menu(open) {
-    if (mobile ) {
+function open_menu() {
+    if (true ) {
         open_nav = !open_nav;
 
         if (open_nav) {
             blr.classList.add("blurfilter");
         } else {
-            blr.classList.remove("blurfilter");
-            cat.classList.remove("myShow");
-            ric.classList.remove("myShow");
             close_all_popup();
         }
     }
 }
-
 
 function close_menu() {
     if (open_nav) {
@@ -38,11 +34,49 @@ function close_menu() {
 
 }
 
+function close_all_popup() {
+    ric.classList.remove("myShow");
+    cat.classList.remove("myShow");
+    var utn;
+    if (utn = document.getElementById("utenti")) {
+        utn.classList.remove("myShow");
+        //blr.classList.remove("blurfilter");
+    }
+
+    blr.classList.remove("blurfilter");
+}
+
+function tablet_all_popup_close(mediaQ){
+    if(mediaQ.matches){
+        close_all_popup();
+    }
+}
+
+//Media query event
+mobile.addEventListener("change", (e)=>{
+    if(e.matches){
+        if(open_nav){
+            btn_nav.click();
+        }else{
+            close_all_popup();
+        }
+    }
+})
+
+tablet.addEventListener("change", (e) => {
+    tablet_all_popup_close(e);
+});
+
+tablet2.addEventListener("change", (e) => {
+    tablet_all_popup_close(e);
+});
+
+
+
 function viewCategoria() {
     if (tablet.matches) {
         if(cat.classList.contains("myShow")){
             close_all_popup(); //non metterlo fuori dal if
-            blr.classList.remove("blurfilter");
         }else{
             close_all_popup();
             blr.classList.add("blurfilter");
@@ -51,6 +85,7 @@ function viewCategoria() {
         
     }else{
         close_all_popup();
+        blr.classList.add("blurfilter");
         cat.classList.add("myShow");
     }
 }
@@ -60,7 +95,6 @@ function viewRicerca() {
         
         if(ric.classList.contains("myShow")){
             close_all_popup();
-            blr.classList.remove("blurfilter");
         }else{
             close_all_popup();
             blr.classList.add("blurfilter");
@@ -69,6 +103,7 @@ function viewRicerca() {
         
     }else{
         close_all_popup();
+        blr.classList.add("blurfilter");
         ric.classList.add("myShow");
     }
 }
@@ -147,39 +182,7 @@ function upload_post() {
     document.getElementById("tmp_img").innerHTML = "<button class='btn' style='font-size: 300%;' onclick='add_image()'><i class='fa-solid fa-circle-plus'></i></button>";
 }
 
-tablet_mobile.addEventListener("change", (e) => {
-    /*var utn;
-    if (utn = document.getElementById("utenti")) {
-        if(utn.classList.contains("myShow") && e.matches){
-            blr.classList.add("blurfilter");
-        }
-    }*/
-    if(e.matches){
-        close_all_popup(); 
-        blr.classList.remove("blurfilter");
-    }
-});
 
-mobile.addEventListener("change", (e)=>{
-    if(open_nav && e.matches){
-        btn_nav.click();
-    }
-})
-
-tablet.addEventListener("change", (e) => {
-    var utn;
-    if (utn = document.getElementById("utenti")) {
-        if (e.matches && !(cat.classList.contains("myShow") || ric.classList.contains("myShow") || utn.classList.contains("myShow"))) {
-            blr.classList.remove("blurfilter");
-            nav.classList.remove("show");
-        }
-    }else if (e.matches && !(cat.classList.contains("myShow") || ric.classList.contains("myShow"))) {
-        blr.classList.remove("blurfilter");
-        nav.classList.remove("show");
-    }
-
-    open_nav=false;
-});
 
 //TODO rivedere reload post commenti
 function addComment(postId) {
@@ -312,15 +315,7 @@ function openOtherUser(user_id) {
 }
 
 
-function close_all_popup() {
-    ric.classList.remove("myShow");
-    cat.classList.remove("myShow");
-    var utn;
-    if (utn = document.getElementById("utenti")) {
-        utn.classList.remove("myShow");
-        //blr.classList.remove("blurfilter");
-    }
-}
+
 
 function startFollow(user_id) {
     //alert(user_id);
