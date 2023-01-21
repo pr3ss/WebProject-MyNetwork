@@ -10,8 +10,6 @@ var tablet = window.matchMedia("(min-width: 767px)");
 let tablet2 = window.matchMedia("(max-width: 991px)");
 var mobile = window.matchMedia("(max-width: 767px)");
 
-check_NuoveNotifiche();
-
 open_nav = false;
 function open_menu() {
     if (true ) {
@@ -180,7 +178,9 @@ function add_image() {
 
 function upload_post() {
     let testo = document.getElementById("tmp_post_text").value;
+    document.getElementById("tmp_post_text").value = "";
     let luogo = document.getElementById("tmp_post_luogo").value;
+    document.getElementById("tmp_post_luogo").value = "";
     let cat = document.getElementById("tmp_post_cat").value;
     if (file || testo) {
         var formData = new FormData();

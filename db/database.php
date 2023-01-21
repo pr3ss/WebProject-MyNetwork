@@ -473,7 +473,7 @@ class DatabaseHelper
       if (!$this->check_follow($user_follow, $user_id)) {
          if ($ins_stmt = $this->db->prepare("INSERT INTO follow (user_id, user_follow) VALUES (?, ?)")) {
             $ins_stmt->bind_param('ii', $user_id, $user_follow);
-            $this->crea_notifica(0, $user_id, 4, time(), $user_follow);
+            $this->crea_notifica(null, $user_id, 4, time(), $user_follow);
             return $ins_stmt->execute();
          }
       } else {
