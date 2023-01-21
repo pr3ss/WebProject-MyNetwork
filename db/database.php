@@ -461,13 +461,13 @@ class DatabaseHelper
          $stmt->bind_result($user_id_destinatario); // recupera il risultato della query e lo memorizza nelle relative variabili.
          $stmt->fetch();
 
-         if ($insert_stmt = $this->db->prepare("INSERT INTO notifica (user_destinazione, post, user_mittente, id_tipo_notifica, data_ora) VALUES (?, ?, ?, ?, ?)")) {
+         if ($user_id_destinatario != $user_id && $insert_stmt = $this->db->prepare("INSERT INTO notifica (user_destinazione, post, user_mittente, id_tipo_notifica, data_ora) VALUES (?, ?, ?, ?, ?)")) {
             $insert_stmt->bind_param('iiiis', $user_id_destinatario, $post_id, $user_id, $tipoNotifica, $dataOra);
             // Esegui la query ottenuta. 
             return $insert_stmt->execute();
          }
       }else{
-         if ($insert_stmt = $this->db->prepare("INSERT INTO notifica (user_destinazione, user_mittente, id_tipo_notifica, data_ora) VALUES (?, ?, ?, ?)")) {
+         if ($user_id_destinatario != $user_id && $insert_stmt = $this->db->prepare("INSERT INTO notifica (user_destinazione, user_mittente, id_tipo_notifica, data_ora) VALUES (?, ?, ?, ?)")) {
             $insert_stmt->bind_param('iiis', $user_id_destinatario, $user_id, $tipoNotifica, $dataOra);
             // Esegui la query ottenuta. 
             return $insert_stmt->execute();
