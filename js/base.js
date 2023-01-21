@@ -243,7 +243,7 @@ function showImpostazioni() {
     ).then(response => {
         document.getElementById("labelIdentifyScreen").innerHTML = "IMPOSTAZIONI";
         document.getElementById("colMain").innerHTML = response.data;
-        //if(mobile){ btn_nav.click();}
+        if(mobile.matches){ btn_nav.click();} //Per chiudere il menu
     });
 }
 
