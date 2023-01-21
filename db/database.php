@@ -40,6 +40,7 @@ class DatabaseHelper
                   $_SESSION['username'] = $username;
                   $_SESSION['login_string'] = hash('sha512', $password . $user_browser);
                   // Login eseguito con successo.
+                  $_SESSION['foto_profilo'] = $this->get_img_user_session($user_id)[0]['foto_profilo'];
                   return true;
                } else {
                   // Password incorretta.
@@ -53,6 +54,17 @@ class DatabaseHelper
             // L'utente inserito non esiste.
             return false;
          }
+      }
+   }
+
+   public function get_img_user_session($user_id){
+      if (
+         $stmt = $this->db->prepare("SELECT foto_profilo FROM user where id = ?;")
+      ) {
+         $stmt->bind_param('i', $user_id);
+         $stmt->execute();
+         $result = $stmt->get_result();
+         return $result->fetch_all(MYSQLI_ASSOC);
       }
    }
 
@@ -472,7 +484,6 @@ class DatabaseHelper
             $ins_stmt->bind_param('ii', $user_id, $user_follow);
             $this->crea_notifica(0, $user_id, 4, time(), $user_follow);
             return $ins_stmt->execute();
-            //TODO crea notifica
          }
       } else {
          if ($del_stmt = $this->db->prepare("DELETE FROM follow WHERE user_id = ? and user_follow = ?")) {
@@ -522,7 +533,25 @@ class DatabaseHelper
    function get_notifiche( $user_id)
    {
       if ($stmt = $this->db->prepare("SELECT n.id,post,vista,u.id as idMittente,u.username,u.foto_profilo,tn.id as idTipo,tn.descrizione, data_ora from notifica as n, user as u, tipo_notifica as tn
-      where u.id =  user_mittente and tn.id = n.id_tipo_notifica and n.user_destinazione = ?;")) {
+      where u.id =  user_mittente and tn.id = n.id_tipo_notifica and n.user_destinazione = ? order by data_ora DESC;")) {
+         $stmt->bind_param('i', $user_id);
+         $stmt->execute();
+         $result = $stmt->get_result();
+         return $result->fetch_all(MYSQLI_ASSOC);
+      }
+   }
+
+   function view_noticica($notifica_id){
+      if ($insert_stmt = $this->db->prepare("UPDATE notifica SET vista = 1 WHERE id = ?")) {
+         $insert_stmt->bind_param('i', $notifica_id);
+         return $insert_stmt->execute();
+      }
+   }
+
+   //TODO impostare nel db vista come default ad 0
+
+   function check_nNuoveNotifiche($user_id){
+      if ($stmt = $this->db->prepare("SELECT count(*) as nNotifiche FROM notifica where user_destinazione = ? and vista != 1")) {
          $stmt->bind_param('i', $user_id);
          $stmt->execute();
          $result = $stmt->get_result();

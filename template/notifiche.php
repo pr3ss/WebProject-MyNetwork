@@ -1,10 +1,14 @@
 <div class="container p-0 m-0 h-100 justify-content-center " style="overflow-y:auto;">
     <?php foreach($templateParams["notifiche"] as $notifica): ?>
-    <div class="row  mr-1 ml-1 mt-2 p-1 box-notifica bg-white" onclick="<?php if($notifica['idTipo'] == 4){
+    <div class="row  mr-1 ml-1 mt-2 p-1 box-notifica <?php if($notifica['vista'] == 1){
+        echo 'bg-white';
+        }else{
+        echo 'bg-primary';;
+    } ?>" onclick="<?php if($notifica['idTipo'] == 4){
         echo 'openOtherUser('.$notifica['idMittente'].')';
         }else{
-            echo 'openPost('.$notifica['post'].')'; 
-            }?>">
+            echo 'openPost('.$notifica['post'].')';
+    } ?>, notificaVista(<?php echo $notifica['id'];?>)">
         <div class="col-2">
         <img src="./img/<?php echo $notifica["foto_profilo"] ?>" alt="Avatar" class="avatar">
         </div>

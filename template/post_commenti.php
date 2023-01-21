@@ -14,9 +14,9 @@
                             </p>
                         </div>
                         <div class="row">
-                            <p class="m-0" style="font-size: small;"><?php if (isset($templateParmas["post"][0]["luogo"])) {
-                                echo "Luogo: " . $templateParmas["post"][0]["luogo"];
-                            } ?></p>
+                        <p class="m-0" style="font-size: small;"><?php if (isset($templateParams['post'][0]['luogo'])) {
+                                                                        echo "Luogo: " . $templateParams['post'][0]['luogo'];
+                                                                    } ?></p>
                         </div>
                     </div>
 
@@ -47,7 +47,7 @@
         <div class="row bg-white mr-2 ml-2 mt-2" style="border-radius: 10px;">
             <div class="col-2 d-flex flex-column justify-content-center align-items-center">
                 <!--con aligin-item-center rimane sempre centrasto decidere se fissarlo al inizo riga o al centro-->
-                <img src="./img/<?php echo $templateParams["post"][0]["foto_profilo"]; ?>" alt="Avatar" class="avatar">
+                <img src="./img/<?php echo $_SESSION['foto_profilo']; ?>" alt="Avatar" class="avatar">
             </div>
             <div class="col-8 d-flex flex-column justify-content-center align-items-center p-0">
                 <input type="text" id="textComment" class="form-control" placeholder="Type comment..." />

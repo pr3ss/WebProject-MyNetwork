@@ -9,6 +9,7 @@ var tablet = window.matchMedia("(min-width: 767px)");
 let tablet2 = window.matchMedia("(max-width: 991px)");
 var mobile = window.matchMedia("(max-width: 767px)");
 
+check_NuoveNotifiche();
 
 open_nav = false;
 function open_menu() {
@@ -343,14 +344,44 @@ function viewNotifiche() {
     //window.location.href = "notifiche.html"; oppure mettere il caricameno dinamico nel main invece che alla colonna
     //TODO mettere il caricamento dinamico;
     //se desktop view
-    var jolly = document.getElementById("colDx");
+
+    if(desktop.matches){
+        var jolly = document.getElementById("colDx");
+    }else{
+        var jolly = document.getElementById("colMain");
+        otherCall=true;
+    }
 
     axios.post('./api-notifiche.php').then(response => {
         console.log(response);
         jolly.innerHTML = response.data;
+        close_menu();
     });
 }
 
+function notificaVista(notifica_id){
+    var formData = new FormData();
+    formData.append("notifica_id", notifica_id);
+    axios.post("./api-notifica_vista.php", formData
+    ).then(response => {
+        console.log(response.data);
+    });
+    check_NuoveNotifiche();
+}
+
+function check_NuoveNotifiche(){
+    axios.post("./api-check_notifiche.php"
+    ).then(response => {
+        console.log(response.data);
+        if(response.data!=0){
+            document.getElementById("num_notifiche").style.display ="inline";
+            document.getElementById("num_notifiche").innerHTML = response.data;
+        }else{
+            document.getElementById("num_notifiche").style.display ="none";
+        }
+        
+    });
+}
 
 
 
