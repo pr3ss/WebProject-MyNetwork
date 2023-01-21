@@ -52,8 +52,7 @@
                                 <li class="nav-item ">
                                     <button class="btn btn-dark btn-circle " onclick="viewNotifiche(),check_NuoveNotifiche()"><i
                                             class="fa-regular fa-envelope">
-                                            <span id="num_notifiche" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                            </span></i></button>
+                                            <span id="num_notifiche" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span></i></button>
                                 </li>
                                 <li class="nav-item  btn_RicCat">
                                     <button class="btn btn-dark btn-circle" onclick="viewCategoria(),check_NuoveNotifiche() "><i

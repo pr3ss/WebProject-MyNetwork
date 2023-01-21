@@ -25,6 +25,7 @@ function load_posts(cat_changed=false){
         
         otherCall=false;
     });
+    check_NuoveNotifiche();
 }
 
 //Cariamento iniziale
