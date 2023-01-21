@@ -274,7 +274,7 @@ class DatabaseHelper
          $insert_stmt->bind_param('iissi', $user_id, $dataOra, $testo, $luogo, $idCat);
          // Esegui la query ottenuta. 
          $insert_stmt->execute();
-
+         $id_post = $insert_stmt->insert_id;
          if ($stmt = $this->db->prepare("SELECT user_id FROM follow WHERE user_follow  = ?")) {
             $stmt->bind_param('i', $user_id);
             // Esegui la query ottenuta. 
@@ -285,7 +285,7 @@ class DatabaseHelper
             //$ok = $users_destinazione;
             $data = time();
             foreach($users_destinazione as $user_destinazione){
-               $this->crea_notifica(0, $user_id, 3, $data, $user_destinazione["user_id"]);
+               $this->crea_notifica($id_post, $user_id, 3, $data, $user_destinazione["user_id"]);
             }
 
             //$ok = $users_destinazione;
@@ -295,7 +295,7 @@ class DatabaseHelper
         
          
 
-         return $insert_stmt->insert_id;
+         return $id_post;
       }
    }
 
@@ -460,21 +460,12 @@ class DatabaseHelper
          $stmt->store_result();
          $stmt->bind_result($user_id_destinatario); // recupera il risultato della query e lo memorizza nelle relative variabili.
          $stmt->fetch();
-
-         if ($user_id_destinatario != $user_id && $insert_stmt = $this->db->prepare("INSERT INTO notifica (user_destinazione, post, user_mittente, id_tipo_notifica, data_ora) VALUES (?, ?, ?, ?, ?)")) {
-            $insert_stmt->bind_param('iiiis', $user_id_destinatario, $post_id, $user_id, $tipoNotifica, $dataOra);
-            // Esegui la query ottenuta. 
-            return $insert_stmt->execute();
-         }
-      }else{
-         if ($user_id_destinatario != $user_id && $insert_stmt = $this->db->prepare("INSERT INTO notifica (user_destinazione, user_mittente, id_tipo_notifica, data_ora) VALUES (?, ?, ?, ?)")) {
-            $insert_stmt->bind_param('iiis', $user_id_destinatario, $user_id, $tipoNotifica, $dataOra);
-            // Esegui la query ottenuta. 
-            return $insert_stmt->execute();
-         }
       }
-
-      
+      if ($user_id_destinatario != $user_id && $insert_stmt = $this->db->prepare("INSERT INTO notifica (user_destinazione, post, user_mittente, id_tipo_notifica, data_ora) VALUES (?, ?, ?, ?, ?)")) {
+         $insert_stmt->bind_param('iiiis', $user_id_destinatario, $post_id, $user_id, $tipoNotifica, $dataOra);
+         // Esegui la query ottenuta. 
+         return $insert_stmt->execute();
+      }
    }
 
    function start_follow($user_follow, $user_id)
