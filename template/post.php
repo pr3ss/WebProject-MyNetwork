@@ -1,5 +1,4 @@
 <?php foreach ($templateParams["posts"] as $post) : ?>
-    <div class="row justify-content-center">
         <div class="container bg-white m-1 " style="border-radius:10px ;">
             <div class="row d-flex justify-content-center">
                 <div class="col-3 d-flex flex-column justify-content-center align-items-center ">
@@ -38,5 +37,4 @@
                 <p class="card-text"><?php echo $post["testo"]; ?></p>
             </div>
         </div>
-    </div>
 <?php endforeach;?>

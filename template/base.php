@@ -112,7 +112,9 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6 offset-lg-3 d-flex flex-column align-items-center">
-                <div id="colMain" class="container-fluid"></div>
+                <div  class="container-fluid">
+                    <div id="colMain" class="row justify-content-center">
+                </div>
             </div>
             <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block position-fixed bg-dark col-hidden"
                 style="height: 90%; ">

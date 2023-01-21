@@ -6,7 +6,7 @@ var post_finished = false;
 
 function load_posts(cat_changed=false){
     otherCall=true;
-    main.innerHTML += "<div class='row justify-content-center'> <div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span> </div> </div>";
+    main.innerHTML += "<div class='container'> <div class='row justify-content-center'><div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span> </div> </div> </div>";
 
     var formData = new FormData();
     formData.append("categoria", categoria);
@@ -24,8 +24,9 @@ function load_posts(cat_changed=false){
         }
         
         otherCall=false;
+        check_NuoveNotifiche();
     });
-    check_NuoveNotifiche();
+    
 }
 
 //Cariamento iniziale

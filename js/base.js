@@ -5,6 +5,7 @@ var ric = document.getElementById("ricerca");
 let btn_nav = document.getElementById("btn_nav");
 let desktop = window.matchMedia("(min-width: 991px)");
 let colDx = document.getElementById("colDx");
+let colMain = document.getElementById("colMain");
 var tablet = window.matchMedia("(min-width: 767px)");
 let tablet2 = window.matchMedia("(max-width: 991px)");
 var mobile = window.matchMedia("(max-width: 767px)");
@@ -71,6 +72,25 @@ tablet.addEventListener("change", (e) => {
 tablet2.addEventListener("change", (e) => {
     tablet_all_popup_close(e);
 });
+
+desktop.addEventListener("change", (e)=>{
+    if(e.matches){
+        var elm;
+        if(elm = document.getElementById("post_singolo")){
+            colDx.innerHTML="";
+            colDx.appendChild(elm);
+            colMain.innerHTML="";
+            load_posts(true); //True per fare in modo di ricaricare dal post piu recente
+            //console.log("desktop si");
+        }else if(elm = document.getElementById("notifiche")){
+            colDx.innerHTML="";
+            colDx.appendChild(elm);
+            colMain.innerHTML="";
+            load_posts(true); //True per fare in modo di ricaricare dal post piu recente
+            //console.log("desktop si");
+        }
+    }
+})
 
 
 
