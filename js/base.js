@@ -6,7 +6,8 @@ let btn_nav = document.getElementById("btn_nav");
 let desktop = window.matchMedia("(min-width: 991px)");
 let colDx = document.getElementById("colDx");
 var tablet = window.matchMedia("(min-width: 767px)");
-var mobile = window.matchMedia("(min-width: 500px)");
+let tablet_mobile = window.matchMedia("(max-width: 991px)");
+var mobile = window.matchMedia("(max-width: 767px)");
 
 
 open_nav = false;
@@ -25,9 +26,6 @@ function open_menu(open) {
     }
 }
 
-tablet.addEventListener("change", (e) => {
-
-})
 
 function close_menu() {
     if (open_nav) {
@@ -149,6 +147,24 @@ function upload_post() {
     document.getElementById("tmp_img").innerHTML = "<button class='btn' style='font-size: 300%;' onclick='add_image()'><i class='fa-solid fa-circle-plus'></i></button>";
 }
 
+tablet_mobile.addEventListener("change", (e) => {
+    /*var utn;
+    if (utn = document.getElementById("utenti")) {
+        if(utn.classList.contains("myShow") && e.matches){
+            blr.classList.add("blurfilter");
+        }
+    }*/
+    if(e.matches){
+        close_all_popup(); 
+        blr.classList.remove("blurfilter");
+    }
+});
+
+mobile.addEventListener("change", (e)=>{
+    if(open_nav && e.matches){
+        btn_nav.click();
+    }
+})
 
 tablet.addEventListener("change", (e) => {
     var utn;
@@ -188,16 +204,17 @@ function addComment(postId) {
 }
 
 function showProfilo() {
-    
+    window.onscroll=null; //TODO vedere se aggiungere anche qui il caricamento dinamico/ottimizzato dei post
     axios.post("./api-profilo.php"
     ).then(response => {
         document.getElementById("labelIdentifyScreen").innerHTML = "PROFILO";
         document.getElementById("colMain").innerHTML = response.data;
-        //if(mobile){ btn_nav.click();} //Per chiudere il menu
+        if(mobile.matches){ btn_nav.click();} //Per chiudere il menu
     });
 }
 
 function showImpostazioni() {
+    window.onscroll=null; //TODO verificare sia necessario
     axios.post("./api-impostazioni.php"
     ).then(response => {
         document.getElementById("labelIdentifyScreen").innerHTML = "IMPOSTAZIONI";
@@ -264,10 +281,10 @@ function checkPasswordSecurity(password) {
 
 
 function view_seguiti_follower(list) {
-    let temp = Object.assign({}, list);
+    let obj_list = {...list}; //Object.assign({}, list);
     if (list) {
         var formData = new FormData();
-        formData.append("list", JSON.stringify(temp));
+        formData.append("list", JSON.stringify(obj_list));
         axios.post("./api-seguiti_follower.php", formData
         ).then(response => {
             /* console.log(response.data); */
@@ -284,6 +301,7 @@ function view_seguiti_follower(list) {
 
 
 function openOtherUser(user_id) {
+    window.onscroll=null; //TODO vedere se aggiungere anche qui il caricamento dinamico/ottimizzato dei post
     var formData = new FormData();
     formData.append("user_id", user_id);
     axios.post("./api-profilo_other_user.php", formData

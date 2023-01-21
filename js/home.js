@@ -4,12 +4,13 @@ var otherCall = false;
 var post_finished = false;
 
 
-function load_posts(){
+function load_posts(cat_changed=false){
     otherCall=true;
     main.innerHTML += "<div class='row justify-content-center'> <div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span> </div> </div>";
 
     var formData = new FormData();
     formData.append("categoria", categoria);
+    formData.append("cat_changed", cat_changed);
     axios.post('./api-feed.php', formData/*, numero post*/).then(response => {
         main.removeChild(main.lastChild);
         //console.log((response.data.length));
@@ -19,6 +20,7 @@ function load_posts(){
             post_finished = false;
         }else{
             post_finished = true;
+            console.log("post finiti");
         }
         
         otherCall=false;
@@ -85,7 +87,7 @@ function cambiaCategoria(idCategoria){
     let list = document.getElementById("list_categorie").children;
 
     for (const child of list) {
-        console.log(child);
+        //console.log(child);
         child.classList.remove("active");
     }
     
@@ -93,7 +95,7 @@ function cambiaCategoria(idCategoria){
     btn.classList.add("active");
     categoria = idCategoria;
     main.innerHTML="";
-    load_posts();
+    load_posts(true);
 }
 
 function likePost(post_id) {
