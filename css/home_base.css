@@ -42,8 +42,16 @@ body {
   width: 100%;
 }
 
+.btn-like{
+  background-color: #c15e84;
+}
+
 .menu{
   background: linear-gradient(120deg, #198aa6, #d8dfa4);
+}
+
+.commento{
+  border-bottom: 1px solid #afafaf;
 }
 
 li {

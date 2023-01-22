@@ -23,7 +23,7 @@
             <div class="col-2 d-flex flex-column justify-content-center  ">
                 <div class="row justify-content-center ">
                     <button type="button" class="btn  btnLike_<?php echo $post['id'] ?>         <?php if ($post['asliked'] != null) {
-                                    echo "btn-danger";
+                                    echo "btn-like";
                                 } ?>" onclick="likePost(<?php echo $post['id'] ?>)"><i class="fa-solid fa-heart"
                             style="font-size: 150%;"><p class="m-0"><?php echo $post["miPiace"] ?></p></i></button>
                 </div>

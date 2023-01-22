@@ -80,9 +80,9 @@ function likePost(post_id) {
         document.querySelectorAll("button.btnLike_"+post_id).forEach(element => {
             element.innerHTML = '<i class="fa-solid fa-heart" style="font-size: 150%;"><p class="m-0">'+response.data.count[0]["nMiPiace"]+'</p></i>';
             if(response.data.like == true){
-                element.classList.add("btn-danger");
+                element.classList.add("btn-like");
             }else{
-                element.classList.remove("btn-danger");
+                element.classList.remove("btn-like");
             }
         });
         console.log(response.data.count[0]["nMiPiace"]);

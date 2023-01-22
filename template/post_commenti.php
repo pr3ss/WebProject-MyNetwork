@@ -19,16 +19,18 @@
                             echo "<div class='row m-0'><p class='m-0'>Luogo: " . $templateParams['post'][0]["luogo"] . "</p></div>";
                         } ?>
                         <p class="m-0">
-                        <?php echo date('Y-m-d', $templateParams["post"][0]["data_ora"]); ?>
+                            <?php echo date('Y-m-d', $templateParams["post"][0]["data_ora"]); ?>
                         </p>
                     </div>
                     <div class="col-4 d-flex flex-column justify-content-center">
                         <div class="row justify-content-center">
-                            <button type="button" class="btn p-0 btnLike_<?php echo $templateParams['post'][0]['id'] ?> <?php if ($templateParams['post'][0]['asliked'] != null) {
-                                    echo "btn-danger";
-                                } ?>" onclick="likePost(<?php echo $templateParams['post'][0]['id'] ?>)"><i
+                            <button type="button" class="btn  btnLike_<?php echo $templateParams['post'][0]['id'] ?>         <?php if ($templateParams['post'][0]['asliked'] != null) {
+                                            echo "btn-like";
+                                        } ?>" onclick="likePost(<?php echo $templateParams['post'][0]['id'] ?>)"><i
                                     class="fa-solid fa-heart" style="font-size: 150%;">
-                                    <?php echo $templateParams["post"][0]["miPiace"]; ?>
+                                    <p class="m-0">
+                                        <?php echo $templateParams['post'][0]['miPiace'] ?>
+                                    </p>
                                 </i></button>
                         </div>
                     </div>
@@ -65,7 +67,7 @@
             </div>
         </div>
         <?php foreach ($templateParams["commenti"] as $commento): ?>
-            <div class="row  mr-2 ml-2 mt-2" style="border-radius: 10px;">
+            <div class="row commento mr-2 ml-2 mt-2 pb-1">
                 <div class="col-2 d-flex flex-column justify-content-center">
                     <img src="<?php echo IMG_DIR . $commento['foto_profilo']; ?>" alt="Avatar"
                         class="avatar img-fluid rounded-circle"
