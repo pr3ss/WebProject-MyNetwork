@@ -65,11 +65,11 @@
         </div>
         <div class="col-8 d-flex flex-column justify-content-center">
             <div class="row m-0">
-                <div class="col-10">
+                <div class="col-10 p-0">
                     <input id="password" type="password" value="" style="width: 90%;  border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
                 </div>
-                <div class="col-2">
-                    <button id="btnViewPass" onclick="viewPassword()" style="border: none;"><i class="fa-solid fa-eye"></i></button>
+                <div class="col-2 p-0">
+                    <div id="btnViewPass" onclick="viewPassword()" style="border: none;"><i class="fa-solid fa-eye"></i></div>
                 </div>
             </div>
 
