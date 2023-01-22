@@ -31,16 +31,16 @@
                 </div>
             </div>
             <!-- NAV -->
-            <div id="nav" class="col-2 col-md-8 order-md-2 d-flex justify-content-center">
-                <nav class="bg-body-tertiary navbar-expand-md">
+            <div id="nav" class="col-2 col-md-8 order-md-2 d-flex justify-content-center w-100">
+                <nav class="bg-body-tertiary navbar-expand-md ">
                     <div class="container-fluid">
-                        <button id="btn_nav" class="btn btn-dark btn-circle navbar-toggler" data-bs-toggle="collapse"
+                        <button id="btn_nav" class="btn btn-dark btn-circle navbar-toggler " data-bs-toggle="collapse"
                             data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
                             aria-label="Toggle navigation" onclick="open_menu(),check_NuoveNotifiche()"><i
                                 class="fa-solid fa-bars"></i></button>
-                        <div class="collapse navbar-collapse position-notmd-absolute justify-content-center"
+                        <div class="collapse navbar-collapse position-notmd-absolute justify-content-center "
                             id="navbarText">
-                            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                            <ul class="navbar-nav me-auto mb-2 mb-md-0 w-100 d-flex justify-content-center ">
                                 <li class="nav-item ">
                                     <a class="btn btn-dark btn-circle " href="home.php"><i
                                             class="fa-solid fa-house"></i></a>

@@ -15,8 +15,9 @@ function salva_info() {
     let new_info = {};
 
     temp_foto_profilo; // se non é stata cambiata prende nul;
-    new_info["username"] = document.getElementById("my_username").value;
-    new_info["email"] = document.getElementById("email").value;
+    new_info["username"] = document.getElementById("my_username").value ? document.getElementById("my_username").value : null;
+    new_info["email"] = document.getElementById("email").value ? document.getElementById("email").value : null ;
+    new_info["descrizione"] = document.getElementById("descrizione").value ? document.getElementById("descrizione").value : null;
     let psw = document.querySelector("#password").value;
     
     var p = document.createElement('p')
@@ -26,6 +27,8 @@ function salva_info() {
     if(p_error){
         main.removeChild(p_error);
     }
+
+    
 
     if (psw && !checkPasswordSecurity(psw)) {
         p.style.color = "red";
@@ -42,7 +45,7 @@ function salva_info() {
         formData.append("foto_profilo", temp_foto_profilo);
         axios.post("./api-impostazioni.php", formData
         ).then(response => {
-            if(response.data){
+            if(response.data.info || response.data.foto){
                 p.style.color = "green";
                 p.innerHTML = "Impostazioni cambiate.";
                 main.prepend(p);

@@ -57,7 +57,8 @@ class DatabaseHelper
       }
    }
 
-   public function get_img_user_session($user_id){
+   public function get_img_user_session($user_id)
+   {
       if (
          $stmt = $this->db->prepare("SELECT foto_profilo FROM user where id = ?;")
       ) {
@@ -129,6 +130,7 @@ class DatabaseHelper
    //methods for signin
    public function usernameIsPresent($username)
    {
+      if(!isset($username)){return false;}
       if ($stmt = $this->db->prepare("SELECT * FROM user WHERE username = ? LIMIT 1")) {
          $stmt->bind_param('s', $username); // esegue il bind del parametro '$email'.
          $stmt->execute(); // esegue la query appena creata.
@@ -140,6 +142,7 @@ class DatabaseHelper
 
    public function emailIsPresent($email)
    {
+      if(!isset($email)){return false;}
       if ($stmt = $this->db->prepare("SELECT * FROM user WHERE email = ? LIMIT 1")) {
          $stmt->bind_param('s', $email); // esegue il bind del parametro '$email'.
          $stmt->execute(); // esegue la query appena creata.
@@ -212,7 +215,7 @@ class DatabaseHelper
          limit ?) as p3 left join mi_piace as mp
          on mp.user_id = ? and p3.id = mp.post_id;")
       ) {
-         $stmt->bind_param('siiii', $last_post, $user_id, $id_categoria, $num_post,$user_id);
+         $stmt->bind_param('siiii', $last_post, $user_id, $id_categoria, $num_post, $user_id);
          $stmt->execute();
          $result = $stmt->get_result();
 
@@ -230,7 +233,7 @@ class DatabaseHelper
       and post.id = ?
       group by post.id) as p3 left join mi_piace as mp
       on mp.user_id = ? and p3.id = mp.post_id")) {
-         $stmt->bind_param('ii', $post_id,$_SESSION['user_id']);
+         $stmt->bind_param('ii', $post_id, $_SESSION['user_id']);
          $stmt->execute();
          $result = $stmt->get_result();
 
@@ -242,9 +245,10 @@ class DatabaseHelper
    public function load_commenti_for($post_id)
    {
       if (
-         $stmt = $this->db->prepare("SELECT user_id, username, post_id, data_ora, testo, foto_profilo 
+         $stmt = $this->db->prepare(
+            "SELECT user_id, username, post_id, data_ora, testo, foto_profilo 
                                        from commento join user where user_id=user.id
-                                       and post_id = ?"
+                                       and post_id = ? ORDER BY data_ora DESC;"
          )
       ) {
          $stmt->bind_param('i', $post_id);
@@ -269,20 +273,20 @@ class DatabaseHelper
             // Esegui la query ottenuta. 
             $stmt->execute();
             $result = $stmt->get_result();
-            $users_destinazione= $result->fetch_all(MYSQLI_ASSOC);
+            $users_destinazione = $result->fetch_all(MYSQLI_ASSOC);
             //var_dump($users_destinazione);
             //$ok = $users_destinazione;
             $data = time();
-            foreach($users_destinazione as $user_destinazione){
+            foreach ($users_destinazione as $user_destinazione) {
                $this->crea_notifica($id_post, $user_id, 3, $data, $user_destinazione["user_id"]);
             }
 
             //$ok = $users_destinazione;
-            
+
          }
          //$users_destinazione = $this->db->query("SELECT user_id FROM follow WHERE user_follow  = $user_id");
-        
-         
+
+
 
          return $id_post;
       }
@@ -316,16 +320,6 @@ class DatabaseHelper
       }
    }
 
-   /*public function upload_comment($user_id, $dataOra, $testo, $idPost) {
-   if ($insert_stmt = $this->db->prepare("CALL add_comment(?,?,?,?);")) {  
-   echo "OKOK";  
-   $insert_stmt->bind_param('iiss',$user_id, $idPost, $dataOra, $testo); 
-   // Esegui la query ottenuta. 
-   $insert_stmt->execute();
-   return true;
-   }
-   }*/
-
    public function get_user_posts($user_id)
    {
       if (
@@ -346,10 +340,7 @@ class DatabaseHelper
 
    public function get_user_info($user_id)
    {
-      if (
-         $stmt = $this->db->prepare("SELECT  id, username,foto_profilo, descrizione, data_di_nascita, nome, cognome, sesso, email FROM user
-      where id = ?;")
-      ) {
+      if ($stmt = $this->db->prepare("SELECT  id, username,foto_profilo, descrizione, data_di_nascita, nome, cognome, sesso, email FROM user where id = ?;")) {
          $stmt->bind_param('i', $user_id);
          $stmt->execute();
          $result = $stmt->get_result();
@@ -357,20 +348,57 @@ class DatabaseHelper
       }
    }
 
-   //impostazioni.php 
-   public function update_impostazioni_1($id_username, $username, $email, $password, $salt)
+   public function update_impostazioni($id_username, $username, $email, $descrizione, $password, $salt)
    {
-      if ($insert_stmt = $this->db->prepare("UPDATE user SET username = ?, password = ?, email=?, salt=?  WHERE id = ?")) {
-         $insert_stmt->bind_param('ssssi', $username, $password, $email, $salt, $id_username);
+      if ($stmt = $this->db->prepare("SELECT username, descrizione, email, password, salt FROM user where id = ?;")) {
+         $stmt->bind_param('i', $id_username);
+         $stmt->execute();
+         $result = $stmt->get_result();
+         $old_info = $result->fetch_all(MYSQLI_ASSOC);
+
+         if($this->usernameIsPresent($username) || $this->emailIsPresent($email)) {
+            return false;   
+         } 
+
+         $username=isset($username) ? $username : $old_info[0]['username'];
+         $password=isset($password) ? $password : $old_info[0]['password'];
+         $email=isset($email) ? $email : $old_info[0]['email'];
+         $salt=isset($salt) ? $salt : $old_info[0]['salt'];
+         $descrizione=isset($descrizione) ? $descrizione : $old_info[0]['descrizione'];
+
+         
+         
+         if ($insert_stmt = $this->db->prepare("UPDATE user SET username = ?, password = ?, email=?, salt=?, descrizione=?  WHERE id = ?")) {
+            
+            $insert_stmt->bind_param(
+               'sssssi',
+               $username,
+               $password,
+               $email,
+               $salt,
+               $descrizione,
+               $id_username
+            );
+            // Esegui la query ottenuta. 
+            return $insert_stmt->execute();
+         }
+      }
+   }
+
+   //impostazioni.php 
+   public function update_impostazioni_1($id_username, $username, $email, $descrizione, $password, $salt)
+   {
+      if ($insert_stmt = $this->db->prepare("UPDATE user SET username = ?, password = ?, email=?, salt=?, descrizione=?  WHERE id = ?")) {
+         $insert_stmt->bind_param('sssssi', $username, $password, $email, $salt, $descrizione, $id_username);
          // Esegui la query ottenuta. 
          return $insert_stmt->execute();
       }
    }
 
-   public function update_impostazioni_2($id_username, $username, $email)
+   public function update_impostazioni_2($id_username, $username, $email, $descrizione)
    {
-      if ($insert_stmt = $this->db->prepare("UPDATE user SET username = ?, email=?  WHERE id = ?")) {
-         $insert_stmt->bind_param('ssi', $username, $email, $id_username);
+      if ($insert_stmt = $this->db->prepare("UPDATE user SET username = ?, email=?, descrizione=? WHERE id = ?")) {
+         $insert_stmt->bind_param('sssi', $username, $email, $descrizione, $id_username);
          // Esegui la query ottenuta. 
          return $insert_stmt->execute();
       }
@@ -438,15 +466,16 @@ class DatabaseHelper
          if ($stmt = $this->db->prepare("SELECT  count(*) nMiPiace FROM mi_piace where post_id = ?;")) {
             $stmt->bind_param('i', $post_id);
             $stmt->execute();
-            $temp= $stmt->get_result();
-            $result['count']= $temp->fetch_all(MYSQLI_ASSOC);
+            $temp = $stmt->get_result();
+            $result['count'] = $temp->fetch_all(MYSQLI_ASSOC);
             return $result;
          }
       }
    }
 
-   function crea_notifica($post_id, $user_id, $tipoNotifica, $dataOra, $user_id_destinatario=null){
-      if ($user_id_destinatario==null && $stmt = $this->db->prepare("SELECT id_user_create FROM post WHERE id = ?")) {
+   function crea_notifica($post_id, $user_id, $tipoNotifica, $dataOra, $user_id_destinatario = null)
+   {
+      if ($user_id_destinatario == null && $stmt = $this->db->prepare("SELECT id_user_create FROM post WHERE id = ?")) {
          $stmt->bind_param('i', $post_id);
          // Esegui la query ottenuta. 
          $stmt->execute();
@@ -491,7 +520,8 @@ class DatabaseHelper
       }
    }
 
-   function delete_post($post_id){
+   function delete_post($post_id)
+   {
       //elimino le notifice
       if ($del_stmt = $this->db->prepare("DELETE from notifica where post = ?; ")) {
          $del_stmt->bind_param('i', $post_id);
@@ -514,7 +544,7 @@ class DatabaseHelper
       }
    }
 
-   function get_notifiche( $user_id)
+   function get_notifiche($user_id)
    {
       if ($stmt = $this->db->prepare("SELECT n.id,post,vista,u.id as idMittente,u.username,u.foto_profilo,tn.id as idTipo,tn.descrizione, data_ora from notifica as n, user as u, tipo_notifica as tn
       where u.id =  user_mittente and tn.id = n.id_tipo_notifica and n.user_destinazione = ? order by data_ora DESC;")) {
@@ -525,7 +555,8 @@ class DatabaseHelper
       }
    }
 
-   function view_noticica($notifica_id){
+   function view_noticica($notifica_id)
+   {
       if ($insert_stmt = $this->db->prepare("UPDATE notifica SET vista = 1 WHERE id = ?")) {
          $insert_stmt->bind_param('i', $notifica_id);
          return $insert_stmt->execute();
@@ -534,7 +565,8 @@ class DatabaseHelper
 
    //TODO impostare nel db vista come default ad 0
 
-   function check_nNuoveNotifiche($user_id){
+   function check_nNuoveNotifiche($user_id)
+   {
       if ($stmt = $this->db->prepare("SELECT count(*) as nNotifiche FROM notifica where user_destinazione = ? and vista != 1")) {
          $stmt->bind_param('i', $user_id);
          $stmt->execute();

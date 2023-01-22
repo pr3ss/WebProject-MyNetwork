@@ -26,7 +26,12 @@ function openOtherUser(user_id) {
         document.getElementById("labelIdentifyScreen").innerHTML = "PROFILO";
         document.getElementById("colMain").innerHTML = response.data;
         if(mobile.matches){
-            btn_nav.click();
+            if(open_nav){
+                btn_nav.click();
+            }else{
+                close_all_popup();
+            }
+            
         }else if(tablet.matches){
             close_all_popup();
         }

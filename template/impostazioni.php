@@ -12,7 +12,7 @@
     </div>
 
     <div class="row mt-3 mb-5 d-flex justify-content-center">
-        <input id="my_username" type="text" value="<?php echo $templateParams["info"][0]["username"] ?>" style="width:50% ;border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
+        <input id="my_username" type="text" placeholder="<?php echo $templateParams["info"][0]["username"] ?>" style="width:50% ;border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
     </div>
 
     <div class="row m-3 pb-2" style="border-bottom: 1px solid black;">
@@ -43,10 +43,19 @@
 
     <div class="row m-3 pb-2" style="border-bottom: 1px solid black;">
         <div class="col-4 d-flex flex-column justify-content-center ">
+            <p class="m-0">Descrizione:</p>
+        </div>
+        <div class="col-8 d-flex flex-column justify-content-center">
+            <input id="descrizione" type="text" value="<?php echo $templateParams["info"][0]["descrizione"] ?>" style="width: 90%;  border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
+        </div>
+    </div>
+
+    <div class="row m-3 pb-2" style="border-bottom: 1px solid black;">
+        <div class="col-4 d-flex flex-column justify-content-center ">
             <p class="m-0">Email:</p>
         </div>
         <div class="col-8 d-flex flex-column justify-content-center">
-            <input id="email" type="text" value="<?php echo $templateParams["info"][0]["email"] ?>" style="width: 90%;  border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
+            <input id="email" type="text" placeholder="<?php echo $templateParams["info"][0]["email"] ?>" style="width: 90%;  border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
         </div>
     </div>
 

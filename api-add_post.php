@@ -19,7 +19,7 @@ if ($dbh->login_check()) {
             $user = $_SESSION['user_id'];
             $data_ora = time();
             $id_post = $dbh->upload_post($user, $data_ora, $testo, $luogo, $cat);
-            $location = $_SESSION['username'] . "_" . $id_post. "." . $file_extension;
+            $location = $_SESSION['user_id'] . "_" . $id_post. "." . $file_extension;
             if ($id_post) {
                 if (move_uploaded_file($_FILES['file']['tmp_name'], IMG_DIR.$location)) {
                     if ($dbh->updateimg_post($id_post, $location)) {
