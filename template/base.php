@@ -82,65 +82,63 @@
                 </nav>
             </div>
         </div>
-            </div>
+    </div>
 
-            <!-- FEED -->
-            <div class="container-fluid" style="z-index:3;">
-                <div class="row" style="padding-top: 60px;">
-                    <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-0 pl-2 col-hidden "
-                        style="height: 90%;">
-                        <div id="ricerca" class="backthing h-50" style="z-index: 4; overflow-y:hidden;">
-                            <div class="row mt-3 mb-1 w-100  ">
-                                <div class="col-12 d-flex flex-row align-items-center">
-                                    <i class="fa-solid fa-magnifying-glass pr-2 pl-2"></i>
-                                    <input id="input_search_user" class="form-control " type="search"
-                                        placeholder="Search" aria-label="Search" oninput="ricerca_user()">
-                                </div>
-                            </div>
-                            <div class="row w-100" style="overflow-y: auto; height:80%">
-                                <div class="col-12">
-                                    <div id="list_searched_users" class="list-group">
-                                    </div>
-                                </div>
-                            </div>
+    <!-- FEED -->
+    <div class="container-fluid" style="z-index:3;">
+        <div class="row" style="padding-top: 60px;">
+            <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-0 pl-2 col-hidden " style="height: 90%;">
+                <div id="ricerca" class="backthing h-50" style="z-index: 4; overflow-y:hidden;">
+                    <div class="row mt-3 mb-1 w-100  ">
+                        <div class="col-12 d-flex flex-row align-items-center">
+                            <i class="fa-solid fa-magnifying-glass pr-2 pl-2"></i>
+                            <input id="input_search_user" class="form-control " type="search" placeholder="Search"
+                                aria-label="Search" oninput="ricerca_user()">
                         </div>
-                        <div id="categoria" class="backthing h-50 " style="overflow-y: hidden; z-index: 4;">
-                            <div class="row w-100 h-100" style="overflow-y: auto;">
-                                <div class="col-12">
-                                    <div id="list_categorie" class="list-group p-0">
-                                        <?php foreach ($templateParams["categorie"] as $categoria): ?>
-                                            <button id="btnCat<?php echo $categoria['id'] ?>" type="button" class="list-group-item list-group-item-action <?php if ($categoria['id'] == 1) {
-                                                   echo "active";
-                                               } ?>" onclick="cambiaCategoria(<?php echo $categoria['id'] ?>)"><?php
-                                                   echo $categoria['titolo'] ?></button>
-                                        <?php endforeach; ?>
-                                    </div>
-                                </div>
+                    </div>
+                    <div class="row w-100" style="overflow-y: auto; height:80%">
+                        <div class="col-12">
+                            <div id="list_searched_users" class="list-group">
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 offset-lg-3 d-flex flex-column align-items-center p-0">
-                        <div class="container-fluid">
-                            <div id="colMain" class="row justify-content-center m-0">
+                </div>
+                <div id="categoria" class="backthing h-50 " style="overflow-y: hidden; z-index: 4;">
+                    <div class="row w-100 h-100" style="overflow-y: auto;">
+                        <div class="col-12">
+                            <div id="list_categorie" class="list-group p-0">
+                                <?php foreach ($templateParams["categorie"] as $categoria): ?>
+                                    <button id="btnCat<?php echo $categoria['id'] ?>" type="button" class="btnMagic list-group-item list-group-item-action <?php if ($categoria['id'] == 1) {
+                                           echo "active";
+                                       } ?>" onclick="cambiaCategoria(<?php echo $categoria['id'] ?>)"><?php
+                                           echo $categoria['titolo'] ?></button>
+                                <?php endforeach; ?>
                             </div>
                         </div>
-                    </div>
-                    <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block position-fixed col-hidden"
-                        style="height: 90%; ">
                     </div>
                 </div>
             </div>
+            <div class="col-12 col-lg-6 offset-lg-3 d-flex flex-column align-items-center p-0">
+                <div class="container-fluid">
+                    <div id="colMain" class="row justify-content-center m-0">
+                    </div>
+                </div>
+            </div>
+            <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block position-fixed col-hidden" style="height: 90%; ">
+            </div>
+        </div>
+    </div>
 
 
-            <?php
-            if (isset($templateParams["js"])):
-                foreach ($templateParams["js"] as $script):
-                    ?>
-                    <script src="<?php echo $script; ?>"></script>
-                <?php
-                endforeach;
-            endif;
+    <?php
+    if (isset($templateParams["js"])):
+        foreach ($templateParams["js"] as $script):
             ?>
+            <script src="<?php echo $script; ?>"></script>
+        <?php
+        endforeach;
+    endif;
+    ?>
 
 </body>
 

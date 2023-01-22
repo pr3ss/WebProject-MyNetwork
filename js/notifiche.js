@@ -18,6 +18,5 @@ function check_NuoveNotifiche(){
         }else{
             document.getElementById("num_notifiche").style.display ="none";
         }
-        
     });
 }

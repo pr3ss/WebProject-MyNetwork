@@ -1,5 +1,5 @@
 <div>
-    <h1>Social-Network</h1>
+    <h1 class="separator" style="text-align: center;">Network</h1>
     <h2 style="text-align: center; font-size: 150%;">login</h2>
     <?php if(isset($templateParams["signin"]) && $templateParams['signin']): ?>
         <p style="text-align: center; color:green;">Sigin effetuato</p>
@@ -16,7 +16,6 @@
             <span></span>
             <label>Password</label>
         </div>
-        <div class="pass">Forgot Password?</div>
         <div id="divLogin" style="text-align: center;">
             <input type="submit" value="Login">
         </div>

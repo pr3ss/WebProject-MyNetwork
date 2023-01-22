@@ -10,12 +10,8 @@
 </head>
 
 <body>
-  <section class="side" style="background: url(img\\bk.png) no-repeat;
-    background-size: 94% 102%;">
-  </section>
   <section >
     <div class="login-container">
-      <div class="separator" ></div>
       <div id="main">
         <?php
           if(isset($templateParams["form"])){
@@ -25,7 +21,7 @@
       </div>
     </div>
   </section>
-  <p class="text-muted footer">&copy; 2017–2022</p>
+  <p class="text-muted footer">&copy;2023 Lugaresi Simone - Presepi Alex</p>
   <?php
   if (isset($templateParams["js"])):
     foreach ($templateParams["js"] as $script):

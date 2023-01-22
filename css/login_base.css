@@ -16,7 +16,7 @@
 }
 
 body {
-  background: linear-gradient(120deg, #198aa6, #d8dfa4);
+  background: linear-gradient(120deg, #115c71, #bacbbb);
   min-height: 100vh;
   width: 100%;
   display: grid;
@@ -37,11 +37,13 @@ section {
 .login-container {
   max-width: 450px;
   padding: 5px 4%;
-  display: flex;
-  flex-direction: column;
+  position: fixed;
   align-items: center;
   background-color: white;
   border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .title {
@@ -53,10 +55,8 @@ section {
 }
 
 .separator {
-  width: 150px;
-  height: 4px;
-  background-color: #843bc7;
-  margin: 24px;
+  margin-top: 5%;
+  border-top: 4px solid #115c71;
 }
 
 .txt_field span::before {
@@ -66,7 +66,7 @@ section {
   left: 0;
   width: 0%;
   height: 2px;
-  background: #843bc7;
+  background: #115c71;
   transition: .5s;
 }
 
@@ -85,6 +85,7 @@ section {
     align-items: center;
     background: white;
   }
+
   .login-container {
     padding: 5px;
   }
@@ -102,7 +103,8 @@ section {
   top: -80px;
   left: calc(50% - 60px);
 }
-h5{
+
+h5 {
   text-align: center;
 }
 
@@ -163,7 +165,7 @@ input[type="submit"] {
   width: 100%;
   height: 50px;
   border: 1px solid;
-  background: #843bc7;
+  background: #115c71;
   border-radius: 25px;
   font-size: 18px;
   color: #e9f4fb;
@@ -173,7 +175,7 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-  border-color: #843bc7;
+  border-color: #115c71;
   transition: .5s;
 }
 
@@ -185,7 +187,7 @@ input[type="submit"]:hover {
 }
 
 .signup_link a {
-  color: #843bc7;
+  color: #115c71;
   text-decoration: none;
 }
 
