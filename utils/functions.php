@@ -6,6 +6,7 @@ function sec_session_start() {
     $httponly = true; // Questo impedirà ad un javascript di essere in grado di accedere all'id di sessione.
     ini_set('session.use_only_cookies', 1); // Forza la sessione ad utilizzare solo i cookie.
     $cookieParams = session_get_cookie_params(); // Legge i parametri correnti relativi ai cookie.
+    $cookieParams["lifetime"] = 3600;
     session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], $secure, $httponly); 
     session_name($session_name); // Imposta il nome di sessione con quello prescelto all'inizio della funzione.
     session_start(); // Avvia la sessione php.
