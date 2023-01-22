@@ -1,4 +1,4 @@
-<div id="post_singolo" class="post container p-0 m-0 h-100 justify-content-center" style="overflow-y:auto;">
+<div id="post_singolo" class="post container p-0 m-0 mb-3 h-100 justify-content-center" style="overflow-y:auto;">
     <div class="container-fluid pt-2">
         <div class="row mr-2 ml-2 pt-1" style="border-radius: 10px;">
             <div class="col-12">
@@ -18,6 +18,9 @@
                         <?php if (isset($templateParams['post'][0]["luogo"])) {
                             echo "<div class='row m-0'><p class='m-0'>Luogo: " . $templateParams['post'][0]["luogo"] . "</p></div>";
                         } ?>
+                        <p class="m-0">
+                        <?php echo date('Y-m-d', $templateParams["post"][0]["data_ora"]); ?>
+                        </p>
                     </div>
                     <div class="col-4 d-flex flex-column justify-content-center">
                         <div class="row justify-content-center">
@@ -34,13 +37,10 @@
                     <img src="<?php echo IMG_DIR . $templateParams["post"][0]["img"]; ?>" class="img-fluid" alt="...">
                 <?php endif; ?>
                 <div class="row justify-content-center align-items-center">
-                    <div class="col-3 date">
-                        <?php echo date('Y-m-d', $templateParams["post"][0]["data_ora"]); ?>
+                    <div class="col-3">
                     </div>
                     <div class="col-9">
-                        <p class="">
-                            <?php echo $templateParams["post"][0]["testo"]; ?>
-                        </p>
+                        <?php echo $templateParams["post"][0]["testo"]; ?>
                     </div>
                 </div>
             </div>
