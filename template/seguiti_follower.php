@@ -4,7 +4,7 @@
             <?php foreach ($templateParams["listaAccount"] as $user): ?>
                 <button id="btnUtente<?php echo $user['id'] ?>" type="button"
                     class="list-group-item list-group-item-action"
-                    onclick="openUser(<?php echo $user['id'] ?>)">
+                    onclick="openOtherUser(<?php echo $user['id'] ?>), close_all_popup()">
                     <?php echo $user['username'] ?>
                 </button>
             <?php endforeach; ?>
