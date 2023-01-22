@@ -329,14 +329,15 @@ class DatabaseHelper
    public function get_user_posts($user_id)
    {
       if (
-         $stmt = $this->db->prepare("select p2.*, count(c.post_id) as nCommenti from(select p1.* , count(l.post_id) as miPiace  from (Select * from post as p
-      where p.id_user_create = ?) as p1 left join miPiace as l
-      on p1.id = l.post_id
-      group by p1.id) as p2 left join commento as c
-      on p2.id = c.post_id
-      group by p2.id;")
+         $stmt = $this->db->prepare("SELECT p3.*, mp.user_id as asliked from(select p2.*, count(c.post_id) as nCommenti from(select p1.* , count(l.post_id) as miPiace  from (Select * from post as p
+         where p.id_user_create = ?) as p1 left join miPiace as l
+         on p1.id = l.post_id
+         group by p1.id) as p2 left join commento as c
+         on p2.id = c.post_id
+         group by p2.id)as p3 left join mipiace as mp
+         on mp.user_id = ? and p3.id = mp.post_id")
       ) {
-         $stmt->bind_param('i', $user_id);
+         $stmt->bind_param('ii', $user_id, $_SESSION['user_id']);
          $stmt->execute();
          $result = $stmt->get_result();
          return $result->fetch_all(MYSQLI_ASSOC);

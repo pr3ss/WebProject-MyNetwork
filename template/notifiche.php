@@ -10,7 +10,7 @@
             echo 'openPost('.$notifica['post'].')';
     } ?>, notificaVista(<?php echo $notifica['id'];?>)">
         <div class="col-2">
-        <img src="<?php echo IMG_DIR.$notifica["foto_profilo"] ?>" alt="Avatar" class="avatar">
+        <img src="<?php echo IMG_DIR.$notifica["foto_profilo"] ?>" alt="Avatar" class="img-fluid rounded-circle avatar">
         </div>
         <div class="col-10">
             <div class="row align-items-center" style="height:100%;">
