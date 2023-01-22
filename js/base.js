@@ -43,7 +43,6 @@ function close_all_popup() {
     var utn;
     if (utn = document.getElementById("utenti")) {
         utn.classList.remove("myShow");
-        //blr.classList.remove("blurfilter");
     }
     blr.classList.remove("blurfilter");
     colMain.style.filter = "blur(0px)";
@@ -94,7 +93,7 @@ desktop.addEventListener("change", (e)=>{
 function viewCategoria() {
     if (tablet.matches) {
         if(cat.classList.contains("myShow")){
-            close_all_popup(); //non metterlo fuori dal if
+            close_all_popup(); 
         }else{
             close_all_popup();
             blr.classList.add("blurfilter");
@@ -131,11 +130,6 @@ function viewRicerca() {
 }
 
 function viewNotifiche() {
-    //se mobile view
-    //window.location.href = "notifiche.html"; oppure mettere il caricameno dinamico nel main invece che alla colonna
-    //TODO mettere il caricamento dinamico;
-    //se desktop view
-
     if(desktop.matches){
         var jolly = document.getElementById("colDx");
     }else{
@@ -145,7 +139,6 @@ function viewNotifiche() {
     }
 
     axios.post('./api-notifiche.php').then(response => {
-        console.log(response);
         jolly.innerHTML = response.data;
         close_menu();
     });
@@ -174,7 +167,9 @@ function showImpostazioni() {
 function addPost() {
     window.onscroll=null;
     axios.post('./api-add_post.php').then(response => {
-        //console.log(response.data);
+        if(mobile.matches && open_nav){
+            btn_nav.click();
+        }
         main.innerHTML = response.data;
     });
 }
