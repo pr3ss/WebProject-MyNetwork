@@ -28,9 +28,10 @@ if ($dbh->login_check()) {
 
             if (in_array($file_extension, $valid_ext)) {
 
-                $location = $my_id_user."_" . "foto_profilo." . $file_extension;
+                $location = $my_id_user."_".time()."foto_profilo." . $file_extension;
                 if (move_uploaded_file($_FILES['foto_profilo']['tmp_name'], IMG_DIR.$location)) {
                     if ($dbh->update_immagine_profilo($my_id_user, $location)) {
+                        $_SESSION["foto_profilo"] = $location;
                         $result["foto"] = true;
                     }
                 }
