@@ -76,6 +76,7 @@ tablet2.addEventListener("change", (e) => {
 
 desktop.addEventListener("change", (e)=>{
     if(e.matches){
+        close_all_popup();
         var elm;
         if(elm = document.getElementById("post_singolo")){
             colDx.innerHTML="";

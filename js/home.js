@@ -74,7 +74,11 @@ function cambiaCategoria(idCategoria){
     categoria = idCategoria;
     main.innerHTML="";
     load_posts(true);
-    close_all_popup();
+    if(mobile.matches){
+        btn_nav.click();
+    }else if(tablet.matches){
+        close_all_popup();
+    }
 }
 
 function likePost(post_id) {

@@ -87,30 +87,32 @@
     <!-- FEED -->
     <div class="container-fluid" style="z-index:3;">
         <div class="row" style="padding-top: 60px;">
-            <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-2 col-hidden " style="height: 90%;">
-                <div id="ricerca" class="backthing h-50" style="z-index: 4;">
-                    <div class="row mt-3 mb-1  ">
+            <div id="colSx" class="col-lg-3 d-lg-block position-fixed p-0 pl-2 col-hidden " style="height: 90%;">
+                <div id="ricerca" class="backthing h-50" style="z-index: 4; overflow-y:hidden;">
+                    <div class="row mt-3 mb-1 w-100  ">
                         <div class="col-12 d-flex flex-row align-items-center">
                             <i class="fa-solid fa-magnifying-glass pr-2 pl-2"></i>
                             <input id="input_search_user" class="form-control " type="search" placeholder="Search"
                                 aria-label="Search" oninput="ricerca_user()">
                         </div>
                     </div>
-                    <div class="row  h-100 " style="overflow-y: scroll;">
+                    <div class="row w-100" style="overflow-y: auto; height:80%">
                         <div class="col-12">
                             <div id="list_searched_users" class="list-group">
                             </div>
                         </div>
                     </div>
                 </div>
-                <div id="categoria" class="backthing row h-50" style="overflow-y: auto; z-index: 4;">
-                    <div class="col-12">
-                        <div id="list_categorie" class="list-group p-0">
-                            <?php foreach ($templateParams["categorie"] as $categoria): ?>
-                                <button id="btnCat<?php echo $categoria['id'] ?>" type="button" class="list-group-item list-group-item-action <?php if ($categoria['id'] == 1) {
-                                       echo "active";
-                                   } ?>" onclick="cambiaCategoria(<?php echo $categoria['id'] ?>)"><?php echo $categoria['titolo'] ?></button>
-                            <?php endforeach; ?>
+                <div id="categoria" class="backthing h-50 " style="overflow-y: hidden; z-index: 4;">
+                    <div class="row w-100 h-100" style="overflow-y: auto;">
+                        <div class="col-12">
+                            <div id="list_categorie" class="list-group p-0">
+                                <?php foreach ($templateParams["categorie"] as $categoria): ?>
+                                    <button id="btnCat<?php echo $categoria['id'] ?>" type="button" class="list-group-item list-group-item-action <?php if ($categoria['id'] == 1) {
+                                        echo "active";
+                                    } ?>" onclick="cambiaCategoria(<?php echo $categoria['id'] ?>)"><?php echo $categoria['titolo'] ?></button>
+                                <?php endforeach; ?>
+                            </div>
                         </div>
                     </div>
                 </div>

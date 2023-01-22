@@ -8,7 +8,7 @@ function ricerca_user() {
         return;
     }
 
-    document.getElementById("list_searched_users").innerHTML = "<div class='d-flex justify-content-center pt-4 bg-white'><div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span> </div></div>";
+    document.getElementById("list_searched_users").innerHTML = "<div class='d-flex justify-content-center pt-4 '><div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span> </div></div>";
 
     const formData = new FormData();
     formData.append('username_to_search', user);
