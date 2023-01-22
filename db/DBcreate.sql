@@ -1,4 +1,4 @@
-CREATE DATABASE  IF NOT EXISTS `web-socialnetwork` ;
+CREATE DATABASE  IF NOT EXISTS `web-socialnetwork`;
 USE `web-socialnetwork`;
 -- MySQL dump 10.13  Distrib 8.0.31, for Linux (x86_64)
 --
@@ -27,9 +27,9 @@ DROP TABLE IF EXISTS `categoria`;
 CREATE TABLE `categoria` (
   `id` int NOT NULL AUTO_INCREMENT,
   `titolo` varchar(45) NOT NULL,
-  `testo` varchar(45) NOT NULL,
+  `testo` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -38,6 +38,7 @@ CREATE TABLE `categoria` (
 
 LOCK TABLES `categoria` WRITE;
 /*!40000 ALTER TABLE `categoria` DISABLE KEYS */;
+INSERT INTO `categoria` VALUES (1,'generale','predefinito'),(2,'tecnologia','post relativi alla tecnologia'),(3,'auto & moto','post relativi al mondo automobilistico e sulle moto'),(4,'palestra','mondo del fitness');
 /*!40000 ALTER TABLE `categoria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -52,14 +53,14 @@ CREATE TABLE `commento` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
   `post_id` int NOT NULL,
-  `data_ora` datetime NOT NULL,
+  `data_ora` varchar(30) NOT NULL,
   `testo` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_commento` (`user_id`),
   KEY `post_id_commento` (`post_id`),
   CONSTRAINT `post_id_commento` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`),
   CONSTRAINT `user_id_commento` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,32 +99,6 @@ LOCK TABLES `follow` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `like`
---
-
-DROP TABLE IF EXISTS `like`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `like` (
-  `user_id` int NOT NULL,
-  `post_id` int NOT NULL,
-  PRIMARY KEY (`user_id`,`post_id`),
-  KEY `post_id_like` (`post_id`),
-  CONSTRAINT `post_id_like` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`),
-  CONSTRAINT `user_id_like` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `like`
---
-
-LOCK TABLES `like` WRITE;
-/*!40000 ALTER TABLE `like` DISABLE KEYS */;
-/*!40000 ALTER TABLE `like` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `login_attempt`
 --
 
@@ -144,8 +119,33 @@ CREATE TABLE `login_attempt` (
 
 LOCK TABLES `login_attempt` WRITE;
 /*!40000 ALTER TABLE `login_attempt` DISABLE KEYS */;
-INSERT INTO `login_attempt` VALUES (1,'1672152313'),(1,'1672153331'),(1,'1672153332'),(1,'1672153334'),(1,'1672153335'),(1,'1672153337'),(4,'1672160726'),(4,'1672160735'),(4,'1672160772'),(4,'1672160785');
 /*!40000 ALTER TABLE `login_attempt` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `miPiace`
+--
+
+DROP TABLE IF EXISTS `miPiace`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `miPiace` (
+  `user_id` int NOT NULL,
+  `post_id` int NOT NULL,
+  PRIMARY KEY (`user_id`,`post_id`),
+  KEY `post_id_like` (`post_id`),
+  CONSTRAINT `post_id_like` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`),
+  CONSTRAINT `user_id_like` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `miPiace`
+--
+
+LOCK TABLES `miPiace` WRITE;
+/*!40000 ALTER TABLE `miPiace` DISABLE KEYS */;
+/*!40000 ALTER TABLE `miPiace` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -159,20 +159,19 @@ CREATE TABLE `notifica` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_destinazione` int NOT NULL,
   `post` int DEFAULT NULL,
-  `vista` int DEFAULT NULL,
+  `vista` int DEFAULT '0',
   `user_mittente` int DEFAULT NULL,
   `id_tipo_notifica` int NOT NULL,
-  `data_ora` datetime NOT NULL,
+  `data_ora` varchar(30) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_destinatario` (`user_destinazione`),
   KEY `user_mittente` (`user_mittente`),
-  KEY `post_id_notifica` (`post`),
-  KEY `tipo_notifica` (`id_tipo_notifica`),
-  CONSTRAINT `post_id_notifica` FOREIGN KEY (`post`) REFERENCES `post` (`id`),
-  CONSTRAINT `tipo_notifica` FOREIGN KEY (`id_tipo_notifica`) REFERENCES `tiponotifica` (`id`),
+  KEY `id_tipo_notifica_idx` (`id_tipo_notifica`),
+  CONSTRAINT `id_tipo_notifica` FOREIGN KEY (`id_tipo_notifica`) REFERENCES `tipo_notifica` (`id`),
+  CONSTRAINT `post_id_notifica` FOREIGN KEY (`id_tipo_notifica`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `user_destinatario` FOREIGN KEY (`user_destinazione`) REFERENCES `user` (`id`),
   CONSTRAINT `user_mittente` FOREIGN KEY (`user_mittente`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -194,17 +193,17 @@ DROP TABLE IF EXISTS `post`;
 CREATE TABLE `post` (
   `id` int NOT NULL AUTO_INCREMENT,
   `id_user_create` int NOT NULL,
-  `data_ora` datetime NOT NULL,
+  `data_ora` varchar(30) DEFAULT NULL,
   `testo` varchar(100) DEFAULT NULL,
   `img` varchar(45) DEFAULT NULL,
   `luogo` varchar(45) DEFAULT NULL,
-  `id_categoria` int NOT NULL,
+  `id_categoria` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user` (`id_user_create`),
   KEY `categoria` (`id_categoria`),
   CONSTRAINT `categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id`),
   CONSTRAINT `user` FOREIGN KEY (`id_user_create`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -228,7 +227,7 @@ CREATE TABLE `tipo_notifica` (
   `titolo` varchar(45) NOT NULL,
   `descrizione` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -237,6 +236,7 @@ CREATE TABLE `tipo_notifica` (
 
 LOCK TABLES `tipo_notifica` WRITE;
 /*!40000 ALTER TABLE `tipo_notifica` DISABLE KEYS */;
+INSERT INTO `tipo_notifica` VALUES (1,'commento','ha commentato il tuo post.'),(2,'like','ha messo mi piace al tuo post.'),(3,'post','ha caricato un nuovo post.'),(4,'follow','ha iniziato a seguirti.');
 /*!40000 ALTER TABLE `tipo_notifica` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,14 +253,14 @@ CREATE TABLE `user` (
   `email` varchar(45) NOT NULL,
   `password` varchar(128) NOT NULL,
   `salt` varchar(128) NOT NULL,
-  `data_di_nascita` datetime NOT NULL,
+  `data_di_nascita` varchar(30) NOT NULL,
   `nome` varchar(45) NOT NULL,
   `cognome` varchar(45) NOT NULL,
   `sesso` varchar(45) DEFAULT NULL,
-  `foto_profilo` varchar(45) DEFAULT NULL,
-  `descrizione` varchar(100) DEFAULT NULL,
+  `foto_profilo` varchar(80) DEFAULT 'default_user_image.png',
+  `descrizione` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -269,7 +269,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'test_user','test@example.com','00807432eae173f652f2064bdca1b61b290b52d40e429a7d295d76a71084aa96c0233b82f1feac45529e0726559645acaed6f3ae58a286b9f075916ebf66cacc','f9aab579fc1b41ed0c44fe4ecdbfcdb4cb99b9023abb241a6db833288f4eea3c02f76e0d35204a8695077dcf81932aa59006423976224be0390395bae152d4ef','2001-01-01 00:00:00','test','prova','tanto','no','no'),(2,'default','alex@test.com','116d7c5ce81e34359d9480eccdb43478d221b9ed484e55082eee14a4221fac202a3d3a8f8007ae3cdb72d9a847cc1555a4df99853992ba9e8bfa399f37c31e0b','746739d0a0a7b1640606a3b4e2eaa58efd24825658b1f4bc6bdbd8d43b2a2c27a72f07fa62cfc98f948f04aeadc8681c5a45ea49398b605e30a7a5ccaf746584','2022-12-13 00:00:00','alex','gigi','undefined',NULL,NULL),(3,'luga','luga@test.com','0b3fbbbe88f74d3f059ef3ba52ac3f99649adbcca90cb1deac9398f8c39a81cfe9a6527990a88052ef1fdd8f9b5347efd1cb6c1554386578e39f8bdc873ae48c','74ab894be136fd8271e308215edcca71be2abf298ace6e3c8f1f1b751819ebd414f3c8b7cf016e55694b150520abaf295298a111b1226ed4c9b827dd718399ef','2022-12-06 00:00:00','simone','scemo','undefined',NULL,NULL),(4,'Alex2','alex2@test.com','de5b87efab0a362aae93c3eeab81675c932fdadd7a4171bd0822b7df9b4297a1a1c88bc9285500721d42d27f1f0854aaec415020572dee1e39f21fb53331ca54','df1a71df99549ab0aeb780234ae4b2349986c32e6c9edac78a65c377db9f9cba5bb72a4da0f3181c14c4edd2a5640eae092060494426180de1651344ffe7e01e','2001-12-08 00:00:00','Alex','Pr','undefined',NULL,NULL),(5,'Alex3','alex3@test.com','7a538134e61bc4d64ba65181f912ec6012a4c086bdf5619560ce462159b7843304916d5cdaf78ddf001e95d8b48aef34921dd8ce4b5360847b826407ae83050c','6fe68a6c07d34410bde30b166b6615ce2974566ee01728ddf50aed9c0f6d1b1b9940efb23335e5e4d8e08edf52e859632693d6930a57677a8a5e990bba2f951d','2022-12-16 00:00:00','Alex','Pr','undefined',NULL,NULL);
+INSERT INTO `user` VALUES (10,'press','alex@test.com','f79c924eac6d8809b35792722ddb878e7f721e12d6ef3f6883370dd745ec84d9b1152678f3a35484acbf9ad40faf644e8aaf535db461c0615cd83bc73cc3d7c7','877d227f858d1e8faf49168b118270a6ac432d97cc3d5893ac019b0a5d9ca25ebc88139001b436bad862d1ecbbc0012a6730c6136567302ff8e637ff1a024061','2023-01-17','alex','presepi','undefined','default_user_image.png',NULL),(11,'luga','simo@test.com','087d90d9826a3763be7108cd075aa0bd2e1f90dd4b9798c00039236d3601f13e6a4d456d76221a34d8b51bf8c140b655397b7578d04f939d574ccede5323c6f5','f3b06a947ab2e92fdaffd0dd1eba45d34d575fff2d57dcb3af976f548f1887824caccccd681812f823380460500153805387b411fae2ca45c4c011b621ba4a4f','2023-01-18','simone','lugaresi','undefined','default_user_image.png',NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -282,4 +282,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-07 23:44:37
+-- Dump completed on 2023-01-22  9:30:03
