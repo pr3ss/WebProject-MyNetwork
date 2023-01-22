@@ -1,5 +1,5 @@
-<div id="post_singolo" class="post container p-0 m-0 mb-3 h-100 justify-content-center" style="overflow-y:auto;">
-    <div class="container-fluid pt-2">
+<div id="post_singolo" class=" container p-0 m-0 mb-3 h-100 justify-content-center" style="overflow-y:auto;">
+    <div class="post container-fluid pt-2">
         <div class="row mr-2 ml-2 pt-1" style="border-radius: 10px;">
             <div class="col-12">
                 <div class="row justify-content-center">
