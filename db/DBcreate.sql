@@ -95,6 +95,7 @@ CREATE TABLE `follow` (
 
 LOCK TABLES `follow` WRITE;
 /*!40000 ALTER TABLE `follow` DISABLE KEYS */;
+INSERT INTO `follow` VALUES (11,10),(10,11);
 /*!40000 ALTER TABLE `follow` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,11 +168,12 @@ CREATE TABLE `notifica` (
   KEY `user_destinatario` (`user_destinazione`),
   KEY `user_mittente` (`user_mittente`),
   KEY `id_tipo_notifica_idx` (`id_tipo_notifica`),
+  KEY `id_post_idx` (`post`),
+  CONSTRAINT `id_post` FOREIGN KEY (`post`) REFERENCES `post` (`id`),
   CONSTRAINT `id_tipo_notifica` FOREIGN KEY (`id_tipo_notifica`) REFERENCES `tipo_notifica` (`id`),
-  CONSTRAINT `post_id_notifica` FOREIGN KEY (`id_tipo_notifica`) REFERENCES `post` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `user_destinatario` FOREIGN KEY (`user_destinazione`) REFERENCES `user` (`id`),
   CONSTRAINT `user_mittente` FOREIGN KEY (`user_mittente`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -180,6 +182,7 @@ CREATE TABLE `notifica` (
 
 LOCK TABLES `notifica` WRITE;
 /*!40000 ALTER TABLE `notifica` DISABLE KEYS */;
+INSERT INTO `notifica` VALUES (36,11,NULL,0,10,4,'1674377246');
 /*!40000 ALTER TABLE `notifica` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -282,4 +285,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-01-22  9:30:03
+-- Dump completed on 2023-01-22  9:47:49
