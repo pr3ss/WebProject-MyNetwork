@@ -2,7 +2,7 @@
     <div class="container mt-1 post p-0">
         <div class="row d-flex justify-content-center">
             <div class="col-3 d-flex flex-column justify-content-center align-items-center ">
-                <img src="./img/<?php echo $post["foto_profilo"] ?>" alt="Avatar" class="avatar img-fluid rounded-circle"
+                <img src="<?php echo IMG_DIR.$post["foto_profilo"] ?>" alt="Avatar" class="avatar img-fluid rounded-circle"
                     onclick="openOtherUser(<?php echo $post['id_user_create'] ?>)">
             </div>
             <div class="col-4 pl-4 mt-1 d-flex flex-column justify-content-center">
@@ -38,7 +38,7 @@
             </div>
         </div>
         <?php if (isset($post["img"])): ?>
-            <img src=".\img\<?php echo $post["img"] ?>" class="img-fluid" alt="...">
+            <img src="<?php echo IMG_DIR.$post["img"] ?>" class="img-fluid" alt="..." onclick="openPost(<?php echo $post['id'] ?>)">
         <?php endif; ?>
         <div class="row">
             <div class="col-9 offset-3">

@@ -26,7 +26,7 @@ if ($dbh->login_check()) {
             if (in_array($file_extension, $valid_ext)) {
 
                 $location = $_SESSION['username'] . "_" . $my_id_user . "foto_profilo." . $file_extension;
-                if (move_uploaded_file($_FILES['foto_profilo']['tmp_name'], "./img/" . $location)) {
+                if (move_uploaded_file($_FILES['foto_profilo']['tmp_name'], IMG_DIR.$location)) {
                     if ($dbh->update_immagine_profilo($my_id_user, $location)) {
                         $result = true;
                     }

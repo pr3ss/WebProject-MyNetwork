@@ -2,7 +2,7 @@
     <div class="row bg-white ">
         <div class="col-2"></div>
         <div class="col-8 d-flex flex-column">
-            <img src=".\img\<?php echo $templateParams["info"][0]["foto_profilo"] ?>" style="border-radius: 50%;">
+            <img src="<?php echo IMG_DIR.$templateParams["info"][0]["foto_profilo"] ?>" style="border-radius: 50%;">
         </div>
         <div class="col-2"></div>
         <div class="col-12">
@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <?php if (isset($post["img"])) : ?>
-                    <img src=".\img\<?php echo $post["img"] ?>" class="card-img-top p-2" alt="..." onclick="openPost(<?php echo $post['id'] ?>)">
+                    <img src="<?php echo IMG_DIR.$post["img"] ?>" class="card-img-top p-2" alt="..." onclick="openPost(<?php echo $post['id'] ?>)">
                 <?php endif; ?>
                 <div class="card-body" onclick="openPost(<?php echo $post['id'] ?>)">
                     <p class="card-text"><?php echo $post["testo"]; ?></p>

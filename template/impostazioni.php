@@ -3,7 +3,7 @@
         <div class="col-2"></div>
         <div class="col-8">
             <div class="d-flex flex-column">
-                <img id="foto_profilo" src=".\img\<?php echo $templateParams["info"][0]["foto_profilo"] ?>" style="border-radius: 50%;">
+                <img id="foto_profilo" src="<?php echo IMG_DIR.$templateParams["info"][0]["foto_profilo"] ?>" style="border-radius: 50%;">
             </div>
         </div>
         <div class="col-2 p-0 d-flex flex-column justify-content-end">
