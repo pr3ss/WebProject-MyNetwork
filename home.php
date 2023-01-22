@@ -3,13 +3,16 @@ require_once 'bootstrap.php'; //comprende avvio sessione protteta
 
 
 $templateParams["title"] = "HOME";
-$_SESSION["last_post"] = time();
-$_SESSION["categoria_corrente"]=1; //default categoria
+
 
 if($dbh->login_check()){
+    $_SESSION["last_post"] = time();
+    $_SESSION["categoria_corrente"]=1; //default categoria
     $templateParams["username"] = $_SESSION["username"];
-    $templateParams['js'] = array("https://unpkg.com/axios/dist/axios.min.js", "js/base.js", "js/home.js", "js/sha512.js");
-    //$templateParams['posts']=array(array("user"=>"Simone"),array("user"=>"Alex")) ; //db call
+
+    $templateParams['js'] = array("https://unpkg.com/axios/dist/axios.min.js", "js/base.js", "js/home.js", "js/sha512.js", 
+                                    "js/add_post.js", "js/add_comment.js","js/impostazioni.js", "js/notifiche.js",
+                                    "js/profilo.js","js/ricerca.js");
     $templateParams['categorie'] = $dbh->getCategorie();
 
     require 'template/base.php';

@@ -2,6 +2,7 @@ const main = document.getElementById("colMain");
 var categoria = 1; //default categoria
 var otherCall = false;
 var post_finished = false;
+const offset_end_page = window.innerHeight/2; //Per anticipare il caricamneto di nuvi post
 
 
 function load_posts(cat_changed=false){
@@ -33,12 +34,7 @@ function load_posts(cat_changed=false){
 //Cariamento iniziale
 load_posts(); 
 
-/*codice copiato è quello che fa jquery per compatibilita tra i browser */
-//TODO verificare se usarlo al posto di document.body.offsetHeight
-const offset_end_page = window.innerHeight/2; //Per anticipare il caricamneto di nuvi post
 
-
-//TODO verificare se sia megglio fare addeventlistern e metodo onscroll
 window.onscroll = function(ev) {
     if (((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - offset_end_page)) && !otherCall && !post_finished) {
         load_posts();
@@ -46,37 +42,30 @@ window.onscroll = function(ev) {
 };
 
 
-
 function openPost(post_id) {
     var type = window.matchMedia("(min-width: 991px)")
-    //se mobile view
+
     if(type.matches){
-        var jolly = document.getElementById("colDx");
+        var col = document.getElementById("colDx");
     }else{
-        var jolly = document.getElementById("colMain");
+        var col = document.getElementById("colMain");
         otherCall=true;
     }
-
-    //se desktop view
-
-    //var jolly = document.getElementById("colDx");
 
     const formData = new FormData();
     formData.append('post_id', post_id);
 
     axios.post('./api-post.php', formData).then(response => {
         //console.log(response.data);
-        jolly.innerHTML = response.data;
+        col.innerHTML = response.data;
     });
 }
-
 
 function cambiaCategoria(idCategoria){
     let btn = document.getElementById("btnCat"+idCategoria);
     let list = document.getElementById("list_categorie").children;
 
     for (const child of list) {
-        //console.log(child);
         child.classList.remove("active");
     }
     
@@ -93,7 +82,6 @@ function likePost(post_id) {
     formData.append('post_id', post_id);
 
     axios.post('./api-like.php', formData).then(response => {
-        //console.log(response.data);
         document.querySelectorAll("button.btnLike_"+post_id).forEach(element => {
             element.innerHTML = '<i class="fa-solid fa-heart"> '+response.data+'</i>';
         });

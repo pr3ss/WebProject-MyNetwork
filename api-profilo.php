@@ -11,7 +11,6 @@ if($dbh->login_check()){
     $templateParams["info"] = $dbh->get_user_info($id_current_user);
     $templateParams["seguiti"] = $dbh->get_user_seguiti($id_current_user);
     $templateParams["follower"] = $dbh->get_user_follower(($id_current_user));
-    //$templateParams['js'] = array("https://unpkg.com/axios/dist/axios.min.js",);
 
     require 'template/profilo.php';
 }else{ //non autorizzato
