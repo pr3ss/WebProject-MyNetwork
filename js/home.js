@@ -21,7 +21,7 @@ function load_posts(cat_changed=false){
         }else{
             post_finished = true;
             console.log("post finiti");
-            main.innerHTML +="<p>Non ci sono nuovi post</p>" 
+            main.innerHTML +="<div class='container'><div class='row justify-content-center'><p>Non ci sono nuovi post</p></div></div>" 
         }
         
         otherCall=false;
@@ -35,27 +35,13 @@ load_posts();
 
 /*codice copiato è quello che fa jquery per compatibilita tra i browser */
 //TODO verificare se usarlo al posto di document.body.offsetHeight
-/*var body = document.body,
-    html = document.documentElement;
+const offset_end_page = window.innerHeight/2; //Per anticipare il caricamneto di nuvi post
 
-var height = Math.max( body.scrollHeight, body.offsetHeight, 
-                       html.clientHeight, html.scrollHeight, html.offsetHeight );*/
-
-//console.log(height);
 
 //TODO verificare se sia megglio fare addeventlistern e metodo onscroll
 window.onscroll = function(ev) {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight && !otherCall && !post_finished) {
-        //console.log("fine");  
+    if (((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - offset_end_page)) && !otherCall && !post_finished) {
         load_posts();
-        
-        /*var body = document.body,
-            html = document.documentElement;
-
-        var height = Math.max( body.scrollHeight, body.offsetHeight, 
-                            html.clientHeight, html.scrollHeight, html.offsetHeight );*/
-
-       // console.log(height + " - "+document.body.offsetHeight);
     }
 };
 
