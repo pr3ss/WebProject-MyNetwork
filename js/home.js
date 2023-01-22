@@ -43,21 +43,11 @@ window.onscroll = function(ev) {
 
 
 function openPost(post_id) {
-    var type = window.matchMedia("(min-width: 991px)")
-
-    if(type.matches){
-        var col = document.getElementById("colDx");
-    }else{
-        var col = document.getElementById("colMain");
-        otherCall=true;
-    }
-
     const formData = new FormData();
     formData.append('post_id', post_id);
 
     axios.post('./api-post.php', formData).then(response => {
-        //console.log(response.data);
-        col.innerHTML = response.data;
+        main.innerHTML = response.data;
     });
 }
 

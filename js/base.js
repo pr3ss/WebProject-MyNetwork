@@ -78,19 +78,14 @@ desktop.addEventListener("change", (e)=>{
     if(e.matches){
         close_all_popup();
         var elm;
-        if(elm = document.getElementById("post_singolo")){
+        if(elm = document.getElementById("notifiche")){
             colDx.innerHTML="";
             colDx.appendChild(elm);
             colMain.innerHTML="";
             load_posts(true); //True per fare in modo di ricaricare dal post piu recente
-            //console.log("desktop si");
-        }else if(elm = document.getElementById("notifiche")){
-            colDx.innerHTML="";
-            colDx.appendChild(elm);
-            colMain.innerHTML="";
-            load_posts(true); //True per fare in modo di ricaricare dal post piu recente
-            //console.log("desktop si");
         }
+    }else{
+        colDx.innerHTML="";
     }
 })
 

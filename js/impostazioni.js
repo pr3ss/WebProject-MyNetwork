@@ -18,11 +18,19 @@ function salva_info() {
     new_info["username"] = document.getElementById("my_username").value;
     new_info["email"] = document.getElementById("email").value;
     let psw = document.querySelector("#password").value;
-    console.log(psw);
+    
+    var p = document.createElement('p')
+    p.style.textAlign = "center";
+    p.setAttribute("id", "set_error");
+    var p_error = document.getElementById('set_error');
+    if(p_error){
+        main.removeChild(p_error);
+    }
 
     if (psw && !checkPasswordSecurity(psw)) {
-        alert("password non valida");
-
+        p.style.color = "red";
+        p.innerHTML = "password non valida";
+        main.prepend(p);
     } else {
         if (psw) {
             new_info["password"] = hex_sha512(psw);
@@ -34,8 +42,16 @@ function salva_info() {
         formData.append("foto_profilo", temp_foto_profilo);
         axios.post("./api-impostazioni.php", formData
         ).then(response => {
-            console.log(response.data);
-            alert(response.data);
+            if(response.data){
+                p.style.color = "green";
+                p.innerHTML = "Impostazioni cambiate.";
+                main.prepend(p);
+            }else{
+                p.style.color = "red";
+                p.innerHTML = "Username o email gia presenti.";
+                main.prepend(p);
+            }
+            
 
         });
 
