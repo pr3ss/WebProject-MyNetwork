@@ -92,14 +92,14 @@ nav {
 }
 
 .avatar {
-  max-height: 90%;
+  /* max-height: 90%; */
   /*max-width: 90%;*/
   object-fit: cover;
   aspect-ratio: 1;
 }
 
 .post{
-  background-color: rgb(249, 245, 245);
+  background-color: #fff;
   border-radius: 8px;
   border: #afafaf solid 0.2px;
   box-shadow: 2px 2px 2px #afafaf;

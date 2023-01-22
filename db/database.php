@@ -175,52 +175,44 @@ class DatabaseHelper
    public function load_posts_for($user_id, $id_categoria, $last_post, $num_post)
    {
       if (
-         $id_categoria == 1 && $stmt = $this->db->prepare("select posts.*, count(c.post_id) as nCommenti 
-      from (SELECT p.id,p.id_user_create, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
-      from post  as p
-      left join miPiace as l on p.id = l.post_id
-      join user as u on p.id_user_create=u.id
-      and  p.data_ora < ?
-      and u.id in (SELECT follow.user_follow FROM follow join user where follow.user_id = ?)
-      group by p.id) as posts
-      left join commento as c
-      on posts.id = c.post_id
-      group by posts.id
-      order by posts.data_ora DESC
-      limit ?;")
-      ) {
-         $old_query = "select posts.*, count(c.post_id) as nCommenti 
+         $id_categoria == 1 && $stmt = $this->db->prepare("SELECT p3.*, mp.user_id as asliked from(select posts.*, count(c.post_id) as nCommenti 
          from (SELECT p.id,p.id_user_create, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
          from post  as p
          left join miPiace as l on p.id = l.post_id
          join user as u on p.id_user_create=u.id
+         and  p.data_ora < ?
          and u.id in (SELECT follow.user_follow FROM follow join user where follow.user_id = ?)
          group by p.id) as posts
          left join commento as c
          on posts.id = c.post_id
-         group by posts.id;";
-         $stmt->bind_param('sii', $last_post, $user_id, $num_post);
+         group by posts.id
+         order by posts.data_ora DESC
+         limit ?) as p3 left join mipiace as mp
+         on mp.user_id = ? and p3.id = mp.post_id")
+      ) {
+         $stmt->bind_param('siii', $last_post, $user_id, $num_post, $user_id);
          $stmt->execute();
          $result = $stmt->get_result();
 
          return $result->fetch_all(MYSQLI_ASSOC);
       } else if (
-         $stmt = $this->db->prepare("select * from (select posts.*, count(c.post_id) as nCommenti 
-      from (SELECT p.id, p.id_user_create, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
-      from post  as p
-      left join miPiace as l on p.id = l.post_id
-      join user as u on p.id_user_create=u.id
-      and  p.data_ora < ?
-      and u.id in (SELECT follow.user_follow FROM follow join user where follow.user_id = ?)
-      group by p.id) as posts
-      left join commento as c
-      on posts.id = c.post_id
-      group by posts.id) as posts
-      where posts.id_categoria=?
-      order by posts.data_ora DESC
-      limit ?;")
+         $stmt = $this->db->prepare("SELECT p3.*, mp.user_id as asliked from(select * from (select posts.*, count(c.post_id) as nCommenti 
+         from (SELECT p.id, p.id_user_create, username, foto_profilo, p.data_ora, p.testo, img, luogo, id_categoria, count(l.post_id) as miPiace
+         from post  as p
+         left join miPiace as l on p.id = l.post_id
+         join user as u on p.id_user_create=u.id
+         and  p.data_ora < ?
+         and u.id in (SELECT follow.user_follow FROM follow join user where follow.user_id = ?)
+         group by p.id) as posts
+         left join commento as c
+         on posts.id = c.post_id
+         group by posts.id) as posts
+         where posts.id_categoria=?
+         order by posts.data_ora DESC
+         limit ?) as p3 left join mipiace as mp
+         on mp.user_id = ? and p3.id = mp.post_id;")
       ) {
-         $stmt->bind_param('siii', $last_post, $user_id, $id_categoria, $num_post);
+         $stmt->bind_param('siiii', $last_post, $user_id, $id_categoria, $num_post,$user_id);
          $stmt->execute();
          $result = $stmt->get_result();
 
@@ -231,17 +223,14 @@ class DatabaseHelper
    //load info post
    public function load_post($post_id)
    {
-      if (
-         $stmt = $this->db->prepare("SELECT post.id,id_user_create, username, foto_profilo, data_ora, testo, img, luogo, id_categoria, count(mp.post_id) as miPiace
+      if ($stmt = $this->db->prepare("SELECT p3.*, mp.user_id as asliked from(SELECT post.id,id_user_create, username, foto_profilo, data_ora, testo, img, luogo, id_categoria, count(mp.post_id) as miPiace
       from miPiace as mp right join post
       on mp.post_id = post.id, user
       where post.id_user_create=user.id
       and post.id = ?
-      group by post.id
-      "
-         )
-      ) {
-         $stmt->bind_param('i', $post_id);
+      group by post.id) as p3 left join mipiace as mp
+      on mp.user_id = ? and p3.id = mp.post_id")) {
+         $stmt->bind_param('ii', $post_id,$_SESSION['user_id']);
          $stmt->execute();
          $result = $stmt->get_result();
 
@@ -434,20 +423,23 @@ class DatabaseHelper
             if ($ins_stmt = $this->db->prepare("INSERT INTO miPiace (user_id, post_id) VALUES (?, ?)")) {
                $ins_stmt->bind_param('ii', $user_id, $post_id);
                $ins_stmt->execute();
+               $result['like'] = true;
                $this->crea_notifica($post_id, $user_id, 2, time());
             }
          } else {
             if ($del_stmt = $this->db->prepare("DELETE FROM miPiace WHERE user_id = ? and post_id = ?")) {
                $del_stmt->bind_param('ii', $user_id, $post_id);
                $del_stmt->execute();
+               $result['like'] = false;
             }
          }
 
          if ($stmt = $this->db->prepare("SELECT  count(*) nMiPiace FROM miPiace where post_id = ?;")) {
             $stmt->bind_param('i', $post_id);
             $stmt->execute();
-            $result = $stmt->get_result();
-            return $result->fetch_all(MYSQLI_ASSOC);
+            $temp= $stmt->get_result();
+            $result['count']= $temp->fetch_all(MYSQLI_ASSOC);
+            return $result;
          }
       }
    }

@@ -87,7 +87,13 @@ function likePost(post_id) {
 
     axios.post('./api-like.php', formData).then(response => {
         document.querySelectorAll("button.btnLike_"+post_id).forEach(element => {
-            element.innerHTML = '<i class="fa-solid fa-heart"> '+response.data+'</i>';
+            element.innerHTML = '<i class="fa-solid fa-heart" style="font-size: 150%;"> '+response.data.count[0]["nMiPiace"]+' </i>';
+            if(response.data.like == true){
+                element.classList.add("btn-danger");
+            }else{
+                element.classList.remove("btn-danger");
+            }
         });
+        console.log(response.data.count[0]["nMiPiace"]);
     });
 }

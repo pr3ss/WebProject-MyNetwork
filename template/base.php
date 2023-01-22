@@ -123,7 +123,7 @@
                     </div>
                 </div>
             </div>
-            <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block position-fixed bg-dark col-hidden"
+            <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block position-fixed col-hidden"
                 style="height: 90%; ">
             </div>
         </div>
