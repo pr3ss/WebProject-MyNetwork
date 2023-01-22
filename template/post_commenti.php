@@ -32,7 +32,7 @@
         <?php if (isset($templateParams["post"][0]["img"])): ?>
             <img src="<?php echo IMG_DIR . $templateParams["post"][0]["img"] ?>" class="img-fluid m-0 mt-1" alt="...">
         <?php endif; ?>
-        <?php if(isset($templateParams["post"][0]["testo"])):?>
+        <?php if($templateParams["post"][0]["testo"] != ""):?>
         <div class="row">
             <div class="col-9 offset-3 p-0">
                 <p>
@@ -60,7 +60,7 @@
             </div>
         </div>
         <?php foreach ($templateParams["commenti"] as $commento): ?>
-            <div class="row commento mr-2 ml-2 mt-2 pb-1">
+            <div class="row bottom-linea mr-2 ml-2 mt-2 pb-1">
                 <div class="col-2 d-flex flex-column justify-content-center">
                     <img src="<?php echo IMG_DIR . $commento['foto_profilo']; ?>" alt="Avatar"
                         class="avatar img-fluid rounded-circle"

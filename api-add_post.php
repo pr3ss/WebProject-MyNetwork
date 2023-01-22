@@ -13,7 +13,7 @@ if ($dbh->login_check()) {
         $valid_ext = array("jpg", "png", "jpeg");
     
         if (in_array($file_extension, $valid_ext)) {
-            $testo = isset($_POST['testo']) ? $_POST['testo'] : "";
+            $testo = isset($_POST['testo']) ? $_POST['testo'] : "NULL";
             $luogo = !empty($_POST['luogo']) ? $_POST['luogo'] : null;
             $cat = isset($_POST['categoria']) ? $_POST['categoria'] : 1;
             $user = $_SESSION['user_id'];

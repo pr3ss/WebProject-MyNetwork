@@ -162,7 +162,7 @@ function showProfilo() {
 }
 
 function showImpostazioni() {
-    window.onscroll=null; //TODO verificare sia necessario
+    window.onscroll=null;
     axios.post("./api-impostazioni.php"
     ).then(response => {
         document.getElementById("labelIdentifyScreen").innerHTML = "SETTING";
@@ -172,6 +172,7 @@ function showImpostazioni() {
 }
 
 function addPost() {
+    window.onscroll=null;
     axios.post('./api-add_post.php').then(response => {
         //console.log(response.data);
         main.innerHTML = response.data;

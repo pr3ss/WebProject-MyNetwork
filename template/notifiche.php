@@ -1,7 +1,7 @@
 <div id="notifiche" class="container p-0 m-0 h-100 justify-content-center " style="overflow-y:auto;">
     <?php foreach($templateParams["notifiche"] as $notifica): ?>
-    <div class="row  mr-1 ml-1 mt-2 p-1 box-notifica <?php if($notifica['vista'] == 1){
-        echo 'bg-white';
+    <div class="row  mr-1 ml-1 mt-2 p-1 bottom-linea <?php if($notifica['vista'] == 1){
+        echo '';
         }else{
         echo 'bg-primary';;
     } ?>" onclick="<?php if($notifica['idTipo'] == 4){

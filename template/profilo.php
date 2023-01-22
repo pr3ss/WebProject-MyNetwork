@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row bg-white ">
+    <div class="row bottom-linea">
         <div class="col-2"></div>
         <div class="col-8 d-flex flex-column">
             <img src="<?php echo IMG_DIR . $templateParams["info"][0]["foto_profilo"] ?>" alt="..."
@@ -38,20 +38,24 @@
     <?php foreach ($templateParams["posts"] as $post): ?>
         <div class="row mt-3 justify-content-center">
             <!--Posts profilo-->
-            <div class="container-fluid bg-white p-0" style="border-radius: 10px;">
+            <div class="container-fluid bg-white p-0 pt-1" style="border-radius: 10px;">
                 <div class="row d-flex justify-content-center pl-3 pr-3">
                     <div class="col-4 d-flex flex-column justify-content-center">
-                        <button type="button" class="btn w-100 btnLike_<?php echo $post['id'] ?> <?php if ($post['asliked'] != null) {
+                        <button type="button" class="btn w-100 btnLike_<?php echo $post['id'] ?>         <?php if ($post['asliked'] != null) {
                                         echo "btn-like";
                                     } ?>" onclick="likePost(<?php echo $post['id'] ?>)"><i class="fa-solid fa-heart"
-                                style="font-size: 150%;"><p class="m-0">
-                                <?php echo $post["miPiace"] ?></p>
+                                style="font-size: 150%;">
+                                <p class="m-0">
+                                    <?php echo $post["miPiace"] ?>
+                                </p>
                             </i></button>
                     </div>
                     <div class="col-4 d-flex flex-column justify-content-center">
                         <button type="button" class="btn w-100" onclick="openPost(<?php echo $post['id'] ?>)"><i
                                 class="fa-solid fa-comment" style="font-size: 150%;">
-                                <p class="m-0"><?php echo $post["nCommenti"] ?></p>
+                                <p class="m-0">
+                                    <?php echo $post["nCommenti"] ?>
+                                </p>
                             </i></button>
                     </div>
                     <div class="col-4 d-flex flex-column justify-content-center">
@@ -60,14 +64,14 @@
                     </div>
                 </div>
                 <?php if (isset($post["img"])): ?>
-                    <img src="<?php echo IMG_DIR . $post["img"] ?>" class="card-img-top p-2" alt="..."
+                    <img src="<?php echo IMG_DIR . $post["img"] ?>" class="img-fluid mt-1" alt="..."
                         onclick="openPost(<?php echo $post['id'] ?>)">
                 <?php endif; ?>
-                <div class="card-body" onclick="openPost(<?php echo $post['id'] ?>)">
-                    <p class="card-text">
+                <?php if ($post["testo"] != ""): ?>
+                    <p class="mt-1" style="text-align: center;" onclick="openPost(<?php echo $post['id'] ?>)">
                         <?php echo $post["testo"]; ?>
                     </p>
-                </div>
+                <?php endif; ?>
             </div>
         </div>
     <?php endforeach; ?>

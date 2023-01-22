@@ -39,7 +39,7 @@
             <img src="<?php echo IMG_DIR . $post["img"] ?>" class="img-fluid m-0 mt-1" alt="..."
                 onclick="openPost(<?php echo $post['id'] ?>)">
         <?php endif; ?>
-        <?php if(isset($post["testo"])):?>
+        <?php if($post["testo"] != ""):?>
         <div class="row">
             <div class="col-9 offset-3 p-0">
                 <p class="" onclick="openPost(<?php echo $post['id'] ?>)">

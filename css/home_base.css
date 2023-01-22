@@ -50,8 +50,8 @@ body {
   background: linear-gradient(120deg, #198aa6, #d8dfa4);
 }
 
-.commento{
-  border-bottom: 1px solid #afafaf;
+.bottom-linea{
+  border-bottom: 2px solid #afafaf;
 }
 
 li {

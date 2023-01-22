@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row bg-white ">
+    <div class="row bottom-linea">
         <div class="col-2"></div>
         <div class="col-8 d-flex flex-column">
             <img src="<?php echo IMG_DIR . $templateParams["info"][0]["foto_profilo"] ?>"
@@ -51,7 +51,7 @@
     <?php foreach ($templateParams["posts"] as $post): ?>
         <div class="row mt-3 justify-content-center">
             <!--Posts profilo-->
-            <div class="container-fluid p-0 bg-white " style="border-radius: 10px;">
+            <div class="container-fluid p-0 bg-white pt-1" style="border-radius: 10px;">
                 <div class="row d-flex justify-content-center pl-3 pr-3">
                     <div class="col-6 d-flex flex-column justify-content-center">
                         <button type="button" class="btn w-100 btnLike_<?php echo $post['id'] ?> <?php if ($post['asliked'] != null) {
@@ -69,14 +69,14 @@
                     </div>
                 </div>
                 <?php if (isset($post["img"])): ?>
-                    <img src="<?php echo IMG_DIR . $post["img"] ?>" class="card-img-top p-2" alt="..."
+                    <img src="<?php echo IMG_DIR . $post["img"] ?>" class="img-fluid mt-1" alt="..."
                         onclick="openPost(<?php echo $post['id'] ?>)">
                 <?php endif; ?>
-                <div class="card-body" onclick="openPost(<?php echo $post['id'] ?>)">
-                    <p class="card-text">
+                <?php if ($post["testo"] != ""): ?>
+                    <p class="mt-1" style="text-align: center;" onclick="openPost(<?php echo $post['id'] ?>)">
                         <?php echo $post["testo"]; ?>
                     </p>
-                </div>
+                <?php endif; ?>
             </div>
         </div>
     <?php endforeach; ?>
