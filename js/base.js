@@ -139,6 +139,7 @@ function viewNotifiche() {
     if(desktop.matches){
         var jolly = document.getElementById("colDx");
     }else{
+        window.onscroll=null;
         var jolly = document.getElementById("colMain");
         otherCall=true;
     }

@@ -43,6 +43,7 @@ window.onscroll = function(ev) {
 
 
 function openPost(post_id) {
+    window.onscroll = null;
     const formData = new FormData();
     formData.append('post_id', post_id);
 
