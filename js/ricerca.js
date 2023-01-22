@@ -22,7 +22,7 @@ function fill_list_user(list_users) {
     const list_elm = document.getElementById("list_searched_users");
     list_elm.innerHTML = "";
     for (let user in list_users) {
-        list_elm.innerHTML += ' <button type="button"onclick="openOtherUser(' + list_users[user].id + ')" class="btnMagic list-group-item list-group-item-action">' + list_users[user].username + '</button>';
+        list_elm.innerHTML += ' <button type="button"onclick="openOtherUser(' + list_users[user].id + ')" class="btn btnMagic">' + list_users[user].username + '</button>';
     }
 
 }

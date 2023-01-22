@@ -36,7 +36,7 @@
         </div>
     </div>
     <?php foreach ($templateParams["posts"] as $post): ?>
-        <div class="row mt-3 justify-content-center">
+        <div class="row mt-3 justify-content-center post">
             <!--Posts profilo-->
             <div class="container-fluid bg-white p-0 pt-1" style="border-radius: 10px;">
                 <div class="row d-flex justify-content-center pl-3 pr-3">

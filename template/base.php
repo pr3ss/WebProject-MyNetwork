@@ -27,14 +27,14 @@
             </div>
             <div class="col-2 col-md-2 order-md-last d-flex justify-content-center align-items-center">
                 <div>
-                    <button class="btn btn-dark btn-circle " onclick="addPost()"><i class="fas fa-plus"></i></button>
+                    <button class="btn btn-nav btn-circle " onclick="addPost()"><i class="fas fa-plus"></i></button>
                 </div>
             </div>
             <!-- NAV -->
             <div id="nav" class="col-2 col-md-8 order-md-2 d-flex justify-content-center w-100">
                 <nav class="bg-body-tertiary navbar-expand-md ">
                     <div class="container-fluid">
-                        <button id="btn_nav" class="btn btn-dark btn-circle navbar-toggler " data-bs-toggle="collapse"
+                        <button id="btn_nav" class="btn btn-nav btn-circle navbar-toggler" data-bs-toggle="collapse"
                             data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
                             aria-label="Toggle navigation" onclick="open_menu(),check_NuoveNotifiche()"><i
                                 class="fa-solid fa-bars"></i></button>
@@ -42,38 +42,38 @@
                             id="navbarText">
                             <ul class="navbar-nav me-auto mb-2 mb-md-0 w-100 d-flex justify-content-center ">
                                 <li class="nav-item ">
-                                    <a class="btn btn-dark btn-circle " href="home.php"><i
+                                    <a class="btn btn-nav btn-circle " href="home.php"><i
                                             class="fa-solid fa-house"></i></a>
                                 </li>
                                 <li class="nav-item ">
-                                    <button class="btn btn-dark btn-circle "
+                                    <button class="btn btn-nav btn-circle "
                                         onclick="showProfilo(),check_NuoveNotifiche()"><i
                                             class="fa-regular fa-user"></i></button>
                                 </li>
                                 <li class="nav-item ">
-                                    <button class="btn btn-dark btn-circle "
+                                    <button class="btn btn-nav btn-circle "
                                         onclick="viewNotifiche(),check_NuoveNotifiche()"><i
                                             class="fa-regular fa-envelope">
                                             <span id="num_notifiche"
                                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span></i></button>
                                 </li>
                                 <li class="nav-item  btn_RicCat">
-                                    <button class="btn btn-dark btn-circle"
+                                    <button class="btn btn-nav btn-circle"
                                         onclick="viewCategoria(),check_NuoveNotifiche() "><i
                                             class="fa-solid fa-layer-group"></i></button>
                                 </li>
                                 <li class="nav-item  btn_RicCat">
-                                    <button class="btn btn-dark btn-circle "
+                                    <button class="btn btn-nav btn-circle "
                                         onclick="viewRicerca(),check_NuoveNotifiche()"><i class="
                                                 fa-solid fa-magnifying-glass"></i></button>
                                 </li>
                                 <li class="nav-item  ">
-                                    <button class="btn btn-dark btn-circle "
+                                    <button class="btn btn-nav btn-circle "
                                         onclick="showImpostazioni(),check_NuoveNotifiche()"><i
                                             class="fa-solid fa-gear"></i></button>
                                 </li>
                                 <li class="nav-item ">
-                                    <a class="btn btn-dark btn-circle " href="logout.php"><i
+                                    <a class="btn btn-nav btn-circle " href="logout.php"><i
                                             class="fa-solid fa-right-from-bracket"></i></a>
                                 </li>
                             </ul>
@@ -108,7 +108,7 @@
                         <div class="col-12">
                             <div id="list_categorie" class="list-group p-0">
                                 <?php foreach ($templateParams["categorie"] as $categoria): ?>
-                                    <button id="btnCat<?php echo $categoria['id'] ?>" type="button" class="btnMagic list-group-item list-group-item-action <?php if ($categoria['id'] == 1) {
+                                    <button id="btnCat<?php echo $categoria['id'] ?>" type="button" class="btn btnMagic <?php if ($categoria['id'] == 1) {
                                            echo "active";
                                        } ?>" onclick="cambiaCategoria(<?php echo $categoria['id'] ?>)"><?php
                                            echo $categoria['titolo'] ?></button>

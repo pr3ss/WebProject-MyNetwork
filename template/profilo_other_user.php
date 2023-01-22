@@ -29,8 +29,9 @@
         </div>
         <div class="col-12">
             <div class="row justify-content-center m-2">
-                <button type="button" class="btn btnshadow btn-primary"
-                    id="btn_segui_<?php echo $templateParams['info'][0]['id']; ?>"
+                <button type="button" class="btn btnMagic <?php if ($templateParams["isSeguito"] != true) {
+                            echo "active";} ?>"
+                    id="btn_segui_<?php echo $templateParams['info'][0]['id']; ?> "
                     onclick="startFollow(<?php echo $templateParams['info'][0]['id'] ?>)">
                     <?php if ($templateParams["isSeguito"] == true): ?>
                         Smetti di seguire
@@ -49,7 +50,7 @@
         </div>
     </div>
     <?php foreach ($templateParams["posts"] as $post): ?>
-        <div class="row mt-3 justify-content-center">
+        <div class="row mt-3 justify-content-center post">
             <!--Posts profilo-->
             <div class="container-fluid p-0 bg-white pt-1" style="border-radius: 10px;">
                 <div class="row d-flex justify-content-center pl-3 pr-3">
