@@ -69,7 +69,7 @@
                     <input id="password" type="password" value="" style="width: 90%;  border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
                 </div>
                 <div class="col-2">
-                    <button id="btnViewPass" onclick="test5()" style="border: none;"><i class="fa-solid fa-eye"></i></button>
+                    <button id="btnViewPass" onclick="viewPassword()" style="border: none;"><i class="fa-solid fa-eye"></i></button>
                 </div>
             </div>
 

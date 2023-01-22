@@ -47,8 +47,8 @@
         </div>
     </div>
 
-    <div class="container-fluid">
-        <div class="row mr-2 ml-2 mt-2" style="border-radius: 10px;">
+    <div class="container-fluid p-0">
+        <div class="row m-0 mt-2" style="border-radius: 10px;">
             <div class="col-2 d-flex flex-column justify-content-center align-items-center">
                 <!--con aligin-item-center rimane sempre centrasto decidere se fissarlo al inizo riga o al centro-->
                 <img src="<?php echo IMG_DIR . $_SESSION['foto_profilo']; ?>" alt="Avatar"
@@ -57,7 +57,7 @@
             <div class="col-8 d-flex flex-column justify-content-center align-items-center p-0">
                 <input type="text" id="textComment" class="form-control" placeholder="Type comment..." />
             </div>
-            <div class="col-2 d-flex flex-column justify-content-center ">
+            <div class="col-2 d-flex flex-column justify-content-center p-0 pl-1 ">
                 <!--se metti align-item-center il tasto si ridimensione non rimane a grndezza fissa-->
                 <button type="button" class="btn btn-dark btnshadow"
                     onclick="addComment(<?php echo $templateParams['post'][0]['id']; ?>)"><i

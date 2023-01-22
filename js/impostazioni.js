@@ -67,3 +67,14 @@ function salva_info() {
 function checkPasswordSecurity(password) {
     return password.length >= 8;
 }
+
+function viewPassword(){
+    var input_psw = document.getElementById("password");
+    if(input_psw.type == "password"){
+        input_psw.type = "text";
+        document.getElementById("btnViewPass").innerHTML = "<i class='fa-solid fa-eye-slash'></i>";
+    }else{
+        input_psw.type = "password";
+        document.getElementById("btnViewPass").innerHTML = "<i class='fa-solid fa-eye'></i>";
+    }
+}
