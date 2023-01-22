@@ -89,14 +89,11 @@ nav {
   aspect-ratio: 1;
 }
 
-.user {
-  font-style: italic;
-  font-weight: bold;
-}
-
-.date {
-  font-weight: bold;
-  font-size: small;
+.post{
+  background-color: rgb(249, 245, 245);
+  border-radius: 8px;
+  border: #afafaf solid 0.2px;
+  box-shadow: 2px 2px 2px #afafaf;
 }
 
 ul>li {

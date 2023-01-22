@@ -46,24 +46,30 @@
                                             class="fa-solid fa-house"></i></a>
                                 </li>
                                 <li class="nav-item ">
-                                    <button class="btn btn-dark btn-circle " onclick="showProfilo(),check_NuoveNotifiche()"><i
+                                    <button class="btn btn-dark btn-circle "
+                                        onclick="showProfilo(),check_NuoveNotifiche()"><i
                                             class="fa-regular fa-user"></i></button>
                                 </li>
                                 <li class="nav-item ">
-                                    <button class="btn btn-dark btn-circle " onclick="viewNotifiche(),check_NuoveNotifiche()"><i
+                                    <button class="btn btn-dark btn-circle "
+                                        onclick="viewNotifiche(),check_NuoveNotifiche()"><i
                                             class="fa-regular fa-envelope">
-                                            <span id="num_notifiche" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span></i></button>
+                                            <span id="num_notifiche"
+                                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span></i></button>
                                 </li>
                                 <li class="nav-item  btn_RicCat">
-                                    <button class="btn btn-dark btn-circle" onclick="viewCategoria(),check_NuoveNotifiche() "><i
+                                    <button class="btn btn-dark btn-circle"
+                                        onclick="viewCategoria(),check_NuoveNotifiche() "><i
                                             class="fa-solid fa-layer-group"></i></button>
                                 </li>
                                 <li class="nav-item  btn_RicCat">
-                                    <button class="btn btn-dark btn-circle " onclick="viewRicerca(),check_NuoveNotifiche()"><i class="
+                                    <button class="btn btn-dark btn-circle "
+                                        onclick="viewRicerca(),check_NuoveNotifiche()"><i class="
                                                 fa-solid fa-magnifying-glass"></i></button>
                                 </li>
                                 <li class="nav-item  ">
-                                    <button class="btn btn-dark btn-circle " onclick="showImpostazioni(),check_NuoveNotifiche()"><i
+                                    <button class="btn btn-dark btn-circle "
+                                        onclick="showImpostazioni(),check_NuoveNotifiche()"><i
                                             class="fa-solid fa-gear"></i></button>
                                 </li>
                                 <li class="nav-item ">
@@ -101,19 +107,18 @@
                     <div class="col-12">
                         <div id="list_categorie" class="list-group p-0">
                             <?php foreach ($templateParams["categorie"] as $categoria): ?>
-                                <button id="btnCat<?php echo $categoria['id'] ?>" type="button"
-                                    class="list-group-item list-group-item-action <?php if ($categoria['id'] == 1) {
-                                        echo "active";
-                                    } ?>"
-                                    onclick="cambiaCategoria(<?php echo $categoria['id'] ?>)"><?php echo $categoria['titolo'] ?></button>
+                                <button id="btnCat<?php echo $categoria['id'] ?>" type="button" class="list-group-item list-group-item-action <?php if ($categoria['id'] == 1) {
+                                       echo "active";
+                                   } ?>" onclick="cambiaCategoria(<?php echo $categoria['id'] ?>)"><?php echo $categoria['titolo'] ?></button>
                             <?php endforeach; ?>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-lg-6 offset-lg-3 d-flex flex-column align-items-center">
-                <div  class="container-fluid">
+            <div class="col-12 col-lg-6 offset-lg-3 d-flex flex-column align-items-center p-0">
+                <div class="container-fluid ">
                     <div id="colMain" class="row justify-content-center">
+                    </div>
                 </div>
             </div>
             <div id="colDx" class="col-lg-3 offset-lg-9 d-lg-block position-fixed bg-dark col-hidden"
