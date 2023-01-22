@@ -14,6 +14,7 @@ if($dbh->login_check()){
 
     require 'template/profilo.php';
 }else{ //non autorizzato
-    header('Location: ./index.php');
+    header('Content-Type: application/json');
+    echo json_encode("Accesso negato.");
 }
 

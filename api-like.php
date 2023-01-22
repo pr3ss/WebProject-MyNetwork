@@ -11,6 +11,7 @@ if ($dbh->login_check()) {
         echo json_encode($result);
     }
 } else { //non autorizzato
-    header('Location: ./index.php');
+    header('Content-Type: application/json');
+    echo json_encode("Accesso negato.");
 }
 ?>

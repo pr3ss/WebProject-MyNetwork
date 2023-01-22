@@ -9,5 +9,6 @@ if($dbh->login_check()){
     $dbh->start_follow($user, $_SESSION["user_id"]);
     require 'api-profilo_other_user.php';
 }else{ //non autorizzato
-    header('Location: ./index.php');
+    header('Content-Type: application/json');
+    echo json_encode("Accesso negato.");
 }

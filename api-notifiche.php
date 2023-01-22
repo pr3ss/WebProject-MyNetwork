@@ -9,5 +9,6 @@ if($dbh->login_check()){
     $templateParams["notifiche"] = $dbh->get_notifiche($user);
     require 'template/notifiche.php';
 }else{ //non autorizzato
-    header('Location: ./index.php');
+    header('Content-Type: application/json');
+    echo json_encode("Accesso negato.");
 }

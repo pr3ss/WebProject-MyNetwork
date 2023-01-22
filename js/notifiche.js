@@ -12,10 +12,9 @@ function notificaVista(notifica_id){
 function check_NuoveNotifiche(){
     axios.post("./api-check_notifiche.php"
     ).then(response => {
-        console.log(response.data);
-        if(response.data!=0){
+        if(response.data.nNotifiche && response.data.nNotifiche!=0){
             document.getElementById("num_notifiche").style.display ="inline";
-            document.getElementById("num_notifiche").innerHTML = response.data;
+            document.getElementById("num_notifiche").innerHTML = response.data.nNotifiche;
         }else{
             document.getElementById("num_notifiche").style.display ="none";
         }

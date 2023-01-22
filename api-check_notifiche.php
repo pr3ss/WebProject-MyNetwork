@@ -6,7 +6,9 @@ $templateParams["title"] = "PROFILO";
 
 if ($dbh->login_check()) {
     $result = $dbh->check_nNuoveNotifiche($_SESSION['user_id']);
-    echo $result[0]["nNotifiche"];
+    header('Content-Type: application/json');
+    echo json_encode($result[0]);
 } else { //non autorizzato
-    header('Location: ./index.php');
+    header('Content-Type: application/json');
+    echo json_encode("Accesso negato.");
 }
