@@ -42,7 +42,8 @@ body {
 }
 
 .btn-like {
-  background-color: #c15e84;
+  /* background-color: #c15e84; */
+  color: #c82c36;
 }
 
 .menu {
