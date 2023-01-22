@@ -41,7 +41,7 @@ function signin(email, password, username, nome, cognome, data_nascita){
         document.querySelector("#divSignin").innerHTML = "<input type='submit' value='Sign Up'></input>";  
               
         if (response.data["signineseguito"]) {
-            window.location.assign("index.php"); //verificare se mettere un testo in login con registrazine avveenuta con successo oppure metterlo nella pagina di signin e mettere un delay o un tasto per il login
+            window.location.assign("index.php?signin=1"); //verificare se mettere un testo in login con registrazine avveenuta con successo oppure metterlo nella pagina di signin e mettere un delay o un tasto per il login
         } else {
             document.querySelector("form > p").innerText = response.data["erroresignin"];
         }
