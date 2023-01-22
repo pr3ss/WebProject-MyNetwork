@@ -2,7 +2,7 @@
         <div class="container bg-white m-1 " style="border-radius:10px ;">
             <div class="row d-flex justify-content-center">
                 <div class="col-3 d-flex flex-column justify-content-center align-items-center ">
-                    <img src="./img/<?php echo $post["foto_profilo"] ?>" alt="Avatar" class="avatar" onclick="openOtherUser(<?php echo $post['id_user_create']  ?>)">
+                    <img src="./img/<?php echo $post["foto_profilo"] ?>" alt="Avatar" class="avatar img-fluid rounded-circle" onclick="openOtherUser(<?php echo $post['id_user_create']  ?>)">
                 </div>
                 <div class="col-5">
                     <div class="row" onclick="openOtherUser(<?php echo $post['id_user_create']  ?>)">

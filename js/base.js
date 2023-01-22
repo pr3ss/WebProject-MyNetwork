@@ -17,8 +17,10 @@ function open_menu() {
 
         if (open_nav) {
             blr.classList.add("blurfilter");
+            colMain.style.filter = "blur(4px)";
         } else {
             close_all_popup();
+            colMain.style.filter = "blur(0px)";
         }
     }
 }
@@ -42,8 +44,8 @@ function close_all_popup() {
         utn.classList.remove("myShow");
         //blr.classList.remove("blurfilter");
     }
-
     blr.classList.remove("blurfilter");
+    colMain.style.filter = "blur(0px)";
 }
 
 function tablet_all_popup_close(mediaQ){
@@ -100,12 +102,14 @@ function viewCategoria() {
             close_all_popup();
             blr.classList.add("blurfilter");
             cat.classList.add("myShow");
+            colMain.style.filter = "blur(4px)";
         }
         
     }else{
         close_all_popup();
         blr.classList.add("blurfilter");
         cat.classList.add("myShow");
+        colMain.style.filter = "blur(4px)";
     }
 }
 
@@ -118,12 +122,14 @@ function viewRicerca() {
             close_all_popup();
             blr.classList.add("blurfilter");
             ric.classList.add("myShow");
+            colMain.style.filter = "blur(4px)";
         }
         
     }else{
         close_all_popup();
         blr.classList.add("blurfilter");
         ric.classList.add("myShow");
+        colMain.style.filter = "blur(4px)";
     }
 }
 
@@ -317,6 +323,7 @@ function view_seguiti_follower(list) {
             utn.classList.add("myShow");
             if (!desktop.matches) {
                 blr.classList.add("blurfilter");
+                colMain.style.filter = "blur(4px)";
             }
         });
     }
@@ -332,6 +339,7 @@ function openOtherUser(user_id) {
     ).then(response => {
         document.getElementById("labelIdentifyScreen").innerHTML = "PROFILO";
         document.getElementById("colMain").innerHTML = response.data;
+        close_all_popup();
     });
 }
 

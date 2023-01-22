@@ -21,6 +21,7 @@ function load_posts(cat_changed=false){
         }else{
             post_finished = true;
             console.log("post finiti");
+            main.innerHTML +="<p>Non ci sono nuovi post</p>" 
         }
         
         otherCall=false;
@@ -98,6 +99,7 @@ function cambiaCategoria(idCategoria){
     categoria = idCategoria;
     main.innerHTML="";
     load_posts(true);
+    close_all_popup();
 }
 
 function likePost(post_id) {

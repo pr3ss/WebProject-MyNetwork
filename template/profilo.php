@@ -2,15 +2,15 @@
     <div class="row bg-white ">
         <div class="col-2"></div>
         <div class="col-8 d-flex flex-column">
-            <img src=".\img\<?php echo $templateParams["info"][0]["foto_profilo"] ?>" style="border-radius: 50%;">
+            <img src=".\img\<?php echo $templateParams["info"][0]["foto_profilo"] ?>" alt="..." style="border-radius: 50%;">
         </div>
         <div class="col-2"></div>
         <div class="col-12">
-            <dic class="row justify-content-center">
+            <div class="row justify-content-center">
                 <p>
                     <?php echo $templateParams["info"][0]["username"] ?>
                 </p>
-            </dic>
+            </div>
         </div>
         <div class="col-6">
             <div class="row justify-content-center m-2">

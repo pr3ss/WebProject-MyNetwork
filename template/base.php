@@ -21,9 +21,9 @@
         <div class="row m-0 mt-2 bg-white rounded-pill ">
             <!-- DESCRIZIONE -->
             <div class="col-8 col-md-3 d-flex justify-content-center align-items-center">
-                <label class="m-0 p-0" id="labelIdentifyScreen" for="">
+                <p class="m-0 p-0" id="labelIdentifyScreen">
                     <?php echo $templateParams["title"]; ?>
-                </label>
+                </p>
             </div>
             <div class="col-2 col-md-3 order-md-last d-flex justify-content-center align-items-center">
                 <div>
