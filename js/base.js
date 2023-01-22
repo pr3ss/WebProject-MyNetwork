@@ -155,7 +155,7 @@ function showProfilo() {
     window.onscroll=null;
     axios.post("./api-profilo.php"
     ).then(response => {
-        document.getElementById("labelIdentifyScreen").innerHTML = "PROFILO";
+        document.getElementById("labelIdentifyScreen").innerHTML = "ACCOUNT";
         document.getElementById("colMain").innerHTML = response.data;
         if(mobile.matches){ btn_nav.click();} //Per chiudere il menu
     });
@@ -165,7 +165,7 @@ function showImpostazioni() {
     window.onscroll=null; //TODO verificare sia necessario
     axios.post("./api-impostazioni.php"
     ).then(response => {
-        document.getElementById("labelIdentifyScreen").innerHTML = "IMPOSTAZIONI";
+        document.getElementById("labelIdentifyScreen").innerHTML = "SETTING";
         document.getElementById("colMain").innerHTML = response.data;
         if(mobile.matches){ btn_nav.click();} //Per chiudere il menu
     });

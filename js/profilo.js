@@ -23,7 +23,7 @@ function openOtherUser(user_id) {
     formData.append("user_id", user_id);
     axios.post("./api-profilo_other_user.php", formData
     ).then(response => {
-        document.getElementById("labelIdentifyScreen").innerHTML = "PROFILO";
+        document.getElementById("labelIdentifyScreen").innerHTML = "ACCOUNT";
         document.getElementById("colMain").innerHTML = response.data;
         if(mobile.matches){
             if(open_nav){

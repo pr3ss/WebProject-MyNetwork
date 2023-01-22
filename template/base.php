@@ -20,8 +20,8 @@
     <div class="container-fluid p-0 position-fixed menu" style="z-index:3;">
         <div class="row m-0 mt-1 mb-1">
             <!-- DESCRIZIONE -->
-            <div class="col-8 col-md-2 d-flex align-items-center">
-                <p class="m-0 p-0" id="labelIdentifyScreen">
+            <div class="col-8 col-md-2 d-flex align-items-center w-100">
+                <p class="m-0 p-0 w-100" id="labelIdentifyScreen">
                     <?php echo $templateParams["title"]; ?>
                 </p>
             </div>

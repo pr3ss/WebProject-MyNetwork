@@ -1,54 +1,47 @@
-<div id="post_singolo" class=" container p-0 m-0 mb-3 h-100 justify-content-center" style="overflow-y:auto;">
-    <div class="post container-fluid pt-2">
-        <div class="row mr-2 ml-2 pt-1" style="border-radius: 10px;">
-            <div class="col-12">
-                <div class="row justify-content-center">
-                    <div class="col-3 d-flex flex-column  justify-content-center align-items-center">
-                        <img src="<?php echo IMG_DIR . $templateParams["post"][0]["foto_profilo"]; ?>"
-                            onclick="openOtherUser(<?php echo $templateParams['post'][0]['id_user_create'] ?>)"
-                            alt="Avatar" class="avatar img-fluid rounded-circle">
-                    </div>
-                    <div class="col-5">
-                        <div class="row m-0"
-                            onclick="openOtherUser(<?php echo $templateParams['post'][0]['id_user_create'] ?>)">
-                            <h3 class="m-0 user">
-                                <?php echo $templateParams['post'][0]["username"] ?>
-                            </h3>
-                        </div>
-                        <?php if (isset($templateParams['post'][0]["luogo"])) {
-                            echo "<div class='row m-0'><p class='m-0'>Luogo: " . $templateParams['post'][0]["luogo"] . "</p></div>";
-                        } ?>
-                        <p class="m-0">
-                            <?php echo date('Y-m-d', $templateParams["post"][0]["data_ora"]); ?>
-                        </p>
-                    </div>
-                    <div class="col-4 d-flex flex-column justify-content-center">
-                        <div class="row justify-content-center">
-                            <button type="button" class="btn  btnLike_<?php echo $templateParams['post'][0]['id'] ?>         <?php if ($templateParams['post'][0]['asliked'] != null) {
-                                            echo "btn-like";
-                                        } ?>" onclick="likePost(<?php echo $templateParams['post'][0]['id'] ?>)"><i
-                                    class="fa-solid fa-heart" style="font-size: 150%;">
-                                    <p class="m-0">
-                                        <?php echo $templateParams['post'][0]['miPiace'] ?>
-                                    </p>
-                                </i></button>
-                        </div>
-                    </div>
+<div id="post_singolo" class=" container p-0 m-0 mb-3 h-100 justify-content-center" style="overflow-y:auto; overflow-x: hidden;">
+    <div class="container post ">
+        <div class="row d-flex justify-content-center">
+            <div class="col-3 p-0 d-flex flex-column justify-content-center align-items-center ">
+                <img src="<?php echo IMG_DIR . $templateParams['post'][0]['foto_profilo'] ?>" alt="Avatar" class="avatar-home"
+                    onclick="openOtherUser(<?php echo $templateParams['post'][0]['id_user_create'] ?>)">
+            </div>
+            <div class="col-4 d-flex flex-column justify-content-center">
+                <div class="row p-0" onclick="openOtherUser(<?php $templateParams['post'][0]['id_user_create'] ?>)">
+                    <h2 class="m-0" style="font-size: 150%;">
+                        <?php echo $templateParams['post'][0]["username"] ?>
+                    </h2>
                 </div>
-                <?php if (isset($templateParams["post"][0]["img"])): ?>
-                    <img src="<?php echo IMG_DIR . $templateParams["post"][0]["img"]; ?>" class="img-fluid" alt="...">
-                <?php endif; ?>
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-3">
-                    </div>
-                    <div class="col-9">
-                        <?php echo $templateParams["post"][0]["testo"]; ?>
-                    </div>
+                <?php if (isset($templateParams['post'][0]["luogo"])) {
+                    echo "<div class='row p-0'><p class='m-0'>Luogo: " . $templateParams['post'][0]["luogo"] . "</p></div>";
+                } ?>
+                <div class="row p-0">
+                    <p class="m-0">
+                        <?php echo date('Y-m-d', $templateParams['post'][0]["data_ora"]); ?>
+                    </p>
+                </div>
+            </div>
+            <div class="col-4 d-flex flex-column justify-content-center  ">
+                <div class="row justify-content-center ">
+                    <button type="button" class="btn  btnLike_<?php echo $templateParams['post'][0]['id'] ?>         <?php if ($templateParams['post'][0]['asliked'] != null) {
+                                    echo "btn-like";
+                                } ?>" onclick="likePost(<?php echo $templateParams['post'][0]['id'] ?>)"><i class="fa-solid fa-heart"
+                            style="font-size: 150%;"><p class="m-0"><?php echo $templateParams['post'][0]['miPiace'] ?></p></i></button>
                 </div>
             </div>
         </div>
+        <?php if (isset($templateParams["post"][0]["img"])): ?>
+            <img src="<?php echo IMG_DIR . $templateParams["post"][0]["img"] ?>" class="img-fluid m-0 mt-1" alt="...">
+        <?php endif; ?>
+        <?php if(isset($templateParams["post"][0]["testo"])):?>
+        <div class="row">
+            <div class="col-9 offset-3 p-0">
+                <p>
+                    <?php echo $templateParams["post"][0]["testo"];  ?>
+                </p>
+            </div>
+        </div>
+        <?php endif; ?>
     </div>
-
     <div class="container-fluid p-0">
         <div class="row m-0 mt-2" style="border-radius: 10px;">
             <div class="col-2 d-flex flex-column justify-content-center align-items-center">

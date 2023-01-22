@@ -2,7 +2,7 @@
 require_once 'bootstrap.php'; //comprende avvio sessione protteta
 
 
-$templateParams["title"] = "IMPOSTAZIONI";
+$templateParams["title"] = "SETTING";
 
 
 $result["foto"]=false;

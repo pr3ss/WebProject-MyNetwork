@@ -7,7 +7,7 @@
             </div>
             <div class="col-4 d-flex flex-column justify-content-center">
                 <div class="row p-0" onclick="openOtherUser(<?php echo $post['id_user_create'] ?>)">
-                    <h2 class="m-0">
+                    <h2 class="m-0" style="font-size: 150%;">
                         <?php echo $post["username"] ?>
                     </h2>
                 </div>
