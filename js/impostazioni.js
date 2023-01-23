@@ -32,7 +32,7 @@ function salva_info() {
 
     if (psw && !checkPasswordSecurity(psw)) {
         p.style.color = "red";
-        p.innerHTML = "password non valida";
+        p.innerHTML = "La password deve avere almeno 8 caratteri, una maiuscola e un numero.";
         main.prepend(p);
     } else {
         if (psw) {
@@ -62,10 +62,9 @@ function salva_info() {
     temp_foto_profilo = null;
 }
 
-//Ridondante da signin.js
-/* TODO aggiungere ricerca maiuscola e carattere speciale oltre che alla lunghezza */
-function checkPasswordSecurity(password) {
-    return password.length >= 8;
+function checkPasswordSecurity(password){
+    let check_regex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/ ;
+    return check_regex.test(password)
 }
 
 function viewPassword(){
