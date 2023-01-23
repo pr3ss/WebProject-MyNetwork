@@ -57,20 +57,24 @@
                     <div class="col-6 d-flex flex-column justify-content-center">
                         <button type="button" class="btn w-100 btnLike_<?php echo $post['id'] ?> <?php if ($post['asliked'] != null) {
                                             echo "btn-like";
+                                        } ?>" alt="<?php if ($post['asliked'] != null) {
+                                            echo "button add like";
+                                        } else {
+                                            echo "button remove like";
                                         } ?>" onclick="likePost(<?php echo $post['id'] ?>)"><i class="fa-solid fa-heart"
                                 style="font-size: 150%;"><p class="m-0">
                                 <?php echo $post["miPiace"] ?></p>
                             </i></button>
                     </div>
                     <div class="col-6 d-flex flex-column justify-content-center">
-                        <button type="button" class="btn w-100" onclick="openPost(<?php echo $post['id'] ?>)"><i
+                        <button type="button" class="btn w-100" alt="open comment" onclick="openPost(<?php echo $post['id'] ?>)"><i
                                 class="fa-solid fa-comment" style="font-size: 150%;">
                                 <p class="m-0"><?php echo $post["nCommenti"] ?></p>
                             </i></button>
                     </div>
                 </div>
                 <?php if (isset($post["img"])): ?>
-                    <img src="<?php echo IMG_DIR . $post["img"] ?>" class="img-fluid mt-1" alt="..."
+                    <img src="<?php echo IMG_DIR . $post["img"] ?>" class="img-fluid mt-1" 
                         onclick="openPost(<?php echo $post['id'] ?>)">
                 <?php endif; ?>
                 <?php if ($post["testo"] != ""): ?>

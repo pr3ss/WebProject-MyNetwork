@@ -1,5 +1,4 @@
 <div>
-        <h1 class="separator" style="text-align: center;">Network</h1>
         <h5>Sign up</h5>
         <form method="post">
             <p class="text-danger"></p>

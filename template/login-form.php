@@ -1,5 +1,4 @@
 <div>
-    <h1 class="separator" style="text-align: center;">Network</h1>
     <h2 style="text-align: center; font-size: 150%;">login</h2>
     <?php if(isset($templateParams["signin"]) && $templateParams['signin']): ?>
         <p style="text-align: center; color:green;">Sigin effetuato</p>
