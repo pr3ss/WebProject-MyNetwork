@@ -9,7 +9,9 @@ if($dbh->login_check()){
     $post_info = $dbh->load_post($post_id);
     $path_img_post = $post_info[0]["img"];
     if($dbh->delete_post($post_id)){
-        unlink(IMG_DIR.$path_img_post);
+        if(isset($path_img_post)){
+            unlink(IMG_DIR.$path_img_post);
+        }
     }
     require 'api-profilo.php';
 }else{ //non autorizzato
