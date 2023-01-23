@@ -57,12 +57,18 @@ function tablet_all_popup_close(mediaQ){
 //Media query event
 mobile.addEventListener("change", (e)=>{
     if(e.matches){
+        document.getElementById("icon_notifiche_mobile").innerHTML = "<span id='num_notifiche' class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'></span>";
+        document.getElementById("icon_notifiche_desktop").innerHTML = "";
         if(open_nav){
             btn_nav.click();
         }else{
             close_all_popup();
         }
+    }else{
+        document.getElementById("icon_notifiche_desktop").innerHTML = "<span id='num_notifiche' class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'></span>";
+        document.getElementById("icon_notifiche_mobile").innerHTML = "";
     }
+    check_NuoveNotifiche();
 })
 
 tablet.addEventListener("change", (e) => {

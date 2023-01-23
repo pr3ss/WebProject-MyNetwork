@@ -36,40 +36,40 @@
                     <div class="container-fluid">
                         <button id="btn_nav" class="btn btn-nav btn-circle navbar-toggler" data-bs-toggle="collapse"
                             data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
-                            aria-label="Toggle navigation" onclick="open_menu(),check_NuoveNotifiche()"><i
-                                class="fa-solid fa-bars"></i></button>
+                            aria-label="Toggle navigation" onclick="open_menu(),check_NuoveNotifiche()" alt="button toggle menu"><i
+                                id="icon_notifiche_mobile" class="fa-solid fa-bars"></i></button>
                         <div class="collapse navbar-collapse position-notmd-absolute justify-content-center "
                             id="navbarText">
                             <ul class="navbar-nav me-auto mb-2 mb-md-0 w-100 d-flex justify-content-center ">
                                 <li class="nav-item ">
-                                    <a class="btn btn-nav btn-circle " href="home.php"><i
+                                    <a class="btn btn-nav btn-circle " href="home.php" alt="Link to home"><i
                                             class="fa-solid fa-house"></i></a>
                                 </li>
                                 <li class="nav-item ">
                                     <button class="btn btn-nav btn-circle "
-                                        onclick="showProfilo(),check_NuoveNotifiche()"><i
+                                        onclick="showProfilo(),check_NuoveNotifiche()" alt="button show my account"><i
                                             class="fa-regular fa-user"></i></button>
                                 </li>
                                 <li class="nav-item ">
                                     <button class="btn btn-nav btn-circle "
-                                        onclick="viewNotifiche(),check_NuoveNotifiche()"><i
-                                            class="fa-regular fa-envelope">
+                                        onclick="viewNotifiche(),check_NuoveNotifiche()" alt="button show notifications"><i
+                                            id="icon_notifiche_desktop" class="fa-regular fa-envelope">
                                             <span id="num_notifiche"
                                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span></i></button>
                                 </li>
                                 <li class="nav-item  btn_RicCat">
                                     <button class="btn btn-nav btn-circle"
-                                        onclick="viewCategoria(),check_NuoveNotifiche() "><i
+                                        onclick="viewCategoria(),check_NuoveNotifiche() " alt="button show categories"><i
                                             class="fa-solid fa-layer-group"></i></button>
                                 </li>
                                 <li class="nav-item  btn_RicCat">
                                     <button class="btn btn-nav btn-circle "
-                                        onclick="viewRicerca(),check_NuoveNotifiche()"><i class="
+                                        onclick="viewRicerca(),check_NuoveNotifiche()" alt="button show input for search users"><i class="
                                                 fa-solid fa-magnifying-glass"></i></button>
                                 </li>
                                 <li class="nav-item  ">
                                     <button class="btn btn-nav btn-circle "
-                                        onclick="showImpostazioni(),check_NuoveNotifiche()"><i
+                                        onclick="showImpostazioni(),check_NuoveNotifiche()" alt="button show account settings"><i
                                             class="fa-solid fa-gear"></i></button>
                                 </li>
                                 <li class="nav-item ">

@@ -4,7 +4,9 @@ function notificaVista(notifica_id){
     formData.append("notifica_id", notifica_id);
     axios.post("./api-notifica_vista.php", formData
     ).then(response => {
-        console.log(response.data);
+        if(response.data){
+            document.getElementById("not_"+notifica_id).classList.remove("bg-NuovaNotifica");
+        }
     });
     check_NuoveNotifiche();
 }
@@ -19,4 +21,9 @@ function check_NuoveNotifiche(){
             document.getElementById("num_notifiche").style.display ="none";
         }
     });
+}
+
+if(mobile.matches){
+    document.getElementById("icon_notifiche_mobile").innerHTML = "<span id='num_notifiche' class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'></span>";
+    document.getElementById("icon_notifiche_desktop").innerHTML = "";
 }
