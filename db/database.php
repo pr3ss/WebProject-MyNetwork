@@ -555,7 +555,7 @@ class DatabaseHelper
       }
    }
 
-   function view_noticica($notifica_id)
+   function view_notifica($notifica_id)
    {
       if ($insert_stmt = $this->db->prepare("UPDATE notifica SET vista = 1 WHERE id = ?")) {
          $insert_stmt->bind_param('i', $notifica_id);

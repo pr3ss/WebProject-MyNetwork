@@ -46,8 +46,16 @@ body {
   color: #c82c36;
 }
 
+.btn-like:hover {
+  /* background-color: #c15e84; */
+  color: #c82c36;
+}
+
 .menu {
   background-color: #115c71;
+}
+.bg-NuovaNotifica{
+  background-color: #1d7289;
 }
 
 .bottom-linea {

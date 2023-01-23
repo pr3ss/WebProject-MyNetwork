@@ -7,7 +7,11 @@ if ($dbh->login_check()) {
         $post_id = $_POST['post_id'];
         $templateParams['post']=$dbh->load_post($post_id);
         $templateParams['commenti']=$dbh->load_commenti_for($post_id);
-        require("./template/post_commenti.php");
+        if($templateParams['post']!=null){
+            require("./template/post_commenti.php");
+        }else{
+            require("./template/page_404.php");
+        }
     }
 } else { //non autorizzato
     header('Content-Type: application/json');

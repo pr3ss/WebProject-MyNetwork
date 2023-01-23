@@ -12,11 +12,16 @@ if($dbh->login_check()){
     $templateParams["follower"] = $dbh->get_user_follower($user);
     $templateParams["isSeguito"] = $dbh->check_follow($user, $_SESSION["user_id"]);
     //$templateParams['js'] = array("https://unpkg.com/axios/dist/axios.min.js",);
-    if($_SESSION["user_id"] == $user){
-        require 'template/profilo.php';
+    if($templateParams["info"]!=null){
+        if($_SESSION["user_id"] == $user){
+            require 'template/profilo.php';
+        }else{
+            require 'template/profilo_other_user.php';
+        }
     }else{
-        require 'template/profilo_other_user.php';
+        require("./template/page_404.php");
     }
+    
     
 }else{ //non autorizzato
     header('Content-Type: application/json');
