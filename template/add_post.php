@@ -7,15 +7,11 @@
     <div class="row justify-content-center mr-5 ml-5 mt-1">
         <input id="tmp_post_text" type="text" id="addANote" class="form-control" placeholder="Add text" />
         <input id="tmp_post_luogo" type="text" id="addANote" class="form-control" placeholder="Luogo" />
-        <select id="tmp_post_cat" class="form-select" aria-label="Default select example">
+        <select id="tmp_post_cat" class="form-select w-100 rounded-pill mt-2" aria-label="Default select example" style="color: #6C757D; text-align: center; border: #6C757D solid 1px;">
             <?php foreach($templateParams["categorie"] as $categoria): ?>
                 <option  value="<?php echo $categoria["id"] ?>" <?php if($categoria['id']==1){echo "selected";} ?>><?php echo $categoria["titolo"] ?></option>
             <?php endforeach;?>
         </select>
-
-
-    </div>
-    <div class="row justify-content-center mt-4 w-100">
-        <div class="btn btn-primary w-50" onclick="upload_post()">Salva</div>
+        <div class="btn btnMagico active mt-4 w-100" onclick="upload_post()">Salva</div>
     </div>
 </div>
