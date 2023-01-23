@@ -18,4 +18,3 @@ navbar btoti utilizzo
 -utilizzo ajax
 -TODO togliere sesso dal db
 -TODO togliere i todo dal codice
--TODO commentare codice
