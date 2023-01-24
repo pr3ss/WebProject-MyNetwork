@@ -11,10 +11,10 @@ let tablet2 = window.matchMedia("(max-width: 991px)");
 var mobile = window.matchMedia("(max-width: 767px)");
 
 function home(){
-    window.open("home.php","_self");
+    window.location.replace("home.php");
 }
 function logout(){
-    window.open("logout.php","_self");
+    window.location.replace("logout.php");
 }
 
 //Gestione menu e menu-popup
