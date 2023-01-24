@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xml:lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,7 @@
             </div>
             <div class="col-2 col-md-2 order-md-last d-flex justify-content-center align-items-center">
                 <div>
-                    <button class="btn btn-nav btn-circle " onclick="addPost()"><i class="fas fa-plus"></i></button>
+                    <button class="btn btn-nav btn-circle " onclick="addPost()"><em class="fas fa-plus"></em></button>
                 </div>
             </div>
             <!-- NAV -->
@@ -36,45 +36,45 @@
                     <div class="container-fluid">
                         <button id="btn_nav" class="btn btn-nav btn-circle navbar-toggler" data-bs-toggle="collapse"
                             data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
-                            aria-label="Toggle navigation" onclick="open_menu(),check_NuoveNotifiche()" alt="button toggle menu"><i
-                                id="icon_notifiche_mobile" class="fa-solid fa-bars"></i></button>
+                            aria-label="Toggle navigation" onclick="open_menu(),check_NuoveNotifiche()" ><em
+                                id="icon_notifiche_mobile" class="fa-solid fa-bars" alt="button toggle menu"></em></button>
                         <div class="collapse navbar-collapse position-notmd-absolute justify-content-center "
                             id="navbarText">
                             <ul class="navbar-nav me-auto mb-2 mb-md-0 w-100 d-flex justify-content-center ">
                                 <li class="nav-item ">
-                                    <a class="btn btn-nav btn-circle " href="home.php" alt="Link to home"><i
-                                            class="fa-solid fa-house"></i></a>
+                                    <button class="btn btn-nav btn-circle " onclick="home()"><em alt="Link to home"
+                                            class="fa-solid fa-house"></em></button>
                                 </li>
                                 <li class="nav-item ">
                                     <button class="btn btn-nav btn-circle "
-                                        onclick="showProfilo(),check_NuoveNotifiche()" alt="button show my account"><i
-                                            class="fa-regular fa-user"></i></button>
+                                        onclick="showProfilo(),check_NuoveNotifiche()" ><em alt="button show my account"
+                                            class="fa-regular fa-user"></em></button>
                                 </li>
                                 <li class="nav-item ">
                                     <button class="btn btn-nav btn-circle "
-                                        onclick="viewNotifiche(),check_NuoveNotifiche()" alt="button show notifications"><i
+                                        onclick="viewNotifiche(),check_NuoveNotifiche()" ><em alt="button show notifications"
                                             id="icon_notifiche_desktop" class="fa-regular fa-envelope">
                                             <span id="num_notifiche"
-                                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span></i></button>
+                                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span></em></button>
                                 </li>
                                 <li class="nav-item  btn_RicCat">
                                     <button class="btn btn-nav btn-circle"
-                                        onclick="viewCategoria(),check_NuoveNotifiche() " alt="button show categories"><i
-                                            class="fa-solid fa-layer-group"></i></button>
+                                        onclick="viewCategoria(),check_NuoveNotifiche() " ><em alt="button show categories"
+                                            class="fa-solid fa-layer-group"></em></button>
                                 </li>
                                 <li class="nav-item  btn_RicCat">
                                     <button class="btn btn-nav btn-circle "
-                                        onclick="viewRicerca(),check_NuoveNotifiche()" alt="button show input for search users"><i class="
-                                                fa-solid fa-magnifying-glass"></i></button>
+                                        onclick="viewRicerca(),check_NuoveNotifiche()" ><em alt="button show input for search users" class="
+                                                fa-solid fa-magnifying-glass"></em></button>
                                 </li>
                                 <li class="nav-item  ">
                                     <button class="btn btn-nav btn-circle "
-                                        onclick="showImpostazioni(),check_NuoveNotifiche()" alt="button show account settings"><i
-                                            class="fa-solid fa-gear"></i></button>
+                                        onclick="showImpostazioni(),check_NuoveNotifiche()" ><em alt="button show account settings"
+                                            class="fa-solid fa-gear"></em></button>
                                 </li>
                                 <li class="nav-item ">
-                                    <a class="btn btn-nav btn-circle " href="logout.php"><i
-                                            class="fa-solid fa-right-from-bracket"></i></a>
+                                    <button class="btn btn-nav btn-circle " onclick="logout()"><em alt="button logout"
+                                            class="fa-solid fa-right-from-bracket"></em></button>
                                 </li>
                             </ul>
                         </div>
@@ -91,9 +91,9 @@
                 <div id="ricerca" class="backthing h-50" style="z-index: 4; overflow-y:hidden;">
                     <div class="row mt-3 mb-1 w-100  ">
                         <div class="col-12 d-flex flex-row align-items-center">
-                            <i class="fa-solid fa-magnifying-glass pr-2 pl-2"></i>
+                            <em class="fa-solid fa-magnifying-glass pr-2 pl-2"></em>
                             <label for="input_search_user" style="display: none;">Search user</label>
-                            <input id="input_search_user" class="form-control " type="search" placeholder="Search"
+                            <emnput id="input_search_user" class="form-control " type="search" placeholder="Search"
                                 aria-label="Search" oninput="ricerca_user()">
                         </div>
                     </div>

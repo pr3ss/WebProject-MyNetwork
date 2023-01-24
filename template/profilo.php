@@ -15,15 +15,15 @@
         </div>
         <div class="col-6">
             <div class="row justify-content-center m-2">
-                <?php echo "<button type='button' class='btn p-0' onclick='view_seguiti_follower(" . json_encode($templateParams["follower"]) . ")'><i class='fa-solid fa-user' style='font-size: 110%;'>
-                    " . count($templateParams["follower"]) . "<p class='m-0'>FOLLOWER</p></i></button>"
+                <?php echo "<button type='button' class='btn p-0' onclick='view_seguiti_follower(" . json_encode($templateParams["follower"]) . ")'><em class='fa-solid fa-user' style='font-size: 110%;'>
+                    " . count($templateParams["follower"]) . "<p class='m-0'>FOLLOWER</p></em> </button>"
                     ?>
             </div>
         </div>
         <div class="col-6">
             <div class="row justify-content-center m-2">
-                <?php echo "<button type='button' class='btn p-0' onclick='view_seguiti_follower(" . json_encode($templateParams["seguiti"]) . ")'><i class='fa-solid fa-user' style='font-size: 110%;'>
-                 " . count($templateParams["seguiti"]) . "<p class='m-0'>SEGUITI</p></i></button>"
+                <?php echo "<button type='button' class='btn p-0' onclick='view_seguiti_follower(" . json_encode($templateParams["seguiti"]) . ")'><em class='fa-solid fa-user' style='font-size: 110%;'>
+                 " . count($templateParams["seguiti"]) . "<p class='m-0'>SEGUITI</p></em> </button>"
                     ?>
             </div>
         </div>
@@ -43,28 +43,28 @@
                     <div class="col-4 d-flex flex-column justify-content-center">
                         <button type="button" class="btn w-100 btnLike_<?php echo $post['id'] ?>         <?php if ($post['asliked'] != null) {
                                         echo "btn-like";
-                                    } ?>" alt="<?php if ($post['asliked'] != null) {
+                                    } ?>"  onclick="likePost(<?php echo $post['id'] ?>)"><em class="fa-solid fa-heart" alt="<?php if ($post['asliked'] != null) {
                                         echo "button add like";
                                     } else {
                                         echo "button remove like";
-                                    } ?>" onclick="likePost(<?php echo $post['id'] ?>)"><i class="fa-solid fa-heart"
+                                    } ?>"
                                 style="font-size: 150%;">
                                 <p class="m-0">
                                     <?php echo $post["miPiace"] ?>
                                 </p>
-                            </i></button>
+                            </em> </button>
                     </div>
                     <div class="col-4 d-flex flex-column justify-content-center">
-                        <button type="button" class="btn w-100" onclick="openPost(<?php echo $post['id'] ?>)"><i
+                        <button type="button" class="btn w-100" onclick="openPost(<?php echo $post['id'] ?>)"><em 
                                 class="fa-solid fa-comment" alt="open comment" style="font-size: 150%;">
                                 <p class="m-0">
                                     <?php echo $post["nCommenti"] ?>
                                 </p>
-                            </i></button>
+                            </em> </button>
                     </div>
                     <div class="col-4 d-flex flex-column justify-content-center">
-                        <button type="button" class="btn w-100" alt="delete post" onclick="deletePost(<?php echo $post['id'] ?>)"><i
-                                class="fa-solid fa-trash" style="font-size: 150%;"></i></button>
+                        <button type="button" class="btn w-100"  onclick="deletePost(<?php echo $post['id'] ?>)"><em
+                                class="fa-solid fa-trash" style="font-size: 150%;" alt="delete post"></em> </button>
                     </div>
                 </div>
                 <?php if (isset($post["img"])): ?>

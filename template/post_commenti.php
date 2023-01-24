@@ -23,11 +23,11 @@
                 <div class="row justify-content-center ">
                     <button type="button" class="btn  btnLike_<?php echo $templateParams['post'][0]['id'] ?>         <?php if ($templateParams['post'][0]['asliked'] != null) {
                                     echo "btn-like";
-                                } ?>" alt="<?php if ($post['asliked'] != null) {
+                                } ?>" onclick="likePost(<?php echo $templateParams['post'][0]['id'] ?>)"><i class="fa-solid fa-heart" alt="<?php if ($post['asliked'] != null) {
                                     echo "button add like";
                                 } else {
                                     echo "button remove like";
-                                } ?>"  onclick="likePost(<?php echo $templateParams['post'][0]['id'] ?>)"><i class="fa-solid fa-heart"
+                                } ?>"
                             style="font-size: 150%;"><p class="m-0"><?php echo $templateParams['post'][0]['miPiace'] ?></p></i></button>
                 </div>
             </div>
@@ -57,8 +57,8 @@
             </div>
             <div class="col-2 d-flex flex-column justify-content-center p-0 pl-1 ">
                 <!--se metti align-item-center il tasto si ridimensione non rimane a grndezza fissa-->
-                <button type="button" class="btn btnMagic active"alt="submit comment" style="border-radius: 10%;"
-                    onclick="addComment(<?php echo $templateParams['post'][0]['id']; ?>)"><i class="fa-regular fa-share-from-square"></i></button>
+                <button type="button" class="btn btnMagic active"  style="border-radius: 10%;"
+                    onclick="addComment(<?php echo $templateParams['post'][0]['id']; ?>)"><i  alt="submit comment" class="fa-regular fa-share-from-square"></i></button>
             </div>
         </div>
         <?php foreach ($templateParams["commenti"] as $commento): ?>

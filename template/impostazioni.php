@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="col-2 p-0 d-flex flex-column justify-content-end">
-            <button class="btn p-0" style="font-size: 200%;"><i class="fa-solid fa-gear" onclick="cambia_foto_profilo()"></i></button>
+            <button class="btn p-0" style="font-size: 200%;"><em class="fa-solid fa-gear" onclick="cambia_foto_profilo()"></em> </button>
         </div>
     </div>
 
@@ -69,7 +69,7 @@
                     <input id="password" type="password" value="" style="width: 90%;  border:none; border: 1px solid #ccc; border-radius: 10px; text-align: center;" />
                 </div>
                 <div class="col-2 p-0">
-                    <div id="btnViewPass" onclick="viewPassword()" style="border: none;"><i class="fa-solid fa-eye"></i></div>
+                    <div id="btnViewPass" onclick="viewPassword()" style="border: none;"><em class="fa-solid fa-eye"></em> </div>
                 </div>
             </div>
 

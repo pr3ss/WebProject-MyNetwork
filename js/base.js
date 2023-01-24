@@ -10,6 +10,13 @@ var tablet = window.matchMedia("(min-width: 767px)");
 let tablet2 = window.matchMedia("(max-width: 991px)");
 var mobile = window.matchMedia("(max-width: 767px)");
 
+function home(){
+    window.open("home.php","_self");
+}
+function logout(){
+    window.open("logout.php","_self");
+}
+
 //Gestione menu e menu-popup
 open_nav = false;
 function open_menu() {

@@ -25,26 +25,26 @@
                 <div class="row justify-content-center ">
                     <button type="button" class="btn  btnLike_<?php echo $post['id'] ?>     <?php if ($post['asliked'] != null) {
                                 echo "btn-like";
-                            } ?>" alt="<?php if ($post['asliked'] != null) {
-                                 echo "button add like";
-                             } else {
-                                 echo "button remove like";
-                             } ?>" onclick="likePost(<?php echo $post['id'] ?>)"><i class="fa-solid fa-heart"
+                            } ?>" onclick="likePost(<?php echo $post['id'] ?>)"><em class="fa-solid fa-heart" alt="<?php if ($post['asliked'] != null) {
+                                echo "button add like";
+                            } else {
+                                echo "button remove like";
+                            } ?>"
                             style="font-size: 150%;">
                             <p class="m-0">
                                 <?php echo $post["miPiace"] ?>
                             </p>
-                        </i></button>
+                        </em></button>
                 </div>
             </div>
             <div class="col-2 d-flex flex-column justify-content-center  ">
                 <div class="row justify-content-center">
-                    <button type="button" class="btn" onclick="openPost(<?php echo $post['id'] ?>)"><i
+                    <button type="button" class="btn" onclick="openPost(<?php echo $post['id'] ?>)"><em
                             class="fa-solid fa-comment" alt="open comment" style="font-size: 150%;">
                             <p class="m-0">
                                 <?php echo $post["nCommenti"] ?>
                             </p>
-                        </i></button>
+                        </em></button>
                 </div>
             </div>
         </div>
