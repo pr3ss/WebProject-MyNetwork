@@ -92,6 +92,7 @@
                     <div class="row mt-3 mb-1 w-100  ">
                         <div class="col-12 d-flex flex-row align-items-center">
                             <i class="fa-solid fa-magnifying-glass pr-2 pl-2"></i>
+                            <label for="input_search_user" style="display: none;">Search user</label>
                             <input id="input_search_user" class="form-control " type="search" placeholder="Search"
                                 aria-label="Search" oninput="ricerca_user()">
                         </div>

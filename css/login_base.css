@@ -16,7 +16,7 @@
 }
 
 body {
-  background: linear-gradient(120deg, #115c71, #bacbbb);
+  background: radial-gradient( #bacbbb, #115c71);
   min-height: 100vh;
   width: 100%;
   display: grid;
