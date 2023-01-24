@@ -19,6 +19,7 @@ Una volta avviato il tutto e aperto il sito decidere se si vuole registrare dire
 
 ## Specifiche
   - salatura delle password (ALEX)
+  - sicurezza query parametrizzate?
   - login sicuro sha512 (ALEX)
   - caricamento dinamico post: Per non fare richieste troppo corpose al server, il caricamento dei post nella home avviene parzialmente, e solamente quando si avrà visto la prima parte di post caricati in automatico farà la ricerca dei post atecedenti da visualizzare.
   - ricerca dinamica user: per iniziare a seguire/visualizzare i profili di altri utenti abbiamo implementato la ricerca senza bottone di invio, ma che dinamicamente in base a ciò che scrivi ti ricerca un potenziale utente.
