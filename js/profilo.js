@@ -6,8 +6,10 @@ function view_seguiti_follower(list) {
         axios.post("./api-seguiti_follower.php", formData
         ).then(response => {
             document.getElementById("colDx").innerHTML = response.data;
-            const utn = document.getElementById("utenti");
-            utn.classList.add("myShow");
+            let utn;
+            if (utn= document.getElementById("utenti")){
+                utn.classList.add("myShow");
+            }
             if (!desktop.matches) {
                 blr.classList.add("blurfilter");
                 colMain.style.filter = "blur(4px)";
