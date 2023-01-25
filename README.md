@@ -51,6 +51,6 @@ Abbiamo usato Balsamiq per la creazione dei mockup.
 ## Authors
   Simone Lugaresi - simonelugaresi@studio.unibo.it - [SimoneLuga](https://github.com/simoneLuga)
   
-  Alex Presepi - ... - [pr3ss](https://github.com/pr3ss)
+  Alex Presepi - alex.presepi@studio.unibo.it - [pr3ss](https://github.com/pr3ss)
 ## License
 
