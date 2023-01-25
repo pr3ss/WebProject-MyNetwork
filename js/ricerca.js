@@ -1,8 +1,6 @@
-//TODO risolvere background color spinner in desktop non serve ma in mobile altrimenti non si vede oppure in mobile cambiare il colore dello spinner oppure é un problema di z-index in mobile  */
-
 //Ricerca users
 function ricerca_user() {
-    var user = document.getElementById("input_search_user").value;
+    let user = document.getElementById("input_search_user").value;
     if (!user) {
         document.getElementById("list_searched_users").innerHTML = "";
         return;

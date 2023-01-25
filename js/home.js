@@ -1,7 +1,7 @@
 const main = document.getElementById("colMain");
-var categoria = 1; //default categoria
-var otherCall = false;
-var post_finished = false;
+let categoria = 1; //default categoria
+let otherCall = false;
+let post_finished = false;
 const offset_end_page = window.innerHeight/2; //Per anticipare il caricamneto di nuvi post
 
 
@@ -9,7 +9,7 @@ function load_posts(cat_changed=false){
     otherCall=true;
     main.innerHTML += "<div class='container'> <div class='row justify-content-center'><div class='spinner-border' role='status'> <span class='sr-only'>Loading...</span> </div> </div> </div>";
 
-    var formData = new FormData();
+    const formData = new FormData();
     formData.append("categoria", categoria);
     formData.append("cat_changed", cat_changed);
     axios.post('./api-feed.php', formData/*, numero post*/).then(response => {
@@ -53,8 +53,8 @@ function openPost(post_id) {
 }
 
 function cambiaCategoria(idCategoria){
-    let btn = document.getElementById("btnCat"+idCategoria);
-    let list = document.getElementById("list_categorie").children;
+    const btn = document.getElementById("btnCat"+idCategoria);
+    const list = document.getElementById("list_categorie").children;
 
     for (const child of list) {
         child.classList.remove("active");
@@ -85,6 +85,5 @@ function likePost(post_id) {
                 element.classList.remove("btn-like");
             }
         });
-        console.log(response.data.count[0]["nMiPiace"]);
     });
 }

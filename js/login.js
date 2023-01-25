@@ -1,9 +1,4 @@
-
-
 const main = document.getElementById("main");
-
-
-
 
 document.querySelector("#main form").addEventListener("submit", function (event) {
     event.preventDefault();
@@ -12,7 +7,6 @@ document.querySelector("#main form").addEventListener("submit", function (event)
     document.querySelector("#password").value = "";
     login(email, password);
 });
-
 
 function login(email, password){
     document.querySelector("input[type='submit']").style["filter"]="blur(3px)";
@@ -23,7 +17,6 @@ function login(email, password){
     formData.append('password', hex_sha512(password)); //invio cryptato della password 
     
     axios.post('api-login.php', formData).then(response => {
-        console.log(response);
         document.querySelector("input[type='submit']").style["filter"]="";
         document.querySelector("#divLogin").innerHTML = "<input type='submit' value='Login'></input>";  
               
@@ -33,7 +26,6 @@ function login(email, password){
             document.querySelector("form > p").innerText = response.data["errorelogin"];
         }
     });
-
 }
 
 

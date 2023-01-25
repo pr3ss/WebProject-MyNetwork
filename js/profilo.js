@@ -1,13 +1,12 @@
 function view_seguiti_follower(list) {
-    let obj_list = {...list}; //Object.assign({}, list);
+    const obj_list = {...list}; //Object.assign({}, list);
     if (list) {
-        var formData = new FormData();
+        const formData = new FormData();
         formData.append("list", JSON.stringify(obj_list));
         axios.post("./api-seguiti_follower.php", formData
         ).then(response => {
-            /* console.log(response.data); */
             document.getElementById("colDx").innerHTML = response.data;
-            var utn = document.getElementById("utenti");
+            const utn = document.getElementById("utenti");
             utn.classList.add("myShow");
             if (!desktop.matches) {
                 blr.classList.add("blurfilter");
@@ -18,8 +17,8 @@ function view_seguiti_follower(list) {
 }
 
 function openOtherUser(user_id) {
-    window.onscroll=null; //TODO vedere se aggiungere anche qui il caricamento dinamico/ottimizzato dei post
-    var formData = new FormData();
+    window.onscroll=null;
+    const formData = new FormData();
     formData.append("user_id", user_id);
     axios.post("./api-profilo_other_user.php", formData
     ).then(response => {
@@ -39,8 +38,7 @@ function openOtherUser(user_id) {
 }
 
 function startFollow(user_id) {
-    //alert(user_id);
-    var formData = new FormData();
+    const formData = new FormData();
     formData.append("user_id", user_id);
     axios.post("./api-start_follow.php", formData
     ).then(response => {
@@ -49,8 +47,7 @@ function startFollow(user_id) {
 }
 
 function deletePost(post_id) {
-    //alert(post_id);
-    var formData = new FormData();
+    const formData = new FormData();
     formData.append("post_id", post_id);
     axios.post("./api-delete_post.php", formData
     ).then(response => {

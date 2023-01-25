@@ -56,7 +56,6 @@ if ($dbh->login_check()) {
         $templateParams["username"] = $_SESSION["username"];
         $id_current_user = $_SESSION["user_id"];
         $templateParams["info"] = $dbh->get_user_info($id_current_user);
-        //$templateParams['js'] = array("https://unpkg.com/axios/dist/axios.min.js",);
 
         require 'template/impostazioni.php';
     }

@@ -385,25 +385,6 @@ class DatabaseHelper
       }
    }
 
-   //impostazioni.php 
-   public function update_impostazioni_1($id_username, $username, $email, $descrizione, $password, $salt)
-   {
-      if ($insert_stmt = $this->db->prepare("UPDATE user SET username = ?, password = ?, email=?, salt=?, descrizione=?  WHERE id = ?")) {
-         $insert_stmt->bind_param('sssssi', $username, $password, $email, $salt, $descrizione, $id_username);
-         // Esegui la query ottenuta. 
-         return $insert_stmt->execute();
-      }
-   }
-
-   public function update_impostazioni_2($id_username, $username, $email, $descrizione)
-   {
-      if ($insert_stmt = $this->db->prepare("UPDATE user SET username = ?, email=?, descrizione=? WHERE id = ?")) {
-         $insert_stmt->bind_param('sssi', $username, $email, $descrizione, $id_username);
-         // Esegui la query ottenuta. 
-         return $insert_stmt->execute();
-      }
-   }
-
    public function update_immagine_profilo($userid, $location)
    {
       if ($insert_stmt = $this->db->prepare("UPDATE user SET foto_profilo = ? WHERE id = ?")) {

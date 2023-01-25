@@ -1,14 +1,14 @@
-var blr = document.getElementById("blur");
-var nav = document.getElementById("navbarText");
-var cat = document.getElementById("categoria");
-var ric = document.getElementById("ricerca");
-let btn_nav = document.getElementById("btn_nav");
-let desktop = window.matchMedia("(min-width: 991px)");
-let colDx = document.getElementById("colDx");
-let colMain = document.getElementById("colMain");
-var tablet = window.matchMedia("(min-width: 767px)");
-let tablet2 = window.matchMedia("(max-width: 991px)");
-var mobile = window.matchMedia("(max-width: 767px)");
+const nav = document.getElementById("navbarText");
+const cat = document.getElementById("categoria");
+const blr = document.getElementById("blur");
+const ric = document.getElementById("ricerca");
+const btn_nav = document.getElementById("btn_nav");
+const desktop = window.matchMedia("(min-width: 991px)");
+const colDx = document.getElementById("colDx");
+const colMain = document.getElementById("colMain");
+const tablet = window.matchMedia("(min-width: 767px)");
+const tablet2 = window.matchMedia("(max-width: 991px)");
+const mobile = window.matchMedia("(max-width: 767px)");
 
 function home(){
     window.location.replace("home.php");
@@ -18,7 +18,7 @@ function logout(){
 }
 
 //Gestione menu e menu-popup
-open_nav = false;
+let open_nav = false;
 function open_menu() {
     if (true ) {
         open_nav = !open_nav;
@@ -35,7 +35,6 @@ function open_menu() {
 
 function close_menu() {
     if (open_nav) {
-        console.log("chi");
         btn_nav.click();
     } else {
         open_nav = true;
@@ -47,7 +46,7 @@ function close_menu() {
 function close_all_popup() {
     ric.classList.remove("myShow");
     cat.classList.remove("myShow");
-    var utn;
+    let utn;
     if (utn = document.getElementById("utenti")) {
         utn.classList.remove("myShow");
     }
@@ -89,7 +88,7 @@ tablet2.addEventListener("change", (e) => {
 desktop.addEventListener("change", (e)=>{
     if(e.matches){
         close_all_popup();
-        var elm;
+        let elm;
         if(elm = document.getElementById("notifiche")){
             colDx.innerHTML="";
             colDx.appendChild(elm);
@@ -124,7 +123,6 @@ function viewCategoria() {
 
 function viewRicerca() {
     if (tablet.matches) {
-        
         if(ric.classList.contains("myShow")){
             close_all_popup();
         }else{
@@ -143,16 +141,17 @@ function viewRicerca() {
 }
 
 function viewNotifiche() {
+    let col_view;
     if(desktop.matches){
-        var jolly = document.getElementById("colDx");
+        col_view = document.getElementById("colDx");
     }else{
         window.onscroll=null;
-        var jolly = document.getElementById("colMain");
+        col_view = document.getElementById("colMain");
         otherCall=true;
     }
 
     axios.post('./api-notifiche.php').then(response => {
-        jolly.innerHTML = response.data;
+        col_view.innerHTML = response.data;
         close_menu();
     });
 }

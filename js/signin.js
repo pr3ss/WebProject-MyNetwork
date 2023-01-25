@@ -1,8 +1,4 @@
-
-
 const main = document.getElementById("main");
-
-
 
 document.querySelector("#main form").addEventListener("submit", function (event) {
     event.preventDefault();
@@ -17,11 +13,9 @@ document.querySelector("#main form").addEventListener("submit", function (event)
     if(checkPasswordSecurity(password)){
         signin(email, password, username, nome, cognome, data_nascita);
     }else{
-        document.querySelector("form > p").innerText = "La password deve avere almeno 8 caratteri, una maiuscola e un numero."
+        document.querySelector("form > p").innerText = "La password deve avere almeno 8 caratteri, una maiuscola e un numero. Almeno un Carattere speciale (@$!%*#?&)";
     }
 });
-
-
 
 function signin(email, password, username, nome, cognome, data_nascita){
     document.querySelector("input[type='submit']").style["filter"]="blur(3px)";
@@ -46,13 +40,10 @@ function signin(email, password, username, nome, cognome, data_nascita){
             document.querySelector("form > p").innerText = response.data["erroresignin"];
         }
     });
-
-
-
 }
 
 function checkPasswordSecurity(password){
-    let check_regex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/ ;
+    const check_regex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/; ;
     return check_regex.test(password)
 }
 

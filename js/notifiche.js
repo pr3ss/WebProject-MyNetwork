@@ -1,6 +1,6 @@
 //Gestione notifiche
 function notificaVista(notifica_id){
-    var formData = new FormData();
+    const formData = new FormData();
     formData.append("notifica_id", notifica_id);
     axios.post("./api-notifica_vista.php", formData
     ).then(response => {
