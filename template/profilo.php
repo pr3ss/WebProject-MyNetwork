@@ -15,15 +15,15 @@
         </div>
         <div class="col-6">
             <div class="row justify-content-center m-2">
-                <?php echo "<button type='button' class='btn btn-font p-0' onclick='view_seguiti_follower(" . json_encode($templateParams["follower"]) . ")'><em class='fa-solid fa-user' style='font-size: 110%;'>
-                    " . count($templateParams["follower"]) . "</em>FOLLOWER </button>"
+                <?php echo "<button type='button' class='btn btn-font p-0' onclick='view_seguiti_follower(" . json_encode($templateParams["follower"]) . ")'><span  class='fa-solid fa-user' style='font-size: 110%;'>
+                    " . count($templateParams["follower"]) . "</span> FOLLOWER </button>"
                     ?>
             </div>
         </div>
         <div class="col-6">
             <div class="row justify-content-center m-2">
-                <?php echo "<button type='button' class='btn btn-font p-0' onclick='view_seguiti_follower(" . json_encode($templateParams["seguiti"]) . ")'><em class='fa-solid fa-user' style='font-size: 110%;'>
-                 " . count($templateParams["seguiti"]) . "</em>SEGUITI</button>"
+                <?php echo "<button type='button' class='btn btn-font p-0' onclick='view_seguiti_follower(" . json_encode($templateParams["seguiti"]) . ")'><span  class='fa-solid fa-user' style='font-size: 110%;'>
+                 " . count($templateParams["seguiti"]) . "</span> SEGUITI</button>"
                     ?>
             </div>
         </div>
@@ -43,24 +43,24 @@
                     <div class="col-4 d-flex flex-column justify-content-center">
                         <button type="button" class="btn w-100 btn-font btnLike_<?php echo $post['id'] ?>             <?php if ($post['asliked'] != null) {
                                             echo "btn-like";
-                                        } ?>" onclick="likePost(<?php echo $post['id'] ?>)"><em class="fa-solid fa-heart"
+                                        } ?>" onclick="likePost(<?php echo $post['id'] ?>)"><span  class="fa-solid fa-heart"
                                 alt="<?php if ($post['asliked'] != null) {
                                     echo "button add like";
                                 } else {
                                     echo "button remove like";
-                                } ?>" style="font-size: 150%;"></em>
+                                } ?>" style="font-size: 150%;"></span> 
                             <?php echo $post["miPiace"] ?>
                         </button>
                     </div>
                     <div class="col-4 d-flex flex-column justify-content-center">
-                        <button type="button" class="btn w-100 btn-font" onclick="openPost(<?php echo $post['id'] ?>)"><em
-                                class="fa-solid fa-comment" alt="open comment" style="font-size: 150%;"></em>
+                        <button type="button" class="btn w-100 btn-font" onclick="openPost(<?php echo $post['id'] ?>)"><span 
+                                class="fa-solid fa-comment" alt="open comment" style="font-size: 150%;"></span> 
                             <?php echo $post["nCommenti"] ?>
                         </button>
                     </div>
                     <div class="col-4 d-flex flex-column justify-content-center">
-                        <button type="button" class="btn w-100" onclick="deletePost(<?php echo $post['id'] ?>)"><em
-                                class="fa-solid fa-trash" style="font-size: 150%;" alt="delete post"></em> </button>
+                        <button type="button" class="btn w-100" onclick="deletePost(<?php echo $post['id'] ?>)"><span 
+                                class="fa-solid fa-trash" style="font-size: 150%;" alt="delete post"></span>  </button>
                     </div>
                 </div>
                 <?php if (isset($post["img"])): ?>

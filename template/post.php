@@ -3,7 +3,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-3 p-0 d-flex flex-column justify-content-center align-items-center ">
                 <img src="<?php echo IMG_DIR . $post["foto_profilo"] ?>"
-                    alt="profile picture <?php echo $post["username"] ?>" class="avatar-home"
+                    alt="" class="avatar-home"
                     onclick="openOtherUser(<?php echo $post['id_user_create'] ?>)">
             </div>
             <div class="col-4 d-flex flex-column justify-content-center">
@@ -25,20 +25,20 @@
                 <div class="row justify-content-center ">
                     <button type="button" class="btn btn-font btnLike_<?php echo $post['id'] ?>     <?php if ($post['asliked'] != null) {
                                 echo "btn-like";
-                            } ?>" onclick="likePost(<?php echo $post['id'] ?>)"><em class="fa-solid fa-heart" alt="<?php if ($post['asliked'] != null) {
+                            } ?>" onclick="likePost(<?php echo $post['id'] ?>)"><span  class="fa-solid fa-heart" alt="<?php if ($post['asliked'] != null) {
                                 echo "button add like";
                             } else {
                                 echo "button remove like";
                             } ?>"
-                            style="font-size: 150%;"></em>
+                            style="font-size: 150%;"></span> 
                             <?php echo $post["miPiace"] ?>
                     </button>
                 </div>
             </div>
             <div class="col-2 d-flex flex-column justify-content-center  ">
                 <div class="row justify-content-center">
-                    <button type="button" class="btn btn-font" onclick="openPost(<?php echo $post['id'] ?>)"><em
-                            class="fa-solid fa-comment" alt="open comment" style="font-size: 150%;"></em>
+                    <button type="button" class="btn btn-font" onclick="openPost(<?php echo $post['id'] ?>)"><span 
+                            class="fa-solid fa-comment" alt="open comment" style="font-size: 150%;"></span> 
                             <?php echo $post["nCommenti"] ?>
                     </button>
                 </div>
