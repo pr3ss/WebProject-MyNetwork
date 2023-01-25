@@ -10,7 +10,6 @@ if(isset($_POST['email'], $_POST['password'], $_POST['username'], $_POST['nome']
     $nome = $_POST['nome'];
     $cognome = $_POST['cognome'];
     $data_nascita = $_POST['data_nascita'];
-    $sesso = isset($_POST["sesso"]) ? $_POST["sesso"] : "undefined" ;
 
     if($dbh->usernameIsPresent($username)) {
        $result["erroresignin"] = "Username giá presente.";  
@@ -21,7 +20,7 @@ if(isset($_POST['email'], $_POST['password'], $_POST['username'], $_POST['nome']
       // Crea una password usando la chiave appena creata.
       $password = hash('sha512', $password.$random_salt);
 
-      if($dbh->signin($email, $password, $username, $random_salt, $nome, $cognome, $data_nascita, $sesso)){
+      if($dbh->signin($email, $password, $username, $random_salt, $nome, $cognome, $data_nascita)){
          $result["signineseguito"] = true;
 
       } else {

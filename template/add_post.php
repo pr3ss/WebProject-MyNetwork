@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div id="tmp_img" class="row justify-content-center bg-white m-2" style="border-radius: 10px;">
-        <button class="btn" style="font-size: 300%;" onclick="add_image()"><i
-                class="fa-solid fa-circle-plus"></i></button>
+        <button class="btn" style="font-size: 300%;" onclick="add_image()"><em alt="button add image"
+                class="fa-solid fa-circle-plus"></em></button>
 
     </div>
     <div class="row justify-content-center mr-5 ml-5 mt-1">

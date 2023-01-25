@@ -89,6 +89,14 @@ li {
   margin-top: 1%;
 }
 
+.btn-font{
+  font-weight: bold;
+  font-size: large;
+}
+.btn-font > em {
+  display: block;
+}
+
 .avatar {
   object-fit: cover;
   aspect-ratio: 1;

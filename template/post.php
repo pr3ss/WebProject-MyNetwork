@@ -23,28 +23,24 @@
             </div>
             <div class="col-2 d-flex flex-column justify-content-center  ">
                 <div class="row justify-content-center ">
-                    <button type="button" class="btn  btnLike_<?php echo $post['id'] ?>     <?php if ($post['asliked'] != null) {
+                    <button type="button" class="btn btn-font btnLike_<?php echo $post['id'] ?>     <?php if ($post['asliked'] != null) {
                                 echo "btn-like";
                             } ?>" onclick="likePost(<?php echo $post['id'] ?>)"><em class="fa-solid fa-heart" alt="<?php if ($post['asliked'] != null) {
                                 echo "button add like";
                             } else {
                                 echo "button remove like";
                             } ?>"
-                            style="font-size: 150%;">
-                            <p class="m-0">
-                                <?php echo $post["miPiace"] ?>
-                            </p>
-                        </em></button>
+                            style="font-size: 150%;"></em>
+                            <?php echo $post["miPiace"] ?>
+                    </button>
                 </div>
             </div>
             <div class="col-2 d-flex flex-column justify-content-center  ">
                 <div class="row justify-content-center">
-                    <button type="button" class="btn" onclick="openPost(<?php echo $post['id'] ?>)"><em
-                            class="fa-solid fa-comment" alt="open comment" style="font-size: 150%;">
-                            <p class="m-0">
-                                <?php echo $post["nCommenti"] ?>
-                            </p>
-                        </em></button>
+                    <button type="button" class="btn btn-font" onclick="openPost(<?php echo $post['id'] ?>)"><em
+                            class="fa-solid fa-comment" alt="open comment" style="font-size: 150%;"></em>
+                            <?php echo $post["nCommenti"] ?>
+                    </button>
                 </div>
             </div>
         </div>

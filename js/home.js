@@ -78,7 +78,7 @@ function likePost(post_id) {
 
     axios.post('./api-like.php', formData).then(response => {
         document.querySelectorAll("button.btnLike_"+post_id).forEach(element => {
-            element.innerHTML = '<i class="fa-solid fa-heart" style="font-size: 150%;"><p class="m-0">'+response.data.count[0]["nMiPiace"]+'</p></i>';
+            element.innerHTML = '<em class="fa-solid fa-heart" style="font-size: 150%;"></em>'+response.data.count[0]["nMiPiace"];
             if(response.data.like == true){
                 element.classList.add("btn-like");
             }else{

@@ -8,12 +8,12 @@
         <div class="txt_field">
             <input type="text" id="email" required>
             <span></span>
-            <label>Email</label>
+            <label for="email">Email</label>
         </div>
         <div class="txt_field">
             <input type="password" id="password" required>
             <span></span>
-            <label>Password</label>
+            <label for="password">Password</label>
         </div>
         <div id="divLogin" style="text-align: center;">
             <input type="submit" value="Login">

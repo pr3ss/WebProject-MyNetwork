@@ -1,33 +1,34 @@
 <div>
-        <h5>Sign up</h5>
+        <h2 style="text-align: center; font-size: 150%;">Sign up</h2>
         <form method="post">
             <p class="text-danger"></p>
             <div class="txt_field">
                 <input type="text" id="email" required>
                 <span></span>
-                <label>email</label>
+                <label for="email">email</label>
             </div>
             <div class="txt_field">
                 <input type="text" id="username" required>
                 <span></span>
-                <label>username</label>
+                <label for="username">username</label>
             </div>
             <div class="txt_field">
                 <input type="text" id="nome" required>
                 <span></span>
-                <label>Nome</label>
+                <label for="nome">Nome</label>
             </div>
             <div class="txt_field">
                 <input type="text" id="cognome" required>
                 <span></span>
-                <label>Cognome</label>
+                <label for="cognome">Cognome</label>
             </div>
             <div class="txt_field">
                 <input type="password" id="password" required>
                 <span></span>
-                <label>Password</label>
+                <label for="password">Password</label>
             </div>
             <div class="txt_field">
+                <label for="data_nascita" style="display: none;">data di nascita</label>
                 <input type="date" id="data_nascita" required>
                 <span>
                 </span>

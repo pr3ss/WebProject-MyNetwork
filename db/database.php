@@ -152,10 +152,10 @@ class DatabaseHelper
       }
    }
 
-   public function signin($email, $password, $username, $random_salt, $nome, $cognome, $data_nascita, $sesso)
+   public function signin($email, $password, $username, $random_salt, $nome, $cognome, $data_nascita)
    {
-      if ($insert_stmt = $this->db->prepare("INSERT INTO user (username, email, password, salt, data_di_nascita, nome, cognome, sesso) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
-         $insert_stmt->bind_param('ssssssss', $username, $email, $password, $random_salt, $data_nascita, $nome, $cognome, $sesso);
+      if ($insert_stmt = $this->db->prepare("INSERT INTO user (username, email, password, salt, data_di_nascita, nome, cognome) VALUES (?, ?, ?, ?, ?, ?, ?)")) {
+         $insert_stmt->bind_param('sssssss', $username, $email, $password, $random_salt, $data_nascita, $nome, $cognome,);
          // Esegui la query ottenuta.
          return $insert_stmt->execute();
       }
@@ -340,7 +340,7 @@ class DatabaseHelper
 
    public function get_user_info($user_id)
    {
-      if ($stmt = $this->db->prepare("SELECT  id, username,foto_profilo, descrizione, data_di_nascita, nome, cognome, sesso, email FROM user where id = ?;")) {
+      if ($stmt = $this->db->prepare("SELECT  id, username,foto_profilo, descrizione, data_di_nascita, nome, cognome, email FROM user where id = ?;")) {
          $stmt->bind_param('i', $user_id);
          $stmt->execute();
          $result = $stmt->get_result();
