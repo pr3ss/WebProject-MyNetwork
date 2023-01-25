@@ -42,11 +42,11 @@
             </div>
         </div>
         <div class="col-12">
-            <dic class="row justify-content-center">
+            <div class="row justify-content-center">
                 <p>
                     <?php echo $templateParams["info"][0]["descrizione"] ?>
                 </p>
-            </dic>
+            </div>
         </div>
     </div>
     <?php foreach ($templateParams["posts"] as $post): ?>
