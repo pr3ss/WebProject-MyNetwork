@@ -30,7 +30,6 @@ function signin(email, password, username, nome, cognome, data_nascita){
     formData.append('data_nascita', data_nascita);
     
     axios.post('api-signin.php', formData).then(response => {
-        console.log(response);
         document.querySelector("input[type='submit']").style["filter"]="";
         document.querySelector("#divSignin").innerHTML = "<input type='submit' value='Sign Up'></input>";  
               

@@ -12,16 +12,13 @@ function load_posts(cat_changed=false){
     const formData = new FormData();
     formData.append("categoria", categoria);
     formData.append("cat_changed", cat_changed);
-    axios.post('./api-feed.php', formData/*, numero post*/).then(response => {
+    axios.post('./api-feed.php', formData).then(response => {
         main.removeChild(main.lastChild);
-        //console.log((response.data.length));
-        //WARNING funziona solo se in post.php non ci sono caratteri prima e dopo il primo e l ultimo tag php
         if(response.data){
             main.innerHTML += response.data;
             post_finished = false;
         }else{
             post_finished = true;
-            console.log("post finiti");
             main.innerHTML +="<div class='container'><div class='row justify-content-center'><p>Non ci sono nuovi post</p></div></div>" 
         }
         
