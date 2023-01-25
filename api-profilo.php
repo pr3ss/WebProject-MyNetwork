@@ -1,5 +1,5 @@
 <?php
-require_once 'bootstrap.php'; //comprende avvio sessione protteta
+require_once 'bootstrap.php';
 
 
 $templateParams["title"] = "PROFILO";

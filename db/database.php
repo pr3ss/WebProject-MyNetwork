@@ -12,7 +12,6 @@ class DatabaseHelper
    }
 
    //methods for login
-   // TODO verificare parametri di SESSIONE se lasciare quelli o mettere username e email anche se nel db la PK é id
    public function login($email, $password)
    {
       // Usando statement sql 'prepared' non sarà possibile attuare un attacco di tipo SQL injection.
@@ -27,7 +26,6 @@ class DatabaseHelper
             // verifichiamo che non sia disabilitato in seguito all'esecuzione di troppi tentativi di accesso errati.
             if ($this->checkbrute($user_id) == true) {
                // Account disabilitato
-               // Invia un e-mail all'utente avvisandolo che il suo account è stato disabilitato.
                return false;
             } else {
                if ($db_password == $password) { // Verifica che la password memorizzata nel database corrisponda alla password fornita dall'utente.
@@ -110,19 +108,15 @@ class DatabaseHelper
                   // Login eseguito!!!!
                   return true;
                } else {
-                  //  Login non eseguito
                   return false;
                }
             } else {
-               // Login non eseguito
                return false;
             }
          } else {
-            // Login non eseguito
             return false;
          }
       } else {
-         // Login non eseguito
          return false;
       }
    }
@@ -132,8 +126,8 @@ class DatabaseHelper
    {
       if(!isset($username)){return false;}
       if ($stmt = $this->db->prepare("SELECT * FROM user WHERE username = ? LIMIT 1")) {
-         $stmt->bind_param('s', $username); // esegue il bind del parametro '$email'.
-         $stmt->execute(); // esegue la query appena creata.
+         $stmt->bind_param('s', $username); 
+         $stmt->execute(); 
          $stmt->store_result();
 
          return $stmt->num_rows == 0 ? false : true;
@@ -144,8 +138,8 @@ class DatabaseHelper
    {
       if(!isset($email)){return false;}
       if ($stmt = $this->db->prepare("SELECT * FROM user WHERE email = ? LIMIT 1")) {
-         $stmt->bind_param('s', $email); // esegue il bind del parametro '$email'.
-         $stmt->execute(); // esegue la query appena creata.
+         $stmt->bind_param('s', $email); 
+         $stmt->execute(); 
          $stmt->store_result();
 
          return $stmt->num_rows == 0 ? false : true;
@@ -259,8 +253,7 @@ class DatabaseHelper
       }
    }
 
-   //TODO gestire id categoria se non presente non inserirlo cosi dovrebbe metter valore di default mettendo null mette null e non il valore di default
-   // oppure usare null come valore di default
+
    public function upload_post($user_id, $dataOra, $testo, $luogo, $idCat)
    {
       if ($insert_stmt = $this->db->prepare("INSERT INTO post (id_user_create, data_ora, testo,  luogo, id_categoria) VALUES (?, ?, ?, ?, ?)")) {
@@ -280,14 +273,7 @@ class DatabaseHelper
             foreach ($users_destinazione as $user_destinazione) {
                $this->crea_notifica($id_post, $user_id, 3, $data, $user_destinazione["user_id"]);
             }
-
-            //$ok = $users_destinazione;
-
          }
-         //$users_destinazione = $this->db->query("SELECT user_id FROM follow WHERE user_follow  = $user_id");
-
-
-
          return $id_post;
       }
    }
@@ -366,8 +352,6 @@ class DatabaseHelper
          $salt=isset($salt) ? $salt : $old_info[0]['salt'];
          $descrizione=isset($descrizione) ? $descrizione : $old_info[0]['descrizione'];
 
-         
-         
          if ($insert_stmt = $this->db->prepare("UPDATE user SET username = ?, password = ?, email=?, salt=?, descrizione=?  WHERE id = ?")) {
             
             $insert_stmt->bind_param(
@@ -543,8 +527,6 @@ class DatabaseHelper
          return $insert_stmt->execute();
       }
    }
-
-   //TODO impostare nel db vista come default ad 0
 
    function check_nNuoveNotifiche($user_id)
    {

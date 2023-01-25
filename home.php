@@ -1,5 +1,5 @@
 <?php 
-require_once 'bootstrap.php'; //comprende avvio sessione protteta
+require_once 'bootstrap.php';
 
 
 $templateParams["title"] = "HOME";
@@ -7,7 +7,7 @@ $templateParams["title"] = "HOME";
 
 if($dbh->login_check()){
     $_SESSION["last_post"] = time();
-    $_SESSION["categoria_corrente"]=1; //default categoria
+    $_SESSION["categoria_corrente"]= DEFAULT_CATEGORY;
     $templateParams["username"] = $_SESSION["username"];
 
     $templateParams['js'] = array("https://unpkg.com/axios/dist/axios.min.js", "js/base.js", "js/home.js", "js/sha512.js", 

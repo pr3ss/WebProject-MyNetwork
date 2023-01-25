@@ -1,5 +1,5 @@
 <?php 
-require_once 'bootstrap.php'; //comprende avvio sessione protteta
+require_once 'bootstrap.php';
 
 if($dbh->login_check()){
     $notifica_id = $_POST["notifica_id"];

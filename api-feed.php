@@ -10,7 +10,7 @@ if ($dbh->login_check()) {
         $_SESSION["last_post"] = time();
     }
 
-    $num_post = 5; //default
+    $num_post = NUM_POST_FOR_REQUEST;
     if(isset($_POST["num_post"])) $num_post = $_POST["num_post"];
 
 
