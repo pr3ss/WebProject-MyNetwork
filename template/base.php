@@ -37,43 +37,43 @@
                         <button id="btn_nav" class="btn btn-nav btn-circle navbar-toggler" data-bs-toggle="collapse"
                             data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false"
                             aria-label="Toggle navigation" onclick="open_menu(),check_NuoveNotifiche()" ><span 
-                                id="icon_notifiche_mobile" class="fa-solid fa-bars" alt="button toggle menu"></span> </button>
+                                id="icon_notifiche_mobile" class="fa-solid fa-bars" ></span> </button>
                         <div class="collapse navbar-collapse position-notmd-absolute justify-content-center "
                             id="navbarText">
                             <ul class="navbar-nav me-auto mb-2 mb-md-0 w-100 d-flex justify-content-center ">
                                 <li class="nav-item ">
-                                    <button class="btn btn-nav btn-circle " onclick="home()"><span  alt="Link to home"
+                                    <button class="btn btn-nav btn-circle " onclick="home()" aria-label="Link to home"><span  
                                             class="fa-solid fa-house"></span> </button>
                                 </li>
                                 <li class="nav-item ">
                                     <button class="btn btn-nav btn-circle "
-                                        onclick="showProfilo(),check_NuoveNotifiche()" ><span  alt="button show my account"
+                                        onclick="showProfilo(),check_NuoveNotifiche()" aria-label="button show my account"><span  
                                             class="fa-regular fa-user"></span> </button>
                                 </li>
                                 <li class="nav-item ">
                                     <button class="btn btn-nav btn-circle "
-                                        onclick="viewNotifiche(),check_NuoveNotifiche()" ><span  alt="button show notifications"
+                                        onclick="viewNotifiche(),check_NuoveNotifiche()" aria-label="button show notifications"><span  
                                             id="icon_notifiche_desktop" class="fa-regular fa-envelope">
                                             <span id="num_notifiche"
                                                 class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"></span></span> </button>
                                 </li>
                                 <li class="nav-item  btn_RicCat">
                                     <button class="btn btn-nav btn-circle"
-                                        onclick="viewCategoria(),check_NuoveNotifiche() " ><span  alt="button show categories"
+                                        onclick="viewCategoria(),check_NuoveNotifiche() " aria-label="button show categories"><span  
                                             class="fa-solid fa-layer-group"></span> </button>
                                 </li>
                                 <li class="nav-item  btn_RicCat">
                                     <button class="btn btn-nav btn-circle "
-                                        onclick="viewRicerca(),check_NuoveNotifiche()" ><span  alt="button show input for search users" class="
+                                        onclick="viewRicerca(),check_NuoveNotifiche()" aria-label="button show input for search users"><span class="
                                                 fa-solid fa-magnifying-glass"></span> </button>
                                 </li>
                                 <li class="nav-item  ">
                                     <button class="btn btn-nav btn-circle "
-                                        onclick="showImpostazioni(),check_NuoveNotifiche()" ><span  alt="button show account settings"
+                                        onclick="showImpostazioni(),check_NuoveNotifiche()" aria-label="button show account settings"><span 
                                             class="fa-solid fa-gear"></span> </button>
                                 </li>
                                 <li class="nav-item ">
-                                    <button class="btn btn-nav btn-circle " onclick="logout()"><span  alt="button logout"
+                                    <button class="btn btn-nav btn-circle " onclick="logout()" aria-label   ="button logout"><span  
                                             class="fa-solid fa-right-from-bracket"></span> </button>
                                 </li>
                             </ul>

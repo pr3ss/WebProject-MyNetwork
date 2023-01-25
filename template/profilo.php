@@ -43,24 +43,23 @@
                     <div class="col-4 d-flex flex-column justify-content-center">
                         <button type="button" class="btn w-100 btn-font btnLike_<?php echo $post['id'] ?>             <?php if ($post['asliked'] != null) {
                                             echo "btn-like";
-                                        } ?>" onclick="likePost(<?php echo $post['id'] ?>)"><span  class="fa-solid fa-heart"
-                                alt="<?php if ($post['asliked'] != null) {
-                                    echo "button add like";
-                                } else {
-                                    echo "button remove like";
-                                } ?>" style="font-size: 150%;"></span> 
+                                        } ?>" onclick="likePost(<?php echo $post['id'] ?>)" aria-label="<?php if ($post['asliked'] != null) {
+                                            echo "button add like";
+                                        } else {
+                                            echo "button remove like";
+                                        } ?>"><span  class="fa-solid fa-heart" style="font-size: 150%;"></span> 
                             <?php echo $post["miPiace"] ?>
                         </button>
                     </div>
                     <div class="col-4 d-flex flex-column justify-content-center">
-                        <button type="button" class="btn w-100 btn-font" onclick="openPost(<?php echo $post['id'] ?>)"><span 
-                                class="fa-solid fa-comment" alt="open comment" style="font-size: 150%;"></span> 
+                        <button type="button" class="btn w-100 btn-font" onclick="openPost(<?php echo $post['id'] ?>)" aria-label="open comment"><span 
+                                class="fa-solid fa-comment"  style="font-size: 150%;"></span> 
                             <?php echo $post["nCommenti"] ?>
                         </button>
                     </div>
                     <div class="col-4 d-flex flex-column justify-content-center">
-                        <button type="button" class="btn w-100" onclick="deletePost(<?php echo $post['id'] ?>)"><span 
-                                class="fa-solid fa-trash" style="font-size: 150%;" alt="delete post"></span>  </button>
+                        <button type="button" class="btn w-100" onclick="deletePost(<?php echo $post['id'] ?>)" aria-label="delete post"><span 
+                                class="fa-solid fa-trash" style="font-size: 150%;" ></span>  </button>
                     </div>
                 </div>
                 <?php if (isset($post["img"])): ?>

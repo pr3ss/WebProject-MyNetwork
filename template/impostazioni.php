@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="col-2 p-0 d-flex flex-column justify-content-end">
-            <button class="btn p-0" style="font-size: 200%;" onclick="cambia_foto_profilo()" ><span  class="fa-solid fa-gear" alt="change img user" ></span>  </button>
+            <button class="btn p-0" style="font-size: 200%;" onclick="cambia_foto_profilo()" aria-label="change img user"><span  class="fa-solid fa-gear"  ></span>  </button>
         </div>
     </div>
 
