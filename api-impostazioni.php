@@ -38,15 +38,21 @@ if ($dbh->login_check()) {
             }
         }
         
+        $change_psw = false;
         if (isset($info["password"])) {
             $password = $info["password"];
             $random_salt = hash('sha512', uniqid(mt_rand(1, mt_getrandmax()), true));
             // Crea una password usando la chiave appena creata.
             $password = hash('sha512', $password . $random_salt);
+            $change_psw = true;
         }
 
         if($dbh->update_impostazioni($my_id_user, $username, $email, $descrizione, $password, $random_salt)){
             $result["info"]=true;
+            if($change_psw){
+                $user_browser = $_SERVER['HTTP_USER_AGENT'];
+                $_SESSION['login_string'] = hash('sha512', $password . $user_browser);
+            }
         }
 
         header('Content-Type: application/json');
