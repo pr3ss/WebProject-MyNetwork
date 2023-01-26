@@ -15,7 +15,7 @@ Scaricare la repository
 Avviare localhost ed eseguire DBcreate.sql e infine creare l'username nel db come scritto nel readme.
 Una volta avviato il tutto e aperto il sito decidere se si vuole registrare direttamente un altro account o entrare con un account di default 
 
-    Username: Default Email: def@test.com Password: test
+    Username: Default Email: default@test.com Password: 1
 
 ## Specifiche
   - Qunado si inserisce una password nel database viene effetuato il salting in modo che l hash di due password uguali sia diverso attraverso.
