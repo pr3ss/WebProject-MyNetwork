@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en" xml:lang="en">
 
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>
     <?php echo $templateParams["title"]; ?>
   </title>
@@ -24,7 +26,7 @@
       </div>
     </div>
   </section>
-  <p class="text-muted footer">&copy;2023 Lugaresi Simone - Presepi Alex</p>
+
   <?php
   if (isset($templateParams["js"])):
     foreach ($templateParams["js"] as $script):

@@ -7,14 +7,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-}
-
 body {
   background: radial-gradient( #bacbbb, #115c71);
   min-height: 100vh;
